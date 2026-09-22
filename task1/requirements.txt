@@ -1,0 +1,7 @@
+cooler>=0.9
+numpy
+pandas
+openpyxl
+scikit-learn
+matplotlib
+torch
