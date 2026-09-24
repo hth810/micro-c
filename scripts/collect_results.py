@@ -56,6 +56,19 @@ def main() -> None:
         "task1_handcrafted_final.json",
         "task1_nested_threshold/summary.json", "task1_nested_threshold/fold_thresholds.csv",
         "task1_nested_threshold/crossfit_predictions.csv",
+        "task1_context_features/summary.json", "task1_context_features/crossfit_predictions.csv",
+        "task1_scale_ensemble/summary.json",
+        "task1_interval_boundaries/summary.json",
+        "task1_interval_boundaries/crossfit_predictions.csv",
+        "task1_interval_boundaries/uncertainty.json",
+        "task1_interval_boundaries/paired_uncertainty.json",
+        "task1_boundary_final.joblib", "task1_boundary_final.json",
+        "task1_boundary_gap40000_seed20260922/summary.json",
+        "task1_boundary_gap40000_seed20260923/summary.json",
+        "task1_boundary_gap40000_seed20260924/summary.json",
+        "task1_boundary_gap20000_seed20260921/summary.json",
+        "task1_boundary_gap20000_seed20260922/summary.json",
+        "task1_boundary_gap20000_seed20260923/summary.json",
         "task1_handcrafted_seed20260922/summary.json",
         "task1_handcrafted_seed20260923/summary.json",
         "task1_handcrafted_seed20260924/summary.json",
@@ -240,6 +253,8 @@ def main() -> None:
     handcrafted = json.loads((SOURCE / "task1_handcrafted/summary.json").read_text(encoding="utf-8"))
     improved = handcrafted["hist_gradient_boosting_contact_shape_plus_span"]
     nested = json.loads((SOURCE / "task1_nested_threshold/summary.json").read_text(encoding="utf-8"))
+    boundary = json.loads((SOURCE / "task1_interval_boundaries/summary.json").read_text(encoding="utf-8"))
+    boundary_gain = json.loads((SOURCE / "task1_interval_boundaries/paired_uncertainty.json").read_text(encoding="utf-8"))
     hns = json.loads((SOURCE / "task2_hns_validation/summary.json").read_text(encoding="utf-8"))
     task1_header = next(i for i, line in enumerate(lines) if line.startswith("## 任务一"))
     lines[task1_header:task1_header + 1] = [
@@ -283,6 +298,13 @@ def main() -> None:
         f"精确率/召回率 {nested['inner_chid_f1']['chid_precision']:.3f}/"
         f"{nested['inner_chid_f1']['chid_recall']:.3f}，宏 F1 "
         f"{nested['inner_chid_f1']['macro_f1']:.3f}；可按误报代价选默认或高召回策略。", "",
+        f"注释边界感知的 5.12/20.48 kb 双尺度模型（同折）：准确率 "
+        f"{boundary['both_boundary_plus_span']['accuracy']:.3f}、宏 F1 "
+        f"{boundary['both_boundary_plus_span']['macro_f1']:.3f}、CHID 精确率/召回率 "
+        f"{boundary['both_boundary_plus_span']['chid_precision']:.3f}/"
+        f"{boundary['both_boundary_plus_span']['chid_recall']:.3f}。相对短尺度模型的 CHID 召回提升 "
+        f"{boundary_gain['point_difference']['chid_recall']:.3f}；后验比较且区间仅 26 个 CHID，"
+        "仍需独立验证。仅拼接尺度和概率平均的对照不稳定。", "",
         "### 旧版 ID-only 对照", "",
     ]
     task3_header = next(i for i, line in enumerate(lines) if line.startswith("## 任务三"))

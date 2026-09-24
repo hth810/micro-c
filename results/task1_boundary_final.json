@@ -1,0 +1,13 @@
+{
+  "training_annotations": 344,
+  "class_counts": {
+    "CHIN": 250,
+    "OPCID": 68,
+    "CHID": 26
+  },
+  "feature_count": 251,
+  "feature_set": "short_long_boundary_span",
+  "requires_known_interval_boundaries": true,
+  "evaluation_source": "outputs/task1_interval_boundaries/summary.json",
+  "caution": "All-label fit is for inference only; spatial CV estimates generalization."
+}

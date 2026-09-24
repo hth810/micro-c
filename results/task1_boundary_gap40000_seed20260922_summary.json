@@ -1,0 +1,75 @@
+{
+  "seed": 20260922,
+  "spatial_gap_bp": 40000,
+  "evaluation": "original 3-class labels, fixed 5-fold spatial CV",
+  "caution": "Exploratory annotation-aligned features, not usable for unknown intervals.",
+  "short_plus_span": {
+    "accuracy": 0.8604651162790697,
+    "macro_f1": 0.7032755819030513,
+    "chid_precision": 0.5625,
+    "chid_recall": 0.34615384615384615,
+    "confusion_matrix": [
+      [
+        231,
+        16,
+        3
+      ],
+      [
+        8,
+        56,
+        4
+      ],
+      [
+        8,
+        9,
+        9
+      ]
+    ]
+  },
+  "short_boundary_plus_span": {
+    "accuracy": 0.8837209302325582,
+    "macro_f1": 0.7717900888243125,
+    "chid_precision": 0.5357142857142857,
+    "chid_recall": 0.5769230769230769,
+    "confusion_matrix": [
+      [
+        231,
+        9,
+        10
+      ],
+      [
+        7,
+        58,
+        3
+      ],
+      [
+        5,
+        6,
+        15
+      ]
+    ]
+  },
+  "both_boundary_plus_span": {
+    "accuracy": 0.875,
+    "macro_f1": 0.7381921781921782,
+    "chid_precision": 0.5,
+    "chid_recall": 0.46153846153846156,
+    "confusion_matrix": [
+      [
+        232,
+        10,
+        8
+      ],
+      [
+        7,
+        57,
+        4
+      ],
+      [
+        6,
+        8,
+        12
+      ]
+    ]
+  }
+}

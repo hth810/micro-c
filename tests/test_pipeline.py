@@ -13,6 +13,7 @@ from scripts.validate_hns_candidates import condition_effect
 from task1.evaluate_chid_overlap import overlap_targets, spatial_groups
 from task1.evaluate_pairwise import PairAwareCNN, nearby_chid_chin_pairs
 from task1.evaluate_length_context import LengthAwareCNN
+from task1.evaluate_interval_boundaries import interval_features
 from task1.run_task1 import StructureCNN, select_validation_bias, spatial_split
 
 
@@ -71,6 +72,15 @@ def test_hns_effect_subtracts_replicate_noise():
     altered = condition_effect(base, base, changed, changed)
     assert unchanged["effect_corrected"] == 0
     assert altered["effect_corrected"] > 0
+
+
+def test_interval_boundary_features_follow_annotated_interval():
+    mat = np.zeros((128, 128), dtype=np.float32)
+    mat[60:68, 60:68] = 2
+    features = interval_features(mat, start=0, end=1280, center=640)
+    assert len(features) == 14
+    assert np.isfinite(features).all()
+    assert features[8] > features[2]
 
 
 def test_real_annotation_workbook_if_present():

@@ -1,0 +1,75 @@
+{
+  "spatial_gap_bp": 40000,
+  "seed": 20260921,
+  "evaluation": "original 3-class labels, fixed 5-fold spatial CV",
+  "caution": "Exploratory ensemble comparison; equal weights fixed without fold tuning.",
+  "short": {
+    "accuracy": 0.8662790697674418,
+    "macro_f1": 0.7205561877046444,
+    "chid_precision": 0.5882352941176471,
+    "chid_recall": 0.38461538461538464,
+    "confusion_matrix": [
+      [
+        231,
+        16,
+        3
+      ],
+      [
+        7,
+        57,
+        4
+      ],
+      [
+        8,
+        8,
+        10
+      ]
+    ]
+  },
+  "long": {
+    "accuracy": 0.8488372093023255,
+    "macro_f1": 0.7136403474589365,
+    "chid_precision": 0.5238095238095238,
+    "chid_recall": 0.4230769230769231,
+    "confusion_matrix": [
+      [
+        225,
+        18,
+        7
+      ],
+      [
+        9,
+        56,
+        3
+      ],
+      [
+        10,
+        5,
+        11
+      ]
+    ]
+  },
+  "equal_vote": {
+    "accuracy": 0.872093023255814,
+    "macro_f1": 0.7062596176141992,
+    "chid_precision": 0.5,
+    "chid_recall": 0.3076923076923077,
+    "confusion_matrix": [
+      [
+        234,
+        10,
+        6
+      ],
+      [
+        8,
+        58,
+        2
+      ],
+      [
+        10,
+        8,
+        8
+      ]
+    ]
+  }
+}

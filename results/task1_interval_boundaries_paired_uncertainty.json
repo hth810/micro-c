@@ -1,0 +1,30 @@
+{
+  "comparison": "both_boundary_plus_span minus short_plus_span",
+  "resampling_unit": "non-overlapping 40 kb genomic component",
+  "resamples": 2000,
+  "point_difference": {
+    "accuracy": 0.029069767441860517,
+    "macro_f1": 0.06693740128024539,
+    "chid_precision": 0.0117647058823529,
+    "chid_recall": 0.19230769230769224
+  },
+  "paired_spatial_bootstrap_95ci": {
+    "accuracy": [
+      -0.005935603879711218,
+      0.0668386067435882
+    ],
+    "macro_f1": [
+      -0.007496356003094242,
+      0.14766261261458602
+    ],
+    "chid_precision": [
+      -0.18333823529411766,
+      0.25492038920831483
+    ],
+    "chid_recall": [
+      0.030280748663101577,
+      0.39999999999999997
+    ]
+  },
+  "caution": "Exploratory post-comparison intervals, not an external validation set."
+}

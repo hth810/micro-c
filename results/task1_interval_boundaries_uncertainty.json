@@ -1,0 +1,84 @@
+{
+  "resampling_unit": "non-overlapping 40 kb genomic component",
+  "resamples": 2000,
+  "modes": {
+    "both_boundary_plus_span": {
+      "accuracy": 0.8953488372093024,
+      "macro_f1": 0.7874935889848897,
+      "chid_precision": 0.6,
+      "chid_recall": 0.5769230769230769,
+      "chid_true_positive": 15,
+      "chid_predicted_positive": 25,
+      "spatial_bootstrap_95ci": {
+        "accuracy": [
+          0.8707672413793103,
+          0.9211409633856733
+        ],
+        "macro_f1": [
+          0.7285405127008666,
+          0.8376788662428302
+        ],
+        "chid_precision": [
+          0.4782608695652174,
+          0.75
+        ],
+        "chid_recall": [
+          0.39281832298136643,
+          0.7692307692307693
+        ]
+      }
+    },
+    "short_boundary_plus_span": {
+      "accuracy": 0.8866279069767442,
+      "macro_f1": 0.7723711939539278,
+      "chid_precision": 0.5357142857142857,
+      "chid_recall": 0.5769230769230769,
+      "chid_true_positive": 15,
+      "chid_predicted_positive": 28,
+      "spatial_bootstrap_95ci": {
+        "accuracy": [
+          0.8576153701064633,
+          0.9155003706449222
+        ],
+        "macro_f1": [
+          0.7110817059515087,
+          0.8311122129119234
+        ],
+        "chid_precision": [
+          0.41172699849170435,
+          0.7142857142857143
+        ],
+        "chid_recall": [
+          0.4,
+          0.8
+        ]
+      }
+    },
+    "short_plus_span": {
+      "accuracy": 0.8662790697674418,
+      "macro_f1": 0.7205561877046444,
+      "chid_precision": 0.5882352941176471,
+      "chid_recall": 0.38461538461538464,
+      "chid_true_positive": 10,
+      "chid_predicted_positive": 17,
+      "spatial_bootstrap_95ci": {
+        "accuracy": [
+          0.8199428777894393,
+          0.9081377855063403
+        ],
+        "macro_f1": [
+          0.6254315098935497,
+          0.8061375748414151
+        ],
+        "chid_precision": [
+          0.3333333333333333,
+          0.8125
+        ],
+        "chid_recall": [
+          0.19047619047619047,
+          0.5834051724137927
+        ]
+      }
+    }
+  }
+}
