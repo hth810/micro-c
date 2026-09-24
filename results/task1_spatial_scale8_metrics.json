@@ -1,0 +1,235 @@
+{
+  "seed": 20260921,
+  "split_mode": "spatial",
+  "chid_weight_multiplier": 1.0,
+  "class_weights": [
+    0.45695364475250244,
+    1.725000023841858,
+    4.3125
+  ],
+  "window_bins": 128,
+  "aggregate": 8,
+  "window_bp": 10240,
+  "train_structures": 207,
+  "validation_structures": 69,
+  "test_structures": 68,
+  "train_samples": 414,
+  "validation_samples": 138,
+  "test_samples": 136,
+  "accuracy": 0.8161764705882353,
+  "macro_f1": 0.5474295190713101,
+  "uncalibrated_test_accuracy": 0.8161764705882353,
+  "uncalibrated_test_macro_f1": 0.5474295190713101,
+  "logit_bias": [
+    0.0,
+    0.0,
+    0.0
+  ],
+  "validation_calibration": {
+    "uncalibrated": {
+      "accuracy": 0.8333333333333334,
+      "macro_f1": 0.6506916033508668
+    },
+    "calibrated": {
+      "accuracy": 0.8333333333333334,
+      "macro_f1": 0.6506916033508668
+    },
+    "applied": false,
+    "candidate_bias": [
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  "best_epoch": 22,
+  "classification_report": {
+    "CHIN": {
+      "precision": 0.8543689320388349,
+      "recall": 0.8979591836734694,
+      "f1-score": 0.8756218905472637,
+      "support": 98.0
+    },
+    "OPCID": {
+      "precision": 0.71875,
+      "recall": 0.8214285714285714,
+      "f1-score": 0.7666666666666667,
+      "support": 28.0
+    },
+    "CHID": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1-score": 0.0,
+      "support": 10.0
+    },
+    "accuracy": 0.8161764705882353,
+    "macro avg": {
+      "precision": 0.5243729773462783,
+      "recall": 0.5731292517006802,
+      "f1-score": 0.5474295190713101,
+      "support": 136.0
+    },
+    "weighted avg": {
+      "precision": 0.7636261422044546,
+      "recall": 0.8161764705882353,
+      "f1-score": 0.7888059701492538,
+      "support": 136.0
+    }
+  },
+  "history": [
+    {
+      "epoch": 1,
+      "train_loss": 0.985172596818583,
+      "validation_accuracy": 0.782608687877655,
+      "validation_macro_f1": 0.4701064701064701
+    },
+    {
+      "epoch": 2,
+      "train_loss": 0.8978203005260892,
+      "validation_accuracy": 0.3188405930995941,
+      "validation_macro_f1": 0.22423162387521178
+    },
+    {
+      "epoch": 3,
+      "train_loss": 0.8461548136052303,
+      "validation_accuracy": 0.5072463750839233,
+      "validation_macro_f1": 0.35986988529361413
+    },
+    {
+      "epoch": 4,
+      "train_loss": 0.7934814936296951,
+      "validation_accuracy": 0.717391312122345,
+      "validation_macro_f1": 0.40142073622249824
+    },
+    {
+      "epoch": 5,
+      "train_loss": 0.7868474402289459,
+      "validation_accuracy": 0.3478260934352875,
+      "validation_macro_f1": 0.3348612259902583
+    },
+    {
+      "epoch": 6,
+      "train_loss": 0.7168596340838261,
+      "validation_accuracy": 0.5942028760910034,
+      "validation_macro_f1": 0.4710144927536232
+    },
+    {
+      "epoch": 7,
+      "train_loss": 0.6953560715712211,
+      "validation_accuracy": 0.6666666865348816,
+      "validation_macro_f1": 0.5412739008646937
+    },
+    {
+      "epoch": 8,
+      "train_loss": 0.68984468864358,
+      "validation_accuracy": 0.5,
+      "validation_macro_f1": 0.3977095701233632
+    },
+    {
+      "epoch": 9,
+      "train_loss": 0.6890362993530605,
+      "validation_accuracy": 0.4202898442745209,
+      "validation_macro_f1": 0.37094017094017095
+    },
+    {
+      "epoch": 10,
+      "train_loss": 0.6807360473462349,
+      "validation_accuracy": 0.1304347813129425,
+      "validation_macro_f1": 0.16453816453816453
+    },
+    {
+      "epoch": 11,
+      "train_loss": 0.6193578064729626,
+      "validation_accuracy": 0.6666666865348816,
+      "validation_macro_f1": 0.5559595891260473
+    },
+    {
+      "epoch": 12,
+      "train_loss": 0.6057458712858854,
+      "validation_accuracy": 0.15942029654979706,
+      "validation_macro_f1": 0.18880131362889985
+    },
+    {
+      "epoch": 13,
+      "train_loss": 0.5902627908089311,
+      "validation_accuracy": 0.2246376872062683,
+      "validation_macro_f1": 0.2652632787826586
+    },
+    {
+      "epoch": 14,
+      "train_loss": 0.5779272764201325,
+      "validation_accuracy": 0.6739130616188049,
+      "validation_macro_f1": 0.565424875710096
+    },
+    {
+      "epoch": 15,
+      "train_loss": 0.5660200291785641,
+      "validation_accuracy": 0.5942028760910034,
+      "validation_macro_f1": 0.5525444015625957
+    },
+    {
+      "epoch": 16,
+      "train_loss": 0.5280686864530407,
+      "validation_accuracy": 0.41304346919059753,
+      "validation_macro_f1": 0.45385373546225116
+    },
+    {
+      "epoch": 17,
+      "train_loss": 0.5052192370960678,
+      "validation_accuracy": 0.6304348111152649,
+      "validation_macro_f1": 0.5050939502552406
+    },
+    {
+      "epoch": 18,
+      "train_loss": 0.5021885493815234,
+      "validation_accuracy": 0.7246376872062683,
+      "validation_macro_f1": 0.5678062678062679
+    },
+    {
+      "epoch": 19,
+      "train_loss": 0.4952320004430946,
+      "validation_accuracy": 0.5289855003356934,
+      "validation_macro_f1": 0.48797234511520227
+    },
+    {
+      "epoch": 20,
+      "train_loss": 0.47495502881381824,
+      "validation_accuracy": 0.54347825050354,
+      "validation_macro_f1": 0.47446640316205535
+    },
+    {
+      "epoch": 21,
+      "train_loss": 0.47636092716944967,
+      "validation_accuracy": 0.7028985619544983,
+      "validation_macro_f1": 0.6260044543299568
+    },
+    {
+      "epoch": 22,
+      "train_loss": 0.4495259474441049,
+      "validation_accuracy": 0.8333333134651184,
+      "validation_macro_f1": 0.6506916033508668
+    },
+    {
+      "epoch": 23,
+      "train_loss": 0.4707609446728287,
+      "validation_accuracy": 0.11594203114509583,
+      "validation_macro_f1": 0.1515362480274761
+    },
+    {
+      "epoch": 24,
+      "train_loss": 0.46198944740249337,
+      "validation_accuracy": 0.08695652335882187,
+      "validation_macro_f1": 0.059318459318459325
+    },
+    {
+      "epoch": 25,
+      "train_loss": 0.4321672464338478,
+      "validation_accuracy": 0.6304348111152649,
+      "validation_macro_f1": 0.5440542779686941
+    }
+  ],
+  "device": "cpu",
+  "replicates": [
+    "GSE272159_37C_rep1.mapq_30.10.cool",
+    "GSE272159_37C_rep2.mapq_30.10.cool"
+  ]
+}

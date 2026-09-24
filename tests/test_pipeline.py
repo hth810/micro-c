@@ -9,7 +9,7 @@ from microc.analysis import _features, _shape_score, differential, discover, tra
 from microc.data import annotations, normalize, open_cool, upper_correlation, window
 from microc.deep import _coarsen, _consistency, degrade, prepare_sr_pair, reconstruct3d, superresolve
 from scripts.validate_discovery import shape_features
-from task1.run_task1 import select_validation_bias, spatial_split
+from task1.run_task1 import StructureCNN, select_validation_bias, spatial_split
 
 
 def test_spatial_split_keeps_overlapping_windows_together():
@@ -26,6 +26,14 @@ def test_spatial_split_keeps_overlapping_windows_together():
         for _, right in ann.iloc[i + 1:].iterrows():
             if right.center - left.center < 5120:
                 assert assignments[left.id] == assignments[right.id]
+
+
+def test_structure_cnn_spatial_grid():
+    import torch
+
+    x = torch.zeros(2, 1, 128, 128)
+    assert StructureCNN(3, spatial_grid=1)(x).shape == (2, 3)
+    assert StructureCNN(3, spatial_grid=4)(x).shape == (2, 3)
 
 
 def test_real_annotation_workbook_if_present():

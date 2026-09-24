@@ -23,6 +23,12 @@ python task1/run_task1.py --data-dir data/raw --annotations data/structures.csv 
 
 python scripts/audit_task1_split.py outputs/task1_spatial/annotation_manifest.csv --out outputs/task1_spatial/split_audit.json
 
+python task1/run_task1.py --annotations data/structures.csv --aggregate 4 --split-gap-bp 10240 --out-dir outputs/task1_spatial_gap10k_scale4
+
+python task1/run_task1.py --annotations data/structures.csv --aggregate 8 --out-dir outputs/task1_spatial_scale8
+
+python task1/run_task1.py --annotations data/structures.csv --spatial-grid 4 --out-dir outputs/task1_spatial_grid4
+
 python task1/run_task1.py --data-dir data/raw --annotations data/structures.csv --split-mode structure --out-dir outputs/task1
 
 python scripts/audit_task1_split.py outputs/task1/annotation_manifest.csv --legacy --out outputs/task1_legacy_split_audit.json

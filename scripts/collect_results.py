@@ -41,6 +41,9 @@ def main() -> None:
         "task1_spatial/test_predictions.csv", "task1_spatial/annotation_manifest.csv",
         "task1_spatial/split_audit.json",
         "task1_spatial_chid2/metrics.json",
+        "task1_spatial_gap10k_scale4/metrics.json",
+        "task1_spatial_scale8/metrics.json",
+        "task1_spatial_grid4/metrics.json",
         "task1_calibrated/metrics.json",
         "task1_scale8/metrics.json",
         "task2/summary.json", "task2/new_candidates.csv", "task2/all_candidates.csv",
@@ -59,6 +62,8 @@ def main() -> None:
             copy(entry, "task1_scale8_trial_metrics.json")
         elif entry.startswith("task1_spatial_chid2/"):
             copy(entry, entry.replace("task1_spatial_chid2/", "task1_spatial_chid2_"))
+        elif entry.startswith("task1_spatial_gap10k_scale4/"):
+            copy(entry, entry.replace("task1_spatial_gap10k_scale4/", "task1_spatial_gap10k_scale4_"))
         elif entry.startswith("task6_independent/"):
             copy(entry, entry.replace("task6_independent/", "task6_"))
         else:
@@ -182,6 +187,9 @@ def main() -> None:
         f"{t6_regularized['mlp_contact_distance_spearman']:.3f}，该对照不应称为独立基线。"
         "坐标并非唯一的真实物理构象。", ""]
     spatial = json.loads((SOURCE / "task1_spatial/metrics.json").read_text(encoding="utf-8"))
+    narrow = json.loads((SOURCE / "task1_spatial_gap10k_scale4/metrics.json").read_text(encoding="utf-8"))
+    wide = json.loads((SOURCE / "task1_spatial_scale8/metrics.json").read_text(encoding="utf-8"))
+    grid = json.loads((SOURCE / "task1_spatial_grid4/metrics.json").read_text(encoding="utf-8"))
     audit = json.loads((SOURCE / "task1_legacy_split_audit.json").read_text(encoding="utf-8"))
     task1_header = next(i for i, line in enumerate(lines) if line.startswith("## 任务一"))
     lines[task1_header:task1_header + 1] = [
@@ -190,6 +198,14 @@ def main() -> None:
         f"{spatial['test_samples']} 个重复样本：准确率 {spatial['accuracy']:.3f}、"
         f"宏 F1 {spatial['macro_f1']:.3f}。CHID F1 为 "
         f"{spatial['classification_report']['CHID']['f1-score']:.3f}，不能声称三类均已稳定识别。",
+        f"同一 10.24 kb 隔离分区上的 5.12/10.24 kb 输入比较：测试准确率 "
+        f"{narrow['accuracy']:.3f}/{wide['accuracy']:.3f}，宏 F1 "
+        f"{narrow['macro_f1']:.3f}/{wide['macro_f1']:.3f}；宽窗口 CHID 召回为 "
+        f"{wide['classification_report']['CHID']['recall']:.3f}，不能视作全面改善。",
+        f"保留 4×4 位置网格的探索性模型：验证宏 F1 "
+        f"{max(h['validation_macro_f1'] for h in grid['history']):.3f}，"
+        f"测试宏 F1 {grid['macro_f1']:.3f}，CHID 精确率 "
+        f"{grid['classification_report']['CHID']['precision']:.3f}。不替换主模型。",
         f"旧版 ID-only 分区中 {audit['by_split']['test']['overlapping_other_split_windows']} 个"
         "测试结构可能与其他分区的输入窗口重叠；旧版成绩仅作对照。"
         "审计见 `task1_legacy_split_audit.json` 和 `task1_spatial_split_audit.json`。", "",

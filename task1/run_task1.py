@@ -84,14 +84,18 @@ def extract_window(c: cooler.Cooler, center_bp: int, window_bins: int, aggregate
 
 
 class StructureCNN(nn.Module):
-    def __init__(self, n_classes: int):
+    def __init__(self, n_classes: int, spatial_grid: int = 1):
         super().__init__()
+        if spatial_grid < 1:
+            raise ValueError("spatial_grid must be positive")
         self.features = nn.Sequential(
             nn.Conv2d(1, 16, 5, padding=2), nn.BatchNorm2d(16), nn.ReLU(), nn.MaxPool2d(2),
             nn.Conv2d(16, 32, 3, padding=1), nn.BatchNorm2d(32), nn.ReLU(), nn.MaxPool2d(2),
-            nn.Conv2d(32, 64, 3, padding=1), nn.BatchNorm2d(64), nn.ReLU(), nn.AdaptiveAvgPool2d(1),
+            nn.Conv2d(32, 64, 3, padding=1), nn.BatchNorm2d(64), nn.ReLU(),
+            nn.AdaptiveAvgPool2d((spatial_grid, spatial_grid)),
         )
-        self.classifier = nn.Sequential(nn.Flatten(), nn.Dropout(0.2), nn.Linear(64, n_classes))
+        self.classifier = nn.Sequential(nn.Flatten(), nn.Dropout(0.2),
+                                        nn.Linear(64 * spatial_grid * spatial_grid, n_classes))
 
     def forward(self, x):
         return self.classifier(self.features(x))
@@ -185,8 +189,12 @@ def main() -> None:
     ap.add_argument("--seed", type=int, default=20260921)
     ap.add_argument("--split-mode", choices=("spatial", "structure"), default="spatial",
                     help="spatial prevents overlapping windows crossing splits; structure reproduces legacy result")
+    ap.add_argument("--split-gap-bp", type=int,
+                    help="minimum group-separating center gap; defaults to the physical input window")
     ap.add_argument("--chid-weight-multiplier", type=float, default=1.0,
                     help="experimental additional CHID loss weight; select using validation only")
+    ap.add_argument("--spatial-grid", type=int, default=1,
+                    help="size of final spatial feature grid; 1 reproduces global average pooling")
     ap.add_argument("--calibrate", action="store_true",
                     help="experimental validation-set logit calibration; disabled by default")
     args = ap.parse_args()
@@ -204,9 +212,13 @@ def main() -> None:
     if len(cools) < 2: raise FileNotFoundError("Need the two 37C .cool biological replicates")
     ann = load_annotations(xlsx)
     if args.split_mode == "spatial":
+        split_gap_bp = args.split_gap_bp or args.window_bins * args.aggregate * 10
+        if split_gap_bp < args.window_bins * args.aggregate * 10:
+            raise ValueError("spatial split gap must cover the full input window")
         train_ids, val_ids, test_ids = spatial_split(
-            ann, args.seed, args.window_bins * args.aggregate * 10)
+            ann, args.seed, split_gap_bp)
     else:
+        split_gap_bp = None
         ids_fit, ids_test, labels_fit, _ = train_test_split(ann["id"].values, ann["label"].values,
             test_size=.2, random_state=args.seed, stratify=ann["label"].values)
         ids_train, ids_val = train_test_split(ids_fit, test_size=.2, random_state=args.seed + 1,
@@ -233,7 +245,7 @@ def main() -> None:
     np.savez_compressed(args.out_dir / "extracted_windows.npz", X=X, y=y, is_train=tr,
                         is_validation=va_mask, is_test=te, group=group_ids)
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-    model = StructureCNN(3).to(device)
+    model = StructureCNN(3, args.spatial_grid).to(device)
     train_ds = TensorDataset(torch.from_numpy(X[tr]), torch.from_numpy(y[tr]))
     val_x, val_y = torch.from_numpy(X[va_mask]).to(device), torch.from_numpy(y[va_mask]).to(device)
     test_x, test_y = torch.from_numpy(X[te]).to(device), torch.from_numpy(y[te]).to(device)
@@ -284,7 +296,9 @@ def main() -> None:
         "correct": yy == preds,
     }).to_csv(args.out_dir / "test_predictions.csv", index=False, encoding="utf-8-sig")
     metrics = {"seed": args.seed, "split_mode": args.split_mode,
+               "split_gap_bp": split_gap_bp,
                "chid_weight_multiplier": args.chid_weight_multiplier,
+               "spatial_grid": args.spatial_grid,
                "class_weights": class_weights.tolist(),
                "window_bins": args.window_bins, "aggregate": args.aggregate,
                "window_bp": args.window_bins * args.aggregate * 10,
@@ -301,7 +315,8 @@ def main() -> None:
                "history": history, "device": str(device), "replicates": [p.name for p in cools[:2]]}
     (args.out_dir / "metrics.json").write_text(json.dumps(metrics, ensure_ascii=False, indent=2), encoding="utf-8")
     torch.save({"model_state_dict": model.state_dict(), "classes": CLASSES, "window_bins": args.window_bins,
-                "aggregate": args.aggregate, "seed": args.seed, "logit_bias": logit_bias.tolist()},
+                "aggregate": args.aggregate, "spatial_grid": args.spatial_grid,
+                "seed": args.seed, "logit_bias": logit_bias.tolist()},
                args.out_dir / "task1_cnn.pt")
     save_confusion(cm, args.out_dir); save_saliency(model, test_x, test_y, args.out_dir, device, logit_bias)
     save_example_heatmaps(test_x, test_y, preds, args.out_dir)
