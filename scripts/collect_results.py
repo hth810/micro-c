@@ -35,6 +35,12 @@ def main() -> None:
     required = [
         "task1/metrics.json", "task1/confusion_matrix.csv", "task1/confusion_matrix.png",
         "task1/task1_cnn.pt", "task1/test_predictions.csv", "task1/annotation_manifest.csv",
+        "task1_legacy_split_audit.json",
+        "task1_spatial/metrics.json", "task1_spatial/confusion_matrix.csv",
+        "task1_spatial/confusion_matrix.png", "task1_spatial/task1_cnn.pt",
+        "task1_spatial/test_predictions.csv", "task1_spatial/annotation_manifest.csv",
+        "task1_spatial/split_audit.json",
+        "task1_spatial_chid2/metrics.json",
         "task1_calibrated/metrics.json",
         "task1_scale8/metrics.json",
         "task2/summary.json", "task2/new_candidates.csv", "task2/all_candidates.csv",
@@ -51,6 +57,8 @@ def main() -> None:
             copy(entry, "task1_calibration_trial_metrics.json")
         elif entry == "task1_scale8/metrics.json":
             copy(entry, "task1_scale8_trial_metrics.json")
+        elif entry.startswith("task1_spatial_chid2/"):
+            copy(entry, entry.replace("task1_spatial_chid2/", "task1_spatial_chid2_"))
         elif entry.startswith("task6_independent/"):
             copy(entry, entry.replace("task6_independent/", "task6_"))
         else:
@@ -76,6 +84,9 @@ def main() -> None:
     for kind in ("CHIN", "OPCID", "CHID"):
         copy(f"task1/saliency_{kind}.png")
         copy(f"task1/example_{kind}.png")
+        copy(f"task1_spatial/saliency_{kind}.png")
+        if (SOURCE / "task1_spatial" / f"example_{kind}.png").exists():
+            copy(f"task1_spatial/example_{kind}.png")
     for index, image in enumerate(sorted((SOURCE / "task3_labeled").glob("*.png"))):
         if index in (0, 5, 250, 450):
             shutil.copy2(image, DEST / f"task3_example_{index:03d}.png")
@@ -170,6 +181,20 @@ def main() -> None:
         f"独立模型不使用 MDS 预训练或正则。另保留弱 MDS 正则的消融对照 "
         f"{t6_regularized['mlp_contact_distance_spearman']:.3f}，该对照不应称为独立基线。"
         "坐标并非唯一的真实物理构象。", ""]
+    spatial = json.loads((SOURCE / "task1_spatial/metrics.json").read_text(encoding="utf-8"))
+    audit = json.loads((SOURCE / "task1_legacy_split_audit.json").read_text(encoding="utf-8"))
+    task1_header = next(i for i, line in enumerate(lines) if line.startswith("## 任务一"))
+    lines[task1_header:task1_header + 1] = [
+        "## 任务一：空间独立主结果", "",
+        f"按完整输入窗口的邻近连通组隔离，留出 {spatial['test_structures']} 个结构、"
+        f"{spatial['test_samples']} 个重复样本：准确率 {spatial['accuracy']:.3f}、"
+        f"宏 F1 {spatial['macro_f1']:.3f}。CHID F1 为 "
+        f"{spatial['classification_report']['CHID']['f1-score']:.3f}，不能声称三类均已稳定识别。",
+        f"旧版 ID-only 分区中 {audit['by_split']['test']['overlapping_other_split_windows']} 个"
+        "测试结构可能与其他分区的输入窗口重叠；旧版成绩仅作对照。"
+        "审计见 `task1_legacy_split_audit.json` 和 `task1_spatial_split_audit.json`。", "",
+        "### 旧版 ID-only 对照", "",
+    ]
     (DEST / "README.md").write_text("\n".join(lines), encoding="utf-8")
     print(f"Collected {len(list(DEST.iterdir()))} review files in {DEST}")
 

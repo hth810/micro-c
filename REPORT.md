@@ -21,7 +21,11 @@
 
 ### 任务一：已知结构识别
 
-69 个留出结构、两个重复共 138 个样本，准确率 **0.746**，宏 F1 **0.642**。[混淆矩阵](results/task1_confusion_matrix.png) 与各类[显著性图](results/task1_saliency_CHIN.png)已保存。CHID 的精确率 **0.185**、召回率 **0.500**，因此不能声称三类都稳定识别。只用验证集选择的额外类别阈值使留出集准确率/宏 F1 降至 **0.645/0.564**；把物理观察窗从 5.12 kb 扩大到 10.24 kb 后，验证集宏 F1 从 **0.589** 降至 **0.566**。两种变体均未纳入主模型；记录见[校准试验](results/task1_calibration_trial_metrics.json)和[宽窗口试验](results/task1_scale8_trial_metrics.json)。
+严格空间隔离的 69 个留出结构、两个重复共 138 个样本上，准确率 **0.870**、宏 F1 **0.599**。[混淆矩阵](results/task1_spatial_confusion_matrix.png) 显示 CHIN/OPCID 的 F1 为 **0.916/0.880**，但 CHID 的 F1 **0**（12 个测试样本无一识别）。这意味着总体准确率乐观、少数类表现却不合格，不能声称三类都稳定识别。按验证集试验把 CHID 损失权重加倍后，验证集宏 F1 仅从 **0.620** 微升到 **0.622**，测试集准确率/宏 F1 反降至 **0.826/0.557**；不采用该变体。空间隔离[指标](results/task1_spatial_metrics.json)、[显著性图](results/task1_spatial_saliency_CHIN.png)及[分区审计](results/task1_spatial_split_audit.json)已保存。
+
+旧版按结构 ID 分组的准确率 **0.746**、宏 F1 **0.642**、CHID 精确率/召回率 **0.185/0.500**，只保留作对照。旧分区的额外类别阈值使测试准确率/宏 F1 降至 **0.645/0.564**；10.24 kb 宽窗口使验证宏 F1 从 **0.589** 降至 **0.566**。这些旧分区实验均不能作为空间独立性能证据；记录见[旧版指标](results/task1_metrics.json)、[校准试验](results/task1_calibration_trial_metrics.json)和[宽窗口试验](results/task1_scale8_trial_metrics.json)。
+
+**分类评估审计：**旧版 69 个测试注释中有 45 个与另一分区的注释中心相距不足 5,120 bp，导致输入窗口可能重叠；[审计数据](results/task1_legacy_split_audit.json)可复核。新版以相邻中心间距小于一个完整输入窗口的连通分组划分，所有分区之间的最近中心距离均超过 5,120 bp。新版成绩作为主结果，但它并未解决 CHID 样本稀少及邻近 CHIN 注释造成的可分性问题。
 
 ### 任务二：候选发现
 

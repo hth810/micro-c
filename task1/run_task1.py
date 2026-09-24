@@ -17,7 +17,7 @@ import numpy as np
 import pandas as pd
 import torch
 from sklearn.metrics import accuracy_score, classification_report, confusion_matrix, f1_score
-from sklearn.model_selection import train_test_split
+from sklearn.model_selection import StratifiedGroupKFold, train_test_split
 from torch import nn
 from torch.utils.data import DataLoader, TensorDataset
 import sys
@@ -43,6 +43,25 @@ def load_annotations(xlsx: Path) -> pd.DataFrame:
         raise ValueError(f"Expected 344 annotations in 3 classes, found {len(out)}")
     out["label"] = out["type"].map({c: i for i, c in enumerate(CLASSES)})
     return out
+
+
+def spatial_split(ann: pd.DataFrame, seed: int, window_bp: int) -> tuple[set, set, set]:
+    """Keep overlapping input windows in the same genomic component.
+
+    A gap of at least one full window between neighboring annotation centers
+    is required before starting a new component. Both replicates inherit the
+    same split through their annotation ID.
+    """
+    ordered = ann.sort_values(["chrom", "center"]).reset_index(drop=True)
+    new_group = ordered.chrom.ne(ordered.chrom.shift()) | ordered.center.diff().ge(window_bp)
+    groups = new_group.cumsum().to_numpy()
+    folds = StratifiedGroupKFold(n_splits=5, shuffle=True, random_state=seed)
+    fit_idx, test_idx = next(folds.split(ordered, ordered.label, groups))
+    fit = ordered.iloc[fit_idx].reset_index(drop=True)
+    fit_groups = groups[fit_idx]
+    inner = StratifiedGroupKFold(n_splits=4, shuffle=True, random_state=seed + 1)
+    train_idx, val_idx = next(inner.split(fit, fit.label, fit_groups))
+    return set(fit.iloc[train_idx].id), set(fit.iloc[val_idx].id), set(ordered.iloc[test_idx].id)
 
 
 def extract_window(c: cooler.Cooler, center_bp: int, window_bins: int, aggregate: int = 4) -> np.ndarray:
@@ -164,6 +183,10 @@ def main() -> None:
     ap.add_argument("--aggregate", type=int, default=4, help="raw bins per CNN bin (default 4 = 5,120 bp context)")
     ap.add_argument("--epochs", type=int, default=25)
     ap.add_argument("--seed", type=int, default=20260921)
+    ap.add_argument("--split-mode", choices=("spatial", "structure"), default="spatial",
+                    help="spatial prevents overlapping windows crossing splits; structure reproduces legacy result")
+    ap.add_argument("--chid-weight-multiplier", type=float, default=1.0,
+                    help="experimental additional CHID loss weight; select using validation only")
     ap.add_argument("--calibrate", action="store_true",
                     help="experimental validation-set logit calibration; disabled by default")
     args = ap.parse_args()
@@ -180,11 +203,17 @@ def main() -> None:
                 cools.append(sorted(choices)[0])
     if len(cools) < 2: raise FileNotFoundError("Need the two 37C .cool biological replicates")
     ann = load_annotations(xlsx)
-    ids_fit, ids_test, labels_fit, _ = train_test_split(ann["id"].values, ann["label"].values,
-        test_size=.2, random_state=args.seed, stratify=ann["label"].values)
-    ids_train, ids_val = train_test_split(ids_fit, test_size=.2, random_state=args.seed + 1,
-                                         stratify=labels_fit)
-    train_ids, val_ids, test_ids = set(ids_train), set(ids_val), set(ids_test)
+    if args.split_mode == "spatial":
+        train_ids, val_ids, test_ids = spatial_split(
+            ann, args.seed, args.window_bins * args.aggregate * 10)
+    else:
+        ids_fit, ids_test, labels_fit, _ = train_test_split(ann["id"].values, ann["label"].values,
+            test_size=.2, random_state=args.seed, stratify=ann["label"].values)
+        ids_train, ids_val = train_test_split(ids_fit, test_size=.2, random_state=args.seed + 1,
+                                             stratify=labels_fit)
+        train_ids, val_ids, test_ids = set(ids_train), set(ids_val), set(ids_test)
+    if not (train_ids and val_ids and test_ids):
+        raise ValueError("Empty train, validation, or test partition")
     rows = []
     mats, ys, groups = [], [], []
     for rep, cf in enumerate(cools[:2], 1):
@@ -197,7 +226,10 @@ def main() -> None:
     tr = np.isin(group_ids, list(train_ids)); va_mask = np.isin(group_ids, list(val_ids))
     te = np.isin(group_ids, list(test_ids))
     # Keep a complete machine-readable manifest for reproducibility.
-    manifest = ann.copy(); manifest.to_csv(args.out_dir / "annotation_manifest.csv", index=False, encoding="utf-8-sig")
+    manifest = ann.copy()
+    manifest["split"] = np.select([manifest.id.isin(list(train_ids)), manifest.id.isin(list(val_ids))],
+                                   ["train", "validation"], default="test")
+    manifest.to_csv(args.out_dir / "annotation_manifest.csv", index=False, encoding="utf-8-sig")
     np.savez_compressed(args.out_dir / "extracted_windows.npz", X=X, y=y, is_train=tr,
                         is_validation=va_mask, is_test=te, group=group_ids)
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
@@ -209,6 +241,9 @@ def main() -> None:
     opt = torch.optim.AdamW(model.parameters(), lr=2e-3, weight_decay=1e-4)
     counts = np.bincount(y[tr], minlength=3).astype(np.float32)
     class_weights = counts.sum() / (len(CLASSES) * np.maximum(counts, 1))
+    if args.chid_weight_multiplier <= 0:
+        raise ValueError("--chid-weight-multiplier must be positive")
+    class_weights[CLASSES.index("CHID")] *= args.chid_weight_multiplier
     loss_fn = nn.CrossEntropyLoss(weight=torch.tensor(class_weights, dtype=torch.float32, device=device))
     history = []
     best_state, best_score, best_epoch = None, -1.0, 0
@@ -248,7 +283,10 @@ def main() -> None:
         "predicted_type": [CLASSES[i] for i in preds],
         "correct": yy == preds,
     }).to_csv(args.out_dir / "test_predictions.csv", index=False, encoding="utf-8-sig")
-    metrics = {"seed": args.seed, "window_bins": args.window_bins, "aggregate": args.aggregate,
+    metrics = {"seed": args.seed, "split_mode": args.split_mode,
+               "chid_weight_multiplier": args.chid_weight_multiplier,
+               "class_weights": class_weights.tolist(),
+               "window_bins": args.window_bins, "aggregate": args.aggregate,
                "window_bp": args.window_bins * args.aggregate * 10,
                "train_structures": len(train_ids), "validation_structures": len(val_ids),
                "test_structures": len(test_ids), "train_samples": int(tr.sum()),

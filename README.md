@@ -19,11 +19,17 @@ python scripts/prepare_annotations.py data/raw/标注数据.xlsx
 以下命令在仓库根目录执行。所有生成结果写入被 Git 忽略的 `outputs/`。
 
 ```bash
-python task1/run_task1.py --data-dir data/raw --annotations data/structures.csv --out-dir outputs/task1
+python task1/run_task1.py --data-dir data/raw --annotations data/structures.csv --out-dir outputs/task1_spatial
 
-python task1/run_task1.py --data-dir data/raw --annotations data/structures.csv --calibrate --out-dir outputs/task1_calibrated
+python scripts/audit_task1_split.py outputs/task1_spatial/annotation_manifest.csv --out outputs/task1_spatial/split_audit.json
 
-python task1/run_task1.py --data-dir data/raw --annotations data/structures.csv --aggregate 8 --out-dir outputs/task1_scale8
+python task1/run_task1.py --data-dir data/raw --annotations data/structures.csv --split-mode structure --out-dir outputs/task1
+
+python scripts/audit_task1_split.py outputs/task1/annotation_manifest.csv --legacy --out outputs/task1_legacy_split_audit.json
+
+python task1/run_task1.py --data-dir data/raw --annotations data/structures.csv --split-mode structure --calibrate --out-dir outputs/task1_calibrated
+
+python task1/run_task1.py --data-dir data/raw --annotations data/structures.csv --split-mode structure --aggregate 8 --out-dir outputs/task1_scale8
 
 python -m microc.analysis discover --rep1 data/raw/GSE272159_37C_rep1.mapq_30.10.cool.gz --rep2 data/raw/GSE272159_37C_rep2.mapq_30.10.cool.gz --annotations data/structures.csv --out outputs/task2
 

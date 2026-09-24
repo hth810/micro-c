@@ -1,0 +1,21 @@
+{
+  "window_bp": 5120,
+  "structures": 344,
+  "by_split": {
+    "train": {
+      "structures": 220,
+      "overlapping_other_split_windows": 92,
+      "minimum_other_split_center_distance_bp": 70
+    },
+    "validation": {
+      "structures": 55,
+      "overlapping_other_split_windows": 35,
+      "minimum_other_split_center_distance_bp": 180
+    },
+    "test": {
+      "structures": 69,
+      "overlapping_other_split_windows": 45,
+      "minimum_other_split_center_distance_bp": 70
+    }
+  }
+}

@@ -9,7 +9,23 @@ from microc.analysis import _features, _shape_score, differential, discover, tra
 from microc.data import annotations, normalize, open_cool, upper_correlation, window
 from microc.deep import _coarsen, _consistency, degrade, prepare_sr_pair, reconstruct3d, superresolve
 from scripts.validate_discovery import shape_features
-from task1.run_task1 import select_validation_bias
+from task1.run_task1 import select_validation_bias, spatial_split
+
+
+def test_spatial_split_keeps_overlapping_windows_together():
+    centers = [1000, 3500, 8500, 20000, 24000, 33000, 38000, 50000,
+               57000, 66000, 75000, 84000, 93000, 102000, 111000]
+    ann = pd.DataFrame({"id": [f"id_{i}" for i in range(len(centers))],
+                        "chrom": "chr", "center": centers,
+                        "label": [i % 3 for i in range(len(centers))]})
+    train, val, test = spatial_split(ann, 12, 5120)
+    assert train | val | test == set(ann.id)
+    assert not (train & val or train & test or val & test)
+    assignments = {id_: part for part, ids in enumerate((train, val, test)) for id_ in ids}
+    for i, left in ann.iterrows():
+        for _, right in ann.iloc[i + 1:].iterrows():
+            if right.center - left.center < 5120:
+                assert assignments[left.id] == assignments[right.id]
 
 
 def test_real_annotation_workbook_if_present():
