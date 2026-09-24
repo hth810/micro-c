@@ -10,6 +10,7 @@ from microc.data import annotations, normalize, open_cool, upper_correlation, wi
 from microc.deep import _coarsen, _consistency, degrade, prepare_sr_pair, reconstruct3d, superresolve
 from scripts.validate_discovery import shape_features
 from scripts.validate_hns_candidates import condition_effect
+from scripts.validate_novel_cluster import components
 from task1.evaluate_chid_overlap import overlap_targets, spatial_groups
 from task1.evaluate_pairwise import PairAwareCNN, nearby_chid_chin_pairs
 from task1.evaluate_length_context import LengthAwareCNN
@@ -81,6 +82,11 @@ def test_interval_boundary_features_follow_annotated_interval():
     assert len(features) == 14
     assert np.isfinite(features).all()
     assert features[8] > features[2]
+
+
+def test_novel_cluster_requires_independent_pair_edge():
+    assert components(4, []) == []
+    assert components(4, [(0, 2)]) == [[0, 2]]
 
 
 def test_real_annotation_workbook_if_present():

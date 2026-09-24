@@ -1,0 +1,28 @@
+{
+  "strict_novelty_loci": 7,
+  "matched_background_windows": 123,
+  "background_definition": "same score top-20% and WT replicate-r>=0.3 gates; unannotated; known distance >=2560 bp",
+  "known_annotations_compared": 344,
+  "independent_background_pairs": 7456,
+  "pair_upper_r_threshold_p99": 0.2785436935767735,
+  "pair_coarse_r_threshold_p99": 0.7283725335436216,
+  "replicate_upper_r_thresholds_p99": [
+    0.20001221977472694,
+    0.20492781889508163
+  ],
+  "replicate_coarse_r_thresholds_p99": [
+    0.6526446264858766,
+    0.6631479887323252
+  ],
+  "supported_independent_pairs": 1,
+  "putative_novel_clusters": 1,
+  "cluster_member_counts": [
+    2
+  ],
+  "largest_candidate_pair_mean_upper_r": 0.47977104701243145,
+  "matched_background_max_pair_empirical_p": 0.0001999600079984003,
+  "rep2_largest_candidate_pair_upper_r": 0.35245008864482597,
+  "rep2_matched_background_max_pair_empirical_p": 0.0001999600079984003,
+  "null_draws": 5000,
+  "caution": "Exploratory WT-selected motif; matched-background max-p is not genome-wide discovery FDR or experimental proof."
+}

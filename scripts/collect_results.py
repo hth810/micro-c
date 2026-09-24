@@ -94,6 +94,10 @@ def main() -> None:
         "task2_strict_individual_validation/summary.json",
         "task2_strict_individual_validation/candidate_shift_null.csv",
         "task2_strict_locus_evidence.csv", "task2_strict_locus_evidence.json",
+        "task2_novel_cluster/summary.json", "task2_novel_cluster/putative_novel_clusters.csv",
+        "task2_novel_cluster/all_candidate_pairs.csv",
+        "task2_novel_cluster/N1_3307520_rep1.png", "task2_novel_cluster/N1_3307520_rep2.png",
+        "task2_novel_cluster/N1_4241920_rep1.png", "task2_novel_cluster/N1_4241920_rep2.png",
         "task2_hns_validation/summary.json", "task2_hns_validation/candidate_evidence.csv",
         "task2_hns_validation/all_evaluated_loci.csv",
         "task2_hns_validation/top_candidate_wt.png",
@@ -253,6 +257,7 @@ def main() -> None:
     paired = json.loads((SOURCE / "task1_pairwise/summary.json").read_text(encoding="utf-8"))
     strict_loci = json.loads((SOURCE / "task2_strict_locus_evidence.json").read_text(encoding="utf-8"))
     strict_revised = json.loads((SOURCE / "task2_strict_revised/summary.json").read_text(encoding="utf-8"))
+    novel_cluster = json.loads((SOURCE / "task2_novel_cluster/summary.json").read_text(encoding="utf-8"))
     length_context = json.loads((SOURCE / "task1_length_context/summary.json").read_text(encoding="utf-8"))
     handcrafted = json.loads((SOURCE / "task1_handcrafted/summary.json").read_text(encoding="utf-8"))
     improved = handcrafted["hist_gradient_boosting_contact_shape_plus_span"]
@@ -332,6 +337,11 @@ def main() -> None:
         f"分别覆盖 {strict_loci['loci_heat_local_shift_q_below_005']} 和 "
         f"{strict_loci['loci_rif_local_shift_q_below_005']} 个代表位点。"
         "这不是全基因组 FDR，也不是新的生物学结构证实。", "",
+        f"按互不重叠位点重新成簇，得到 {novel_cluster['putative_novel_clusters']} 个疑似新结构簇，"
+        f"包含 {novel_cluster['cluster_member_counts'][0]} 个独立位点；旧固定 KMeans 规则的零结果保留。"
+        "成员、背景阈值、逐重复形态相似性和与 344 个已知注释的对照见 "
+        "`task2_novel_cluster_putative_novel_clusters.csv`、`task2_novel_cluster_all_candidate_pairs.csv` "
+        "及 `task2_novel_cluster_summary.json`。这是后验探索，背景最大配对检验不是全基因组 FDR。", "",
         f"独立 H-NS 缺失两重复复核：7 位点平均效应与匹配背景的探索性 p="
         f"{hns['cohort_matched_empirical_upper_p']:.3f}；中位数 p="
         f"{hns['cohort_median_matched_empirical_upper_p']:.3f}。剔除最大效应位点 "
