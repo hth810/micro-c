@@ -7,7 +7,7 @@ from argparse import Namespace
 
 from microc.analysis import _features, _shape_score, differential, discover, tracks
 from microc.data import annotations, normalize, open_cool, upper_correlation, window
-from microc.deep import _coarsen, _consistency, degrade, reconstruct3d, superresolve
+from microc.deep import _coarsen, _consistency, degrade, prepare_sr_pair, reconstruct3d, superresolve
 from scripts.validate_discovery import shape_features
 from task1.run_task1 import select_validation_bias
 
@@ -50,6 +50,9 @@ def test_synthetic_cooler_and_geometry(tmp_path):
         assert np.isfinite(shape_features(norm)).all()
         assert _shape_score(norm) >= 0
         assert degrade(norm, 4).shape == (64, 64)
+        low, high = prepare_sr_pair(patch, 4)
+        assert np.allclose(low, normalize(degrade(patch, 4)))
+        assert np.allclose(high, norm)
         coarse = _coarsen(c, "MG1655", 160)
         assert coarse.shape == (8, 8)
         assert np.allclose(coarse, coarse.T)

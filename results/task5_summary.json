@@ -3,15 +3,15 @@
   "validation_patches": 103,
   "test_patches": 208,
   "validation_blend": 1.0,
-  "best_validation_mse": 0.9109710901975632,
+  "best_validation_mse": 1.2715727984905243,
   "comparison": {
     "psnr": {
-      "bilinear": 21.89595548305025,
-      "cnn": 22.291007492646052
+      "bilinear": 18.90144283737836,
+      "cnn": 20.84330768830392
     },
     "ssim": {
-      "bilinear": 0.34203969440908366,
-      "cnn": 0.44209465642865875
+      "bilinear": 0.11794622392678306,
+      "cnn": 0.14059114983331583
     }
   },
   "note": "Low-resolution input is simulated by bin aggregation, not independent Hi-C."

@@ -42,14 +42,17 @@ def main() -> None:
         "task2/cluster_centers.csv", "task2/embedding.png", "task2/autoencoder.pt",
         "task2_strict/summary.json", "task2_validation/summary.json",
         "task2_validation/heldout_predictions.csv", "task2_validation/candidate_shift_null.csv",
-        "task6/metrics.json", "task6/coordinates.csv", "task6/contact_and_baseline.npz",
-        "task6/chromosome_3d.png", "task6/contact_reconstruction.png", "task6/genome_3d.pt",
+        "task6_independent/metrics.json", "task6_independent/coordinates.csv",
+        "task6_independent/contact_and_baseline.npz", "task6_independent/chromosome_3d.png",
+        "task6_independent/contact_reconstruction.png", "task6_independent/genome_3d.pt",
     ]
     for entry in required:
         if entry == "task1_calibrated/metrics.json":
             copy(entry, "task1_calibration_trial_metrics.json")
         elif entry == "task1_scale8/metrics.json":
             copy(entry, "task1_scale8_trial_metrics.json")
+        elif entry.startswith("task6_independent/"):
+            copy(entry, entry.replace("task6_independent/", "task6_"))
         else:
             copy(entry)
     for source, output in (
@@ -60,23 +63,19 @@ def main() -> None:
         ("task4_rif_final/structure_changes.csv", "task4_rif_structure_changes.csv"),
         ("task4_rif_final/reproducible_changes.csv", "task4_rif_reproducible_changes.csv"),
         ("task4_repeat_depth_final/class_summary.csv", "task4_repeat_class_summary.csv"),
-        ("task5_factor2/summary.json", "task5_summary.json"),
-        ("task5_factor2/comparison.csv", "task5_comparison.csv"),
-        ("task5_factor2/metric_comparison.png", "task5_metric_comparison.png"),
-        ("task5_factor2/known_structure_recovery.csv", "task5_known_structure_recovery.csv"),
-        ("task5_factor2/reconstructed_test_patches.npz", "task5_reconstructed_test_patches.npz"),
-        ("task5_factor2/super_resolution.pt", "task5_super_resolution.pt"),
-        ("task5_factor2/validation.json", "task5_validation.json"),
-        ("task5_factor4_aligned/summary.json", "task5_factor4_summary.json"),
-        ("task5_factor4_aligned/comparison.csv", "task5_factor4_comparison.csv"),
-        ("task5_factor4_aligned/super_resolution.pt", "task5_factor4_super_resolution.pt"),
-        ("task5_factor4_aligned/validation.json", "task5_factor4_validation.json"),
     ):
         copy(source, output)
+    sr_output = SOURCE / "task5_corrected"
+    if sr_output.exists():
+        for name in ("summary.json", "comparison.csv", "metric_comparison.png",
+                     "known_structure_recovery.csv", "reconstructed_test_patches.npz",
+                     "super_resolution.pt"):
+            copy(f"task5_corrected/{name}", f"task5_{name}")
+        for kind in ("CHIN", "OPCID", "CHID"):
+            copy(f"task5_corrected/known_{kind}.png", f"task5_known_{kind}.png")
     for kind in ("CHIN", "OPCID", "CHID"):
         copy(f"task1/saliency_{kind}.png")
         copy(f"task1/example_{kind}.png")
-        copy(f"task5_factor2/known_{kind}.png", f"task5_known_{kind}.png")
     for index, image in enumerate(sorted((SOURCE / "task3_labeled").glob("*.png"))):
         if index in (0, 5, 250, 450):
             shutil.copy2(image, DEST / f"task3_example_{index:03d}.png")
@@ -94,10 +93,10 @@ def main() -> None:
     t2 = json.loads((SOURCE / "task2/summary.json").read_text(encoding="utf-8"))
     t2_validation = json.loads((SOURCE / "task2_validation/summary.json").read_text(encoding="utf-8"))
     strict = json.loads((SOURCE / "task2_strict/summary.json").read_text(encoding="utf-8"))
-    t5 = json.loads((SOURCE / "task5_factor2/summary.json").read_text(encoding="utf-8"))
-    t5_validation = json.loads((SOURCE / "task5_factor2/validation.json").read_text(encoding="utf-8"))
-    t5_factor4 = json.loads((SOURCE / "task5_factor4_aligned/summary.json").read_text(encoding="utf-8"))
-    t6 = json.loads((SOURCE / "task6/metrics.json").read_text(encoding="utf-8"))
+    t5 = json.loads((DEST / "task5_summary.json").read_text(encoding="utf-8"))
+    t5_validation = json.loads((DEST / "task5_validation.json").read_text(encoding="utf-8"))
+    t6 = json.loads((SOURCE / "task6_independent/metrics.json").read_text(encoding="utf-8"))
+    t6_regularized = json.loads((DEST / "task6_regularized_metrics.json").read_text(encoding="utf-8"))
     changes = pd.read_csv(SOURCE / "task4_heat_final/class_summary.csv")
     reproducible = pd.read_csv(SOURCE / "task4_heat_final/reproducible_changes.csv")
     merged_loci, right_edge = 0, -1
@@ -157,20 +156,20 @@ def main() -> None:
         "两条件各有两个生物学重复；WT 重复对照汇总见 `task4_repeat_class_summary.csv`。"
         "方向仅属于此局部强度指标，不等于整个结构形成或消失。", "",
         "## 任务五：超分辨", "",
-        f"2 倍降分辨率（20 bp→10 bp）测试窗口 {t5['test_patches']} 个；PSNR 双线性/CNN 为 "
+        f"4 倍降分辨率（40 bp→10 bp）测试窗口 {t5['test_patches']} 个；PSNR 双线性/CNN 为 "
         f"{t5['comparison']['psnr']['bilinear']:.3f}/{t5['comparison']['psnr']['cnn']:.3f}，"
         f"SSIM 为 {t5['comparison']['ssim']['bilinear']:.3f}/{t5['comparison']['ssim']['cnn']:.3f}。",
         f"成对 PSNR/SSIM 提升 {t5_validation['test']['psnr']['mean_gain']:.3f}/"
         f"{t5_validation['test']['ssim']['mean_gain']:.3f}；已知结构中心 68 个窗口的 "
         f"SSIM 胜率 {t5_validation['known_structures']['ssim']['win_fraction']:.1%}。",
-        f"更难的 4 倍降分辨率实验 PSNR 双线性/CNN 为 "
-        f"{t5_factor4['comparison']['psnr']['bilinear']:.3f}/"
-        f"{t5_factor4['comparison']['psnr']['cnn']:.3f}；不得与 2 倍任务直接混为同一基线。",
+        "输入先在原始计数上合并 bin，再单独归一化；不使用目标分辨率的背景统计量。",
         "低分辨率输入由 Micro-C 合并 bin 模拟，不能外推到独立 Hi-C。", "",
         "## 任务六：三维重建", "",
         f"{t6['bins']} 个 {t6['bin_bp']} bp bin；接触与反距离 Spearman 相关为 "
         f"MLP {t6['mlp_contact_distance_spearman']:.3f}、MDS {t6['mds_contact_distance_spearman']:.3f}。",
-        "MLP 使用 MDS 初始化，因此两者不是独立建模路线；坐标并非唯一的真实物理构象。", ""]
+        f"独立模型不使用 MDS 预训练或正则。另保留弱 MDS 正则的消融对照 "
+        f"{t6_regularized['mlp_contact_distance_spearman']:.3f}，该对照不应称为独立基线。"
+        "坐标并非唯一的真实物理构象。", ""]
     (DEST / "README.md").write_text("\n".join(lines), encoding="utf-8")
     print(f"Collected {len(list(DEST.iterdir()))} review files in {DEST}")
 

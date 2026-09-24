@@ -37,11 +37,9 @@ python -m microc.analysis differential --wt data/raw/GSE272159_37C_rep1.mapq_30.
 
 python -m microc.analysis differential --wt data/raw/GSE272159_37C_rep1.mapq_30.10.cool.gz --condition data/raw/GSE272159_37C_rep2.mapq_30.10.cool.gz --name wt_rep2_control --annotations data/structures.csv --out outputs/task4_repeat_depth_final
 
-python -m microc.deep superresolve --cool data/raw/GSE272159_37C_rep1.mapq_30.10.cool.gz --annotations data/structures.csv --factor 2 --epochs 24 --out outputs/task5_factor2
+python -m microc.deep superresolve --cool data/raw/GSE272159_37C_rep1.mapq_30.10.cool.gz --annotations data/structures.csv --factor 4 --epochs 12 --out outputs/task5_corrected
 
-python -m microc.deep superresolve --cool data/raw/GSE272159_37C_rep1.mapq_30.10.cool.gz --annotations data/structures.csv --factor 4 --epochs 24 --out outputs/task5_factor4_aligned
-
-python -m microc.deep reconstruct3d --cool data/raw/GSE272159_37C_rep1.mapq_30.10.cool.gz --annotations data/structures.csv --out outputs/task6
+python -m microc.deep reconstruct3d --cool data/raw/GSE272159_37C_rep1.mapq_30.10.cool.gz --annotations data/structures.csv --pretrain-epochs 0 --anchor-weight 0 --out outputs/task6_independent
 ```
 
 `.cool.gz` 会临时解压后读取。重复运行时可自行保留同名 `.cool` 并将参数指向解压后的文件，避免反复解压。
@@ -50,8 +48,8 @@ python -m microc.deep reconstruct3d --cool data/raw/GSE272159_37C_rep1.mapq_30.1
 
 ```bash
 python -m scripts.validate_discovery --rep1 data/raw/GSE272159_37C_rep1.mapq_30.10.cool.gz --rep2 data/raw/GSE272159_37C_rep2.mapq_30.10.cool.gz --annotations data/structures.csv --discovery outputs/task2 --out outputs/task2_validation
-python -m scripts.validate_superresolution --source outputs/task5_factor2 --out outputs/task5_factor2/validation.json
-python -m scripts.validate_superresolution --source outputs/task5_factor4_aligned --out outputs/task5_factor4_aligned/validation.json
+python scripts/collect_results.py
+python -m scripts.evaluate_saved_sr --bundle results
 python scripts/collect_results.py
 ```
 

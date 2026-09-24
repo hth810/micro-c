@@ -24,19 +24,46 @@ def seed_all(seed: int) -> None:
     random.seed(seed); np.random.seed(seed); torch.manual_seed(seed)
 
 
-class SuperResolutionCNN(nn.Module):
-    def __init__(self):
+class ResidualBlock(nn.Module):
+    def __init__(self, channels: int):
         super().__init__()
-        self.net = nn.Sequential(nn.Conv2d(1, 32, 5, padding=2), nn.ReLU(),
-                                 nn.Conv2d(32, 32, 3, padding=1), nn.ReLU(),
-                                 nn.Conv2d(32, 1, 3, padding=1))
-        nn.init.zeros_(self.net[-1].weight)
-        nn.init.zeros_(self.net[-1].bias)
+        self.body = nn.Sequential(
+            nn.Conv2d(channels, channels, 3, padding=1), nn.ReLU(inplace=True),
+            nn.Conv2d(channels, channels, 3, padding=1),
+        )
+
+    def forward(self, x):
+        return x + self.body(x)
+
+
+class SuperResolutionCNN(nn.Module):
+    """Residual correction network for the interpolated low-resolution map."""
+    def __init__(self, channels: int = 48, blocks: int = 4):
+        super().__init__()
+        self.head = nn.Sequential(nn.Conv2d(1, channels, 5, padding=2), nn.ReLU(inplace=True))
+        self.body = nn.Sequential(*[ResidualBlock(channels) for _ in range(blocks)],
+                                   nn.Conv2d(channels, channels, 3, padding=1))
+        self.tail = nn.Conv2d(channels, 1, 3, padding=1)
+        # Start at the interpolation baseline. The network learns only a residual.
+        nn.init.zeros_(self.tail.weight)
+        nn.init.zeros_(self.tail.bias)
 
     def forward(self, x):
         observed = (x.abs().sum(dim=(1, 2, 3), keepdim=True) > 0).to(x.dtype)
-        result = x + observed * self.net(x)
+        features = self.head(x)
+        correction = self.tail(self.body(features))
+        result = x + observed * correction
         return (result + result.transpose(-1, -2)) / 2
+
+
+def _gradient_loss(prediction: torch.Tensor, target: torch.Tensor) -> torch.Tensor:
+    """Penalize loss of contact boundaries and stripes in addition to intensity error."""
+    dx_pred = prediction[..., :, 1:] - prediction[..., :, :-1]
+    dy_pred = prediction[..., 1:, :] - prediction[..., :-1, :]
+    dx_true = target[..., :, 1:] - target[..., :, :-1]
+    dy_true = target[..., 1:, :] - target[..., :-1, :]
+    return (nn.functional.smooth_l1_loss(dx_pred, dx_true) +
+            nn.functional.smooth_l1_loss(dy_pred, dy_true)) / 2
 
 
 def _psnr(target: np.ndarray, prediction: np.ndarray) -> float:
@@ -49,6 +76,13 @@ def degrade(high: np.ndarray, factor: int) -> np.ndarray:
     n = len(high)
     low = high.reshape(n // factor, factor, n // factor, factor).mean(axis=(1, 3))
     return zoom(low, factor, order=1).astype(np.float32)
+
+
+def prepare_sr_pair(raw: np.ndarray, factor: int) -> tuple[np.ndarray, np.ndarray]:
+    """Produce input and target without exposing target normalization to input."""
+    target = normalize(raw)
+    input_map = normalize(degrade(raw, factor))
+    return input_map, target
 
 
 def superresolve(args) -> None:
@@ -64,8 +98,12 @@ def superresolve(args) -> None:
         train_end, test_start = int(.7 * len(centers)), int(.8 * len(centers))
         if train_end < 4 or test_start <= train_end or test_start == len(centers):
             raise ValueError("At least ten non-overlapping patches are required")
-        high = np.stack([normalize(window(c, chrom, x, patch_bp, args.patch_bins)) for x in centers])
-        low = np.stack([degrade(m, args.factor) for m in high])
+        raw = np.stack([window(c, chrom, x, patch_bp, args.patch_bins) for x in centers])
+        # Aggregate observed counts first. Normalizing high before degradation
+        # would leak high-resolution distance/background statistics to the input.
+        pairs = [prepare_sr_pair(m, args.factor) for m in raw]
+        low = np.stack([pair[0] for pair in pairs])
+        high = np.stack([pair[1] for pair in pairs])
     x = torch.from_numpy(low[:, None]); y = torch.from_numpy(high[:, None])
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     model = SuperResolutionCNN().to(device)
@@ -75,7 +113,8 @@ def superresolve(args) -> None:
         model.train()
         for indices in torch.randperm(train_end).split(args.batch_size):
             prediction = model(x[indices].to(device))
-            loss = nn.functional.mse_loss(prediction, y[indices].to(device))
+            target = y[indices].to(device)
+            loss = nn.functional.mse_loss(prediction, target) + .15 * _gradient_loss(prediction, target)
             optimizer.zero_grad(); loss.backward(); optimizer.step()
         model.eval()
         with torch.no_grad():
@@ -119,8 +158,8 @@ def superresolve(args) -> None:
         plotted_types = set()
         with open_cool(args.cool) as c:
             for _, structure in held_out.iterrows():
-                target = normalize(window(c, chrom, int(structure.center), patch_bp, args.patch_bins))
-                interp = degrade(target, args.factor)
+                raw_structure = window(c, chrom, int(structure.center), patch_bp, args.patch_bins)
+                interp, target = prepare_sr_pair(raw_structure, args.factor)
                 with torch.no_grad():
                     raw_restored = model(torch.from_numpy(interp[None, None]).to(device)).cpu().numpy()[0, 0]
                     restored = interp + blend * (raw_restored - interp)
@@ -233,8 +272,8 @@ def reconstruct3d(args) -> None:
     inputs = torch.tensor(contact, dtype=torch.float32)
     model = GenomeMLP(n)
     optimizer = torch.optim.Adam(model.parameters(), lr=args.lr)
-    # Use the classical geometry as a stable initialization, then refine it
-    # against observed contact-distance pairs and chromosome continuity.
+    # MDS is retained as a baseline. By default the neural model starts from
+    # its own random initialization so the baseline comparison is independent.
     mds_reference = (mds - mds.mean(axis=0)) / max(float(np.std(mds)), 1e-6)
     mds_reference = torch.tensor(mds_reference, dtype=torch.float32)
     for _ in range(args.pretrain_epochs):
@@ -260,10 +299,13 @@ def reconstruct3d(args) -> None:
         loss = edge_loss + .1 * chain_loss + .01 * circle_loss + args.anchor_weight * anchor_loss
         optimizer.zero_grad(); loss.backward(); optimizer.step()
     coords = model(inputs).detach().numpy()
+    uses_mds_prior = bool(args.pretrain_epochs or args.anchor_weight)
     summary = {"chrom": chrom, "bins": n, "bin_bp": args.bin_bp,
                "mlp_contact_distance_spearman": _consistency(coords, contact),
                "mds_contact_distance_spearman": _consistency(mds, contact),
-               "method": "MDS-initialized neural coordinate refinement",
+               "method": ("MDS-regularized neural coordinate refinement" if uses_mds_prior else
+                          "neural coordinate refinement without MDS prior"),
+               "pretrain_epochs": args.pretrain_epochs, "anchor_weight": args.anchor_weight,
                "note": "Coordinates are determined only up to rotation, reflection, and scale; no external geometry truth is supplied."}
     pd.DataFrame({"chrom": chrom, "start": np.arange(n) * args.bin_bp,
                   "end": (np.arange(n) + 1) * args.bin_bp,
@@ -309,16 +351,18 @@ def main() -> None:
     sr.add_argument("--cool", type=Path, required=True); sr.add_argument("--out", type=Path, required=True)
     sr.add_argument("--annotations", type=Path)
     sr.add_argument("--chrom"); sr.add_argument("--patch-bins", type=int, default=64)
-    sr.add_argument("--factor", type=int, default=2); sr.add_argument("--max-patches", type=int, default=1200)
-    sr.add_argument("--epochs", type=int, default=24); sr.add_argument("--batch-size", type=int, default=32)
+    sr.add_argument("--factor", type=int, default=4); sr.add_argument("--max-patches", type=int, default=1200)
+    sr.add_argument("--epochs", type=int, default=12); sr.add_argument("--batch-size", type=int, default=32)
     sr.add_argument("--examples", type=int, default=8); sr.add_argument("--seed", type=int, default=20260921)
     d3 = sub.add_parser("reconstruct3d")
     d3.add_argument("--cool", type=Path, required=True); d3.add_argument("--out", type=Path, required=True)
     d3.add_argument("--annotations", type=Path)
     d3.add_argument("--chrom"); d3.add_argument("--bin-bp", type=int, default=5000)
     d3.add_argument("--epochs", type=int, default=200); d3.add_argument("--pairs-per-epoch", type=int, default=20000)
-    d3.add_argument("--pretrain-epochs", type=int, default=100)
-    d3.add_argument("--anchor-weight", type=float, default=.5)
+    d3.add_argument("--pretrain-epochs", type=int, default=0,
+                    help="optional MDS pretraining; 0 keeps the neural baseline independent")
+    d3.add_argument("--anchor-weight", type=float, default=0,
+                    help="optional MDS regularization; 0 keeps the neural model independent")
     d3.add_argument("--lr", type=float, default=1e-3); d3.add_argument("--seed", type=int, default=20260921)
     args = ap.parse_args()
     {"superresolve": superresolve, "reconstruct3d": reconstruct3d}[args.task](args)
