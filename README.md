@@ -62,6 +62,7 @@ python -m scripts.summarize_task1_cv --predictions outputs/task1_interval_bounda
 python -m scripts.compare_task1_boundary --out outputs/task1_interval_boundaries/paired_uncertainty.json
 python -m task1.train_final_boundaries --out outputs/task1_boundary_final.joblib
 python -m task1.predict_handcrafted --rep1 data/raw/GSE272159_37C_rep1.mapq_30.10.cool.gz --rep2 data/raw/GSE272159_37C_rep2.mapq_30.10.cool.gz --annotations data/structures.csv --model outputs/task1_boundary_final.joblib --out outputs/task1_boundary_in_sample_smoke.csv
+python -m task1.evaluate_replicate_transfer --out outputs/task1_replicate_transfer
 
 python task1/run_task1.py --data-dir data/raw --annotations data/structures.csv --split-mode structure --out-dir outputs/task1
 

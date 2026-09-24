@@ -1,0 +1,121 @@
+{
+  "evaluation": "original 3-class labels, 5 spatial folds; one replicate train to other-replicate test",
+  "spatial_gap_bp": 40000,
+  "seed": 20260922,
+  "caution": "Same published annotation set; cross-replicate transfer is not independent external-label validation.",
+  "rep1_to_rep2": {
+    "accuracy": 0.8895348837209303,
+    "macro_f1": 0.7754255138972505,
+    "chid_precision": 0.5185185185185185,
+    "chid_recall": 0.5384615384615384,
+    "confusion_matrix": [
+      [
+        230,
+        9,
+        11
+      ],
+      [
+        4,
+        62,
+        2
+      ],
+      [
+        7,
+        5,
+        14
+      ]
+    ]
+  },
+  "rep2_to_rep1": {
+    "accuracy": 0.8575581395348837,
+    "macro_f1": 0.6957068557919621,
+    "chid_precision": 0.42857142857142855,
+    "chid_recall": 0.34615384615384615,
+    "confusion_matrix": [
+      [
+        231,
+        11,
+        8
+      ],
+      [
+        9,
+        55,
+        4
+      ],
+      [
+        10,
+        7,
+        9
+      ]
+    ]
+  },
+  "rep1_to_rep1": {
+    "accuracy": 0.8488372093023255,
+    "macro_f1": 0.6942747515885137,
+    "chid_precision": 0.45454545454545453,
+    "chid_recall": 0.38461538461538464,
+    "confusion_matrix": [
+      [
+        229,
+        13,
+        8
+      ],
+      [
+        11,
+        53,
+        4
+      ],
+      [
+        8,
+        8,
+        10
+      ]
+    ]
+  },
+  "rep2_to_rep2": {
+    "accuracy": 0.8808139534883721,
+    "macro_f1": 0.7289751581383728,
+    "chid_precision": 0.4,
+    "chid_recall": 0.38461538461538464,
+    "confusion_matrix": [
+      [
+        233,
+        7,
+        10
+      ],
+      [
+        3,
+        60,
+        5
+      ],
+      [
+        11,
+        5,
+        10
+      ]
+    ]
+  },
+  "both_replicates": {
+    "accuracy": 0.875,
+    "macro_f1": 0.7381921781921782,
+    "chid_precision": 0.5,
+    "chid_recall": 0.46153846153846156,
+    "confusion_matrix": [
+      [
+        232,
+        10,
+        8
+      ],
+      [
+        7,
+        57,
+        4
+      ],
+      [
+        6,
+        8,
+        12
+      ]
+    ]
+  }
+}

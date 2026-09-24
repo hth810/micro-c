@@ -69,6 +69,10 @@ def main() -> None:
         "task1_boundary_gap20000_seed20260921/summary.json",
         "task1_boundary_gap20000_seed20260922/summary.json",
         "task1_boundary_gap20000_seed20260923/summary.json",
+        "task1_replicate_transfer/summary.json",
+        "task1_replicate_transfer/crossfit_predictions.csv",
+        "task1_replicate_gap40000_seed20260922/summary.json",
+        "task1_replicate_gap20000_seed20260921/summary.json",
         "task1_handcrafted_seed20260922/summary.json",
         "task1_handcrafted_seed20260923/summary.json",
         "task1_handcrafted_seed20260924/summary.json",
@@ -255,6 +259,7 @@ def main() -> None:
     nested = json.loads((SOURCE / "task1_nested_threshold/summary.json").read_text(encoding="utf-8"))
     boundary = json.loads((SOURCE / "task1_interval_boundaries/summary.json").read_text(encoding="utf-8"))
     boundary_gain = json.loads((SOURCE / "task1_interval_boundaries/paired_uncertainty.json").read_text(encoding="utf-8"))
+    transfer = json.loads((SOURCE / "task1_replicate_transfer/summary.json").read_text(encoding="utf-8"))
     hns = json.loads((SOURCE / "task2_hns_validation/summary.json").read_text(encoding="utf-8"))
     task1_header = next(i for i, line in enumerate(lines) if line.startswith("## 任务一"))
     lines[task1_header:task1_header + 1] = [
@@ -305,6 +310,12 @@ def main() -> None:
         f"{boundary['both_boundary_plus_span']['chid_recall']:.3f}。相对短尺度模型的 CHID 召回提升 "
         f"{boundary_gain['point_difference']['chid_recall']:.3f}；后验比较且区间仅 26 个 CHID，"
         "仍需独立验证。仅拼接尺度和概率平均的对照不稳定。", "",
+        f"单 WT 重复跨重复迁移检查：rep1→rep2 的 CHID 精确率/召回率 "
+        f"{transfer['rep1_to_rep2']['chid_precision']:.3f}/"
+        f"{transfer['rep1_to_rep2']['chid_recall']:.3f}，反向 "
+        f"{transfer['rep2_to_rep1']['chid_precision']:.3f}/"
+        f"{transfer['rep2_to_rep1']['chid_recall']:.3f}。重复间存在不对称性；"
+        "联合两重复在主分区更好，但不能称为每次分区都胜出。", "",
         "### 旧版 ID-only 对照", "",
     ]
     task3_header = next(i for i, line in enumerate(lines) if line.startswith("## 任务三"))
