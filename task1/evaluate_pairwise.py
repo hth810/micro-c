@@ -52,13 +52,14 @@ def nearby_chid_chin_pairs(ann: pd.DataFrame, radius_bp: int) -> np.ndarray:
 
 
 def fit_fold(x: np.ndarray, y: np.ndarray, train: np.ndarray, pairs: np.ndarray,
-             epochs: int, seed: int, pair_weight: float, device: torch.device) -> PairAwareCNN:
+             epochs: int, seed: int, pair_weight: float, device: torch.device,
+             class_weight_power: float = .5) -> PairAwareCNN:
     seed_all(seed)
     model = PairAwareCNN(x.shape[1]).to(device)
     train_indices = np.r_[train, train + len(y)]
     labels = np.tile(y, 2)
     counts = np.bincount(y[train], minlength=3).astype(np.float32)
-    class_weights = np.sqrt(counts.sum() / (3 * np.maximum(counts, 1)))
+    class_weights = (counts.sum() / (3 * np.maximum(counts, 1))) ** class_weight_power
     ce = nn.CrossEntropyLoss(weight=torch.from_numpy(class_weights).to(device))
     loader = DataLoader(TensorDataset(torch.from_numpy(x[train_indices]),
                                       torch.from_numpy(labels[train_indices])),

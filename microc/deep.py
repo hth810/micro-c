@@ -87,7 +87,11 @@ def prepare_sr_pair(raw: np.ndarray, factor: int) -> tuple[np.ndarray, np.ndarra
 
 def superresolve(args) -> None:
     seed_all(args.seed)
+    torch.set_num_threads(min(4, torch.get_num_threads()))
     out = Path(args.out); out.mkdir(parents=True, exist_ok=True)
+    peak_weight = float(getattr(args, "peak_weight", 0.0))
+    if peak_weight < 0:
+        raise ValueError("--peak-weight must be nonnegative")
     with open_cool(args.cool) as c:
         chrom = args.chrom or c.chromnames[0]
         length = int(c.chromsizes[chrom])
@@ -114,7 +118,9 @@ def superresolve(args) -> None:
         for indices in torch.randperm(train_end).split(args.batch_size):
             prediction = model(x[indices].to(device))
             target = y[indices].to(device)
-            loss = nn.functional.mse_loss(prediction, target) + .15 * _gradient_loss(prediction, target)
+            peak_loss = ((prediction - target).square() * target.clamp_min(0)).mean()
+            loss = (nn.functional.mse_loss(prediction, target) +
+                    .15 * _gradient_loss(prediction, target) + peak_weight * peak_loss)
             optimizer.zero_grad(); loss.backward(); optimizer.step()
         model.eval()
         with torch.no_grad():
@@ -191,6 +197,7 @@ def superresolve(args) -> None:
         fig.tight_layout(); fig.savefig(out / f"example_{i:02d}.png"); plt.close(fig)
     (out / "summary.json").write_text(json.dumps({"factor": args.factor, "epochs": args.epochs,
         "seed": args.seed, "max_patches": args.max_patches, "patch_bins": args.patch_bins,
+        "peak_weight": peak_weight,
         "train_patches": train_end,
         "validation_patches": test_start - train_end, "test_patches": len(truth),
         "validation_blend": blend, "best_validation_mse": best_loss,
@@ -374,6 +381,8 @@ def main() -> None:
     sr.add_argument("--chrom"); sr.add_argument("--patch-bins", type=int, default=64)
     sr.add_argument("--factor", type=int, default=4); sr.add_argument("--max-patches", type=int, default=1200)
     sr.add_argument("--epochs", type=int, default=12); sr.add_argument("--batch-size", type=int, default=32)
+    sr.add_argument("--peak-weight", type=float, default=0.0,
+                    help="extra target-positive intensity weighting in training loss")
     sr.add_argument("--examples", type=int, default=8); sr.add_argument("--seed", type=int, default=20260921)
     d3 = sub.add_parser("reconstruct3d")
     d3.add_argument("--cool", type=Path, required=True); d3.add_argument("--out", type=Path, required=True)

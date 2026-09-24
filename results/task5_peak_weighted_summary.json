@@ -1,0 +1,24 @@
+{
+  "factor": 4,
+  "epochs": 12,
+  "seed": 20260921,
+  "max_patches": 1200,
+  "patch_bins": 64,
+  "peak_weight": 0.5,
+  "train_patches": 725,
+  "validation_patches": 103,
+  "test_patches": 208,
+  "validation_blend": 1.0,
+  "best_validation_mse": 1.3286724388599396,
+  "comparison": {
+    "psnr": {
+      "bilinear": 18.90144283737836,
+      "cnn": 20.670440647213898
+    },
+    "ssim": {
+      "bilinear": 0.11794622392678306,
+      "cnn": 0.11079363985689807
+    }
+  },
+  "note": "Low-resolution input is simulated by bin aggregation, not independent Hi-C."
+}

@@ -1,0 +1,39 @@
+{
+  "condition": "HNS_mut",
+  "pair_centers_bp": [
+    3307520,
+    4241920
+  ],
+  "same_WT_selected_background_windows": 123,
+  "independent_background_pairs": 7456,
+  "comparisons": {
+    "mean": {
+      "upper_r": 0.15142294764518738,
+      "upper_background_p99": 0.2149161696434021,
+      "upper_background_percentile": 0.9369635193133047,
+      "coarse_r": 0.6042914986610413,
+      "coarse_background_p99": 0.6328245401382446,
+      "coarse_background_percentile": 0.9844420600858369,
+      "passes_both_p99": false
+    },
+    "rep1": {
+      "upper_r": 0.13098976016044617,
+      "upper_background_p99": 0.16095377504825592,
+      "upper_background_percentile": 0.9711641630901288,
+      "coarse_r": 0.676872730255127,
+      "coarse_background_p99": 0.5542950630187988,
+      "coarse_background_percentile": 0.9993293991416309,
+      "passes_both_p99": false
+    },
+    "rep2": {
+      "upper_r": 0.07164642959833145,
+      "upper_background_p99": 0.16128642857074738,
+      "upper_background_percentile": 0.7748122317596566,
+      "coarse_r": 0.3253591060638428,
+      "coarse_background_p99": 0.5645546913146973,
+      "coarse_background_percentile": 0.8166577253218884,
+      "passes_both_p99": false
+    }
+  },
+  "caution": "The pair and background were selected using WT; this condition did not select them. Pass/fail is a robustness check, not independent genome-wide discovery FDR."
+}

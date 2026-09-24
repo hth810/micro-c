@@ -11,7 +11,9 @@ from microc.deep import _coarsen, _consistency, degrade, prepare_sr_pair, recons
 from scripts.validate_discovery import shape_features
 from scripts.validate_hns_candidates import condition_effect
 from scripts.validate_novel_cluster import components
+from scripts.validate_novel_condition_transfer import correlation_matrix
 from scripts.validate_3d_replicate import stratified_correlations
+from scripts.validate_sr_known_shape import hotspot
 from task1.evaluate_chid_overlap import overlap_targets, spatial_groups
 from task1.evaluate_pairwise import PairAwareCNN, nearby_chid_chin_pairs
 from task1.evaluate_length_context import LengthAwareCNN
@@ -95,10 +97,23 @@ def test_3d_stratified_consistency_detects_distance_order():
     xyz = np.column_stack((positions, np.zeros((12, 2))))
     distances = np.abs(np.subtract.outer(positions, positions))
     contact = 1 / (distances + 1)
+    contact[distances > 6] = 0
     scores = stratified_correlations(contact, {"ordered": xyz})
     assert scores["all_positive"]["ordered"] > .99
     assert scores["top_20_percent"]["pairs"] > 3
     assert scores["weaker_positive"]["pairs"] > 3
+    assert scores["positive_vs_zero_distance_auc"]["ordered"] > .99
+
+
+def test_condition_shape_correlation_and_sr_hotspot():
+    rows = np.array([[1., 2., 3.], [2., 4., 6.], [3., 2., 1.]])
+    correlations = correlation_matrix(rows)
+    assert np.isclose(correlations[0, 1], 1)
+    assert np.isclose(correlations[0, 2], -1)
+    patch = np.zeros((16, 16), dtype=float)
+    patch[3, 10] = 10
+    upper = np.triu(np.ones_like(patch, dtype=bool), k=3)
+    assert tuple(hotspot(patch, upper).astype(int)) == (3, 10)
 
 
 def test_real_annotation_workbook_if_present():

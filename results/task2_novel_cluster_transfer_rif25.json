@@ -1,0 +1,39 @@
+{
+  "condition": "rif25",
+  "pair_centers_bp": [
+    3307520,
+    4241920
+  ],
+  "same_WT_selected_background_windows": 123,
+  "independent_background_pairs": 7456,
+  "comparisons": {
+    "mean": {
+      "upper_r": 0.023829111829400063,
+      "upper_background_p99": 0.2414897382259369,
+      "upper_background_percentile": 0.4478272532188841,
+      "coarse_r": 0.08187472820281982,
+      "coarse_background_p99": 0.6492851376533508,
+      "coarse_background_percentile": 0.012741416309012876,
+      "passes_both_p99": false
+    },
+    "rep1": {
+      "upper_r": 0.008563825860619545,
+      "upper_background_p99": 0.19482308626174927,
+      "upper_background_percentile": 0.4000804721030043,
+      "coarse_r": -0.00797917228192091,
+      "coarse_background_p99": 0.5601487755775452,
+      "coarse_background_percentile": 0.017703862660944206,
+      "passes_both_p99": false
+    },
+    "rep2": {
+      "upper_r": 0.018608562648296356,
+      "upper_background_p99": 0.1983039826154709,
+      "upper_background_percentile": 0.4633851931330472,
+      "coarse_r": 0.0182793028652668,
+      "coarse_background_p99": 0.5650997161865234,
+      "coarse_background_percentile": 0.03017703862660944,
+      "passes_both_p99": false
+    }
+  },
+  "caution": "The pair and background were selected using WT; this condition did not select them. Pass/fail is a robustness check, not independent genome-wide discovery FDR."
+}

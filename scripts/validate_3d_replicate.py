@@ -8,6 +8,7 @@ from pathlib import Path
 import numpy as np
 from scipy.spatial.distance import pdist, squareform
 from scipy.stats import spearmanr
+from sklearn.metrics import roc_auc_score
 
 from microc.data import open_cool
 from microc.deep import _coarsen, _contact_target
@@ -29,6 +30,11 @@ def stratified_correlations(contact: np.ndarray, coordinates: dict[str, np.ndarr
             raise ValueError(f"Insufficient pairs for {name}")
         for method, values in distances.items():
             result[name][method] = float(spearmanr(signal[mask], -values[mask]).statistic)
+    positive = signal > 0
+    result["positive_vs_zero_distance_auc"] = {
+        "positive_pairs": int(positive.sum()), "zero_pairs": int((~positive).sum()),
+        **{method: float(roc_auc_score(positive, -values))
+           for method, values in distances.items()}}
     return result
 
 

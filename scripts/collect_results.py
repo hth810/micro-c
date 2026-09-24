@@ -71,6 +71,7 @@ def main() -> None:
         "task1_boundary_gap20000_seed20260923/summary.json",
         "task1_replicate_transfer/summary.json",
         "task1_replicate_transfer/crossfit_predictions.csv",
+        "task1_balanced_cnn/summary.json", "task1_balanced_cnn/crossfit_predictions.csv",
         "task1_replicate_gap40000_seed20260922/summary.json",
         "task1_replicate_gap20000_seed20260921/summary.json",
         "task1_handcrafted_seed20260922/summary.json",
@@ -96,6 +97,9 @@ def main() -> None:
         "task2_strict_locus_evidence.csv", "task2_strict_locus_evidence.json",
         "task2_novel_cluster/summary.json", "task2_novel_cluster/putative_novel_clusters.csv",
         "task2_novel_cluster/all_candidate_pairs.csv",
+        "task2_novel_cluster/transfer_44c.json",
+        "task2_novel_cluster/transfer_rif25.json",
+        "task2_novel_cluster/transfer_hns.json",
         "task2_novel_cluster/N1_3307520_rep1.png", "task2_novel_cluster/N1_3307520_rep2.png",
         "task2_novel_cluster/N1_4241920_rep1.png", "task2_novel_cluster/N1_4241920_rep2.png",
         "task2_hns_validation/summary.json", "task2_hns_validation/candidate_evidence.csv",
@@ -103,6 +107,10 @@ def main() -> None:
         "task2_hns_validation/top_candidate_wt.png",
         "task2_hns_validation/top_candidate_hns.png",
         "task2_hns_validation/top_candidate_wt_minus_hns.png",
+        "task5_known_shape/summary.json", "task5_known_shape/per_structure.csv",
+        "task5_peak_weighted/summary.json", "task5_peak_weighted/super_resolution.pt",
+        "task5_peak_weighted/reconstruction_metrics.csv",
+        "task5_peak_known_shape/summary.json", "task5_peak_known_shape/per_structure.csv",
         "task6_independent/metrics.json", "task6_independent/coordinates.csv",
         "task6_independent/contact_and_baseline.npz", "task6_independent/chromosome_3d.png",
         "task6_independent/contact_reconstruction.png", "task6_independent/genome_3d.pt",
@@ -180,6 +188,9 @@ def main() -> None:
     t5 = json.loads((DEST / "task5_summary.json").read_text(encoding="utf-8"))
     t5_validation = json.loads((DEST / "task5_validation.json").read_text(encoding="utf-8"))
     t5_shape = json.loads((DEST / "task5_shape_validation.json").read_text(encoding="utf-8"))
+    t5_known_shape = json.loads((SOURCE / "task5_known_shape/summary.json").read_text(encoding="utf-8"))
+    t5_peak = json.loads((SOURCE / "task5_peak_weighted/summary.json").read_text(encoding="utf-8"))
+    t5_peak_shape = json.loads((SOURCE / "task5_peak_known_shape/summary.json").read_text(encoding="utf-8"))
     t6 = json.loads((SOURCE / "task6_independent/metrics.json").read_text(encoding="utf-8"))
     t6_all = json.loads((SOURCE / "task6_all_positive/metrics.json").read_text(encoding="utf-8"))
     t6_repeat = json.loads((SOURCE / "task6_all_positive/replicate_validation.json").read_text(encoding="utf-8"))
@@ -253,6 +264,12 @@ def main() -> None:
         f"{t5_shape['informative_test_windows']} 个窗口的上三角接触排序相关由插值的 "
         f"{t5_shape['bilinear_mean_upper_contact_spearman']:.3f} 升至 CNN 的 "
         f"{t5_shape['cnn_mean_upper_contact_spearman']:.3f}；增幅较小，见 `task5_shape_validation.json`。",
+        f"68 个已知中心的局部热点位置误差却由插值的 "
+        f"{t5_known_shape['hotspot_error_bins']['bilinear_mean']:.2f} bin 增至 CNN 的 "
+        f"{t5_known_shape['hotspot_error_bins']['cnn_mean']:.2f} bin，不能声称结构定位也改善。",
+        f"峰值加权消融的热点误差降至 {t5_peak_shape['hotspot_error_bins']['cnn_mean']:.2f} bin，"
+        f"但测试 SSIM 降到 {t5_peak['comparison']['ssim']['cnn']:.3f}，低于插值基线；"
+        "不替代主模型。",
         "输入先在原始计数上合并 bin，再单独归一化；不使用目标分辨率的背景统计量。",
         "低分辨率输入由 Micro-C 合并 bin 模拟，不能外推到独立 Hi-C。", "",
         "## 任务六：三维重建", "",
@@ -265,6 +282,11 @@ def main() -> None:
         f"同一 rep1-MDS 基线为 {t6['mds_contact_distance_spearman']:.3f}/"
         f"{t6_repeat['rep2_cross_replicate']['all_positive']['rep1_mds_baseline']:.3f}。"
         "详见 `task6_all_positive_replicate_validation.json`。",
+        f"rep2 正接触对与归一化后零接触对的空间距离区分 AUC：旧强接触模型 "
+        f"{t6_repeat['rep2_cross_replicate']['positive_vs_zero_distance_auc']['original_top20_mlp']:.3f}，"
+        f"新全正接触模型 "
+        f"{t6_repeat['rep2_cross_replicate']['positive_vs_zero_distance_auc']['all_positive_mlp']:.3f}，"
+        f"MDS {t6_repeat['rep2_cross_replicate']['positive_vs_zero_distance_auc']['rep1_mds_baseline']:.3f}。",
         f"另保留弱 MDS 正则的消融对照 "
         f"{t6_regularized['mlp_contact_distance_spearman']:.3f}，该对照不应称为独立基线。"
         "rep2 检查不是独立显微成像真值；坐标并非唯一的真实物理构象。", ""]
@@ -280,6 +302,9 @@ def main() -> None:
     strict_loci = json.loads((SOURCE / "task2_strict_locus_evidence.json").read_text(encoding="utf-8"))
     strict_revised = json.loads((SOURCE / "task2_strict_revised/summary.json").read_text(encoding="utf-8"))
     novel_cluster = json.loads((SOURCE / "task2_novel_cluster/summary.json").read_text(encoding="utf-8"))
+    novel_heat = json.loads((SOURCE / "task2_novel_cluster/transfer_44c.json").read_text(encoding="utf-8"))
+    novel_rif = json.loads((SOURCE / "task2_novel_cluster/transfer_rif25.json").read_text(encoding="utf-8"))
+    novel_hns = json.loads((SOURCE / "task2_novel_cluster/transfer_hns.json").read_text(encoding="utf-8"))
     length_context = json.loads((SOURCE / "task1_length_context/summary.json").read_text(encoding="utf-8"))
     handcrafted = json.loads((SOURCE / "task1_handcrafted/summary.json").read_text(encoding="utf-8"))
     improved = handcrafted["hist_gradient_boosting_contact_shape_plus_span"]
@@ -287,6 +312,7 @@ def main() -> None:
     boundary = json.loads((SOURCE / "task1_interval_boundaries/summary.json").read_text(encoding="utf-8"))
     boundary_gain = json.loads((SOURCE / "task1_interval_boundaries/paired_uncertainty.json").read_text(encoding="utf-8"))
     transfer = json.loads((SOURCE / "task1_replicate_transfer/summary.json").read_text(encoding="utf-8"))
+    balanced_cnn = json.loads((SOURCE / "task1_balanced_cnn/summary.json").read_text(encoding="utf-8"))
     hns = json.loads((SOURCE / "task2_hns_validation/summary.json").read_text(encoding="utf-8"))
     task1_header = next(i for i, line in enumerate(lines) if line.startswith("## 任务一"))
     lines[task1_header:task1_header + 1] = [
@@ -343,6 +369,9 @@ def main() -> None:
         f"{transfer['rep2_to_rep1']['chid_precision']:.3f}/"
         f"{transfer['rep2_to_rep1']['chid_recall']:.3f}。重复间存在不对称性；"
         "联合两重复在主分区更好，但不能称为每次分区都胜出。", "",
+        f"同一 40 kb 空间五折的纯 CNN 逆频率类别加权试验：CHID 精确率/召回率 "
+        f"{balanced_cnn['chid_precision']:.3f}/{balanced_cnn['chid_recall']:.3f}，"
+        f"准确率 {balanced_cnn['accuracy']:.3f}；误报增加，不采用。", "",
         "### 旧版 ID-only 对照", "",
     ]
     task3_header = next(i for i, line in enumerate(lines) if line.startswith("## 任务三"))
@@ -364,6 +393,13 @@ def main() -> None:
         "成员、背景阈值、逐重复形态相似性和与 344 个已知注释的对照见 "
         "`task2_novel_cluster_putative_novel_clusters.csv`、`task2_novel_cluster_all_candidate_pairs.csv` "
         "及 `task2_novel_cluster_summary.json`。这是后验探索，背景最大配对检验不是全基因组 FDR。", "",
+        f"未参与 WT 成簇筛选的 44℃、利福平和 H-NS 突变条件下，两位点配对的平均图上三角相关分别为 "
+        f"{novel_heat['comparisons']['mean']['upper_r']:.3f}/"
+        f"{novel_rif['comparisons']['mean']['upper_r']:.3f}/"
+        f"{novel_hns['comparisons']['mean']['upper_r']:.3f}，均未超过各条件同门槛背景第 99 百分位。"
+        "因此 N1 只可描述为 WT 条件下的疑似形态簇，不可称跨条件稳定类型；见 "
+        "`task2_novel_cluster_transfer_44c.json`、`task2_novel_cluster_transfer_rif25.json`、"
+        "`task2_novel_cluster_transfer_hns.json`。", "",
         f"独立 H-NS 缺失两重复复核：7 位点平均效应与匹配背景的探索性 p="
         f"{hns['cohort_matched_empirical_upper_p']:.3f}；中位数 p="
         f"{hns['cohort_median_matched_empirical_upper_p']:.3f}。剔除最大效应位点 "

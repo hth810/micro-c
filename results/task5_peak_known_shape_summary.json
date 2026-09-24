@@ -1,0 +1,17 @@
+{
+  "known_centers": 68,
+  "informative_centers": 68,
+  "zero_signal_centers_excluded": 0,
+  "patch_bp": 640,
+  "note": "Local centered patch only; cannot prove recovery of the full multi-kb structure or automated localization.",
+  "upper_contact_spearman": {
+    "bilinear_mean": 0.2859155689226397,
+    "cnn_mean": 0.3002227370268176,
+    "cnn_better_fraction": 0.8088235294117647
+  },
+  "hotspot_error_bins": {
+    "bilinear_mean": 14.169314332564602,
+    "cnn_mean": 13.866502766543796,
+    "cnn_better_fraction": 0.38235294117647056
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "model": "contact-only GroupNorm CNN, no annotation span or boundary features",
+  "spatial_gap_bp": 40000,
+  "epochs": 12,
+  "class_weight_power": 1.0,
+  "selection": "fixed inverse-frequency class weighting; no outer-fold threshold tuning",
+  "accuracy": 0.7209302325581395,
+  "macro_f1": 0.577696581822848,
+  "chid_precision": 0.15873015873015872,
+  "chid_recall": 0.38461538461538464,
+  "confusion_matrix": [
+    [
+      193,
+      16,
+      41
+    ],
+    [
+      11,
+      45,
+      12
+    ],
+    [
+      13,
+      3,
+      10
+    ]
+  ]
+}

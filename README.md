@@ -11,6 +11,7 @@
 ```bash
 python -m pip install -r requirements.txt
 python scripts/download_geo.py wt1 wt2 heat heat2 rif rif2 gff
+python scripts/download_geo.py hns1 hns2
 python scripts/prepare_annotations.py data/raw/标注数据.xlsx
 ```
 
@@ -65,6 +66,7 @@ python -m scripts.compare_task1_boundary --out outputs/task1_interval_boundaries
 python -m task1.train_final_boundaries --out outputs/task1_boundary_final.joblib
 python -m task1.predict_handcrafted --rep1 data/raw/GSE272159_37C_rep1.mapq_30.10.cool.gz --rep2 data/raw/GSE272159_37C_rep2.mapq_30.10.cool.gz --annotations data/structures.csv --model outputs/task1_boundary_final.joblib --out outputs/task1_boundary_in_sample_smoke.csv
 python -m task1.evaluate_replicate_transfer --out outputs/task1_replicate_transfer
+python -m task1.evaluate_balanced_cnn --out outputs/task1_balanced_cnn
 
 python task1/run_task1.py --data-dir data/raw --annotations data/structures.csv --split-mode structure --out-dir outputs/task1
 
@@ -93,6 +95,9 @@ python -m microc.analysis differential --wt data/raw/GSE272159_37C_rep1.mapq_30.
 python -m microc.analysis differential --wt data/raw/GSE272159_37C_rep1.mapq_30.10.cool.gz --condition data/raw/GSE272159_37C_rep2.mapq_30.10.cool.gz --name wt_rep2_control --annotations data/structures.csv --out outputs/task4_repeat_depth_final
 
 python -m microc.deep superresolve --cool data/raw/GSE272159_37C_rep1.mapq_30.10.cool.gz --annotations data/structures.csv --factor 4 --epochs 12 --out outputs/task5_corrected
+python -m scripts.validate_sr_known_shape --cool data/raw/GSE272159_37C_rep1.mapq_30.10.cool.gz --checkpoint outputs/task5_corrected/super_resolution.pt --known-file outputs/task5_corrected/known_structure_recovery.csv --out outputs/task5_known_shape
+python -m microc.deep superresolve --cool data/raw/GSE272159_37C_rep1.mapq_30.10.cool.gz --annotations data/structures.csv --factor 4 --epochs 12 --peak-weight 0.5 --out outputs/task5_peak_weighted
+python -m scripts.validate_sr_known_shape --cool data/raw/GSE272159_37C_rep1.mapq_30.10.cool.gz --checkpoint outputs/task5_peak_weighted/super_resolution.pt --known-file outputs/task5_peak_weighted/known_structure_recovery.csv --out outputs/task5_peak_known_shape
 
 python -m microc.deep reconstruct3d --cool data/raw/GSE272159_37C_rep1.mapq_30.10.cool.gz --annotations data/structures.csv --pretrain-epochs 0 --anchor-weight 0 --out outputs/task6_independent
 python -m microc.deep reconstruct3d --cool data/raw/GSE272159_37C_rep1.mapq_30.10.cool.gz --annotations data/structures.csv --pretrain-epochs 0 --anchor-weight 0 --contact-quantile 0 --out outputs/task6_all_positive
@@ -110,7 +115,9 @@ python -m scripts.validate_candidates_conditions --candidates outputs/task2_stri
 python -m scripts.summarize_strict_candidates --loci outputs/task2_strict_individual_loci.csv --windows outputs/task2_strict_individual.csv --conditions outputs/task2_strict_individual_conditions.csv --wt-null outputs/task2_strict_individual_validation/candidate_shift_null.csv --out outputs/task2_strict_locus_evidence.csv
 python -m scripts.render_individual_candidates --loci outputs/task2_strict_individual_loci.csv --rep1 data/raw/GSE272159_37C_rep1.mapq_30.10.cool.gz --rep2 data/raw/GSE272159_37C_rep2.mapq_30.10.cool.gz --out outputs/task2_strict_individual_heatmaps
 python -m scripts.validate_novel_cluster --rep1 data/raw/GSE272159_37C_rep1.mapq_30.10.cool.gz --rep2 data/raw/GSE272159_37C_rep2.mapq_30.10.cool.gz --out outputs/task2_novel_cluster
-python -m scripts.download_geo hns1 hns2
+python -m scripts.validate_novel_condition_transfer --rep1 data/raw/GSE272159_44C_rep1.mapq_30.10.cool.gz --rep2 data/raw/GSE272159_44C_rep2.mapq_30.10.cool.gz --name 44C --out outputs/task2_novel_cluster/transfer_44c.json
+python -m scripts.validate_novel_condition_transfer --rep1 data/raw/GSE272159_rif25_rep1.MG1655.mapq_30.10.cool.gz --rep2 data/raw/GSE272159_rif25_rep2.MG1655.mapq_30.10.cool.gz --name rif25 --out outputs/task2_novel_cluster/transfer_rif25.json
+python -m scripts.validate_novel_condition_transfer --rep1 data/raw/GSM9678478_HNS_mut_rep1.MG1655.mapq_30.10.cool.gz --rep2 data/raw/GSM9678479_HNS_mut_rep2.MG1655.mapq_30.10.cool.gz --name HNS_mut --out outputs/task2_novel_cluster/transfer_hns.json
 python -m scripts.validate_hns_candidates --wt1 data/raw/GSE272159_37C_rep1.mapq_30.10.cool.gz --wt2 data/raw/GSE272159_37C_rep2.mapq_30.10.cool.gz --hns1 data/raw/GSM9678478_HNS_mut_rep1.MG1655.mapq_30.10.cool.gz --hns2 data/raw/GSM9678479_HNS_mut_rep2.MG1655.mapq_30.10.cool.gz --out outputs/task2_hns_validation
 python scripts/collect_results.py
 python -m scripts.evaluate_saved_sr --bundle results

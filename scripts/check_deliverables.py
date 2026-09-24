@@ -42,6 +42,9 @@ def main() -> None:
     predictions = pd.read_csv(bundle / "task1_interval_boundaries_crossfit_predictions.csv")
     assert predictions.id.nunique() == 344
     assert all(group.id.nunique() == 344 for _, group in predictions.groupby("mode"))
+    balanced = read_json(bundle / "task1_balanced_cnn_summary.json")
+    assert balanced["class_weight_power"] == 1.0
+    assert len(pd.read_csv(required(bundle / "task1_balanced_cnn_crossfit_predictions.csv"))) == 344
 
     # Task 2: a candidate cluster means independent loci, not duplicate slide windows.
     discovery = read_json(bundle / "task2_summary.json")
@@ -59,6 +62,10 @@ def main() -> None:
     for center in loci.center:
         for replicate in (1, 2):
             required(bundle / f"task2_novel_cluster_N1_{center}_rep{replicate}.png")
+    for condition in ("44c", "rif25", "hns"):
+        transfer = read_json(bundle / f"task2_novel_cluster_transfer_{condition}.json")
+        assert transfer["pair_centers_bp"] == loci.center.astype(int).tolist()
+        assert transfer["independent_background_pairs"] == 7456
 
     # Task 3: every 10 kb genomic interval has one four-panel PNG.
     starts = sorted(int(re.search(r"_(\d+)\.png$", path.name).group(1))
@@ -85,6 +92,14 @@ def main() -> None:
     assert shape["informative_test_windows"] + shape["zero_signal_windows_excluded"] == 208
     required(bundle / "task5_super_resolution.pt")
     required(bundle / "task5_shape_validation.csv")
+    known_shape = read_json(bundle / "task5_known_shape_summary.json")
+    assert known_shape["known_centers"] == 68
+    assert len(pd.read_csv(required(bundle / "task5_known_shape_per_structure.csv"))) == 136
+    peak_trial = read_json(bundle / "task5_peak_weighted_summary.json")
+    peak_shape = read_json(bundle / "task5_peak_known_shape_summary.json")
+    assert peak_trial["peak_weight"] == .5 and peak_shape["known_centers"] == 68
+    required(bundle / "task5_peak_weighted_super_resolution.pt")
+    assert len(pd.read_csv(required(bundle / "task5_peak_known_shape_per_structure.csv"))) == 136
 
     # Task 6: coordinates, independent baseline, and WT-replicate check.
     rep = read_json(bundle / "task6_all_positive_replicate_validation.json")
@@ -99,6 +114,7 @@ def main() -> None:
     required(bundle / "task6_all_positive_chromosome_3d.png")
     required(bundle / "task6_all_positive_contact_reconstruction.png")
     assert rep["rep2_cross_replicate"]["all_positive"]["pairs"] > 200_000
+    assert 0 <= rep["rep2_cross_replicate"]["positive_vs_zero_distance_auc"]["all_positive_mlp"] <= 1
 
     # Every local Markdown evidence link must resolve in a clean checkout.
     for document in ("README.md", "METHODS.md", "REPORT.md", "AUDIT.md", "results/README.md"):

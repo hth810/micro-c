@@ -17,6 +17,13 @@
       "original_top20_mlp": -0.0294642477482797,
       "all_positive_mlp": 0.45391118517666884,
       "rep1_mds_baseline": 0.29134395448646955
+    },
+    "positive_vs_zero_distance_auc": {
+      "positive_pairs": 213977,
+      "zero_pairs": 216151,
+      "original_top20_mlp": 0.3762670872924562,
+      "all_positive_mlp": 0.749253598547332,
+      "rep1_mds_baseline": 0.7480080871339849
     }
   },
   "rep2_cross_replicate": {
@@ -37,6 +44,13 @@
       "original_top20_mlp": -0.037972350524798235,
       "all_positive_mlp": 0.42723623211560635,
       "rep1_mds_baseline": 0.29394753875001045
+    },
+    "positive_vs_zero_distance_auc": {
+      "positive_pairs": 214065,
+      "zero_pairs": 216063,
+      "original_top20_mlp": 0.3819764638838562,
+      "all_positive_mlp": 0.7490465991293038,
+      "rep1_mds_baseline": 0.7531641979218027
     }
   },
   "note": "All coordinates were fitted to rep1 only; rep2 was not used to fit or choose the all-positive model. This tests contact consistency across biological replicates, not agreement with imaged 3D truth."
