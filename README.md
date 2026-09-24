@@ -2,6 +2,8 @@
 
 本仓库实现课程方案中的任务一至六。任务一使用有监督 CNN 和显著性图；任务二进行全基因组候选发现、形态表征、聚类和跨重复核验；任务三绘制全基因组多条件轨道；任务四定位条件变化；任务五进行接触矩阵超分辨重建；任务六输出三维坐标并与 MDS 比较。方法和验收边界见 [方法说明](METHODS.md)。
 
+逐项交付核查、失败对照及课程正式提交尚缺的材料见 [六任务核查表](AUDIT.md)。
+
 ## 数据
 
 原始矩阵来自 [NCBI GEO GSE272159](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE272159)。`data/structures.csv` 是从课程提供的 `标注数据.xlsx` 的 Supplementary Table 4/5/6 导出的 344 条标注，来源工作簿不进入 Git。下载脚本获取六个主分析矩阵：两个 37℃ 重复、两个 44℃ 重复、两个 rifampicin 25 重复；H-NS 独立条件检查另取两个缺失突变体重复。另获取一个基因注释 GFF 文件。
@@ -93,6 +95,8 @@ python -m microc.analysis differential --wt data/raw/GSE272159_37C_rep1.mapq_30.
 python -m microc.deep superresolve --cool data/raw/GSE272159_37C_rep1.mapq_30.10.cool.gz --annotations data/structures.csv --factor 4 --epochs 12 --out outputs/task5_corrected
 
 python -m microc.deep reconstruct3d --cool data/raw/GSE272159_37C_rep1.mapq_30.10.cool.gz --annotations data/structures.csv --pretrain-epochs 0 --anchor-weight 0 --out outputs/task6_independent
+python -m microc.deep reconstruct3d --cool data/raw/GSE272159_37C_rep1.mapq_30.10.cool.gz --annotations data/structures.csv --pretrain-epochs 0 --anchor-weight 0 --contact-quantile 0 --out outputs/task6_all_positive
+python -m scripts.validate_3d_replicate --rep2 data/raw/GSE272159_37C_rep2.mapq_30.10.cool.gz
 ```
 
 `.cool.gz` 会临时解压后读取。重复运行时可自行保留同名 `.cool` 并将参数指向解压后的文件，避免反复解压。
@@ -111,6 +115,7 @@ python -m scripts.validate_hns_candidates --wt1 data/raw/GSE272159_37C_rep1.mapq
 python scripts/collect_results.py
 python -m scripts.evaluate_saved_sr --bundle results
 python scripts/collect_results.py
+python -m scripts.check_deliverables --out results/quality_audit.json
 ```
 
 ## 验证

@@ -1,0 +1,24 @@
+{
+  "chrom": "NC_000913.3",
+  "bins": 929,
+  "bin_bp": 5000,
+  "mlp_contact_distance_spearman": 0.7292870504293506,
+  "mds_contact_distance_spearman": 0.31348637331394347,
+  "contact_quantile_used_for_training": 0.0,
+  "contact_strata": {
+    "top_20_percent": {
+      "pairs": 86026,
+      "mlp_spearman": 0.39407029085289624,
+      "mds_spearman": -0.04160896363142358
+    },
+    "weaker_positive": {
+      "pairs": 127951,
+      "mlp_spearman": 0.45391118517666884,
+      "mds_spearman": 0.29134395448646955
+    }
+  },
+  "method": "neural coordinate refinement without MDS prior",
+  "pretrain_epochs": 0,
+  "anchor_weight": 0.0,
+  "note": "Coordinates are determined only up to rotation, reflection, and scale; no external geometry truth is supplied."
+}

@@ -281,8 +281,11 @@ def reconstruct3d(args) -> None:
         loss = nn.functional.mse_loss(fitted, mds_reference)
         optimizer.zero_grad(); loss.backward(); optimizer.step()
     pair_i, pair_j = np.triu_indices(n, k=2)
-    strongest = contact[pair_i, pair_j] > np.quantile(contact[pair_i, pair_j], .8)
-    pair_i, pair_j = pair_i[strongest], pair_j[strongest]
+    contact_quantile = float(getattr(args, "contact_quantile", .8))
+    if not 0 <= contact_quantile < 1:
+        raise ValueError("--contact-quantile must be in [0, 1)")
+    selected = contact[pair_i, pair_j] > np.quantile(contact[pair_i, pair_j], contact_quantile)
+    pair_i, pair_j = pair_i[selected], pair_j[selected]
     if not len(pair_i): raise ValueError("No positive contact edges")
     goal = torch.tensor(distance_target[pair_i, pair_j], dtype=torch.float32)
     scale = float(np.median(distance_target[pair_i, pair_j]))
@@ -300,9 +303,27 @@ def reconstruct3d(args) -> None:
         optimizer.zero_grad(); loss.backward(); optimizer.step()
     coords = model(inputs).detach().numpy()
     uses_mds_prior = bool(args.pretrain_epochs or args.anchor_weight)
+    all_i, all_j = np.triu_indices(n, k=2)
+    top_cutoff = np.quantile(contact[all_i, all_j], .8)
+    top_mask = contact[all_i, all_j] > top_cutoff
+    weak_mask = (contact[all_i, all_j] > 0) & ~top_mask
+
+    def stratum_consistency(points: np.ndarray, mask: np.ndarray) -> float:
+        from scipy.spatial.distance import pdist, squareform
+        distances = squareform(pdist(points))[all_i, all_j]
+        return float(spearmanr(contact[all_i, all_j][mask], -distances[mask]).statistic)
+
     summary = {"chrom": chrom, "bins": n, "bin_bp": args.bin_bp,
                "mlp_contact_distance_spearman": _consistency(coords, contact),
                "mds_contact_distance_spearman": _consistency(mds, contact),
+               "contact_quantile_used_for_training": contact_quantile,
+               "contact_strata": {
+                   "top_20_percent": {"pairs": int(top_mask.sum()),
+                       "mlp_spearman": stratum_consistency(coords, top_mask),
+                       "mds_spearman": stratum_consistency(mds, top_mask)},
+                   "weaker_positive": {"pairs": int(weak_mask.sum()),
+                       "mlp_spearman": stratum_consistency(coords, weak_mask),
+                       "mds_spearman": stratum_consistency(mds, weak_mask)}},
                "method": ("MDS-regularized neural coordinate refinement" if uses_mds_prior else
                           "neural coordinate refinement without MDS prior"),
                "pretrain_epochs": args.pretrain_epochs, "anchor_weight": args.anchor_weight,
@@ -359,6 +380,8 @@ def main() -> None:
     d3.add_argument("--annotations", type=Path)
     d3.add_argument("--chrom"); d3.add_argument("--bin-bp", type=int, default=5000)
     d3.add_argument("--epochs", type=int, default=200); d3.add_argument("--pairs-per-epoch", type=int, default=20000)
+    d3.add_argument("--contact-quantile", type=float, default=.8,
+                    help="train on contacts above this quantile; 0 includes all positive contacts")
     d3.add_argument("--pretrain-epochs", type=int, default=0,
                     help="optional MDS pretraining; 0 keeps the neural baseline independent")
     d3.add_argument("--anchor-weight", type=float, default=0,

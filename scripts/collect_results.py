@@ -106,6 +106,12 @@ def main() -> None:
         "task6_independent/metrics.json", "task6_independent/coordinates.csv",
         "task6_independent/contact_and_baseline.npz", "task6_independent/chromosome_3d.png",
         "task6_independent/contact_reconstruction.png", "task6_independent/genome_3d.pt",
+        "task6_all_positive/metrics.json", "task6_all_positive/coordinates.csv",
+        "task6_all_positive/contact_and_baseline.npz",
+        "task6_all_positive/chromosome_3d.png",
+        "task6_all_positive/contact_reconstruction.png",
+        "task6_all_positive/genome_3d.pt",
+        "task6_all_positive/replicate_validation.json",
     ]
     for entry in required:
         if entry == "task1_calibrated/metrics.json":
@@ -122,6 +128,8 @@ def main() -> None:
             copy(entry, "task2_strict_summary.json")
         elif entry.startswith("task6_independent/"):
             copy(entry, entry.replace("task6_independent/", "task6_"))
+        elif entry.startswith("task6_all_positive/"):
+            copy(entry, entry.replace("task6_all_positive/", "task6_all_positive_"))
         else:
             copy(entry)
     for source, output in (
@@ -171,7 +179,10 @@ def main() -> None:
     strict = json.loads((SOURCE / "task2_strict_current/summary.json").read_text(encoding="utf-8"))
     t5 = json.loads((DEST / "task5_summary.json").read_text(encoding="utf-8"))
     t5_validation = json.loads((DEST / "task5_validation.json").read_text(encoding="utf-8"))
+    t5_shape = json.loads((DEST / "task5_shape_validation.json").read_text(encoding="utf-8"))
     t6 = json.loads((SOURCE / "task6_independent/metrics.json").read_text(encoding="utf-8"))
+    t6_all = json.loads((SOURCE / "task6_all_positive/metrics.json").read_text(encoding="utf-8"))
+    t6_repeat = json.loads((SOURCE / "task6_all_positive/replicate_validation.json").read_text(encoding="utf-8"))
     t6_regularized = json.loads((DEST / "task6_regularized_metrics.json").read_text(encoding="utf-8"))
     changes = pd.read_csv(SOURCE / "task4_heat_final/class_summary.csv")
     reproducible = pd.read_csv(SOURCE / "task4_heat_final/reproducible_changes.csv")
@@ -238,14 +249,25 @@ def main() -> None:
         f"成对 PSNR/SSIM 提升 {t5_validation['test']['psnr']['mean_gain']:.3f}/"
         f"{t5_validation['test']['ssim']['mean_gain']:.3f}；已知结构中心 68 个窗口的 "
         f"SSIM 胜率 {t5_validation['known_structures']['ssim']['win_fraction']:.1%}。",
+        f"形态专项检查排除 {t5_shape['zero_signal_windows_excluded']} 个无非对角信号窗口后，"
+        f"{t5_shape['informative_test_windows']} 个窗口的上三角接触排序相关由插值的 "
+        f"{t5_shape['bilinear_mean_upper_contact_spearman']:.3f} 升至 CNN 的 "
+        f"{t5_shape['cnn_mean_upper_contact_spearman']:.3f}；增幅较小，见 `task5_shape_validation.json`。",
         "输入先在原始计数上合并 bin，再单独归一化；不使用目标分辨率的背景统计量。",
         "低分辨率输入由 Micro-C 合并 bin 模拟，不能外推到独立 Hi-C。", "",
         "## 任务六：三维重建", "",
-        f"{t6['bins']} 个 {t6['bin_bp']} bp bin；接触与反距离 Spearman 相关为 "
-        f"MLP {t6['mlp_contact_distance_spearman']:.3f}、MDS {t6['mds_contact_distance_spearman']:.3f}。",
-        f"独立模型不使用 MDS 预训练或正则。另保留弱 MDS 正则的消融对照 "
+        f"{t6['bins']} 个 {t6['bin_bp']} bp bin；旧强接触专训 MLP 的 rep1 总体相关为 "
+        f"{t6['mlp_contact_distance_spearman']:.3f}，但较弱正接触层为 "
+        f"{t6_repeat['rep1_in_sample']['weaker_positive']['original_top20_mlp']:.3f}。",
+        f"改为所有正接触训练且不使用 MDS 先验后，rep1/独立 WT rep2 总体相关为 "
+        f"{t6_all['mlp_contact_distance_spearman']:.3f}/"
+        f"{t6_repeat['rep2_cross_replicate']['all_positive']['all_positive_mlp']:.3f}；"
+        f"同一 rep1-MDS 基线为 {t6['mds_contact_distance_spearman']:.3f}/"
+        f"{t6_repeat['rep2_cross_replicate']['all_positive']['rep1_mds_baseline']:.3f}。"
+        "详见 `task6_all_positive_replicate_validation.json`。",
+        f"另保留弱 MDS 正则的消融对照 "
         f"{t6_regularized['mlp_contact_distance_spearman']:.3f}，该对照不应称为独立基线。"
-        "坐标并非唯一的真实物理构象。", ""]
+        "rep2 检查不是独立显微成像真值；坐标并非唯一的真实物理构象。", ""]
     spatial = json.loads((SOURCE / "task1_spatial/metrics.json").read_text(encoding="utf-8"))
     narrow = json.loads((SOURCE / "task1_spatial_gap10k_scale4/metrics.json").read_text(encoding="utf-8"))
     wide = json.loads((SOURCE / "task1_spatial_scale8/metrics.json").read_text(encoding="utf-8"))

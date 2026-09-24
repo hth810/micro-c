@@ -11,6 +11,7 @@ from microc.deep import _coarsen, _consistency, degrade, prepare_sr_pair, recons
 from scripts.validate_discovery import shape_features
 from scripts.validate_hns_candidates import condition_effect
 from scripts.validate_novel_cluster import components
+from scripts.validate_3d_replicate import stratified_correlations
 from task1.evaluate_chid_overlap import overlap_targets, spatial_groups
 from task1.evaluate_pairwise import PairAwareCNN, nearby_chid_chin_pairs
 from task1.evaluate_length_context import LengthAwareCNN
@@ -87,6 +88,17 @@ def test_interval_boundary_features_follow_annotated_interval():
 def test_novel_cluster_requires_independent_pair_edge():
     assert components(4, []) == []
     assert components(4, [(0, 2)]) == [[0, 2]]
+
+
+def test_3d_stratified_consistency_detects_distance_order():
+    positions = np.arange(12, dtype=float) ** 1.2
+    xyz = np.column_stack((positions, np.zeros((12, 2))))
+    distances = np.abs(np.subtract.outer(positions, positions))
+    contact = 1 / (distances + 1)
+    scores = stratified_correlations(contact, {"ordered": xyz})
+    assert scores["all_positive"]["ordered"] > .99
+    assert scores["top_20_percent"]["pairs"] > 3
+    assert scores["weaker_positive"]["pairs"] > 3
 
 
 def test_real_annotation_workbook_if_present():

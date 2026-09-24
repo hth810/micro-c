@@ -1,0 +1,43 @@
+{
+  "rep1_in_sample": {
+    "all_positive": {
+      "pairs": 213977,
+      "original_top20_mlp": 0.3710626750341685,
+      "all_positive_mlp": 0.7292870504293506,
+      "rep1_mds_baseline": 0.31348637331394347
+    },
+    "top_20_percent": {
+      "pairs": 86026,
+      "original_top20_mlp": 0.6370666893373557,
+      "all_positive_mlp": 0.39407029085289624,
+      "rep1_mds_baseline": -0.04160896363142358
+    },
+    "weaker_positive": {
+      "pairs": 127951,
+      "original_top20_mlp": -0.0294642477482797,
+      "all_positive_mlp": 0.45391118517666884,
+      "rep1_mds_baseline": 0.29134395448646955
+    }
+  },
+  "rep2_cross_replicate": {
+    "all_positive": {
+      "pairs": 214065,
+      "original_top20_mlp": 0.34984347916981345,
+      "all_positive_mlp": 0.7122846506305693,
+      "rep1_mds_baseline": 0.3190765137013325
+    },
+    "top_20_percent": {
+      "pairs": 86021,
+      "original_top20_mlp": 0.62065114040557,
+      "all_positive_mlp": 0.39788215584373415,
+      "rep1_mds_baseline": -0.03982623383086815
+    },
+    "weaker_positive": {
+      "pairs": 128044,
+      "original_top20_mlp": -0.037972350524798235,
+      "all_positive_mlp": 0.42723623211560635,
+      "rep1_mds_baseline": 0.29394753875001045
+    }
+  },
+  "note": "All coordinates were fitted to rep1 only; rep2 was not used to fit or choose the all-positive model. This tests contact consistency across biological replicates, not agreement with imaged 3D truth."
+}
