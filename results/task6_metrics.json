@@ -2,8 +2,8 @@
   "chrom": "NC_000913.3",
   "bins": 929,
   "bin_bp": 5000,
-  "mlp_contact_distance_spearman": 0.5950709561310531,
+  "mlp_contact_distance_spearman": 0.5750234218410069,
   "mds_contact_distance_spearman": 0.31348637331394347,
-  "method": "MDS-initialized neural coordinate refinement",
+  "method": "independently initialized neural coordinate refinement",
   "note": "Coordinates are determined only up to rotation, reflection, and scale; no external geometry truth is supplied."
 }

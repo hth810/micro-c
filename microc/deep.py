@@ -270,8 +270,8 @@ def reconstruct3d(args) -> None:
     inputs = torch.tensor(contact, dtype=torch.float32)
     model = GenomeMLP(n)
     optimizer = torch.optim.Adam(model.parameters(), lr=args.lr)
-    # Use the classical geometry as a stable initialization, then refine it
-    # against observed contact-distance pairs and chromosome continuity.
+    # MDS is retained as a baseline. By default the neural model starts from
+    # its own random initialization so the baseline comparison is independent.
     mds_reference = (mds - mds.mean(axis=0)) / max(float(np.std(mds)), 1e-6)
     mds_reference = torch.tensor(mds_reference, dtype=torch.float32)
     for _ in range(args.pretrain_epochs):
@@ -300,7 +300,7 @@ def reconstruct3d(args) -> None:
     summary = {"chrom": chrom, "bins": n, "bin_bp": args.bin_bp,
                "mlp_contact_distance_spearman": _consistency(coords, contact),
                "mds_contact_distance_spearman": _consistency(mds, contact),
-               "method": "MDS-initialized neural coordinate refinement",
+               "method": "independently initialized neural coordinate refinement",
                "note": "Coordinates are determined only up to rotation, reflection, and scale; no external geometry truth is supplied."}
     pd.DataFrame({"chrom": chrom, "start": np.arange(n) * args.bin_bp,
                   "end": (np.arange(n) + 1) * args.bin_bp,
@@ -354,8 +354,10 @@ def main() -> None:
     d3.add_argument("--annotations", type=Path)
     d3.add_argument("--chrom"); d3.add_argument("--bin-bp", type=int, default=5000)
     d3.add_argument("--epochs", type=int, default=200); d3.add_argument("--pairs-per-epoch", type=int, default=20000)
-    d3.add_argument("--pretrain-epochs", type=int, default=100)
-    d3.add_argument("--anchor-weight", type=float, default=.5)
+    d3.add_argument("--pretrain-epochs", type=int, default=0,
+                    help="optional MDS pretraining; 0 keeps the neural baseline independent")
+    d3.add_argument("--anchor-weight", type=float, default=.1,
+                    help="weak MDS regularization; set 0 for a fully independent model")
     d3.add_argument("--lr", type=float, default=1e-3); d3.add_argument("--seed", type=int, default=20260921)
     args = ap.parse_args()
     {"superresolve": superresolve, "reconstruct3d": reconstruct3d}[args.task](args)
