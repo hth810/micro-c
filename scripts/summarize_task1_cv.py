@@ -30,12 +30,14 @@ def main() -> None:
     parser.add_argument("--out", type=Path, default=Path("outputs/task1_multiscale_eval/uncertainty.json"))
     parser.add_argument("--resamples", type=int, default=2000)
     parser.add_argument("--seed", type=int, default=20260921)
+    parser.add_argument("--mode-column", default="mode")
+    parser.add_argument("--resampling-unit", default="non-overlapping 20.48 kb genomic component")
     args = parser.parse_args()
     frame = pd.read_csv(args.predictions)
     rng = np.random.default_rng(args.seed)
-    output = {"resampling_unit": "non-overlapping 20.48 kb genomic component",
+    output = {"resampling_unit": args.resampling_unit,
               "resamples": args.resamples, "modes": {}}
-    for mode, subset in frame.groupby("mode"):
+    for mode, subset in frame.groupby(args.mode_column):
         groups = subset.spatial_group.unique()
         indices = {group: np.flatnonzero(subset.spatial_group.to_numpy() == group) for group in groups}
         sampled = {field: [] for field in ("accuracy", "macro_f1", "chid_precision", "chid_recall")}

@@ -1,0 +1,76 @@
+{
+  "epochs": 12,
+  "spatial_group_gap_bp": 40000,
+  "evaluation": "original three-class labels; five non-overlapping spatial folds",
+  "length_feature": "log1p(annotation interval bp), standardized within each training fold",
+  "caution": "Annotation span is not known for an arbitrary genome window",
+  "contact_only": {
+    "accuracy": 0.7965116279069767,
+    "macro_f1": 0.5947748216314837,
+    "chid_precision": 0.21739130434782608,
+    "chid_recall": 0.19230769230769232,
+    "confusion_matrix": [
+      [
+        223,
+        14,
+        13
+      ],
+      [
+        17,
+        46,
+        5
+      ],
+      [
+        18,
+        3,
+        5
+      ]
+    ]
+  },
+  "length_only": {
+    "accuracy": 0.7180232558139535,
+    "macro_f1": 0.5723609587484385,
+    "chid_precision": 0.34782608695652173,
+    "chid_recall": 0.6153846153846154,
+    "confusion_matrix": [
+      [
+        200,
+        40,
+        10
+      ],
+      [
+        17,
+        31,
+        20
+      ],
+      [
+        0,
+        10,
+        16
+      ]
+    ]
+  },
+  "contact_plus_length": {
+    "accuracy": 0.8023255813953488,
+    "macro_f1": 0.6001930967252417,
+    "chid_precision": 0.29411764705882354,
+    "chid_recall": 0.19230769230769232,
+    "confusion_matrix": [
+      [
+        224,
+        17,
+        9
+      ],
+      [
+        18,
+        47,
+        3
+      ],
+      [
+        16,
+        5,
+        5
+      ]
+    ]
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "training_annotations": 344,
+  "class_counts": {
+    "CHIN": 250,
+    "OPCID": 68,
+    "CHID": 26
+  },
+  "feature_count": 119,
+  "requires_known_interval_span": true,
+  "chid_cv_f1_threshold": 0.4,
+  "threshold_selected_from_training_only": true,
+  "evaluation_source": "outputs/task1_handcrafted/summary.json",
+  "caution": "Training-fit scores are not a generalization estimate; use spatial CV results."
+}

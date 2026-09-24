@@ -1,0 +1,23 @@
+{
+  "n_candidates": 7,
+  "largest_effect_candidate_center_bp": 4241920,
+  "n_unique_matched_controls": 80,
+  "known_chid_centers": 26,
+  "known_chid_median_corrected_effect": 0.5855914950370789,
+  "candidate_mean_corrected_effect": 0.6676356281552996,
+  "candidate_median_corrected_effect": 0.5098052024841309,
+  "matched_null_mean_corrected_effect": 0.396679854120527,
+  "cohort_matched_empirical_upper_p": 0.01739652069586083,
+  "cohort_median_matched_empirical_upper_p": 0.08358328334333133,
+  "leave_one_candidate_out_cohort_p": {
+    "1991680": 0.007198560287942412,
+    "2736640": 0.029194161167766446,
+    "2926080": 0.014597080583883223,
+    "3307520": 0.01219756048790242,
+    "3886080": 0.015996800639872025,
+    "4175360": 0.020995800839832032,
+    "4241920": 0.3077384523095381
+  },
+  "individual_loci_bh_q_below_005": 0,
+  "caution": "WT-selected candidates; H-NS perturbation is a condition check, not novel-structure proof. Matched-null tests are exploratory."
+}

@@ -30,6 +30,16 @@
     "sha256": "ae344b73831d0662bf676e549930c260d4a8bf9fcbdb978d666def34f97b74d6"
   },
   {
+    "file": "GSM9678478_HNS_mut_rep1.MG1655.mapq_30.10.cool.gz",
+    "bytes": 678658675,
+    "sha256": "54ade3926236888e016264f002062fb62514c4928a3f75299b309671e9f70e71"
+  },
+  {
+    "file": "GSM9678479_HNS_mut_rep2.MG1655.mapq_30.10.cool.gz",
+    "bytes": 598837701,
+    "sha256": "1e1eceb34cce1bb98990234d5b1a4b4127e8d82c17109da08dfff5e86bce8a23"
+  },
+  {
     "file": "GCF_000005845.2_ASM584v2_genomic.gff.gz",
     "bytes": 387627,
     "sha256": "afdf03dc1d06e423d874ee29d9e0df14f5d32baf893f4da9f93aa721eb5f495e"

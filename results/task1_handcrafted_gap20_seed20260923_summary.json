@@ -1,0 +1,29 @@
+{
+  "evaluation": "original three-class labels; fixed 5-fold spatial CV",
+  "spatial_gap_bp": 20000,
+  "fold_seed": 20260923,
+  "caution": "Exploratory model comparison; span known only for annotated intervals.",
+  "hist_gradient_boosting_contact_shape_plus_span": {
+    "accuracy": 0.877906976744186,
+    "macro_f1": 0.7470033000640312,
+    "chid_precision": 0.6111111111111112,
+    "chid_recall": 0.4230769230769231,
+    "confusion_matrix": [
+      [
+        230,
+        13,
+        7
+      ],
+      [
+        7,
+        61,
+        0
+      ],
+      [
+        6,
+        9,
+        11
+      ]
+    ]
+  }
+}

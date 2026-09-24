@@ -1,0 +1,142 @@
+{
+  "evaluation": "original three-class labels; 40 kb spatial groups; fixed 5-fold CV",
+  "caution": "Exploratory model comparison; span known only for annotated intervals.",
+  "extra_trees_span_only": {
+    "accuracy": 0.6598837209302325,
+    "macro_f1": 0.4998506770169711,
+    "chid_precision": 0.2459016393442623,
+    "chid_recall": 0.5769230769230769,
+    "confusion_matrix": [
+      [
+        188,
+        44,
+        18
+      ],
+      [
+        16,
+        24,
+        28
+      ],
+      [
+        0,
+        11,
+        15
+      ]
+    ]
+  },
+  "hist_gradient_boosting_span_only": {
+    "accuracy": 0.6773255813953488,
+    "macro_f1": 0.5323225094949825,
+    "chid_precision": 0.3076923076923077,
+    "chid_recall": 0.6153846153846154,
+    "confusion_matrix": [
+      [
+        190,
+        45,
+        15
+      ],
+      [
+        20,
+        27,
+        21
+      ],
+      [
+        1,
+        9,
+        16
+      ]
+    ]
+  },
+  "extra_trees_contact_shape_only": {
+    "accuracy": 0.8197674418604651,
+    "macro_f1": 0.5720868272585719,
+    "chid_precision": 0.4,
+    "chid_recall": 0.07692307692307693,
+    "confusion_matrix": [
+      [
+        231,
+        18,
+        1
+      ],
+      [
+        17,
+        49,
+        2
+      ],
+      [
+        17,
+        7,
+        2
+      ]
+    ]
+  },
+  "hist_gradient_boosting_contact_shape_only": {
+    "accuracy": 0.8343023255813954,
+    "macro_f1": 0.6075480239332388,
+    "chid_precision": 0.5,
+    "chid_recall": 0.11538461538461539,
+    "confusion_matrix": [
+      [
+        231,
+        17,
+        2
+      ],
+      [
+        14,
+        53,
+        1
+      ],
+      [
+        16,
+        7,
+        3
+      ]
+    ]
+  },
+  "extra_trees_contact_shape_plus_span": {
+    "accuracy": 0.8488372093023255,
+    "macro_f1": 0.6055775435296576,
+    "chid_precision": 0.5,
+    "chid_recall": 0.07692307692307693,
+    "confusion_matrix": [
+      [
+        232,
+        17,
+        1
+      ],
+      [
+        9,
+        58,
+        1
+      ],
+      [
+        16,
+        8,
+        2
+      ]
+    ]
+  },
+  "hist_gradient_boosting_contact_shape_plus_span": {
+    "accuracy": 0.8662790697674418,
+    "macro_f1": 0.7205561877046444,
+    "chid_precision": 0.5882352941176471,
+    "chid_recall": 0.38461538461538464,
+    "confusion_matrix": [
+      [
+        231,
+        16,
+        3
+      ],
+      [
+        7,
+        57,
+        4
+      ],
+      [
+        8,
+        8,
+        10
+      ]
+    ]
+  }
+}

@@ -9,8 +9,10 @@ from microc.analysis import _features, _shape_score, differential, discover, tra
 from microc.data import annotations, normalize, open_cool, upper_correlation, window
 from microc.deep import _coarsen, _consistency, degrade, prepare_sr_pair, reconstruct3d, superresolve
 from scripts.validate_discovery import shape_features
+from scripts.validate_hns_candidates import condition_effect
 from task1.evaluate_chid_overlap import overlap_targets, spatial_groups
 from task1.evaluate_pairwise import PairAwareCNN, nearby_chid_chin_pairs
+from task1.evaluate_length_context import LengthAwareCNN
 from task1.run_task1 import StructureCNN, select_validation_bias, spatial_split
 
 
@@ -58,6 +60,17 @@ def test_nearby_chid_chin_pairs():
     assert nearby_chid_chin_pairs(frame, 2000).tolist() == [[0, 1]]
     assert PairAwareCNN()(torch.zeros(2, 1, 128, 128)).shape == (2, 3)
     assert PairAwareCNN(input_channels=2)(torch.zeros(2, 2, 128, 128)).shape == (2, 3)
+    assert LengthAwareCNN()(torch.zeros(2, 1, 128, 128), torch.zeros(2)).shape == (2, 3)
+
+
+def test_hns_effect_subtracts_replicate_noise():
+    base = np.eye(8, dtype=np.float32)
+    changed = base.copy()
+    changed[0, 3] = changed[3, 0] = 2
+    unchanged = condition_effect(base, base, base, base)
+    altered = condition_effect(base, base, changed, changed)
+    assert unchanged["effect_corrected"] == 0
+    assert altered["effect_corrected"] > 0
 
 
 def test_real_annotation_workbook_if_present():

@@ -4,7 +4,7 @@
 
 ## 数据
 
-原始矩阵来自 [NCBI GEO GSE272159](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE272159)。`data/structures.csv` 是从课程提供的 `标注数据.xlsx` 的 Supplementary Table 4/5/6 导出的 344 条标注，来源工作簿不进入 Git。下载脚本获取六个矩阵：两个 37℃ 重复、两个 44℃ 重复、两个 rifampicin 25 重复；另获取一个基因注释 GFF 文件。
+原始矩阵来自 [NCBI GEO GSE272159](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE272159)。`data/structures.csv` 是从课程提供的 `标注数据.xlsx` 的 Supplementary Table 4/5/6 导出的 344 条标注，来源工作簿不进入 Git。下载脚本获取六个主分析矩阵：两个 37℃ 重复、两个 44℃ 重复、两个 rifampicin 25 重复；H-NS 独立条件检查另取两个缺失突变体重复。另获取一个基因注释 GFF 文件。
 
 ```bash
 python -m pip install -r requirements.txt
@@ -42,6 +42,18 @@ python -m task1.evaluate_multiscale --windows outputs/task1_multiscale/windows.n
 python -m scripts.summarize_task1_cv --predictions outputs/task1_multiscale_eval/crossfit_predictions.csv --out outputs/task1_multiscale_eval/uncertainty.json
 
 python -m task1.train_final_groupnorm --windows outputs/task1_spatial/extracted_windows.npz --out outputs/task1_groupnorm_final.pt
+
+python -m task1.evaluate_length_context --out outputs/task1_length_context
+
+python -m task1.evaluate_handcrafted --out outputs/task1_handcrafted
+
+python -m task1.evaluate_nested_threshold --out outputs/task1_nested_threshold
+
+python -m scripts.summarize_task1_cv --predictions outputs/task1_handcrafted/crossfit_predictions.csv --mode-column model --resampling-unit "non-overlapping 40 kb genomic component" --out outputs/task1_handcrafted/uncertainty.json
+
+python -m task1.train_final_handcrafted --out outputs/task1_handcrafted_final.joblib
+
+python -m task1.predict_handcrafted --rep1 data/raw/GSE272159_37C_rep1.mapq_30.10.cool.gz --rep2 data/raw/GSE272159_37C_rep2.mapq_30.10.cool.gz --annotations data/structures.csv --model outputs/task1_handcrafted_final.joblib --out outputs/task1_handcrafted_in_sample_smoke.csv
 
 python task1/run_task1.py --data-dir data/raw --annotations data/structures.csv --split-mode structure --out-dir outputs/task1
 
@@ -84,6 +96,8 @@ python -m scripts.validate_discovery --rep1 data/raw/GSE272159_37C_rep1.mapq_30.
 python -m scripts.validate_candidates_conditions --candidates outputs/task2_strict_individual.csv --heat1 data/raw/GSE272159_44C_rep1.mapq_30.10.cool.gz --heat2 data/raw/GSE272159_44C_rep2.mapq_30.10.cool.gz --rif1 data/raw/GSE272159_rif25_rep1.MG1655.mapq_30.10.cool.gz --rif2 data/raw/GSE272159_rif25_rep2.MG1655.mapq_30.10.cool.gz --out outputs/task2_strict_individual_conditions.csv
 python -m scripts.summarize_strict_candidates --loci outputs/task2_strict_individual_loci.csv --windows outputs/task2_strict_individual.csv --conditions outputs/task2_strict_individual_conditions.csv --wt-null outputs/task2_strict_individual_validation/candidate_shift_null.csv --out outputs/task2_strict_locus_evidence.csv
 python -m scripts.render_individual_candidates --loci outputs/task2_strict_individual_loci.csv --rep1 data/raw/GSE272159_37C_rep1.mapq_30.10.cool.gz --rep2 data/raw/GSE272159_37C_rep2.mapq_30.10.cool.gz --out outputs/task2_strict_individual_heatmaps
+python -m scripts.download_geo hns1 hns2
+python -m scripts.validate_hns_candidates --wt1 data/raw/GSE272159_37C_rep1.mapq_30.10.cool.gz --wt2 data/raw/GSE272159_37C_rep2.mapq_30.10.cool.gz --hns1 data/raw/GSM9678478_HNS_mut_rep1.MG1655.mapq_30.10.cool.gz --hns2 data/raw/GSM9678479_HNS_mut_rep2.MG1655.mapq_30.10.cool.gz --out outputs/task2_hns_validation
 python scripts/collect_results.py
 python -m scripts.evaluate_saved_sr --bundle results
 python scripts/collect_results.py

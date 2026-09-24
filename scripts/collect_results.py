@@ -50,6 +50,18 @@ def main() -> None:
         "task1_multiscale_eval/summary.json", "task1_multiscale_eval/crossfit_predictions.csv",
         "task1_multiscale_eval/uncertainty.json", "task1_groupnorm_final.pt",
         "task1_groupnorm_final.json",
+        "task1_length_context/summary.json", "task1_length_context/crossfit_predictions.csv",
+        "task1_handcrafted/summary.json", "task1_handcrafted/crossfit_predictions.csv",
+        "task1_handcrafted/uncertainty.json", "task1_handcrafted_final.joblib",
+        "task1_handcrafted_final.json",
+        "task1_nested_threshold/summary.json", "task1_nested_threshold/fold_thresholds.csv",
+        "task1_nested_threshold/crossfit_predictions.csv",
+        "task1_handcrafted_seed20260922/summary.json",
+        "task1_handcrafted_seed20260923/summary.json",
+        "task1_handcrafted_seed20260924/summary.json",
+        "task1_handcrafted_gap20_seed20260921/summary.json",
+        "task1_handcrafted_gap20_seed20260922/summary.json",
+        "task1_handcrafted_gap20_seed20260923/summary.json",
         "task1_calibrated/metrics.json",
         "task1_scale8/metrics.json",
         "task2/summary.json", "task2/new_candidates.csv", "task2/all_candidates.csv",
@@ -65,6 +77,11 @@ def main() -> None:
         "task2_strict_individual_validation/summary.json",
         "task2_strict_individual_validation/candidate_shift_null.csv",
         "task2_strict_locus_evidence.csv", "task2_strict_locus_evidence.json",
+        "task2_hns_validation/summary.json", "task2_hns_validation/candidate_evidence.csv",
+        "task2_hns_validation/all_evaluated_loci.csv",
+        "task2_hns_validation/top_candidate_wt.png",
+        "task2_hns_validation/top_candidate_hns.png",
+        "task2_hns_validation/top_candidate_wt_minus_hns.png",
         "task6_independent/metrics.json", "task6_independent/coordinates.csv",
         "task6_independent/contact_and_baseline.npz", "task6_independent/chromosome_3d.png",
         "task6_independent/contact_reconstruction.png", "task6_independent/genome_3d.pt",
@@ -219,6 +236,11 @@ def main() -> None:
     paired = json.loads((SOURCE / "task1_pairwise/summary.json").read_text(encoding="utf-8"))
     strict_loci = json.loads((SOURCE / "task2_strict_locus_evidence.json").read_text(encoding="utf-8"))
     strict_revised = json.loads((SOURCE / "task2_strict_revised/summary.json").read_text(encoding="utf-8"))
+    length_context = json.loads((SOURCE / "task1_length_context/summary.json").read_text(encoding="utf-8"))
+    handcrafted = json.loads((SOURCE / "task1_handcrafted/summary.json").read_text(encoding="utf-8"))
+    improved = handcrafted["hist_gradient_boosting_contact_shape_plus_span"]
+    nested = json.loads((SOURCE / "task1_nested_threshold/summary.json").read_text(encoding="utf-8"))
+    hns = json.loads((SOURCE / "task2_hns_validation/summary.json").read_text(encoding="utf-8"))
     task1_header = next(i for i, line in enumerate(lines) if line.startswith("## 任务一"))
     lines[task1_header:task1_header + 1] = [
         "## 任务一：原默认 CNN 空间留出对照", "",
@@ -251,6 +273,16 @@ def main() -> None:
         f"{paired['control']['structure_level']['chid_precision']:.3f}→"
         f"{paired['pairwise']['structure_level']['chid_precision']:.3f}；"
         "20.48 kb 双尺度输入也低于同折局部模型，均不采用。", "",
+        f"已知区间分类的补充混合模型（接触形态＋标注跨度、40 kb 空间五折）：准确率 "
+        f"{improved['accuracy']:.3f}、宏 F1 {improved['macro_f1']:.3f}，CHID 精确率/召回率 "
+        f"{improved['chid_precision']:.3f}/{improved['chid_recall']:.3f}。同折 CNN 接入跨度后仅 "
+        f"{length_context['contact_plus_length']['chid_precision']:.3f}/"
+        f"{length_context['contact_plus_length']['chid_recall']:.3f}。"
+        "混合模型不是纯 CNN；跨度仅适用于已知区间，不能用于无标注区域扫描。", "",
+        f"内层空间折仅用于选择 CHID 判定阈值、外层只做评估：高召回取舍的 CHID "
+        f"精确率/召回率 {nested['inner_chid_f1']['chid_precision']:.3f}/"
+        f"{nested['inner_chid_f1']['chid_recall']:.3f}，宏 F1 "
+        f"{nested['inner_chid_f1']['macro_f1']:.3f}；可按误报代价选默认或高召回策略。", "",
         "### 旧版 ID-only 对照", "",
     ]
     task3_header = next(i for i, line in enumerate(lines) if line.startswith("## 任务三"))
@@ -267,6 +299,13 @@ def main() -> None:
         f"分别覆盖 {strict_loci['loci_heat_local_shift_q_below_005']} 和 "
         f"{strict_loci['loci_rif_local_shift_q_below_005']} 个代表位点。"
         "这不是全基因组 FDR，也不是新的生物学结构证实。", "",
+        f"独立 H-NS 缺失两重复复核：7 位点平均效应与匹配背景的探索性 p="
+        f"{hns['cohort_matched_empirical_upper_p']:.3f}；中位数 p="
+        f"{hns['cohort_median_matched_empirical_upper_p']:.3f}。剔除最大效应位点 "
+        f"{hns['largest_effect_candidate_center_bp']:,} bp 后 p="
+        f"{hns['leave_one_candidate_out_cohort_p'][str(hns['largest_effect_candidate_center_bp'])]:.3f}，"
+        f"单个位点多重校正通过数 {hns['individual_loci_bh_q_below_005']}。"
+        "证据集中在一个优先复核位点，不能宣称全部候选获验证。", "",
     ]
     (DEST / "README.md").write_text("\n".join(lines), encoding="utf-8")
     print(f"Collected {len(list(DEST.iterdir()))} review files in {DEST}")
