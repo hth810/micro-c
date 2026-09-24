@@ -20,6 +20,10 @@ from sklearn.metrics import accuracy_score, classification_report, confusion_mat
 from sklearn.model_selection import train_test_split
 from torch import nn
 from torch.utils.data import DataLoader, TensorDataset
+import sys
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+from microc.data import annotations as load_shared_annotations, normalize, open_cool
 
 
 CLASSES = ["CHIN", "OPCID", "CHID"]
@@ -29,28 +33,12 @@ def seed_all(seed: int) -> None:
     random.seed(seed)
     np.random.seed(seed)
     torch.manual_seed(seed)
-    torch.use_deterministic_algorithms(False)
+    torch.use_deterministic_algorithms(True)
 
 
 def load_annotations(xlsx: Path) -> pd.DataFrame:
-    """Read the supplied workbook's structure tables (4/5/6)."""
-    t4 = pd.read_excel(xlsx, sheet_name="Supplementary Table 4")
-    t4 = t4.rename(columns={"Start": "start", "End": "end"})
-    t4["type"] = "OPCID"
-    t4["id"] = t4["OPCID_ID"]
-    t5 = pd.read_excel(xlsx, sheet_name="Supplementary Table 5")
-    t5 = t5.rename(columns={"Start": "start", "End": "end", "Center": "center"})
-    t5["type"] = "CHIN"
-    t5["id"] = t5["CHIN_ID"]
-    t6 = pd.read_excel(xlsx, sheet_name="Supplementary Table 6")
-    t6 = t6.rename(columns={"Start": "start", "End": "end"})
-    t6["type"] = "CHID"
-    t6["id"] = t6["CHID_ID"]
-    frames = []
-    for df in (t4, t5, t6):
-        df["center"] = ((df["start"] + df["end"]) / 2).round().astype(int)
-        frames.append(df[["id", "type", "start", "end", "center"]])
-    out = pd.concat(frames, ignore_index=True)
+    """Read the supplied workbook or a unified structures.csv."""
+    out = load_shared_annotations(xlsx)
     if len(out) != 344 or set(out["type"]) != set(CLASSES):
         raise ValueError(f"Expected 344 annotations in 3 classes, found {len(out)}")
     out["label"] = out["type"].map({c: i for i, c in enumerate(CLASSES)})
@@ -73,12 +61,7 @@ def extract_window(c: cooler.Cooler, center_bp: int, window_bins: int, aggregate
         mat = padded
     if aggregate > 1:
         mat = mat.reshape(window_bins, aggregate, window_bins, aggregate).mean(axis=(1, 3))
-    # Depth-robust transform: log counts and robustly center/scale each window.
-    mat = np.log1p(mat)
-    med = float(np.median(mat))
-    mad = float(np.median(np.abs(mat - med)))
-    mat = (mat - med) / (1.4826 * mad + 1e-3)
-    return np.clip(mat, -5, 5).astype(np.float32)
+    return normalize(mat)
 
 
 class StructureCNN(nn.Module):
@@ -150,7 +133,10 @@ def save_example_heatmaps(x_test, y_test, preds, out: Path) -> None:
 
 def main() -> None:
     ap = argparse.ArgumentParser()
-    ap.add_argument("--data-dir", type=Path, default=Path("micro-c鏁版嵁(1)"))
+    ap.add_argument("--data-dir", type=Path, default=Path("data/raw"))
+    ap.add_argument("--annotations", type=Path)
+    ap.add_argument("--rep1", type=Path)
+    ap.add_argument("--rep2", type=Path)
     ap.add_argument("--out-dir", type=Path, default=Path("task1/output"))
     ap.add_argument("--window-bins", type=int, default=128)
     ap.add_argument("--aggregate", type=int, default=4, help="raw bins per CNN bin (default 4 = 5,120 bp context)")
@@ -158,29 +144,42 @@ def main() -> None:
     ap.add_argument("--seed", type=int, default=20260921)
     args = ap.parse_args()
     seed_all(args.seed); args.out_dir.mkdir(parents=True, exist_ok=True)
-    xlsx = next(args.data_dir.glob("*.xlsx"))
-    cools = sorted(args.data_dir.glob("*.cool"))
+    xlsx = args.annotations or next(args.data_dir.glob("*.xlsx"))
+    if args.rep1 and args.rep2:
+        cools = [args.rep1, args.rep2]
+    else:
+        cools = []
+        for tag in ("rep1", "rep2"):
+            choices = list(args.data_dir.glob(f"*37C_{tag}*.cool")) or list(
+                args.data_dir.glob(f"*37C_{tag}*.cool.gz"))
+            if choices:
+                cools.append(sorted(choices)[0])
     if len(cools) < 2: raise FileNotFoundError("Need the two 37C .cool biological replicates")
     ann = load_annotations(xlsx)
-    ids_train, ids_test = train_test_split(ann["id"].values, test_size=.2, random_state=args.seed,
-                                           stratify=ann["label"].values)
-    train_ids, test_ids = set(ids_train), set(ids_test)
+    ids_fit, ids_test, labels_fit, _ = train_test_split(ann["id"].values, ann["label"].values,
+        test_size=.2, random_state=args.seed, stratify=ann["label"].values)
+    ids_train, ids_val = train_test_split(ids_fit, test_size=.2, random_state=args.seed + 1,
+                                         stratify=labels_fit)
+    train_ids, val_ids, test_ids = set(ids_train), set(ids_val), set(ids_test)
     rows = []
     mats, ys, groups = [], [], []
     for rep, cf in enumerate(cools[:2], 1):
-        c = cooler.Cooler(str(cf))
-        for _, r in ann.iterrows():
-            mats.append(extract_window(c, int(r.center), args.window_bins, args.aggregate))
-            ys.append(int(r.label)); groups.append((r.id, rep))
+        with open_cool(cf) as c:
+            for _, r in ann.iterrows():
+                mats.append(extract_window(c, int(r.center), args.window_bins, args.aggregate))
+                ys.append(int(r.label)); groups.append((r.id, rep))
     X = np.stack(mats)[:, None, :, :].astype(np.float32); y = np.asarray(ys, dtype=np.int64)
     group_ids = np.asarray([g[0] for g in groups])
-    tr = np.isin(group_ids, list(train_ids)); te = np.isin(group_ids, list(test_ids))
+    tr = np.isin(group_ids, list(train_ids)); va_mask = np.isin(group_ids, list(val_ids))
+    te = np.isin(group_ids, list(test_ids))
     # Keep a complete machine-readable manifest for reproducibility.
     manifest = ann.copy(); manifest.to_csv(args.out_dir / "annotation_manifest.csv", index=False, encoding="utf-8-sig")
-    np.savez_compressed(args.out_dir / "extracted_windows.npz", X=X, y=y, is_train=tr, group=group_ids)
+    np.savez_compressed(args.out_dir / "extracted_windows.npz", X=X, y=y, is_train=tr,
+                        is_validation=va_mask, is_test=te, group=group_ids)
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     model = StructureCNN(3).to(device)
     train_ds = TensorDataset(torch.from_numpy(X[tr]), torch.from_numpy(y[tr]))
+    val_x, val_y = torch.from_numpy(X[va_mask]).to(device), torch.from_numpy(y[va_mask]).to(device)
     test_x, test_y = torch.from_numpy(X[te]).to(device), torch.from_numpy(y[te]).to(device)
     loader = DataLoader(train_ds, batch_size=32, shuffle=True, generator=torch.Generator().manual_seed(args.seed))
     opt = torch.optim.AdamW(model.parameters(), lr=2e-3, weight_decay=1e-4)
@@ -196,11 +195,11 @@ def main() -> None:
             loss = loss_fn(model(xb), yb); loss.backward(); opt.step(); running += loss.item() * len(xb)
         model.eval()
         with torch.no_grad():
-            val_pred = model(test_x).argmax(1)
-            va = (val_pred == test_y).float().mean().item()
-            vf1 = f1_score(test_y.cpu().numpy(), val_pred.cpu().numpy(), average="macro")
+            val_pred = model(val_x).argmax(1)
+            va = (val_pred == val_y).float().mean().item()
+            vf1 = f1_score(val_y.cpu().numpy(), val_pred.cpu().numpy(), average="macro")
         history.append({"epoch": epoch + 1, "train_loss": running / len(train_ds),
-                        "test_accuracy": va, "test_macro_f1": float(vf1)})
+                        "validation_accuracy": va, "validation_macro_f1": float(vf1)})
         if vf1 > best_score:
             best_score, best_epoch = float(vf1), epoch + 1
             best_state = {k: v.detach().cpu().clone() for k, v in model.state_dict().items()}
@@ -218,8 +217,9 @@ def main() -> None:
     }).to_csv(args.out_dir / "test_predictions.csv", index=False, encoding="utf-8-sig")
     metrics = {"seed": args.seed, "window_bins": args.window_bins, "aggregate": args.aggregate,
                "window_bp": args.window_bins * args.aggregate * 10,
-               "train_structures": len(train_ids), "test_structures": len(test_ids),
-               "train_samples": int(tr.sum()), "test_samples": int(te.sum()),
+               "train_structures": len(train_ids), "validation_structures": len(val_ids),
+               "test_structures": len(test_ids), "train_samples": int(tr.sum()),
+               "validation_samples": int(va_mask.sum()), "test_samples": int(te.sum()),
                "accuracy": float(accuracy_score(yy, preds)),
                "macro_f1": float(f1_score(yy, preds, average="macro")),
                "best_epoch": best_epoch,

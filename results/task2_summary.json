@@ -1,0 +1,27 @@
+{
+  "windows": 1812,
+  "selected": 905,
+  "new_candidates": 5,
+  "known_window_recall_before_reproducibility": 0.5923836389280677,
+  "known_structure_recall_after_reproducibility": 0.9011627906976745,
+  "shape_representation_known_vs_background_auc": 0.5977909270216963,
+  "known_feature_distance_threshold_p90": 9.769690132141113,
+  "threshold": 0.4838300220750552,
+  "parameters": {
+    "task": "discover",
+    "rep1": "data\\raw\\GSE272159_37C_rep1.mapq_30.10.cool",
+    "rep2": "data\\raw\\GSE272159_37C_rep2.mapq_30.10.cool",
+    "annotations": "data\\structures.csv",
+    "out": "outputs\\task2",
+    "window_bp": 5120,
+    "stride_bp": 2560,
+    "top_fraction": 0.5,
+    "min_replicate_r": 0.2,
+    "clusters": 8,
+    "min_cluster": 5,
+    "max_heatmaps": 10000,
+    "seed": 20260921,
+    "ae_epochs": 8
+  },
+  "caution": "Novel means outside supplied annotations under this explicit rule; it is not biological proof."
+}

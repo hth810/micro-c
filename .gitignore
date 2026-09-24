@@ -3,6 +3,8 @@
 *.cool.gz
 *.xlsx
 *.pdf
+data/raw/
+outputs/
 
 # Generated task outputs and Python cache
 task1/output*/

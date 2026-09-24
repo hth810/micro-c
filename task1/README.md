@@ -2,15 +2,15 @@
 
 `run_task1.py` 从数据目录读取标注工作簿和两个 37°C Micro-C `.cool` 重复，整理 Supplementary Table 4/5/6 的 68 OPCID、250 CHIN、26 CHID（共 344 条）为统一标签。
 
-每个结构以中心为基准读取 512×512 个 10-bp bin（5,120 bp 物理窗口），再平均池化为 128×128 输入。接触计数依次进行 `log1p` 变换与窗口内 MAD 鲁棒标准化。分类器为三层轻量 CNN，并使用类别加权交叉熵缓解 CHID 样本较少的问题。
+每个结构以中心为基准读取 512×512 个 10-bp bin（5,120 bp 物理窗口），再平均池化为 128×128 输入。接触计数依次进行 `log1p` 变换、对角线距离趋势扣除与 MAD 鲁棒标准化。分类器为三层轻量 CNN，并使用类别加权交叉熵缓解 CHID 样本较少的问题。
 
-同一结构的两个生物学重复始终位于同一数据分区，结构 ID 按类别分层后进行 80/20 留出。按测试集宏平均 F1 选择最佳训练轮次。固定随机种子默认为 `20260921`。
+同一结构的两个生物学重复始终位于同一数据分区，结构 ID 按类别分层后划分训练、验证和最终测试集。按验证集宏平均 F1 选择最佳训练轮次，测试集只用于最后一次评价。固定随机种子默认为 `20260921`。
 
 ## 运行
 
 ```powershell
 python -m pip install -r task1/requirements.txt
-python task1/run_task1.py --data-dir 'micro-c数据(1)' --out-dir task1/final_output
+python task1/run_task1.py --data-dir data/raw --annotations data/structures.csv --out-dir outputs/task1
 ```
 
 ## 输出

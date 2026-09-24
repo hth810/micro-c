@@ -1,0 +1,42 @@
+[
+  {
+    "file": "GSE272159_37C_rep1.mapq_30.10.cool.gz",
+    "bytes": 470399779,
+    "sha256": "b172a11994068937df76c7cfbad4f21f68e88eeccd72840726d19d9a671125fd"
+  },
+  {
+    "file": "GSE272159_37C_rep2.mapq_30.10.cool.gz",
+    "bytes": 456862495,
+    "sha256": "b416e68934b4af054c8a4c1b8a7096064fcb8a51a9692ed04f4cef9537cb67b9"
+  },
+  {
+    "file": "GSE272159_44C_rep1.mapq_30.10.cool.gz",
+    "bytes": 477194953,
+    "sha256": "2ba6ed7e8bd110c513ed31ca0ed82f3369bf16a25a0e05ae2ab1ee92dde67c6f"
+  },
+  {
+    "file": "GSE272159_rif25_rep1.MG1655.mapq_30.10.cool.gz",
+    "bytes": 106655391,
+    "sha256": "406503353a4683810157e3863079bc21d95dc46c169b0736d538d4c61f126a26"
+  },
+  {
+    "file": "GSE272159_rif25_rep2.MG1655.mapq_30.10.cool.gz",
+    "bytes": 101560283,
+    "sha256": "ae344b73831d0662bf676e549930c260d4a8bf9fcbdb978d666def34f97b74d6"
+  },
+  {
+    "file": "GCF_000005845.2_ASM584v2_genomic.gff.gz",
+    "bytes": 387627,
+    "sha256": "afdf03dc1d06e423d874ee29d9e0df14f5d32baf893f4da9f93aa721eb5f495e"
+  },
+  {
+    "file": "\u6807\u6ce8\u6570\u636e.xlsx",
+    "bytes": 2698974,
+    "sha256": "a1fa9c0d359509a9eb319442c19e300cb5da85546eeb567368a390d22205167a"
+  },
+  {
+    "file": "structures.csv",
+    "bytes": 17279,
+    "sha256": "d9a5f0f380ff2c919e8edabc7aa8d612eedb29b67825118377b43e98b8ed7cdf"
+  }
+]
