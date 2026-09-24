@@ -1,0 +1,9 @@
+{
+  "strict_individual_windows": 9,
+  "merged_loci": 7,
+  "strict_cluster_supported_loci": 0,
+  "loci_heat_local_shift_q_below_005": 7,
+  "loci_rif_local_shift_q_below_005": 7,
+  "minimum_known_annotation_distance_bp": 3440,
+  "caution": "Candidate-local shift tests are not genome-wide discovery FDR; no orthogonal biological validation."
+}

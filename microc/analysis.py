@@ -145,6 +145,7 @@ def discover(args) -> None:
         selected["known_feature_distance"] = np.nan
         selected["novel_cluster"] = -1
         selected["novel_cluster_size"] = 0
+        selected["candidate_individual"] = False
         novelty_threshold = None
         known_mask = selected.is_known.to_numpy()
         if known_mask.sum() >= 3 and (~known_mask).sum() >= args.clusters:
@@ -154,13 +155,14 @@ def discover(args) -> None:
             distances = known_neighbors.kneighbors(x[~known_mask], n_neighbors=1)[0][:, 0]
             selected.loc[~selected.is_known, "known_feature_distance"] = distances
             distinct = (~known_mask) & (selected.known_feature_distance.to_numpy() > novelty_threshold)
+            selected.loc[distinct, "candidate_individual"] = True
             if distinct.sum() >= args.clusters:
                 novelty_model = KMeans(n_clusters=args.clusters, random_state=args.seed,
                                        n_init=10).fit(x[distinct])
                 selected.loc[distinct, "novel_cluster"] = novelty_model.labels_
                 novel_counts = selected[selected.novel_cluster >= 0].groupby("novel_cluster").size()
                 selected.loc[distinct, "novel_cluster_size"] = selected.loc[distinct, "novel_cluster"].map(novel_counts)
-        selected["candidate_new"] = (selected.novel_cluster >= 0) & (
+        selected["candidate_new"] = selected.candidate_individual & (selected.novel_cluster >= 0) & (
             selected.novel_cluster_size >= args.min_cluster)
         selected["known_distinction"] = np.where(selected.is_known, "overlaps a known structure",
             np.where(selected.candidate_new, "non-overlapping, distant from known feature manifold, replicated",
@@ -189,6 +191,7 @@ def discover(args) -> None:
                         scaler.transform(all_features[test_idx]))[:, 1]))
         selected.to_csv(out / "all_candidates.csv", index=False)
         selected[selected.candidate_new].to_csv(out / "new_candidates.csv", index=False)
+        selected[selected.candidate_individual].to_csv(out / "individual_novelty_candidates.csv", index=False)
         medoids = []
         for cluster in range(args.clusters):
             distances = np.linalg.norm(x - cluster_model.cluster_centers_[cluster], axis=1)
@@ -208,6 +211,7 @@ def discover(args) -> None:
                 (selected.start < structure.end) & (selected.end > structure.start)]
             structure_hits.append(bool(len(matched)))
         summary = {"windows": len(table), "selected": len(selected), "new_candidates": int(selected.candidate_new.sum()),
+                   "individual_novelty_windows": int(selected.candidate_individual.sum()),
                    "known_window_recall_before_reproducibility": recall,
                    "known_structure_recall_after_reproducibility": float(np.mean(structure_hits)),
                    "shape_representation_known_vs_background_auc": auc,

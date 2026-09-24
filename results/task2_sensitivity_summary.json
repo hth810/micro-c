@@ -1,0 +1,6 @@
+{
+  "original_candidates": 5,
+  "strict_score_repeat_survivors": 2,
+  "strict_surviving_centers_bp": "3599360;4241920",
+  "interpretation": "This audits only score and replicate gates; shape novelty and clustering are separate."
+}

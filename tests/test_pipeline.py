@@ -9,6 +9,7 @@ from microc.analysis import _features, _shape_score, differential, discover, tra
 from microc.data import annotations, normalize, open_cool, upper_correlation, window
 from microc.deep import _coarsen, _consistency, degrade, prepare_sr_pair, reconstruct3d, superresolve
 from scripts.validate_discovery import shape_features
+from task1.evaluate_chid_overlap import overlap_targets, spatial_groups
 from task1.run_task1 import StructureCNN, select_validation_bias, spatial_split
 
 
@@ -34,6 +35,17 @@ def test_structure_cnn_spatial_grid():
     x = torch.zeros(2, 1, 128, 128)
     assert StructureCNN(3, spatial_grid=1)(x).shape == (2, 3)
     assert StructureCNN(3, spatial_grid=4)(x).shape == (2, 3)
+
+
+def test_overlap_aware_chid_targets_and_groups():
+    frame = pd.DataFrame({"chrom": ["chr", "chr", "chr", "other"],
+                          "center": [1000, 1800, 9000, 1800],
+                          "type": ["CHID", "CHIN", "OPCID", "CHIN"]})
+    assert overlap_targets(frame, 1000).tolist() == [1, 1, 0, 0]
+    groups = spatial_groups(frame, 5120)
+    assert groups[0] == groups[1]
+    assert groups[0] != groups[2]
+    assert groups[0] != groups[3]
 
 
 def test_real_annotation_workbook_if_present():

@@ -44,13 +44,21 @@ def main() -> None:
         "task1_spatial_gap10k_scale4/metrics.json",
         "task1_spatial_scale8/metrics.json",
         "task1_spatial_grid4/metrics.json",
+        "task1_chid_overlap/summary.json", "task1_chid_overlap/crossfit_predictions.csv",
+        "task1_chid_overlap/bootstrap.json",
         "task1_calibrated/metrics.json",
         "task1_scale8/metrics.json",
         "task2/summary.json", "task2/new_candidates.csv", "task2/all_candidates.csv",
         "task2/all_windows.csv",
         "task2/cluster_centers.csv", "task2/embedding.png", "task2/autoencoder.pt",
-        "task2_strict/summary.json", "task2_validation/summary.json",
+        "task2_validation/summary.json",
         "task2_validation/heldout_predictions.csv", "task2_validation/candidate_shift_null.csv",
+        "task2_strict_current/summary.json", "task2_sensitivity/summary.json",
+        "task2_sensitivity/threshold_grid.csv", "task2_strict_individual.csv",
+        "task2_strict_individual_loci.csv", "task2_strict_individual_conditions.csv",
+        "task2_strict_individual_validation/summary.json",
+        "task2_strict_individual_validation/candidate_shift_null.csv",
+        "task2_strict_locus_evidence.csv", "task2_strict_locus_evidence.json",
         "task6_independent/metrics.json", "task6_independent/coordinates.csv",
         "task6_independent/contact_and_baseline.npz", "task6_independent/chromosome_3d.png",
         "task6_independent/contact_reconstruction.png", "task6_independent/genome_3d.pt",
@@ -64,6 +72,10 @@ def main() -> None:
             copy(entry, entry.replace("task1_spatial_chid2/", "task1_spatial_chid2_"))
         elif entry.startswith("task1_spatial_gap10k_scale4/"):
             copy(entry, entry.replace("task1_spatial_gap10k_scale4/", "task1_spatial_gap10k_scale4_"))
+        elif entry == "task1_chid_overlap/crossfit_predictions.csv":
+            copy(entry, "task1_chid_overlap_predictions.csv")
+        elif entry == "task2_strict_current/summary.json":
+            copy(entry, "task2_strict_summary.json")
         elif entry.startswith("task6_independent/"):
             copy(entry, entry.replace("task6_independent/", "task6_"))
         else:
@@ -97,6 +109,8 @@ def main() -> None:
             shutil.copy2(image, DEST / f"task3_example_{index:03d}.png")
     for image in sorted((SOURCE / "task2" / "heatmaps").glob("*.png")):
         shutil.copy2(image, DEST / f"task2_{image.name}")
+    for image in sorted((SOURCE / "task2_strict_individual_heatmaps").glob("*.png")):
+        shutil.copy2(image, DEST / f"task2_strict_individual_{image.name}")
     for image in sorted((SOURCE / "task4_heat_final" / "heatmaps").glob("*.png")):
         shutil.copy2(image, DEST / f"task4_{image.name}")
     provenance = [hash_file(path) for pattern in ("*.cool.gz", "*.gff.gz", "*.xlsx")
@@ -108,7 +122,7 @@ def main() -> None:
     t1_scale8 = json.loads((SOURCE / "task1_scale8/metrics.json").read_text(encoding="utf-8"))
     t2 = json.loads((SOURCE / "task2/summary.json").read_text(encoding="utf-8"))
     t2_validation = json.loads((SOURCE / "task2_validation/summary.json").read_text(encoding="utf-8"))
-    strict = json.loads((SOURCE / "task2_strict/summary.json").read_text(encoding="utf-8"))
+    strict = json.loads((SOURCE / "task2_strict_current/summary.json").read_text(encoding="utf-8"))
     t5 = json.loads((DEST / "task5_summary.json").read_text(encoding="utf-8"))
     t5_validation = json.loads((DEST / "task5_validation.json").read_text(encoding="utf-8"))
     t6 = json.loads((SOURCE / "task6_independent/metrics.json").read_text(encoding="utf-8"))
@@ -191,6 +205,8 @@ def main() -> None:
     wide = json.loads((SOURCE / "task1_spatial_scale8/metrics.json").read_text(encoding="utf-8"))
     grid = json.loads((SOURCE / "task1_spatial_grid4/metrics.json").read_text(encoding="utf-8"))
     audit = json.loads((SOURCE / "task1_legacy_split_audit.json").read_text(encoding="utf-8"))
+    overlap = json.loads((SOURCE / "task1_chid_overlap/summary.json").read_text(encoding="utf-8"))
+    strict_loci = json.loads((SOURCE / "task2_strict_locus_evidence.json").read_text(encoding="utf-8"))
     task1_header = next(i for i, line in enumerate(lines) if line.startswith("## 任务一"))
     lines[task1_header:task1_header + 1] = [
         "## 任务一：空间独立主结果", "",
@@ -209,7 +225,23 @@ def main() -> None:
         f"旧版 ID-only 分区中 {audit['by_split']['test']['overlapping_other_split_windows']} 个"
         "测试结构可能与其他分区的输入窗口重叠；旧版成绩仅作对照。"
         "审计见 `task1_legacy_split_audit.json` 和 `task1_spatial_split_audit.json`。", "",
+        f"补充的重叠感知 CHID 存在检测（中心 ±1 kb，五折空间交叉预测）：平均精确率 "
+        f"{overlap['overlap_aware']['average_precision']:.3f}，固定阈值精确率/召回率 "
+        f"{overlap['overlap_aware']['precision_at_0_5']:.3f}/"
+        f"{overlap['overlap_aware']['recall_at_0_5']:.3f}。"
+        "这是不同于原单标签分类的任务，不能用来替换旧精确率。", "",
         "### 旧版 ID-only 对照", "",
+    ]
+    task3_header = next(i for i, line in enumerate(lines) if line.startswith("## 任务三"))
+    lines[task3_header:task3_header] = [
+        "### 严格阈值下的单窗口新颖性（补充层级）", "",
+        f"严格分数和重复门槛下有 {strict_loci['strict_individual_windows']} 个形态离群窗口，"
+        f"合并为 {strict_loci['merged_loci']} 个位点；固定 8 簇且每簇至少 5 个的旧规则"
+        f"仍为 {strict_loci['strict_cluster_supported_loci']} 个。",
+        f"在未参与 WT 筛选的 44℃ 与利福平数据上，邻近错位对照的候选内 BH q<0.05 "
+        f"分别覆盖 {strict_loci['loci_heat_local_shift_q_below_005']} 和 "
+        f"{strict_loci['loci_rif_local_shift_q_below_005']} 个代表位点。"
+        "这不是全基因组 FDR，也不是新的生物学结构证实。", "",
     ]
     (DEST / "README.md").write_text("\n".join(lines), encoding="utf-8")
     print(f"Collected {len(list(DEST.iterdir()))} review files in {DEST}")

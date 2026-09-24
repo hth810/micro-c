@@ -1,0 +1,78 @@
+{
+  "question": "CHID presence within 1000 bp of annotation center",
+  "not_comparable_to_single_label_precision": true,
+  "folds": [
+    {
+      "fold": 0,
+      "train_structures": 276,
+      "test_structures": 68,
+      "test_chid_annotations": 5,
+      "test_overlap_positive": 13
+    },
+    {
+      "fold": 1,
+      "train_structures": 275,
+      "test_structures": 69,
+      "test_chid_annotations": 5,
+      "test_overlap_positive": 13
+    },
+    {
+      "fold": 2,
+      "train_structures": 275,
+      "test_structures": 69,
+      "test_chid_annotations": 6,
+      "test_overlap_positive": 9
+    },
+    {
+      "fold": 3,
+      "train_structures": 275,
+      "test_structures": 69,
+      "test_chid_annotations": 5,
+      "test_overlap_positive": 10
+    },
+    {
+      "fold": 4,
+      "train_structures": 275,
+      "test_structures": 69,
+      "test_chid_annotations": 5,
+      "test_overlap_positive": 11
+    }
+  ],
+  "epochs_per_fold": 15,
+  "window_bp": 5120,
+  "label_radius_bp": 1000,
+  "overlap_aware": {
+    "positives": 56,
+    "average_precision": 0.40402530906642586,
+    "roc_auc": 0.7498139880952381,
+    "precision_at_0_5": 0.32941176470588235,
+    "recall_at_0_5": 0.5,
+    "confusion_matrix": [
+      [
+        231,
+        57
+      ],
+      [
+        28,
+        28
+      ]
+    ]
+  },
+  "original_center_label_diagnostic": {
+    "positives": 26,
+    "average_precision": 0.23194281613088408,
+    "roc_auc": 0.7093009192065796,
+    "precision_at_0_5": 0.15294117647058825,
+    "recall_at_0_5": 0.5,
+    "confusion_matrix": [
+      [
+        246,
+        72
+      ],
+      [
+        13,
+        13
+      ]
+    ]
+  }
+}

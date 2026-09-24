@@ -1,0 +1,26 @@
+{
+  "n_known": 344,
+  "n_background": 344,
+  "evaluation": "train on rep1; spatially held-out loci scored on rep2",
+  "auc": {
+    "shape_logistic": 0.7954046106003244,
+    "shape_forest": 0.8214490941049217,
+    "density_logistic": 0.4931043807463494
+  },
+  "auc_spatial_group_bootstrap_95ci": {
+    "shape_logistic": [
+      0.7578968239739916,
+      0.8312738269999767
+    ],
+    "shape_forest": [
+      0.7855939440425798,
+      0.8542311384316038
+    ],
+    "density_logistic": [
+      0.4255777147886868,
+      0.5550467457452597
+    ]
+  },
+  "candidates_shift_null_q_below_005": 9,
+  "candidates_local_shift_q_below_005": 9
+}

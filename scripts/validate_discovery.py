@@ -30,6 +30,8 @@ def main() -> None:
     parser.add_argument("--rep2", type=Path, required=True)
     parser.add_argument("--annotations", type=Path, required=True)
     parser.add_argument("--discovery", type=Path, required=True)
+    parser.add_argument("--candidate-file", type=Path,
+                        help="optional candidate table; defaults to discovery/new_candidates.csv")
     parser.add_argument("--out", type=Path, required=True)
     parser.add_argument("--seed", type=int, default=20260921)
     parser.add_argument("--window-bp", type=int, default=5120)
@@ -39,7 +41,7 @@ def main() -> None:
     rng = np.random.default_rng(args.seed)
     known = annotations(args.annotations)
     scan = pd.read_csv(args.discovery / "all_windows.csv")
-    novel = pd.read_csv(args.discovery / "new_candidates.csv")
+    novel = pd.read_csv(args.candidate_file or args.discovery / "new_candidates.csv")
     if novel.empty:
         raise ValueError("No proposed candidates to validate")
     with open_cool(args.rep1) as c1, open_cool(args.rep2) as c2:

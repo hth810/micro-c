@@ -1,0 +1,31 @@
+{
+  "unit": "annotation structure; score is mean of two biological replicates",
+  "resampling_unit": "non-overlapping genomic component",
+  "resamples": 2000,
+  "chid_within_radius": {
+    "prevalence": 0.16279069767441862,
+    "average_precision": 0.40402530906642586,
+    "average_precision_95ci": [
+      0.2563689773846828,
+      0.5688667800607079
+    ],
+    "roc_auc": 0.7498139880952381,
+    "roc_auc_95ci": [
+      0.6608284573600649,
+      0.8332508977695313
+    ]
+  },
+  "chid_center_label": {
+    "prevalence": 0.0755813953488372,
+    "average_precision": 0.23194281613088408,
+    "average_precision_95ci": [
+      0.14570696164201302,
+      0.34637868347253126
+    ],
+    "roc_auc": 0.7093009192065796,
+    "roc_auc_95ci": [
+      0.6105894284083496,
+      0.8041224781501874
+    ]
+  }
+}

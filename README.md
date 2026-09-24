@@ -29,6 +29,10 @@ python task1/run_task1.py --annotations data/structures.csv --aggregate 8 --out-
 
 python task1/run_task1.py --annotations data/structures.csv --spatial-grid 4 --out-dir outputs/task1_spatial_grid4
 
+python -m task1.evaluate_chid_overlap --windows outputs/task1_spatial/extracted_windows.npz --annotations data/structures.csv --out outputs/task1_chid_overlap
+
+python -m scripts.summarize_chid_overlap --predictions outputs/task1_chid_overlap/crossfit_predictions.csv --out outputs/task1_chid_overlap/bootstrap.json
+
 python task1/run_task1.py --data-dir data/raw --annotations data/structures.csv --split-mode structure --out-dir outputs/task1
 
 python scripts/audit_task1_split.py outputs/task1/annotation_manifest.csv --legacy --out outputs/task1_legacy_split_audit.json
@@ -39,7 +43,11 @@ python task1/run_task1.py --data-dir data/raw --annotations data/structures.csv 
 
 python -m microc.analysis discover --rep1 data/raw/GSE272159_37C_rep1.mapq_30.10.cool.gz --rep2 data/raw/GSE272159_37C_rep2.mapq_30.10.cool.gz --annotations data/structures.csv --out outputs/task2
 
-python -m microc.analysis discover --rep1 data/raw/GSE272159_37C_rep1.mapq_30.10.cool.gz --rep2 data/raw/GSE272159_37C_rep2.mapq_30.10.cool.gz --annotations data/structures.csv --top-fraction 0.2 --min-replicate-r 0.3 --out outputs/task2_strict
+python -m microc.analysis discover --rep1 data/raw/GSE272159_37C_rep1.mapq_30.10.cool.gz --rep2 data/raw/GSE272159_37C_rep2.mapq_30.10.cool.gz --annotations data/structures.csv --top-fraction 0.2 --min-replicate-r 0.3 --out outputs/task2_strict_current
+
+python -m scripts.audit_candidate_sensitivity --scan outputs/task2/all_windows.csv --candidates outputs/task2/new_candidates.csv --out outputs/task2_sensitivity
+
+python -m scripts.prepare_individual_candidates --discovery outputs/task2_strict_current --out outputs/task2_strict_individual.csv
 
 python -m microc.analysis tracks --cool data/raw/GSE272159_37C_rep1.mapq_30.10.cool.gz data/raw/GSE272159_44C_rep1.mapq_30.10.cool.gz data/raw/GSE272159_rif25_rep1.MG1655.mapq_30.10.cool.gz --labels WT_37C Heat_44C Rif_25 --annotations data/structures.csv --gff data/raw/GCF_000005845.2_ASM584v2_genomic.gff.gz --out outputs/task3_labeled
 
@@ -60,6 +68,10 @@ python -m microc.deep reconstruct3d --cool data/raw/GSE272159_37C_rep1.mapq_30.1
 
 ```bash
 python -m scripts.validate_discovery --rep1 data/raw/GSE272159_37C_rep1.mapq_30.10.cool.gz --rep2 data/raw/GSE272159_37C_rep2.mapq_30.10.cool.gz --annotations data/structures.csv --discovery outputs/task2 --out outputs/task2_validation
+python -m scripts.validate_discovery --rep1 data/raw/GSE272159_37C_rep1.mapq_30.10.cool.gz --rep2 data/raw/GSE272159_37C_rep2.mapq_30.10.cool.gz --annotations data/structures.csv --discovery outputs/task2_strict_current --candidate-file outputs/task2_strict_individual.csv --out outputs/task2_strict_individual_validation
+python -m scripts.validate_candidates_conditions --candidates outputs/task2_strict_individual.csv --heat1 data/raw/GSE272159_44C_rep1.mapq_30.10.cool.gz --heat2 data/raw/GSE272159_44C_rep2.mapq_30.10.cool.gz --rif1 data/raw/GSE272159_rif25_rep1.MG1655.mapq_30.10.cool.gz --rif2 data/raw/GSE272159_rif25_rep2.MG1655.mapq_30.10.cool.gz --out outputs/task2_strict_individual_conditions.csv
+python -m scripts.summarize_strict_candidates --loci outputs/task2_strict_individual_loci.csv --windows outputs/task2_strict_individual.csv --conditions outputs/task2_strict_individual_conditions.csv --wt-null outputs/task2_strict_individual_validation/candidate_shift_null.csv --out outputs/task2_strict_locus_evidence.csv
+python -m scripts.render_individual_candidates --loci outputs/task2_strict_individual_loci.csv --rep1 data/raw/GSE272159_37C_rep1.mapq_30.10.cool.gz --rep2 data/raw/GSE272159_37C_rep2.mapq_30.10.cool.gz --out outputs/task2_strict_individual_heatmaps
 python scripts/collect_results.py
 python -m scripts.evaluate_saved_sr --bundle results
 python scripts/collect_results.py
