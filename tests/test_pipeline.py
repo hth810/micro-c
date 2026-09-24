@@ -10,6 +10,7 @@ from microc.data import annotations, normalize, open_cool, upper_correlation, wi
 from microc.deep import _coarsen, _consistency, degrade, prepare_sr_pair, reconstruct3d, superresolve
 from scripts.validate_discovery import shape_features
 from task1.evaluate_chid_overlap import overlap_targets, spatial_groups
+from task1.evaluate_pairwise import PairAwareCNN, nearby_chid_chin_pairs
 from task1.run_task1 import StructureCNN, select_validation_bias, spatial_split
 
 
@@ -46,6 +47,17 @@ def test_overlap_aware_chid_targets_and_groups():
     assert groups[0] == groups[1]
     assert groups[0] != groups[2]
     assert groups[0] != groups[3]
+
+
+def test_nearby_chid_chin_pairs():
+    import torch
+
+    frame = pd.DataFrame({"chrom": ["chr", "chr", "chr", "other"],
+                          "center": [1000, 1800, 9000, 1800],
+                          "type": ["CHID", "CHIN", "CHIN", "CHIN"]})
+    assert nearby_chid_chin_pairs(frame, 2000).tolist() == [[0, 1]]
+    assert PairAwareCNN()(torch.zeros(2, 1, 128, 128)).shape == (2, 3)
+    assert PairAwareCNN(input_channels=2)(torch.zeros(2, 2, 128, 128)).shape == (2, 3)
 
 
 def test_real_annotation_workbook_if_present():
@@ -113,6 +125,8 @@ def test_end_to_end_small_data(tmp_path):
         window_bp=640, stride_bp=320, top_fraction=.8, min_replicate_r=-1,
         clusters=2, min_cluster=1, max_heatmaps=2, seed=1, ae_epochs=1))
     assert (tmp_path / "discovery" / "all_candidates.csv").exists()
+    assert {"candidate_individual", "candidate_cluster_supported", "candidate_new"}.issubset(
+        pd.read_csv(tmp_path / "discovery" / "all_candidates.csv").columns)
     differential(Namespace(wt=path, condition=path, annotations=labels, name="same",
         out=tmp_path / "differential", window_bp=640, heatmaps=2))
     changes = pd.read_csv(tmp_path / "differential" / "structure_changes.csv")

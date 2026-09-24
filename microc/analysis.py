@@ -162,8 +162,11 @@ def discover(args) -> None:
                 selected.loc[distinct, "novel_cluster"] = novelty_model.labels_
                 novel_counts = selected[selected.novel_cluster >= 0].groupby("novel_cluster").size()
                 selected.loc[distinct, "novel_cluster_size"] = selected.loc[distinct, "novel_cluster"].map(novel_counts)
-        selected["candidate_new"] = selected.candidate_individual & (selected.novel_cluster >= 0) & (
+        selected["candidate_cluster_supported"] = selected.candidate_individual & (selected.novel_cluster >= 0) & (
             selected.novel_cluster_size >= args.min_cluster)
+        candidate_rule = getattr(args, "candidate_rule", "cluster")
+        selected["candidate_new"] = (selected.candidate_individual if candidate_rule == "individual"
+                                     else selected.candidate_cluster_supported)
         selected["known_distinction"] = np.where(selected.is_known, "overlaps a known structure",
             np.where(selected.candidate_new, "non-overlapping, distant from known feature manifold, replicated",
                      "unannotated but feature novelty or cluster-size criterion not met"))
@@ -212,6 +215,7 @@ def discover(args) -> None:
             structure_hits.append(bool(len(matched)))
         summary = {"windows": len(table), "selected": len(selected), "new_candidates": int(selected.candidate_new.sum()),
                    "individual_novelty_windows": int(selected.candidate_individual.sum()),
+                   "cluster_supported_windows": int(selected.candidate_cluster_supported.sum()),
                    "known_window_recall_before_reproducibility": recall,
                    "known_structure_recall_after_reproducibility": float(np.mean(structure_hits)),
                    "shape_representation_known_vs_background_auc": auc,
@@ -406,6 +410,8 @@ def main() -> None:
     d.add_argument("--window-bp", type=int, default=5120); d.add_argument("--stride-bp", type=int, default=2560)
     d.add_argument("--top-fraction", type=float, default=.5); d.add_argument("--min-replicate-r", type=float, default=.2)
     d.add_argument("--clusters", type=int, default=8); d.add_argument("--min-cluster", type=int, default=5)
+    d.add_argument("--candidate-rule", choices=("cluster", "individual"), default="cluster",
+                   help="cluster is the legacy rule; individual retains rare shape-novel windows")
     d.add_argument("--max-heatmaps", type=int, default=10000); d.add_argument("--seed", type=int, default=20260921)
     d.add_argument("--ae-epochs", type=int, default=8, help="autoencoder training epochs; 0 disables it")
     t = sub.add_parser("tracks", help="Task 3: whole-genome multi-condition tracks")

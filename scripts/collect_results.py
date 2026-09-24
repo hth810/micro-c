@@ -46,6 +46,10 @@ def main() -> None:
         "task1_spatial_grid4/metrics.json",
         "task1_chid_overlap/summary.json", "task1_chid_overlap/crossfit_predictions.csv",
         "task1_chid_overlap/bootstrap.json",
+        "task1_pairwise/summary.json", "task1_pairwise/crossfit_predictions.csv",
+        "task1_multiscale_eval/summary.json", "task1_multiscale_eval/crossfit_predictions.csv",
+        "task1_multiscale_eval/uncertainty.json", "task1_groupnorm_final.pt",
+        "task1_groupnorm_final.json",
         "task1_calibrated/metrics.json",
         "task1_scale8/metrics.json",
         "task2/summary.json", "task2/new_candidates.csv", "task2/all_candidates.csv",
@@ -54,6 +58,8 @@ def main() -> None:
         "task2_validation/summary.json",
         "task2_validation/heldout_predictions.csv", "task2_validation/candidate_shift_null.csv",
         "task2_strict_current/summary.json", "task2_sensitivity/summary.json",
+        "task2_strict_revised/summary.json", "task2_strict_revised/new_candidates.csv",
+        "task2_strict_revised/all_candidates.csv",
         "task2_sensitivity/threshold_grid.csv", "task2_strict_individual.csv",
         "task2_strict_individual_loci.csv", "task2_strict_individual_conditions.csv",
         "task2_strict_individual_validation/summary.json",
@@ -111,6 +117,8 @@ def main() -> None:
         shutil.copy2(image, DEST / f"task2_{image.name}")
     for image in sorted((SOURCE / "task2_strict_individual_heatmaps").glob("*.png")):
         shutil.copy2(image, DEST / f"task2_strict_individual_{image.name}")
+    for image in sorted((SOURCE / "task2_strict_revised" / "heatmaps").glob("*.png")):
+        shutil.copy2(image, DEST / f"task2_strict_revised_{image.name}")
     for image in sorted((SOURCE / "task4_heat_final" / "heatmaps").glob("*.png")):
         shutil.copy2(image, DEST / f"task4_{image.name}")
     provenance = [hash_file(path) for pattern in ("*.cool.gz", "*.gff.gz", "*.xlsx")
@@ -206,10 +214,14 @@ def main() -> None:
     grid = json.loads((SOURCE / "task1_spatial_grid4/metrics.json").read_text(encoding="utf-8"))
     audit = json.loads((SOURCE / "task1_legacy_split_audit.json").read_text(encoding="utf-8"))
     overlap = json.loads((SOURCE / "task1_chid_overlap/summary.json").read_text(encoding="utf-8"))
+    new_classifier = json.loads((SOURCE / "task1_multiscale_eval/summary.json").read_text(encoding="utf-8"))
+    new_chid = new_classifier["short_only"]["structure_level"]
+    paired = json.loads((SOURCE / "task1_pairwise/summary.json").read_text(encoding="utf-8"))
     strict_loci = json.loads((SOURCE / "task2_strict_locus_evidence.json").read_text(encoding="utf-8"))
+    strict_revised = json.loads((SOURCE / "task2_strict_revised/summary.json").read_text(encoding="utf-8"))
     task1_header = next(i for i, line in enumerate(lines) if line.startswith("## 任务一"))
     lines[task1_header:task1_header + 1] = [
-        "## 任务一：空间独立主结果", "",
+        "## 任务一：原默认 CNN 空间留出对照", "",
         f"按完整输入窗口的邻近连通组隔离，留出 {spatial['test_structures']} 个结构、"
         f"{spatial['test_samples']} 个重复样本：准确率 {spatial['accuracy']:.3f}、"
         f"宏 F1 {spatial['macro_f1']:.3f}。CHID F1 为 "
@@ -230,6 +242,15 @@ def main() -> None:
         f"{overlap['overlap_aware']['precision_at_0_5']:.3f}/"
         f"{overlap['overlap_aware']['recall_at_0_5']:.3f}。"
         "这是不同于原单标签分类的任务，不能用来替换旧精确率。", "",
+        f"原三类单标签任务的补充空间五折模型（GroupNorm，5.12 kb）：CHID 精确率 "
+        f"{new_chid['chid_precision']:.3f}、召回率 {new_chid['chid_recall']:.3f}"
+        f"（{new_chid['confusion_matrix'][2][2]}/{sum(new_chid['confusion_matrix'][2])}）。"
+        f"总体准确率 {new_chid['accuracy']:.3f}、宏 F1 {new_chid['macro_f1']:.3f}。"
+        "CHID 样本少，区间宽，不能声称稳定解决。",
+        f"CHID–CHIN 成对约束的同折对照精确率 "
+        f"{paired['control']['structure_level']['chid_precision']:.3f}→"
+        f"{paired['pairwise']['structure_level']['chid_precision']:.3f}；"
+        "20.48 kb 双尺度输入也低于同折局部模型，均不采用。", "",
         "### 旧版 ID-only 对照", "",
     ]
     task3_header = next(i for i, line in enumerate(lines) if line.startswith("## 任务三"))
@@ -238,6 +259,10 @@ def main() -> None:
         f"严格分数和重复门槛下有 {strict_loci['strict_individual_windows']} 个形态离群窗口，"
         f"合并为 {strict_loci['merged_loci']} 个位点；固定 8 簇且每簇至少 5 个的旧规则"
         f"仍为 {strict_loci['strict_cluster_supported_loci']} 个。",
+        f"修订后的 `--candidate-rule individual` 在发现程序内直接输出 "
+        f"{strict_revised['new_candidates']} 个窗口，同时单列 "
+        f"{strict_revised['cluster_supported_windows']} 个簇支持窗口；"
+        "坐标与事后审计完全一致。",
         f"在未参与 WT 筛选的 44℃ 与利福平数据上，邻近错位对照的候选内 BH q<0.05 "
         f"分别覆盖 {strict_loci['loci_heat_local_shift_q_below_005']} 和 "
         f"{strict_loci['loci_rif_local_shift_q_below_005']} 个代表位点。"

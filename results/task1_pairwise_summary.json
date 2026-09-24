@@ -1,0 +1,104 @@
+{
+  "epochs": 12,
+  "pair_radius_bp": 2000,
+  "pair_weight": 1.0,
+  "paired_chid_structures": 24,
+  "evaluation": "original 3-class labels; 5 spatial-group out-of-fold predictions",
+  "model_selection": "fixed hyperparameters and epochs, no outer-fold threshold tuning",
+  "control": {
+    "structure_level": {
+      "accuracy": 0.7936046511627907,
+      "macro_f1": 0.5724289466804436,
+      "chid_precision": 0.23076923076923078,
+      "chid_recall": 0.11538461538461539,
+      "confusion_matrix": [
+        [
+          219,
+          23,
+          8
+        ],
+        [
+          15,
+          51,
+          2
+        ],
+        [
+          17,
+          6,
+          3
+        ]
+      ]
+    },
+    "replicate_sample_level": {
+      "accuracy": 0.7936046511627907,
+      "macro_f1": 0.5751965469400339,
+      "chid_precision": 0.23076923076923078,
+      "chid_recall": 0.11538461538461539,
+      "confusion_matrix": [
+        [
+          435,
+          48,
+          17
+        ],
+        [
+          28,
+          105,
+          3
+        ],
+        [
+          35,
+          11,
+          6
+        ]
+      ]
+    }
+  },
+  "pairwise": {
+    "structure_level": {
+      "accuracy": 0.7732558139534884,
+      "macro_f1": 0.5488099400736709,
+      "chid_precision": 0.19047619047619047,
+      "chid_recall": 0.15384615384615385,
+      "confusion_matrix": [
+        [
+          224,
+          16,
+          10
+        ],
+        [
+          23,
+          38,
+          7
+        ],
+        [
+          19,
+          3,
+          4
+        ]
+      ]
+    },
+    "replicate_sample_level": {
+      "accuracy": 0.7718023255813954,
+      "macro_f1": 0.5503122252995168,
+      "chid_precision": 0.20454545454545456,
+      "chid_recall": 0.17307692307692307,
+      "confusion_matrix": [
+        [
+          448,
+          33,
+          19
+        ],
+        [
+          46,
+          74,
+          16
+        ],
+        [
+          37,
+          6,
+          9
+        ]
+      ]
+    }
+  }
+}

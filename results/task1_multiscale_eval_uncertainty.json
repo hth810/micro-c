@@ -1,0 +1,58 @@
+{
+  "resampling_unit": "non-overlapping 20.48 kb genomic component",
+  "resamples": 2000,
+  "modes": {
+    "dual_scale": {
+      "accuracy": 0.8023255813953488,
+      "macro_f1": 0.5908351359173714,
+      "chid_precision": 0.23529411764705882,
+      "chid_recall": 0.15384615384615385,
+      "chid_true_positive": 4,
+      "chid_predicted_positive": 17,
+      "spatial_bootstrap_95ci": {
+        "accuracy": [
+          0.7491817075553818,
+          0.8487401442058304
+        ],
+        "macro_f1": [
+          0.5170577218884357,
+          0.6669057500958107
+        ],
+        "chid_precision": [
+          0.0625,
+          0.42110323886639645
+        ],
+        "chid_recall": [
+          0.03571428571428571,
+          0.3181818181818182
+        ]
+      }
+    },
+    "short_only": {
+      "accuracy": 0.8255813953488372,
+      "macro_f1": 0.6297510161118667,
+      "chid_precision": 0.4166666666666667,
+      "chid_recall": 0.19230769230769232,
+      "chid_true_positive": 5,
+      "chid_predicted_positive": 12,
+      "spatial_bootstrap_95ci": {
+        "accuracy": [
+          0.7694494749103616,
+          0.8733836056416701
+        ],
+        "macro_f1": [
+          0.5394444136786418,
+          0.7195877987845903
+        ],
+        "chid_precision": [
+          0.125,
+          0.75
+        ],
+        "chid_recall": [
+          0.047619047619047616,
+          0.375
+        ]
+      }
+    }
+  }
+}

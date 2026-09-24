@@ -33,6 +33,16 @@ python -m task1.evaluate_chid_overlap --windows outputs/task1_spatial/extracted_
 
 python -m scripts.summarize_chid_overlap --predictions outputs/task1_chid_overlap/crossfit_predictions.csv --out outputs/task1_chid_overlap/bootstrap.json
 
+python -m task1.evaluate_pairwise --windows outputs/task1_spatial/extracted_windows.npz --annotations data/structures.csv --out outputs/task1_pairwise
+
+python -m task1.prepare_multiscale --short-windows outputs/task1_spatial/extracted_windows.npz --rep1 data/raw/GSE272159_37C_rep1.mapq_30.10.cool.gz --rep2 data/raw/GSE272159_37C_rep2.mapq_30.10.cool.gz --out outputs/task1_multiscale/windows.npz
+
+python -m task1.evaluate_multiscale --windows outputs/task1_multiscale/windows.npz --out outputs/task1_multiscale_eval
+
+python -m scripts.summarize_task1_cv --predictions outputs/task1_multiscale_eval/crossfit_predictions.csv --out outputs/task1_multiscale_eval/uncertainty.json
+
+python -m task1.train_final_groupnorm --windows outputs/task1_spatial/extracted_windows.npz --out outputs/task1_groupnorm_final.pt
+
 python task1/run_task1.py --data-dir data/raw --annotations data/structures.csv --split-mode structure --out-dir outputs/task1
 
 python scripts/audit_task1_split.py outputs/task1/annotation_manifest.csv --legacy --out outputs/task1_legacy_split_audit.json
@@ -44,6 +54,8 @@ python task1/run_task1.py --data-dir data/raw --annotations data/structures.csv 
 python -m microc.analysis discover --rep1 data/raw/GSE272159_37C_rep1.mapq_30.10.cool.gz --rep2 data/raw/GSE272159_37C_rep2.mapq_30.10.cool.gz --annotations data/structures.csv --out outputs/task2
 
 python -m microc.analysis discover --rep1 data/raw/GSE272159_37C_rep1.mapq_30.10.cool.gz --rep2 data/raw/GSE272159_37C_rep2.mapq_30.10.cool.gz --annotations data/structures.csv --top-fraction 0.2 --min-replicate-r 0.3 --out outputs/task2_strict_current
+
+python -m microc.analysis discover --rep1 data/raw/GSE272159_37C_rep1.mapq_30.10.cool.gz --rep2 data/raw/GSE272159_37C_rep2.mapq_30.10.cool.gz --annotations data/structures.csv --top-fraction 0.2 --min-replicate-r 0.3 --candidate-rule individual --out outputs/task2_strict_revised
 
 python -m scripts.audit_candidate_sensitivity --scan outputs/task2/all_windows.csv --candidates outputs/task2/new_candidates.csv --out outputs/task2_sensitivity
 

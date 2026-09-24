@@ -1,0 +1,13 @@
+{
+  "classes": [
+    "CHIN",
+    "OPCID",
+    "CHID"
+  ],
+  "train_structures": 344,
+  "train_samples": 688,
+  "window_bp": 5120,
+  "epochs": 12,
+  "seed": 20260921,
+  "performance_estimate": "results/task1_multiscale_eval_summary.json"
+}
