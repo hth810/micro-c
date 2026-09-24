@@ -1,0 +1,47 @@
+{
+  "test": {
+    "psnr": {
+      "n": 208,
+      "mean_gain": 0.39505200959580083,
+      "median_gain": 0.39244441399999097,
+      "win_fraction": 0.9759615384615384,
+      "block_bootstrap_95ci": [
+        0.38286319576128275,
+        0.4076309134405409
+      ]
+    },
+    "ssim": {
+      "n": 208,
+      "mean_gain": 0.10005496201957513,
+      "median_gain": 0.10357820500842524,
+      "win_fraction": 0.9711538461538461,
+      "block_bootstrap_95ci": [
+        0.09747754656956033,
+        0.10253723671476936
+      ]
+    }
+  },
+  "known_structures": {
+    "psnr": {
+      "n": 68,
+      "mean_gain": 0.40797032664997906,
+      "median_gain": 0.42064208455611407,
+      "win_fraction": 1.0,
+      "block_bootstrap_95ci": [
+        0.39176617656375007,
+        0.4253051631804159
+      ]
+    },
+    "ssim": {
+      "n": 68,
+      "mean_gain": 0.10418322463963704,
+      "median_gain": 0.10460687781948905,
+      "win_fraction": 1.0,
+      "block_bootstrap_95ci": [
+        0.10190046327517789,
+        0.10595644451490947
+      ]
+    }
+  },
+  "note": "Confidence intervals resample contiguous genomic blocks, not pixels; the low-resolution input is simulated from the target Micro-C map."
+}

@@ -15,6 +15,11 @@
     "sha256": "2ba6ed7e8bd110c513ed31ca0ed82f3369bf16a25a0e05ae2ab1ee92dde67c6f"
   },
   {
+    "file": "GSE272159_44C_rep2.mapq_30.10.cool.gz",
+    "bytes": 463179550,
+    "sha256": "178742cf010d863d60ed7fef0e6fc7a3653d20fec801585912bbd4333a09899a"
+  },
+  {
     "file": "GSE272159_rif25_rep1.MG1655.mapq_30.10.cool.gz",
     "bytes": 106655391,
     "sha256": "406503353a4683810157e3863079bc21d95dc46c169b0736d538d4c61f126a26"

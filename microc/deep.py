@@ -150,7 +150,9 @@ def superresolve(args) -> None:
             ax.set_title(name)
         fig.suptitle(f"{chrom}:{centers[test_start+i]} bp")
         fig.tight_layout(); fig.savefig(out / f"example_{i:02d}.png"); plt.close(fig)
-    (out / "summary.json").write_text(json.dumps({"train_patches": train_end,
+    (out / "summary.json").write_text(json.dumps({"factor": args.factor, "epochs": args.epochs,
+        "seed": args.seed, "max_patches": args.max_patches, "patch_bins": args.patch_bins,
+        "train_patches": train_end,
         "validation_patches": test_start - train_end, "test_patches": len(truth),
         "validation_blend": blend, "best_validation_mse": best_loss,
         "comparison": scores.groupby("method")[["psnr", "ssim"]].mean().to_dict(),
@@ -307,8 +309,8 @@ def main() -> None:
     sr.add_argument("--cool", type=Path, required=True); sr.add_argument("--out", type=Path, required=True)
     sr.add_argument("--annotations", type=Path)
     sr.add_argument("--chrom"); sr.add_argument("--patch-bins", type=int, default=64)
-    sr.add_argument("--factor", type=int, default=4); sr.add_argument("--max-patches", type=int, default=1200)
-    sr.add_argument("--epochs", type=int, default=12); sr.add_argument("--batch-size", type=int, default=32)
+    sr.add_argument("--factor", type=int, default=2); sr.add_argument("--max-patches", type=int, default=1200)
+    sr.add_argument("--epochs", type=int, default=24); sr.add_argument("--batch-size", type=int, default=32)
     sr.add_argument("--examples", type=int, default=8); sr.add_argument("--seed", type=int, default=20260921)
     d3 = sub.add_parser("reconstruct3d")
     d3.add_argument("--cool", type=Path, required=True); d3.add_argument("--out", type=Path, required=True)

@@ -8,6 +8,8 @@ from argparse import Namespace
 from microc.analysis import _features, _shape_score, differential, discover, tracks
 from microc.data import annotations, normalize, open_cool, upper_correlation, window
 from microc.deep import _coarsen, _consistency, degrade, reconstruct3d, superresolve
+from scripts.validate_discovery import shape_features
+from task1.run_task1 import select_validation_bias
 
 
 def test_real_annotation_workbook_if_present():
@@ -18,6 +20,14 @@ def test_real_annotation_workbook_if_present():
     assert table.groupby("type").size().to_dict() == {"CHID": 26, "CHIN": 250, "OPCID": 68}
     assert table.center.notna().all()
     assert (table.end > table.start).all()
+
+
+def test_validation_only_logit_calibration():
+    logits = np.array([[2.0, 0.0, 1.9], [0.0, 2.0, 1.9], [0.0, 0.0, 2.0]])
+    labels = np.array([0, 1, 2])
+    bias, report = select_validation_bias(logits, labels)
+    assert len(bias) == 3
+    assert report["calibrated"]["macro_f1"] >= report["uncalibrated"]["macro_f1"]
 
 
 def test_synthetic_cooler_and_geometry(tmp_path):
@@ -36,6 +46,8 @@ def test_synthetic_cooler_and_geometry(tmp_path):
         assert np.allclose(patch, patch.T)
         assert upper_correlation(norm, norm) > .99
         assert len(_features(norm)) == 105 + 5
+        assert len(shape_features(norm)) == 118
+        assert np.isfinite(shape_features(norm)).all()
         assert _shape_score(norm) >= 0
         assert degrade(norm, 4).shape == (64, 64)
         coarse = _coarsen(c, "MG1655", 160)
@@ -64,7 +76,10 @@ def test_end_to_end_small_data(tmp_path):
     assert (tmp_path / "discovery" / "all_candidates.csv").exists()
     differential(Namespace(wt=path, condition=path, annotations=labels, name="same",
         out=tmp_path / "differential", window_bp=640, heatmaps=2))
-    assert len(pd.read_csv(tmp_path / "differential" / "structure_changes.csv")) == 3
+    changes = pd.read_csv(tmp_path / "differential" / "structure_changes.csv")
+    assert len(changes) == 3
+    assert np.allclose(changes.delta, 0)
+    assert (tmp_path / "differential" / "reproducible_changes.csv").exists()
     tracks(Namespace(cool=[path, path, path], annotations=labels, gff=None,
         out=tmp_path / "tracks", interval_bp=2560))
     assert len(list((tmp_path / "tracks").glob("*.png"))) == 2

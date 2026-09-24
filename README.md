@@ -4,11 +4,11 @@
 
 ## 数据
 
-原始矩阵来自 [NCBI GEO GSE272159](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE272159)。`data/structures.csv` 是从课程提供的 `标注数据.xlsx` 的 Supplementary Table 4/5/6 导出的 344 条标注，来源工作簿不进入 Git。下载脚本获取任务所需的五个矩阵：两个 37℃ 重复、44℃ rep1、两个 rifampicin 25 重复；另获取一个基因注释 GFF 文件。
+原始矩阵来自 [NCBI GEO GSE272159](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE272159)。`data/structures.csv` 是从课程提供的 `标注数据.xlsx` 的 Supplementary Table 4/5/6 导出的 344 条标注，来源工作簿不进入 Git。下载脚本获取六个矩阵：两个 37℃ 重复、两个 44℃ 重复、两个 rifampicin 25 重复；另获取一个基因注释 GFF 文件。
 
 ```bash
 python -m pip install -r requirements.txt
-python scripts/download_geo.py wt1 wt2 heat rif rif2 gff
+python scripts/download_geo.py wt1 wt2 heat heat2 rif rif2 gff
 python scripts/prepare_annotations.py data/raw/标注数据.xlsx
 ```
 
@@ -21,18 +21,39 @@ python scripts/prepare_annotations.py data/raw/标注数据.xlsx
 ```bash
 python task1/run_task1.py --data-dir data/raw --annotations data/structures.csv --out-dir outputs/task1
 
+python task1/run_task1.py --data-dir data/raw --annotations data/structures.csv --calibrate --out-dir outputs/task1_calibrated
+
+python task1/run_task1.py --data-dir data/raw --annotations data/structures.csv --aggregate 8 --out-dir outputs/task1_scale8
+
 python -m microc.analysis discover --rep1 data/raw/GSE272159_37C_rep1.mapq_30.10.cool.gz --rep2 data/raw/GSE272159_37C_rep2.mapq_30.10.cool.gz --annotations data/structures.csv --out outputs/task2
 
-python -m microc.analysis tracks --cool data/raw/GSE272159_37C_rep1.mapq_30.10.cool.gz data/raw/GSE272159_44C_rep1.mapq_30.10.cool.gz data/raw/GSE272159_rif25_rep1.MG1655.mapq_30.10.cool.gz --annotations data/structures.csv --gff data/raw/GCF_000005845.2_ASM584v2_genomic.gff.gz --out outputs/task3
+python -m microc.analysis discover --rep1 data/raw/GSE272159_37C_rep1.mapq_30.10.cool.gz --rep2 data/raw/GSE272159_37C_rep2.mapq_30.10.cool.gz --annotations data/structures.csv --top-fraction 0.2 --min-replicate-r 0.3 --out outputs/task2_strict
 
-python -m microc.analysis differential --wt data/raw/GSE272159_37C_rep1.mapq_30.10.cool.gz --wt2 data/raw/GSE272159_37C_rep2.mapq_30.10.cool.gz --condition data/raw/GSE272159_rif25_rep1.MG1655.mapq_30.10.cool.gz --condition2 data/raw/GSE272159_rif25_rep2.MG1655.mapq_30.10.cool.gz --name rifampicin_25 --annotations data/structures.csv --out outputs/task4
+python -m microc.analysis tracks --cool data/raw/GSE272159_37C_rep1.mapq_30.10.cool.gz data/raw/GSE272159_44C_rep1.mapq_30.10.cool.gz data/raw/GSE272159_rif25_rep1.MG1655.mapq_30.10.cool.gz --labels WT_37C Heat_44C Rif_25 --annotations data/structures.csv --gff data/raw/GCF_000005845.2_ASM584v2_genomic.gff.gz --out outputs/task3_labeled
 
-python -m microc.deep superresolve --cool data/raw/GSE272159_37C_rep1.mapq_30.10.cool.gz --annotations data/structures.csv --out outputs/task5
+python -m microc.analysis differential --wt data/raw/GSE272159_37C_rep1.mapq_30.10.cool.gz --wt2 data/raw/GSE272159_37C_rep2.mapq_30.10.cool.gz --condition data/raw/GSE272159_44C_rep1.mapq_30.10.cool.gz --condition2 data/raw/GSE272159_44C_rep2.mapq_30.10.cool.gz --name heat_44c --annotations data/structures.csv --heatmaps 60 --out outputs/task4_heat_final
+
+python -m microc.analysis differential --wt data/raw/GSE272159_37C_rep1.mapq_30.10.cool.gz --wt2 data/raw/GSE272159_37C_rep2.mapq_30.10.cool.gz --condition data/raw/GSE272159_rif25_rep1.MG1655.mapq_30.10.cool.gz --condition2 data/raw/GSE272159_rif25_rep2.MG1655.mapq_30.10.cool.gz --name rifampicin_25 --annotations data/structures.csv --out outputs/task4_rif_final
+
+python -m microc.analysis differential --wt data/raw/GSE272159_37C_rep1.mapq_30.10.cool.gz --condition data/raw/GSE272159_37C_rep2.mapq_30.10.cool.gz --name wt_rep2_control --annotations data/structures.csv --out outputs/task4_repeat_depth_final
+
+python -m microc.deep superresolve --cool data/raw/GSE272159_37C_rep1.mapq_30.10.cool.gz --annotations data/structures.csv --factor 2 --epochs 24 --out outputs/task5_factor2
+
+python -m microc.deep superresolve --cool data/raw/GSE272159_37C_rep1.mapq_30.10.cool.gz --annotations data/structures.csv --factor 4 --epochs 24 --out outputs/task5_factor4_aligned
 
 python -m microc.deep reconstruct3d --cool data/raw/GSE272159_37C_rep1.mapq_30.10.cool.gz --annotations data/structures.csv --out outputs/task6
 ```
 
 `.cool.gz` 会临时解压后读取。重复运行时可自行保留同名 `.cool` 并将参数指向解压后的文件，避免反复解压。
+
+任务二与任务五的独立验证：
+
+```bash
+python -m scripts.validate_discovery --rep1 data/raw/GSE272159_37C_rep1.mapq_30.10.cool.gz --rep2 data/raw/GSE272159_37C_rep2.mapq_30.10.cool.gz --annotations data/structures.csv --discovery outputs/task2 --out outputs/task2_validation
+python -m scripts.validate_superresolution --source outputs/task5_factor2 --out outputs/task5_factor2/validation.json
+python -m scripts.validate_superresolution --source outputs/task5_factor4_aligned --out outputs/task5_factor4_aligned/validation.json
+python scripts/collect_results.py
+```
 
 ## 验证
 
@@ -40,4 +61,4 @@ python -m microc.deep reconstruct3d --cool data/raw/GSE272159_37C_rep1.mapq_30.1
 python -m pytest -q tests
 ```
 
-测试使用合成 `.cool` 矩阵覆盖读取、归一化、聚类、轨道、条件变化、超分辨和三维重建，不代表真实数据性能。真实结果必须以 `outputs/` 中实际运行的指标、图表与数据哈希为准。选做任务五以合并 bin 构造模拟低分辨率输入，不等同于独立 Hi-C 实验；任务六的三维坐标不能单凭接触一致性视作真实物理形态。
+测试使用合成 `.cool` 矩阵覆盖读取、归一化、聚类、轨道、条件变化、超分辨和三维重建，不代表真实数据性能。真实结果必须以 `results/` 中实际运行的指标、图表与数据哈希为准。任务四在原始计数上匹配测序深度；任务五以合并 bin 构造模拟低分辨率输入，不等同于独立 Hi-C 实验；任务六的三维坐标不能单凭接触一致性视作真实物理形态。

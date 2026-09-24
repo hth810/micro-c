@@ -243,7 +243,10 @@ def tracks(args) -> None:
     ann, genes = annotations(args.annotations), _genes(args.gff)
     out = Path(args.out); out.mkdir(parents=True, exist_ok=True)
     with ExitStack() as stack:
-        conditions = [(Path(p).stem, stack.enter_context(open_cool(p))) for p in args.cool]
+        names = getattr(args, "labels", None) or [Path(p).stem for p in args.cool]
+        if len(names) != len(args.cool):
+            raise ValueError("--labels must have one name per contact matrix")
+        conditions = [(name, stack.enter_context(open_cool(p))) for name, p in zip(names, args.cool)]
         if len(conditions) < 3:
             raise ValueError("Task 3 requires at least three conditions")
         bin_size = conditions[0][1].binsize
@@ -292,6 +295,8 @@ def differential(args) -> None:
     ann = annotations(args.annotations)
     out = Path(args.out); out.mkdir(parents=True, exist_ok=True)
     rows = []
+    displayed_matrices = {}
+    rng = np.random.default_rng(getattr(args, "seed", 20260921))
     if bool(getattr(args, "wt2", None)) != bool(getattr(args, "condition2", None)):
         raise ValueError("Provide both --wt2 and --condition2 for a paired repeat analysis")
     with ExitStack() as stack:
@@ -302,37 +307,90 @@ def differential(args) -> None:
         if any(c.binsize != wt[0].binsize or tuple(c.chromnames) != tuple(wt[0].chromnames)
                for c in wt + treatment):
             raise ValueError("WT and condition require matching bins")
+        target_depth = min(float(c.info["sum"]) for c in wt + treatment)
+
+        def matched(c, chrom, center):
+            # Aggregate the original 10 bp integer counts before independent
+            # binomial thinning. This preserves the count distribution better
+            # than multiplying an already normalized image by a depth ratio.
+            bins = int(round(args.window_bp / c.binsize))
+            if bins % 64:
+                raise ValueError("Differential window must have a multiple of 64 bins")
+            raw = window(c, chrom, center, args.window_bp, bins)
+            factor = bins // 64
+            counts = np.rint(raw.reshape(64, factor, 64, factor).sum(axis=(1, 3))).astype(np.int64)
+            probability = min(1.0, target_depth / float(c.info["sum"]))
+            triangle = np.triu(np.maximum(counts, 0))
+            thinned = rng.binomial(triangle, probability).astype(np.float32)
+            thinned = thinned + np.triu(thinned, 1).T
+            return normalize(thinned)
+
         for _, record in ann.iterrows():
             chrom = chrom_name(wt[0], record.chrom)
             center = int(record.center)
-            wt_mats = [normalize(window(c, chrom, center, args.window_bp, 64)) for c in wt]
-            condition_mats = [normalize(window(c, chrom, center, args.window_bp, 64)) for c in treatment]
+            wt_mats = [matched(c, chrom, center) for c in wt]
+            condition_mats = [matched(c, chrom, center) for c in treatment]
             a, b = np.mean(wt_mats, axis=0), np.mean(condition_mats, axis=0)
+            displayed_matrices[str(record.id)] = (a, b)
             region = np.triu_indices(64, k=3)
-            strength_wt = float(np.mean([np.maximum(m[region], 0).mean() for m in wt_mats]))
-            strength_condition = float(np.mean([np.maximum(m[region], 0).mean() for m in condition_mats]))
+            wt_scores = [float(np.maximum(m[region], 0).mean()) for m in wt_mats]
+            condition_scores = [float(np.maximum(m[region], 0).mean()) for m in condition_mats]
+            strength_wt = float(np.mean(wt_scores))
+            strength_condition = float(np.mean(condition_scores))
             delta = strength_condition - strength_wt
+            wt_repeat_gap = abs(wt_scores[0] - wt_scores[-1]) if len(wt_scores) > 1 else np.nan
+            condition_repeat_gap = (abs(condition_scores[0] - condition_scores[-1])
+                                    if len(condition_scores) > 1 else np.nan)
+            delta_rep1 = condition_scores[0] - wt_scores[0]
+            delta_rep2 = (condition_scores[1] - wt_scores[1]) if len(wt_scores) > 1 else np.nan
             rows.append(dict(id=record.id, type=record.type, chrom=chrom, start=record.start,
                              end=record.end, condition=args.name, wt_strength=strength_wt,
                              condition_strength=strength_condition, delta=delta,
-                             wt_repeat_difference=float(abs(np.maximum(wt_mats[0][region], 0).mean() -
-                                 np.maximum(wt_mats[-1][region], 0).mean())) if len(wt_mats) > 1 else np.nan,
-                             condition_repeat_difference=float(abs(np.maximum(condition_mats[0][region], 0).mean() -
-                                 np.maximum(condition_mats[-1][region], 0).mean())) if len(condition_mats) > 1 else np.nan,
+                             delta_rep1=delta_rep1, delta_rep2=delta_rep2,
+                             repeat_direction_agreement=(bool(delta_rep1 * delta_rep2 > 0)
+                                 if len(wt_mats) > 1 else np.nan),
+                             exceeds_repeat_variation=(bool(abs(delta) > max(wt_repeat_gap, condition_repeat_gap))
+                                 if len(wt_mats) > 1 else np.nan),
+                             wt_repeat_difference=wt_repeat_gap,
+                             condition_repeat_difference=condition_repeat_gap,
                              direction="weakened" if delta < 0 else "strengthened",
                              oe_correlation=upper_correlation(a, b)))
         result = pd.DataFrame(rows).sort_values("delta")
+        repeat_gaps = result[["wt_repeat_difference", "condition_repeat_difference"]].to_numpy()
+        if np.isfinite(repeat_gaps).any():
+            repeat_p95 = float(np.nanquantile(repeat_gaps, .95))
+            result["exceeds_global_repeat_p95"] = result.delta.abs() > repeat_p95
+            result["reproducible_change"] = (result.repeat_direction_agreement &
+                result.exceeds_repeat_variation & result.exceeds_global_repeat_p95)
+        else:
+            repeat_p95 = np.nan
+            result["exceeds_global_repeat_p95"] = False
+            result["reproducible_change"] = False
         result.to_csv(out / "structure_changes.csv", index=False)
-        result.groupby("type").delta.agg(["count", "mean", "median"]).to_csv(out / "class_summary.csv")
-        for _, row in pd.concat([result.head(args.heatmaps // 2), result.tail(args.heatmaps // 2)]).iterrows():
-            center = int((row.start + row.end) // 2)
-            save_heatmap(np.mean([normalize(window(c, row.chrom, center, args.window_bp, 64)) for c in wt], axis=0),
-                         out / "heatmaps" / f"{row.id}_wt.png", f"{row.id} WT")
-            save_heatmap(np.mean([normalize(window(c, row.chrom, center, args.window_bp, 64)) for c in treatment], axis=0),
-                         out / "heatmaps" / f"{row.id}_{args.name}.png", f"{row.id} {args.name}")
+        result[result.reproducible_change].to_csv(out / "reproducible_changes.csv", index=False)
+        class_summary = result.groupby("type").agg(count=("delta", "size"), mean=("delta", "mean"),
+            median=("delta", "median"),
+            repeat_direction_agreement_rate=("repeat_direction_agreement", "mean"),
+            exceeds_repeat_variation_rate=("exceeds_repeat_variation", "mean"),
+            reproducible_changes=("reproducible_change", "sum"))
+        class_summary.to_csv(out / "class_summary.csv")
+        # Reuse the already depth-matched matrices for the displayed examples.
+        source = result[result.reproducible_change]
+        if source.empty:
+            source = result
+        chosen = pd.concat([source.head(args.heatmaps // 2), source.tail(args.heatmaps // 2)]).drop_duplicates("id")
+        for _, row in chosen.iterrows():
+            a, b = displayed_matrices[str(row.id)]
+            save_heatmap(a, out / "heatmaps" / f"{row.id}_wt.png", f"{row.id} WT")
+            save_heatmap(b, out / "heatmaps" / f"{row.id}_{args.name}.png", f"{row.id} {args.name}")
     (out / "README.txt").write_text(
-        "Delta is the difference in positive normalized off-diagonal contact strength. "
-        "Biological repeats are averaged when supplied; formal significance and causality require further study.\n", encoding="utf-8")
+        f"Raw counts were aggregated to 64 bins and then independently binomial-thinned to the lowest "
+        f"library depth ({target_depth:.0f} contacts) before distance normalization. "
+        "Delta is the treatment-minus-WT difference "
+        "in positive normalized off-diagonal contact strength. Biological repeats are averaged when supplied; "
+        f"the exploratory reproducible-change cutoff is the pooled 95th percentile of within-condition repeat "
+        f"differences ({repeat_p95:.6g}), plus matched-pair direction agreement and an effect larger than its own "
+        "repeat differences. This is not a formal false-discovery rate or causal test.\n", encoding="utf-8")
 
 
 def main() -> None:
@@ -348,11 +406,13 @@ def main() -> None:
     d.add_argument("--ae-epochs", type=int, default=8, help="autoencoder training epochs; 0 disables it")
     t = sub.add_parser("tracks", help="Task 3: whole-genome multi-condition tracks")
     t.add_argument("--cool", type=Path, required=True, nargs="+"); t.add_argument("--annotations", type=Path, required=True)
+    t.add_argument("--labels", nargs="+", help="short legend names matching --cool order")
     t.add_argument("--gff", type=Path); t.add_argument("--out", type=Path, required=True)
     t.add_argument("--interval-bp", type=int, default=10000)
     c = sub.add_parser("differential", help="Task 4: condition-specific structure changes")
     c.add_argument("--wt", type=Path, required=True); c.add_argument("--condition", type=Path, required=True)
     c.add_argument("--wt2", type=Path); c.add_argument("--condition2", type=Path)
+    c.add_argument("--seed", type=int, default=20260921)
     c.add_argument("--name", required=True); c.add_argument("--annotations", type=Path, required=True)
     c.add_argument("--out", type=Path, required=True); c.add_argument("--window-bp", type=int, default=5120)
     c.add_argument("--heatmaps", type=int, default=20)

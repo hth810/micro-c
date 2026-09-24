@@ -14,6 +14,7 @@ FILES = {
     "wt1": "GSE272159_37C_rep1.mapq_30.10.cool.gz",
     "wt2": "GSE272159_37C_rep2.mapq_30.10.cool.gz",
     "heat": "GSE272159_44C_rep1.mapq_30.10.cool.gz",
+    "heat2": "GSE272159_44C_rep2.mapq_30.10.cool.gz",
     "rif": "GSE272159_rif25_rep1.MG1655.mapq_30.10.cool.gz",
     "rif2": "GSE272159_rif25_rep2.MG1655.mapq_30.10.cool.gz",
     "gff": "GCF_000005845.2_ASM584v2_genomic.gff.gz",

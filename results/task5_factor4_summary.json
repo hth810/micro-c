@@ -1,0 +1,18 @@
+{
+  "train_patches": 725,
+  "validation_patches": 103,
+  "test_patches": 208,
+  "validation_blend": 0.9,
+  "best_validation_mse": 1.2278283536434174,
+  "comparison": {
+    "psnr": {
+      "bilinear": 20.95013244334805,
+      "cnn": 21.019619051552283
+    },
+    "ssim": {
+      "bilinear": 0.14326038741792804,
+      "cnn": 0.16234798003270154
+    }
+  },
+  "note": "Low-resolution input is simulated by bin aggregation, not independent Hi-C."
+}

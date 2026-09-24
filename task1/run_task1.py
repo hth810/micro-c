@@ -92,11 +92,33 @@ def save_confusion(cm: np.ndarray, out: Path) -> None:
     fig.tight_layout(); fig.savefig(out / "confusion_matrix.png"); plt.close(fig)
 
 
-def save_saliency(model, x_test, y_test, out: Path, device: torch.device) -> None:
+def select_validation_bias(logits: np.ndarray, truth: np.ndarray) -> tuple[np.ndarray, dict]:
+    """Tune two small class offsets on validation data, never on test data."""
+    raw = logits.argmax(axis=1)
+    before = {"accuracy": float(accuracy_score(truth, raw)),
+              "macro_f1": float(f1_score(truth, raw, average="macro"))}
+    best_bias = np.zeros(3, dtype=np.float32)
+    best_key = (-1.0, -1.0, -float("inf"))
+    for opc in np.linspace(-1.5, 1.5, 13):
+        for chid in np.linspace(-3, 1.5, 19):
+            bias = np.array([0, opc, chid], dtype=np.float32)
+            prediction = (logits + bias).argmax(axis=1)
+            key = (float(f1_score(truth, prediction, average="macro")),
+                   float(accuracy_score(truth, prediction)), -float(np.linalg.norm(bias)))
+            if key > best_key:
+                best_key, best_bias = key, bias
+    after = {"accuracy": best_key[1], "macro_f1": best_key[0]}
+    return best_bias, {"uncalibrated": before, "calibrated": after}
+
+
+def save_saliency(model, x_test, y_test, out: Path, device: torch.device,
+                  logit_bias: np.ndarray | None = None) -> None:
     model.eval()
     x = x_test.to(device).clone().requires_grad_(True)
     logits = model(x)
-    pred = logits.argmax(1)
+    adjusted = logits + torch.tensor(logit_bias if logit_bias is not None else np.zeros(3),
+                                      dtype=logits.dtype, device=device)
+    pred = adjusted.argmax(1)
     for ci, cname in enumerate(CLASSES):
         idx = torch.where((y_test.to(device) == ci) & (pred == ci))[0]
         if len(idx) == 0:
@@ -142,6 +164,8 @@ def main() -> None:
     ap.add_argument("--aggregate", type=int, default=4, help="raw bins per CNN bin (default 4 = 5,120 bp context)")
     ap.add_argument("--epochs", type=int, default=25)
     ap.add_argument("--seed", type=int, default=20260921)
+    ap.add_argument("--calibrate", action="store_true",
+                    help="experimental validation-set logit calibration; disabled by default")
     args = ap.parse_args()
     seed_all(args.seed); args.out_dir.mkdir(parents=True, exist_ok=True)
     xlsx = args.annotations or next(args.data_dir.glob("*.xlsx"))
@@ -205,13 +229,22 @@ def main() -> None:
             best_state = {k: v.detach().cpu().clone() for k, v in model.state_dict().items()}
     if best_state is not None:
         model.load_state_dict(best_state)
-    with torch.no_grad(): preds = model(test_x).argmax(1).cpu().numpy()
+    with torch.no_grad():
+        validation_logits = model(val_x).cpu().numpy()
+        test_logits = model(test_x).cpu().numpy()
+    candidate_bias, calibration = select_validation_bias(validation_logits, val_y.cpu().numpy())
+    logit_bias = candidate_bias if args.calibrate else np.zeros(3, dtype=np.float32)
+    calibration["applied"] = bool(args.calibrate)
+    calibration["candidate_bias"] = candidate_bias.tolist()
+    raw_preds = test_logits.argmax(axis=1)
+    preds = (test_logits + logit_bias).argmax(axis=1)
     yy = test_y.cpu().numpy(); cm = confusion_matrix(yy, preds, labels=range(3))
     test_indices = np.flatnonzero(te)
     pd.DataFrame({
         "structure_id": group_ids[test_indices],
         "replicate": [groups[i][1] for i in test_indices],
         "true_type": [CLASSES[i] for i in yy],
+        "uncalibrated_predicted_type": [CLASSES[i] for i in raw_preds],
         "predicted_type": [CLASSES[i] for i in preds],
         "correct": yy == preds,
     }).to_csv(args.out_dir / "test_predictions.csv", index=False, encoding="utf-8-sig")
@@ -222,13 +255,17 @@ def main() -> None:
                "validation_samples": int(va_mask.sum()), "test_samples": int(te.sum()),
                "accuracy": float(accuracy_score(yy, preds)),
                "macro_f1": float(f1_score(yy, preds, average="macro")),
+               "uncalibrated_test_accuracy": float(accuracy_score(yy, raw_preds)),
+               "uncalibrated_test_macro_f1": float(f1_score(yy, raw_preds, average="macro")),
+               "logit_bias": logit_bias.tolist(), "validation_calibration": calibration,
                "best_epoch": best_epoch,
                "classification_report": classification_report(yy, preds, target_names=CLASSES, output_dict=True),
                "history": history, "device": str(device), "replicates": [p.name for p in cools[:2]]}
     (args.out_dir / "metrics.json").write_text(json.dumps(metrics, ensure_ascii=False, indent=2), encoding="utf-8")
     torch.save({"model_state_dict": model.state_dict(), "classes": CLASSES, "window_bins": args.window_bins,
-                "aggregate": args.aggregate, "seed": args.seed}, args.out_dir / "task1_cnn.pt")
-    save_confusion(cm, args.out_dir); save_saliency(model, test_x, test_y, args.out_dir, device)
+                "aggregate": args.aggregate, "seed": args.seed, "logit_bias": logit_bias.tolist()},
+               args.out_dir / "task1_cnn.pt")
+    save_confusion(cm, args.out_dir); save_saliency(model, test_x, test_y, args.out_dir, device, logit_bias)
     save_example_heatmaps(test_x, test_y, preds, args.out_dir)
     print(json.dumps({"accuracy": metrics["accuracy"], "confusion_matrix": cm.tolist(), "output": str(args.out_dir)}, ensure_ascii=False))
 
