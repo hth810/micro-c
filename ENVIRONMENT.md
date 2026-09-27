@@ -26,8 +26,8 @@ scikit-image 0.26.0
 D:\anaconda3\envs\microc-review\python.exe -m pytest -q tests
 ```
 
-测试结果：`3 passed`。
+测试结果：`13 passed`（另有 1 个 scikit-learn 关于小样本分层的 warning）。任务1 CUDA 训练需要脚本自动设置 `CUBLAS_WORKSPACE_CONFIG`，否则 PyTorch 确定性反向传播会失败。
 
 ## 后续整合复核（E 盘工作区）
 
-本分支在另一台/另一套运行环境继续整合，不要求前述 D 盘路径在所有机器存在。后续复核环境为 Python 3.14.3、PyTorch 2.14.0+cpu、cooler 0.10.4、NumPy 2.4.4、pandas 3.0.3、scikit-learn 1.8.0、scikit-image 0.26.0。运行 `python -m pytest -q tests`，结果为 `4 passed`。原始数据的来源和哈希记录在 `results/provenance.json`。
+本分支在另一台/另一套运行环境继续整合，不要求前述 D 盘路径在所有机器存在。后续复核环境为 Python 3.14.3、PyTorch 2.14.0+cpu、cooler 0.10.4、NumPy 2.4.4、pandas 3.0.3、scikit-learn 1.8.0、scikit-image 0.26.0。原始数据的来源和哈希记录在 `results/provenance.json`。

@@ -4,13 +4,16 @@
 
 每个结构以中心为基准读取 512×512 个 10-bp bin（5,120 bp 物理窗口），再平均池化为 128×128 输入。接触计数依次进行 `log1p` 变换、对角线距离趋势扣除与 MAD 鲁棒标准化。分类器为三层轻量 CNN，并使用类别加权交叉熵缓解 CHID 样本较少的问题。
 
-同一结构的两个生物学重复始终位于同一数据分区，结构 ID 按类别分层后划分训练、验证和最终测试集。按验证集宏平均 F1 选择最佳训练轮次，测试集只用于最后一次评价。类别 logit 偏移校准可用 `--calibrate` 作为额外实验运行，但因实测降低留出集指标，默认不启用。固定随机种子默认为 `20260921`。
+同一结构的两个生物学重复始终位于同一数据分区。默认按基因组中心位置分组，使一个完整输入窗口不会跨越训练、验证和测试分区，再用验证集宏平均 F1 选择最佳训练轮次，测试集只用于最后一次评价。由于 `StratifiedGroupKFold` 在不同 scikit-learn 版本中可能给出不同的合法分区，正式结果复现时应使用提交的审计清单：
 
 ## 运行
 
 ```powershell
 python -m pip install -r task1/requirements.txt
 python task1/run_task1.py --data-dir data/raw --annotations data/structures.csv --out-dir outputs/task1
+# 精确复现仓库 results/task1_spatial_metrics.json 使用的 206/69/69 分区
+python task1/run_task1.py --data-dir data/raw --annotations data/structures.csv \
+  --split-manifest results/task1_spatial_annotation_manifest.csv --out-dir outputs/task1
 # 可选的失败对照：验证集类别阈值校准
 python task1/run_task1.py --data-dir data/raw --annotations data/structures.csv --calibrate --out-dir outputs/task1_calibrated
 ```

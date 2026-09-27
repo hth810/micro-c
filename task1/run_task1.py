@@ -8,6 +8,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import random
 from pathlib import Path
 
@@ -30,9 +31,13 @@ CLASSES = ["CHIN", "OPCID", "CHID"]
 
 
 def seed_all(seed: int) -> None:
+    # Required by deterministic CUDA matrix multiplication on CUDA >= 10.2.
+    # Set before torch initializes a CuBLAS context.
+    os.environ.setdefault("CUBLAS_WORKSPACE_CONFIG", ":4096:8")
     random.seed(seed)
     np.random.seed(seed)
     torch.manual_seed(seed)
+    torch.backends.cudnn.benchmark = False
     torch.use_deterministic_algorithms(True)
 
 
@@ -62,6 +67,33 @@ def spatial_split(ann: pd.DataFrame, seed: int, window_bp: int) -> tuple[set, se
     inner = StratifiedGroupKFold(n_splits=4, shuffle=True, random_state=seed + 1)
     train_idx, val_idx = next(inner.split(fit, fit.label, fit_groups))
     return set(fit.iloc[train_idx].id), set(fit.iloc[val_idx].id), set(ordered.iloc[test_idx].id)
+
+
+def split_from_manifest(ann: pd.DataFrame, path: Path, window_bp: int) -> tuple[set, set, set]:
+    """Reuse an audited split across scikit-learn versions and machines."""
+    saved = pd.read_csv(path)
+    required = {"id", "type", "chrom", "center", "split"}
+    if not required.issubset(saved.columns):
+        raise ValueError(f"Split manifest lacks {sorted(required - set(saved.columns))}")
+    if saved.id.duplicated().any() or set(saved.id) != set(ann.id):
+        raise ValueError("Split manifest must contain each current annotation ID exactly once")
+    current = ann.set_index("id")
+    recorded = saved.set_index("id").loc[current.index]
+    for field in ("type", "chrom", "center"):
+        if not np.array_equal(current[field].to_numpy(), recorded[field].to_numpy()):
+            raise ValueError(f"Split manifest does not match current annotation {field}")
+    if not set(saved.split).issubset({"train", "validation", "test"}):
+        raise ValueError("Split manifest contains an unknown partition")
+    ordered = saved.sort_values(["chrom", "center"])
+    for chrom, subset in ordered.groupby("chrom"):
+        near = subset.center.diff().to_numpy()[1:] < window_bp
+        crossing = subset.split.to_numpy()[1:] != subset.split.to_numpy()[:-1]
+        if np.any(near & crossing):
+            raise ValueError(f"Split manifest has overlapping windows across partitions on {chrom}")
+    parts = tuple(set(saved.loc[saved.split == name, "id"]) for name in ("train", "validation", "test"))
+    if not all(parts):
+        raise ValueError("Split manifest has an empty partition")
+    return parts
 
 
 def extract_window(c: cooler.Cooler, center_bp: int, window_bins: int, aggregate: int = 4) -> np.ndarray:
@@ -191,6 +223,8 @@ def main() -> None:
                     help="spatial prevents overlapping windows crossing splits; structure reproduces legacy result")
     ap.add_argument("--split-gap-bp", type=int,
                     help="minimum group-separating center gap; defaults to the physical input window")
+    ap.add_argument("--split-manifest", type=Path,
+                    help="reuse an audited annotation manifest to reproduce the exact train/validation/test partition")
     ap.add_argument("--chid-weight-multiplier", type=float, default=1.0,
                     help="experimental additional CHID loss weight; select using validation only")
     ap.add_argument("--spatial-grid", type=int, default=1,
@@ -211,12 +245,14 @@ def main() -> None:
                 cools.append(sorted(choices)[0])
     if len(cools) < 2: raise FileNotFoundError("Need the two 37C .cool biological replicates")
     ann = load_annotations(xlsx)
+    if args.split_manifest and args.split_mode != "spatial":
+        raise ValueError("--split-manifest requires --split-mode spatial")
     if args.split_mode == "spatial":
         split_gap_bp = args.split_gap_bp or args.window_bins * args.aggregate * 10
         if split_gap_bp < args.window_bins * args.aggregate * 10:
             raise ValueError("spatial split gap must cover the full input window")
-        train_ids, val_ids, test_ids = spatial_split(
-            ann, args.seed, split_gap_bp)
+        train_ids, val_ids, test_ids = (split_from_manifest(ann, args.split_manifest, split_gap_bp)
+                                       if args.split_manifest else spatial_split(ann, args.seed, split_gap_bp))
     else:
         split_gap_bp = None
         ids_fit, ids_test, labels_fit, _ = train_test_split(ann["id"].values, ann["label"].values,
@@ -296,6 +332,7 @@ def main() -> None:
         "correct": yy == preds,
     }).to_csv(args.out_dir / "test_predictions.csv", index=False, encoding="utf-8-sig")
     metrics = {"seed": args.seed, "split_mode": args.split_mode,
+               "split_manifest": str(args.split_manifest) if args.split_manifest else None,
                "split_gap_bp": split_gap_bp,
                "chid_weight_multiplier": args.chid_weight_multiplier,
                "spatial_grid": args.spatial_grid,
