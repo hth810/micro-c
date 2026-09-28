@@ -3,8 +3,11 @@
 *.cool.gz
 *.xlsx
 *.pdf
+!output/pdf/microc_experiment_report.pdf
 data/raw/
 outputs/
+tmp/pdfs/
+submission/*.zip
 
 # Generated task outputs and Python cache
 task1/output*/

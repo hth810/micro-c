@@ -5,14 +5,14 @@ import numpy as np
 import pandas as pd
 from argparse import Namespace
 
-from microc.analysis import _features, _shape_score, differential, discover, tracks
+from microc.analysis import _features, _replicate_direction_agreement, _shape_score, differential, discover, tracks
 from microc.data import annotations, normalize, open_cool, upper_correlation, window
 from microc.deep import _coarsen, _consistency, degrade, prepare_sr_pair, reconstruct3d, superresolve
 from scripts.validate_discovery import shape_features
 from scripts.validate_hns_candidates import condition_effect
 from scripts.validate_novel_cluster import components
 from scripts.validate_novel_condition_transfer import correlation_matrix
-from scripts.validate_3d_replicate import stratified_correlations
+from scripts.validate_3d_replicate import separation_matched_auc, stratified_correlations
 from scripts.validate_sr_known_shape import hotspot
 from task1.evaluate_chid_overlap import overlap_targets, spatial_groups
 from task1.evaluate_pairwise import PairAwareCNN, nearby_chid_chin_pairs
@@ -78,6 +78,45 @@ def test_hns_effect_subtracts_replicate_noise():
     assert altered["effect_corrected"] > 0
 
 
+def test_differential_selection_is_replicate_order_invariant(tmp_path):
+    # The old (treatment1-WT1, treatment2-WT2) sign test changed on a
+    # treatment-replicate swap despite the underlying data being identical.
+    assert not _replicate_direction_agreement([0, 4], [5, 1])
+    assert not _replicate_direction_agreement([4, 0], [1, 5])
+    assert _replicate_direction_agreement([0, 1], [3, 2])
+    assert _replicate_direction_agreement([1, 0], [2, 3])
+
+    bins = pd.DataFrame({"chrom": ["MG1655"] * 128, "start": np.arange(128) * 10,
+                         "end": (np.arange(128) + 1) * 10})
+    a, b = np.triu_indices(128)
+    base = np.maximum(1, 12 - np.abs(a - b))
+    paths = []
+    for name, depth, extra in (("wt1", 3, 0), ("wt2", 4, 1),
+                               ("treatment1", 5, 3), ("treatment2", 6, 4)):
+        path = tmp_path / f"{name}.cool"
+        counts = base * depth + extra * ((a > 30) & (a < 70) & (b > 45) & (b < 90))
+        cooler.create_cooler(str(path), bins, pd.DataFrame({
+            "bin1_id": a, "bin2_id": b, "count": counts.astype(int)}))
+        paths.append(path)
+    labels = tmp_path / "structures.csv"
+    pd.DataFrame({"id": ["one", "two"], "chrom": ["MG1655"] * 2,
+                  "type": ["CHIN", "CHID"], "start": [290, 610],
+                  "end": [350, 670]}).to_csv(labels, index=False)
+    common = dict(wt=paths[0], wt2=paths[1], annotations=labels,
+                  name="swapped", window_bp=640, heatmaps=2, seed=123)
+    first, second = tmp_path / "first", tmp_path / "second"
+    differential(Namespace(**common, condition=paths[2], condition2=paths[3], out=first))
+    differential(Namespace(**common, condition=paths[3], condition2=paths[2], out=second))
+    a_table = pd.read_csv(first / "structure_changes.csv").sort_values("id").reset_index(drop=True)
+    b_table = pd.read_csv(second / "structure_changes.csv").sort_values("id").reset_index(drop=True)
+    for field in ("wt_strength", "condition_strength", "delta", "wt_repeat_difference",
+                  "condition_repeat_difference", "oe_correlation"):
+        assert np.allclose(a_table[field], b_table[field])
+    for field in ("repeat_direction_agreement", "exceeds_repeat_variation",
+                  "exceeds_global_repeat_p95", "reproducible_change"):
+        assert a_table[field].equals(b_table[field])
+
+
 def test_interval_boundary_features_follow_annotated_interval():
     mat = np.zeros((128, 128), dtype=np.float32)
     mat[60:68, 60:68] = 2
@@ -103,6 +142,20 @@ def test_3d_stratified_consistency_detects_distance_order():
     assert scores["top_20_percent"]["pairs"] > 3
     assert scores["weaker_positive"]["pairs"] > 3
     assert scores["positive_vs_zero_distance_auc"]["ordered"] > .99
+
+
+def test_exact_separation_matching_removes_genomic_distance_shortcut():
+    n = 24
+    signal = np.zeros((n, n), dtype=float)
+    for offset in range(2, n - 1):
+        for i in range(n - offset):
+            signal[i, i + offset] = signal[i + offset, i] = float(i % 2 == 0)
+    theta = 2 * np.pi * np.arange(n) / n
+    points = np.column_stack((np.cos(theta), np.sin(theta), np.zeros(n)))
+    from scipy.spatial.distance import pdist, squareform
+    matched = separation_matched_auc(signal, {"circle": squareform(pdist(points))})
+    assert matched["matched_pairs_per_class"] > 0
+    assert abs(matched["circle"] - .5) < .01
 
 
 def test_condition_shape_correlation_and_sr_hotspot():

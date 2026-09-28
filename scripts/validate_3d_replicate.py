@@ -14,6 +14,63 @@ from microc.data import open_cool
 from microc.deep import _coarsen, _contact_target
 
 
+def separation_matched_auc(contact: np.ndarray, distances: dict[str, np.ndarray],
+                           seed: int = 20260928) -> dict:
+    """Compare positive and clipped-zero residuals at identical genomic offsets.
+
+    Each offset contributes the same number of positive and zero pairs. Thus a
+    predictor using only linear genomic separation has AUC 0.5 by design.
+    Sampling is deterministic and uses no model score or labels from another
+    replicate when selecting how many pairs to retain at an offset.
+    """
+    n = len(contact)
+    if contact.shape != (n, n) or any(value.shape != (n, n) for value in distances.values()):
+        raise ValueError("Contact and distance maps must be equally sized squares")
+    rng = np.random.default_rng(seed)
+    selected_i: list[np.ndarray] = []
+    selected_j: list[np.ndarray] = []
+    selected_y: list[np.ndarray] = []
+    offsets = []
+    for offset in range(2, n):
+        signal = np.diag(contact, k=offset)
+        positive = np.flatnonzero(signal > 0)
+        zero = np.flatnonzero(signal == 0)
+        count = min(len(positive), len(zero))
+        if not count:
+            continue
+        chosen = np.concatenate((rng.choice(positive, count, replace=False),
+                                 rng.choice(zero, count, replace=False)))
+        selected_i.append(chosen)
+        selected_j.append(chosen + offset)
+        selected_y.append((signal[chosen] > 0).astype(np.int8))
+        offsets.extend([offset] * len(chosen))
+    if not selected_i:
+        return {"matched_pairs_per_class": 0, "eligible_genomic_offsets": 0,
+                "selection_seed": seed,
+                "not_evaluable": "No genomic offset contains both positive and zero residuals"}
+    i, j = np.concatenate(selected_i), np.concatenate(selected_j)
+    labels, offsets = np.concatenate(selected_y), np.asarray(offsets)
+    ranges = {"2_to_10_bins": (2, 10), "11_to_50_bins": (11, 50),
+              "51_to_200_bins": (51, 200), "over_200_bins": (201, n)}
+    result = {"matched_pairs_per_class": int(labels.sum()),
+              "eligible_genomic_offsets": len(selected_i),
+              "selection_seed": seed,
+              "definition": "positive vs clipped-zero distance-normalized residual, exact genomic-offset matched"}
+    for name, matrix in distances.items():
+        scores = -matrix[i, j]
+        result[name] = float(roc_auc_score(labels, scores))
+    result["offset_ranges"] = {}
+    for name, (lo, hi) in ranges.items():
+        take = (offsets >= lo) & (offsets <= hi)
+        if not take.any():
+            continue
+        block = {"matched_pairs_per_class": int(labels[take].sum())}
+        for method, matrix in distances.items():
+            block[method] = float(roc_auc_score(labels[take], -matrix[i[take], j[take]]))
+        result["offset_ranges"][name] = block
+    return result
+
+
 def stratified_correlations(contact: np.ndarray, coordinates: dict[str, np.ndarray]) -> dict:
     i, j = np.triu_indices(len(contact), k=2)
     signal = contact[i, j]
@@ -21,8 +78,9 @@ def stratified_correlations(contact: np.ndarray, coordinates: dict[str, np.ndarr
     masks = {"all_positive": signal > 0,
              "top_20_percent": signal > cutoff,
              "weaker_positive": (signal > 0) & (signal <= cutoff)}
-    distances = {method: squareform(pdist(xyz))[i, j]
-                 for method, xyz in coordinates.items()}
+    full_distances = {method: squareform(pdist(xyz)) for method, xyz in coordinates.items()}
+    distances = {method: matrix[i, j]
+                 for method, matrix in full_distances.items()}
     result = {}
     for name, mask in masks.items():
         result[name] = {"pairs": int(mask.sum())}
@@ -35,6 +93,7 @@ def stratified_correlations(contact: np.ndarray, coordinates: dict[str, np.ndarr
         "positive_pairs": int(positive.sum()), "zero_pairs": int((~positive).sum()),
         **{method: float(roc_auc_score(positive, -values))
            for method, values in distances.items()}}
+    result["exact_separation_matched_auc"] = separation_matched_auc(contact, full_distances)
     return result
 
 
@@ -54,6 +113,9 @@ def main() -> None:
     coordinates = {"original_top20_mlp": old["mlp_coordinates"],
                    "all_positive_mlp": improved["mlp_coordinates"],
                    "rep1_mds_baseline": improved["mds_coordinates"]}
+    theta = np.linspace(0, 2 * np.pi, len(rep1), endpoint=False)
+    coordinates["genome_circle_baseline"] = np.column_stack(
+        (np.cos(theta), np.sin(theta), np.zeros(len(theta))))
     if any(xyz.shape != (len(rep1), 3) for xyz in coordinates.values()):
         raise ValueError("Coordinate and contact dimensions differ")
     with open_cool(args.rep2) as cooler:
@@ -63,6 +125,8 @@ def main() -> None:
     report = {"rep1_in_sample": stratified_correlations(rep1, coordinates),
               "rep2_cross_replicate": stratified_correlations(rep2, coordinates),
               "note": "All coordinates were fitted to rep1 only; rep2 was not used to fit or choose the all-positive model. "
+                      "Positive/zero labels refer to distance-normalized residuals, not raw observed read counts. "
+                      "Exact-offset matching checks whether AUC survives control for genomic separation. "
                       "This tests contact consistency across biological replicates, not agreement with imaged 3D truth."}
     args.out.parent.mkdir(parents=True, exist_ok=True)
     args.out.write_text(json.dumps(report, indent=2), encoding="utf-8")

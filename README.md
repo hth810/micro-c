@@ -2,7 +2,11 @@
 
 本仓库实现课程方案中的任务一至六。任务一使用有监督 CNN 和显著性图；任务二进行全基因组候选发现、形态表征、聚类和跨重复核验；任务三绘制全基因组多条件轨道；任务四定位条件变化；任务五进行接触矩阵超分辨重建；任务六输出三维坐标并与 MDS 比较。方法和验收边界见 [方法说明](METHODS.md)。
 
-逐项交付核查、失败对照及课程正式提交尚缺的材料见 [六任务核查表](AUDIT.md)。
+逐项交付核查、失败对照及课程正式提交尚缺的材料见 [六任务核查表](AUDIT.md)。从原始数据按依赖顺序运行的命令与断点续跑说明见 [一键复现指南](REPRODUCE.md)。当前最强的已知区间分类器是手工特征加梯度提升，不能称为纯深度学习；疑似新结构 N1 尚未获独立生物学验证；超分辨虽提升图像指标，结构热点定位仍不优于插值。
+
+课程加分项的[离线辅助标注页](results/task2_annotation_review.html)展示 7 个候选位点的双重复热图、已知类 CNN 形态提示和人工复核导出。它不会自动把候选判定为新结构；模型对未注释区域属于分布外应用。报告 PDF 可用 `python scripts/build_report_pdf.py` 从 [Markdown 报告](REPORT.md)重建（另需 `reportlab>=4,<6` 及本机中文字体）；[已生成 PDF](output/pdf/microc_experiment_report.pdf)随分支保存。讲解视频的[分镜口播稿](submission/PRESENTATION_OUTLINE.md)供组员制作，不能代替录制完成的视频。
+
+按课程要求，代码 ZIP、报告 PDF、PPT 讲解视频要分别提交；运行 `python scripts/build_submission_zip.py` 生成本地 `submission/micro-c-code.zip`，用 `python scripts/build_submission_zip.py --verify submission/micro-c-code.zip` 校验。ZIP 故意不上传 Git，避免与分支源码重复；提交时须按课程的“组号-姓名-学号”命名要求重命名三个文件。[组员贡献模板](submission/GROUP_CONTRIBUTIONS_TEMPLATE.md)尚待填写真实身份与百分比，录屏视频也须由小组完成，不能把模板或口播稿当作正式完成的提交物。
 
 ## 数据
 
@@ -23,6 +27,7 @@ python scripts/prepare_annotations.py data/raw/标注数据.xlsx
 
 ```bash
 python task1/run_task1.py --data-dir data/raw --annotations data/structures.csv --out-dir outputs/task1_spatial
+python -m task1.saliency_audit --run-dir outputs/task1_spatial
 
 python scripts/audit_task1_split.py outputs/task1_spatial/annotation_manifest.csv --out outputs/task1_spatial/split_audit.json
 
@@ -87,10 +92,13 @@ python -m scripts.audit_candidate_sensitivity --scan outputs/task2/all_windows.c
 python -m scripts.prepare_individual_candidates --discovery outputs/task2_strict_current --out outputs/task2_strict_individual.csv
 
 python -m microc.analysis tracks --cool data/raw/GSE272159_37C_rep1.mapq_30.10.cool.gz data/raw/GSE272159_44C_rep1.mapq_30.10.cool.gz data/raw/GSE272159_rif25_rep1.MG1655.mapq_30.10.cool.gz --labels WT_37C Heat_44C Rif_25 --annotations data/structures.csv --gff data/raw/GCF_000005845.2_ASM584v2_genomic.gff.gz --out outputs/task3_labeled
+python -m scripts.manifest_tracks --tracks outputs/task3_labeled --out results/task3_track_manifest.csv
 
-python -m microc.analysis differential --wt data/raw/GSE272159_37C_rep1.mapq_30.10.cool.gz --wt2 data/raw/GSE272159_37C_rep2.mapq_30.10.cool.gz --condition data/raw/GSE272159_44C_rep1.mapq_30.10.cool.gz --condition2 data/raw/GSE272159_44C_rep2.mapq_30.10.cool.gz --name heat_44c --annotations data/structures.csv --heatmaps 60 --out outputs/task4_heat_final
+python -m microc.analysis differential --wt data/raw/GSE272159_37C_rep1.mapq_30.10.cool.gz --wt2 data/raw/GSE272159_37C_rep2.mapq_30.10.cool.gz --condition data/raw/GSE272159_44C_rep1.mapq_30.10.cool.gz --condition2 data/raw/GSE272159_44C_rep2.mapq_30.10.cool.gz --name heat_44c --annotations data/structures.csv --seed 20260921 --heatmaps 50 --out outputs/task4_heat_order_invariant
 
-python -m microc.analysis differential --wt data/raw/GSE272159_37C_rep1.mapq_30.10.cool.gz --wt2 data/raw/GSE272159_37C_rep2.mapq_30.10.cool.gz --condition data/raw/GSE272159_rif25_rep1.MG1655.mapq_30.10.cool.gz --condition2 data/raw/GSE272159_rif25_rep2.MG1655.mapq_30.10.cool.gz --name rifampicin_25 --annotations data/structures.csv --out outputs/task4_rif_final
+python -m microc.analysis differential --wt data/raw/GSE272159_37C_rep1.mapq_30.10.cool.gz --wt2 data/raw/GSE272159_37C_rep2.mapq_30.10.cool.gz --condition data/raw/GSE272159_rif25_rep1.MG1655.mapq_30.10.cool.gz --condition2 data/raw/GSE272159_rif25_rep2.MG1655.mapq_30.10.cool.gz --name rifampicin_25 --annotations data/structures.csv --seed 20260921 --out outputs/task4_rif_order_invariant
+
+以上两个条件须用 `--seed 20260922` 和 `20260923` 各再运行一次，输出目录依次加 `_seed20260922`、`_seed20260923`；随后运行 `python -m scripts.summarize_task4_thinning`，主运行和三种子交集才构成任务四的当前结果。旧 `task4_heat_final` / `task4_rif_final` 只作历史对照。
 
 python -m microc.analysis differential --wt data/raw/GSE272159_37C_rep1.mapq_30.10.cool.gz --condition data/raw/GSE272159_37C_rep2.mapq_30.10.cool.gz --name wt_rep2_control --annotations data/structures.csv --out outputs/task4_repeat_depth_final
 
@@ -98,10 +106,12 @@ python -m microc.deep superresolve --cool data/raw/GSE272159_37C_rep1.mapq_30.10
 python -m scripts.validate_sr_known_shape --cool data/raw/GSE272159_37C_rep1.mapq_30.10.cool.gz --checkpoint outputs/task5_corrected/super_resolution.pt --known-file outputs/task5_corrected/known_structure_recovery.csv --out outputs/task5_known_shape
 python -m microc.deep superresolve --cool data/raw/GSE272159_37C_rep1.mapq_30.10.cool.gz --annotations data/structures.csv --factor 4 --epochs 12 --peak-weight 0.5 --out outputs/task5_peak_weighted
 python -m scripts.validate_sr_known_shape --cool data/raw/GSE272159_37C_rep1.mapq_30.10.cool.gz --checkpoint outputs/task5_peak_weighted/super_resolution.pt --known-file outputs/task5_peak_weighted/known_structure_recovery.csv --out outputs/task5_peak_known_shape
+python -m scripts.evaluate_sr_ensemble --out outputs/task5_ensemble
 
 python -m microc.deep reconstruct3d --cool data/raw/GSE272159_37C_rep1.mapq_30.10.cool.gz --annotations data/structures.csv --pretrain-epochs 0 --anchor-weight 0 --out outputs/task6_independent
 python -m microc.deep reconstruct3d --cool data/raw/GSE272159_37C_rep1.mapq_30.10.cool.gz --annotations data/structures.csv --pretrain-epochs 0 --anchor-weight 0 --contact-quantile 0 --out outputs/task6_all_positive
 python -m scripts.validate_3d_replicate --rep2 data/raw/GSE272159_37C_rep2.mapq_30.10.cool.gz
+python -m scripts.annotate_3d_domains --coordinates outputs/task6_all_positive/coordinates.csv --out outputs/task6_domain_overlay
 ```
 
 `.cool.gz` 会临时解压后读取。重复运行时可自行保留同名 `.cool` 并将参数指向解压后的文件，避免反复解压。
@@ -114,6 +124,7 @@ python -m scripts.validate_discovery --rep1 data/raw/GSE272159_37C_rep1.mapq_30.
 python -m scripts.validate_candidates_conditions --candidates outputs/task2_strict_individual.csv --heat1 data/raw/GSE272159_44C_rep1.mapq_30.10.cool.gz --heat2 data/raw/GSE272159_44C_rep2.mapq_30.10.cool.gz --rif1 data/raw/GSE272159_rif25_rep1.MG1655.mapq_30.10.cool.gz --rif2 data/raw/GSE272159_rif25_rep2.MG1655.mapq_30.10.cool.gz --out outputs/task2_strict_individual_conditions.csv
 python -m scripts.summarize_strict_candidates --loci outputs/task2_strict_individual_loci.csv --windows outputs/task2_strict_individual.csv --conditions outputs/task2_strict_individual_conditions.csv --wt-null outputs/task2_strict_individual_validation/candidate_shift_null.csv --out outputs/task2_strict_locus_evidence.csv
 python -m scripts.render_individual_candidates --loci outputs/task2_strict_individual_loci.csv --rep1 data/raw/GSE272159_37C_rep1.mapq_30.10.cool.gz --rep2 data/raw/GSE272159_37C_rep2.mapq_30.10.cool.gz --out outputs/task2_strict_individual_heatmaps
+python -m scripts.build_annotation_review --rep1 data/raw/GSE272159_37C_rep1.mapq_30.10.cool.gz --rep2 data/raw/GSE272159_37C_rep2.mapq_30.10.cool.gz
 python -m scripts.validate_novel_cluster --rep1 data/raw/GSE272159_37C_rep1.mapq_30.10.cool.gz --rep2 data/raw/GSE272159_37C_rep2.mapq_30.10.cool.gz --out outputs/task2_novel_cluster
 python -m scripts.validate_novel_condition_transfer --rep1 data/raw/GSE272159_44C_rep1.mapq_30.10.cool.gz --rep2 data/raw/GSE272159_44C_rep2.mapq_30.10.cool.gz --name 44C --out outputs/task2_novel_cluster/transfer_44c.json
 python -m scripts.validate_novel_condition_transfer --rep1 data/raw/GSE272159_rif25_rep1.MG1655.mapq_30.10.cool.gz --rep2 data/raw/GSE272159_rif25_rep2.MG1655.mapq_30.10.cool.gz --name rif25 --out outputs/task2_novel_cluster/transfer_rif25.json

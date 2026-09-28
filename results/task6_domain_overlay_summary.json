@@ -1,0 +1,45 @@
+{
+  "bins": 929,
+  "source": "https://doi.org/10.1371/journal.pgen.1006758",
+  "approximate_region_boundaries_bp": [
+    {
+      "name": "NSR",
+      "start": 0,
+      "end": 600000
+    },
+    {
+      "name": "Right",
+      "start": 600000,
+      "end": 1139000
+    },
+    {
+      "name": "Ter",
+      "start": 1139000,
+      "end": 2000000
+    },
+    {
+      "name": "Left",
+      "start": 2000000,
+      "end": 2803000
+    },
+    {
+      "name": "NSL",
+      "start": 2803000,
+      "end": 3740000
+    },
+    {
+      "name": "Ori",
+      "start": 3740000,
+      "end": 4700000
+    }
+  ],
+  "region_bin_counts": {
+    "NSL": 187,
+    "Ori": 181,
+    "Ter": 172,
+    "Left": 161,
+    "NSR": 120,
+    "Right": 108
+  },
+  "caution": "External published genomic labels overlaid on learned coordinates; not evidence that the predicted geometry physically reproduces macrodomains."
+}

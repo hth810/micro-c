@@ -36,7 +36,8 @@ def main() -> None:
         "task1/metrics.json", "task1/confusion_matrix.csv", "task1/confusion_matrix.png",
         "task1/task1_cnn.pt", "task1/test_predictions.csv", "task1/annotation_manifest.csv",
         "task1_legacy_split_audit.json",
-        "task1_spatial/metrics.json", "task1_spatial/confusion_matrix.csv",
+        "task1_spatial/metrics.json", "task1_spatial/saliency_audit_summary.json",
+        "task1_spatial/saliency_audit_samples.csv", "task1_spatial/confusion_matrix.csv",
         "task1_spatial/confusion_matrix.png", "task1_spatial/task1_cnn.pt",
         "task1_spatial/test_predictions.csv", "task1_spatial/annotation_manifest.csv",
         "task1_spatial/split_audit.json",
@@ -95,6 +96,7 @@ def main() -> None:
         "task2_strict_individual_validation/summary.json",
         "task2_strict_individual_validation/candidate_shift_null.csv",
         "task2_strict_locus_evidence.csv", "task2_strict_locus_evidence.json",
+        "task2_annotation_review.html", "task2_annotation_review_model_suggestions.csv",
         "task2_novel_cluster/summary.json", "task2_novel_cluster/putative_novel_clusters.csv",
         "task2_novel_cluster/all_candidate_pairs.csv",
         "task2_novel_cluster/transfer_44c.json",
@@ -111,6 +113,8 @@ def main() -> None:
         "task5_peak_weighted/summary.json", "task5_peak_weighted/super_resolution.pt",
         "task5_peak_weighted/reconstruction_metrics.csv",
         "task5_peak_known_shape/summary.json", "task5_peak_known_shape/per_structure.csv",
+        "task5_ensemble/summary.json", "task5_ensemble/validation_known_grid.csv",
+        "task5_ensemble/test_patch_grid.csv", "task5_ensemble/validation_tradeoff.png",
         "task6_independent/metrics.json", "task6_independent/coordinates.csv",
         "task6_independent/contact_and_baseline.npz", "task6_independent/chromosome_3d.png",
         "task6_independent/contact_reconstruction.png", "task6_independent/genome_3d.pt",
@@ -120,6 +124,11 @@ def main() -> None:
         "task6_all_positive/contact_reconstruction.png",
         "task6_all_positive/genome_3d.pt",
         "task6_all_positive/replicate_validation.json",
+        "task6_domain_overlay/summary.json",
+        "task6_domain_overlay/coordinates_with_macroregions.csv",
+        "task6_domain_overlay/chromosome_3d_macroregions.png",
+        "task4_order_invariant_sensitivity.json",
+        "task4_heat_stable_changes.csv", "task4_rif_stable_changes.csv",
     ]
     for entry in required:
         if entry == "task1_calibrated/metrics.json":
@@ -141,17 +150,23 @@ def main() -> None:
         else:
             copy(entry)
     for source, output in (
-        ("task4_heat_final/class_summary.csv", "task4_class_summary.csv"),
-        ("task4_heat_final/structure_changes.csv", "task4_structure_changes.csv"),
-        ("task4_heat_final/reproducible_changes.csv", "task4_reproducible_changes.csv"),
-        ("task4_rif_final/class_summary.csv", "task4_rif_class_summary.csv"),
-        ("task4_rif_final/structure_changes.csv", "task4_rif_structure_changes.csv"),
-        ("task4_rif_final/reproducible_changes.csv", "task4_rif_reproducible_changes.csv"),
+        ("task4_heat_final/class_summary.csv", "task4_historical_class_summary.csv"),
+        ("task4_heat_final/structure_changes.csv", "task4_historical_structure_changes.csv"),
+        ("task4_heat_final/reproducible_changes.csv", "task4_historical_reproducible_changes.csv"),
+        ("task4_rif_final/class_summary.csv", "task4_rif_historical_class_summary.csv"),
+        ("task4_rif_final/structure_changes.csv", "task4_rif_historical_structure_changes.csv"),
+        ("task4_rif_final/reproducible_changes.csv", "task4_rif_historical_reproducible_changes.csv"),
+        ("task4_heat_order_invariant/class_summary.csv", "task4_class_summary.csv"),
+        ("task4_heat_order_invariant/structure_changes.csv", "task4_structure_changes.csv"),
+        ("task4_heat_order_invariant/reproducible_changes.csv", "task4_reproducible_changes.csv"),
+        ("task4_rif_order_invariant/class_summary.csv", "task4_rif_class_summary.csv"),
+        ("task4_rif_order_invariant/structure_changes.csv", "task4_rif_structure_changes.csv"),
+        ("task4_rif_order_invariant/reproducible_changes.csv", "task4_rif_reproducible_changes.csv"),
         ("task4_repeat_depth_final/class_summary.csv", "task4_repeat_class_summary.csv"),
     ):
         copy(source, output)
     sr_output = SOURCE / "task5_corrected"
-    if sr_output.exists():
+    if (sr_output / "summary.json").is_file():
         for name in ("summary.json", "comparison.csv", "metric_comparison.png",
                      "known_structure_recovery.csv", "reconstructed_test_patches.npz",
                      "super_resolution.pt"):
@@ -173,7 +188,12 @@ def main() -> None:
         shutil.copy2(image, DEST / f"task2_strict_individual_{image.name}")
     for image in sorted((SOURCE / "task2_strict_revised" / "heatmaps").glob("*.png")):
         shutil.copy2(image, DEST / f"task2_strict_revised_{image.name}")
-    for image in sorted((SOURCE / "task4_heat_final" / "heatmaps").glob("*.png")):
+    # Previous Task 4 PNGs used an iteration-order-dependent thinning draw.
+    # Regenerate the review bundle from the corrected prespecified primary run.
+    for old_image in DEST.glob("task4_*.png"):
+        if old_image.name.endswith(("_wt.png", "_heat_44c.png")):
+            old_image.unlink()
+    for image in sorted((SOURCE / "task4_heat_order_invariant" / "heatmaps").glob("*.png")):
         shutil.copy2(image, DEST / f"task4_{image.name}")
     provenance = [hash_file(path) for pattern in ("*.cool.gz", "*.gff.gz", "*.xlsx")
                   for path in sorted((ROOT / "data/raw").glob(pattern))]
@@ -191,18 +211,21 @@ def main() -> None:
     t5_known_shape = json.loads((SOURCE / "task5_known_shape/summary.json").read_text(encoding="utf-8"))
     t5_peak = json.loads((SOURCE / "task5_peak_weighted/summary.json").read_text(encoding="utf-8"))
     t5_peak_shape = json.loads((SOURCE / "task5_peak_known_shape/summary.json").read_text(encoding="utf-8"))
+    t5_ensemble = json.loads((SOURCE / "task5_ensemble/summary.json").read_text(encoding="utf-8"))
+    t5_rerun = json.loads((DEST / "task5_reproducibility_audit.json").read_text(encoding="utf-8"))
     t6 = json.loads((SOURCE / "task6_independent/metrics.json").read_text(encoding="utf-8"))
     t6_all = json.loads((SOURCE / "task6_all_positive/metrics.json").read_text(encoding="utf-8"))
     t6_repeat = json.loads((SOURCE / "task6_all_positive/replicate_validation.json").read_text(encoding="utf-8"))
     t6_regularized = json.loads((DEST / "task6_regularized_metrics.json").read_text(encoding="utf-8"))
-    changes = pd.read_csv(SOURCE / "task4_heat_final/class_summary.csv")
-    reproducible = pd.read_csv(SOURCE / "task4_heat_final/reproducible_changes.csv")
+    changes = pd.read_csv(SOURCE / "task4_heat_order_invariant/class_summary.csv")
+    reproducible = pd.read_csv(SOURCE / "task4_heat_order_invariant/reproducible_changes.csv")
+    task4_sensitivity = json.loads((SOURCE / "task4_order_invariant_sensitivity.json").read_text(encoding="utf-8"))
     merged_loci, right_edge = 0, -1
     for _, row in reproducible.sort_values("start").iterrows():
         if int(row.start) >= right_edge:
             merged_loci += 1
         right_edge = max(right_edge, int(row.end))
-    rif_changes = pd.read_csv(SOURCE / "task4_rif_final/class_summary.csv")
+    rif_changes = pd.read_csv(SOURCE / "task4_rif_order_invariant/class_summary.csv")
     count_tracks = len(list((SOURCE / "task3_labeled").glob("*.png")))
     if count_tracks != 465:
         raise ValueError(f"Expected 465 whole-genome track images, found {count_tracks}")
@@ -244,11 +267,14 @@ def main() -> None:
     for _, row in changes.iterrows():
         lines.append(f"- {row['type']}（{int(row['count'])} 个）：平均 {row['mean']:+.3f}；"
                      f"重复方向一致率 {row['repeat_direction_agreement_rate']:.1%}")
-    lines += ["", f"按重复差异第 95 百分位、两重复方向一致和效应大于本位点重复波动的探索性规则，"
+    lines += ["", f"按重复差异第 95 百分位、所有跨组重复对方向一致和效应大于本位点重复波动的探索性规则，"
               f"有 {len(reproducible)} 条注释入选，合并重叠后为 {merged_loci} 个位点；"
-              "清单见 `task4_reproducible_changes.csv`。"
+              f"三种预设抽稀种子共同保留 {task4_sensitivity['heat']['all_seed_intersection_count']} 条、"
+              f"合并为 {task4_sensitivity['heat']['all_seed_intersection_merged_loci']} 个位点。"
+              "主运行清单见 `task4_reproducible_changes.csv`，稳定交集见 `task4_heat_stable_changes.csv`。"
               "该筛选不是正式的多重检验显著性结论。",
               "rifampicin 25 相对于 WT 的结果见 `task4_rif_class_summary.csv`；"
+              f"三种抽稀种子共同保留 {task4_sensitivity['rif']['all_seed_intersection_count']} 条注释。"
               "该条件原始深度仅约 WT 的 18%，必须匹配深度。"
               "未匹配深度的旧分析曾得到相反方向，故不作为结论。",
         "两条件各有两个生物学重复；WT 重复对照汇总见 `task4_repeat_class_summary.csv`。"
@@ -270,6 +296,13 @@ def main() -> None:
         f"峰值加权消融的热点误差降至 {t5_peak_shape['hotspot_error_bins']['cnn_mean']:.2f} bin，"
         f"但测试 SSIM 降到 {t5_peak['comparison']['ssim']['cnn']:.3f}，低于插值基线；"
         "不替代主模型。",
+        f"验证区选权试验得到主模型权重 {t5_ensemble['selected_main_weight']:.1f}；"
+        f"留出区热点误差 {t5_ensemble['test_known_selected']['hotspot_blend_bins']:.2f} bin，"
+        f"仍高于插值 {t5_ensemble['test_known_selected']['hotspot_baseline_bins']:.2f} bin，"
+        "故选权也未解决定位问题。",
+        f"全量训练复跑的 PSNR 旧/新为 {t5_rerun['test_psnr_cnn']['archived']:.3f}/"
+        f"{t5_rerun['test_psnr_cnn']['rerun']:.3f}，但模型权重哈希不同；"
+        "当前结果采用复跑模型，审计见 `task5_reproducibility_audit.json`。",
         "输入先在原始计数上合并 bin，再单独归一化；不使用目标分辨率的背景统计量。",
         "低分辨率输入由 Micro-C 合并 bin 模拟，不能外推到独立 Hi-C。", "",
         "## 任务六：三维重建", "",
@@ -287,10 +320,17 @@ def main() -> None:
         f"新全正接触模型 "
         f"{t6_repeat['rep2_cross_replicate']['positive_vs_zero_distance_auc']['all_positive_mlp']:.3f}，"
         f"MDS {t6_repeat['rep2_cross_replicate']['positive_vs_zero_distance_auc']['rep1_mds_baseline']:.3f}。",
+        f"严格按基因组间隔匹配后，rep2 AUC 为新 MLP "
+        f"{t6_repeat['rep2_cross_replicate']['exact_separation_matched_auc']['all_positive_mlp']:.3f}、"
+        f"MDS {t6_repeat['rep2_cross_replicate']['exact_separation_matched_auc']['rep1_mds_baseline']:.3f}、"
+        f"纯环形基线 {t6_repeat['rep2_cross_replicate']['exact_separation_matched_auc']['genome_circle_baseline']:.3f}。"
+        "这说明结果不是单纯由基因组间隔造成，但也没有超过 MDS。",
+        "三维图叠加已发表的近似 Ori、Ter、Left、Right 宏区域坐标，仅作标注，不是空间真值验证。",
         f"另保留弱 MDS 正则的消融对照 "
         f"{t6_regularized['mlp_contact_distance_spearman']:.3f}，该对照不应称为独立基线。"
         "rep2 检查不是独立显微成像真值；坐标并非唯一的真实物理构象。", ""]
     spatial = json.loads((SOURCE / "task1_spatial/metrics.json").read_text(encoding="utf-8"))
+    saliency = json.loads((SOURCE / "task1_spatial/saliency_audit_summary.json").read_text(encoding="utf-8"))
     narrow = json.loads((SOURCE / "task1_spatial_gap10k_scale4/metrics.json").read_text(encoding="utf-8"))
     wide = json.loads((SOURCE / "task1_spatial_scale8/metrics.json").read_text(encoding="utf-8"))
     grid = json.loads((SOURCE / "task1_spatial_grid4/metrics.json").read_text(encoding="utf-8"))
@@ -321,6 +361,12 @@ def main() -> None:
         f"{spatial['test_samples']} 个重复样本：准确率 {spatial['accuracy']:.3f}、"
         f"宏 F1 {spatial['macro_f1']:.3f}。CHID F1 为 "
         f"{spatial['classification_report']['CHID']['f1-score']:.3f}，不能声称三类均已稳定识别。",
+        f"显著性专项审计：CHID 的 {saliency['figures']['CHID']['heldout_samples']} 个留出样本"
+        "均被误判为 CHIN，CHID 梯度图明确标为误分类回退。"
+        f"正确分类样本在注释区间内、相同对角距离背景对照下的梯度富集中位数为 CHIN "
+        f"{saliency['classes']['CHIN']['correct_only']['median_structure_enrichment']:.3f}、"
+        f"OPCID {saliency['classes']['OPCID']['correct_only']['median_structure_enrichment']:.3f}，"
+        "不能证明模型主要关注结构本身。", "",
         f"同一 10.24 kb 隔离分区上的 5.12/10.24 kb 输入比较：测试准确率 "
         f"{narrow['accuracy']:.3f}/{wide['accuracy']:.3f}，宏 F1 "
         f"{narrow['macro_f1']:.3f}/{wide['macro_f1']:.3f}；宽窗口 CHID 召回为 "
@@ -407,6 +453,10 @@ def main() -> None:
         f"{hns['leave_one_candidate_out_cohort_p'][str(hns['largest_effect_candidate_center_bp'])]:.3f}，"
         f"单个位点多重校正通过数 {hns['individual_loci_bh_q_below_005']}。"
         "证据集中在一个优先复核位点，不能宣称全部候选获验证。", "",
+        "离线候选辅助标注页 `task2_annotation_review.html` 汇总 7 个独立位点的双重复热图、"
+        "WT 复现性、距已知标注距离及原 CNN 的已知形态提示，允许人工判定和导出 JSON。"
+        "模型提示来自未标注区的分布外输入，不是新结构概率；见 "
+        "`task2_annotation_review_model_suggestions.csv`。", "",
     ]
     (DEST / "README.md").write_text("\n".join(lines), encoding="utf-8")
     print(f"Collected {len(list(DEST.iterdir()))} review files in {DEST}")

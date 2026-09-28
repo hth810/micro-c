@@ -1,0 +1,239 @@
+{
+  "heat": {
+    "prespecified_primary_seed": 20260921,
+    "seeds": {
+      "20260921": {
+        "selected_annotations": 21,
+        "merged_loci": 16,
+        "class_counts": {
+          "CHID": 2,
+          "CHIN": 18,
+          "OPCID": 1
+        },
+        "output_dir": "outputs\\task4_heat_order_invariant"
+      },
+      "20260922": {
+        "selected_annotations": 39,
+        "merged_loci": 29,
+        "class_counts": {
+          "CHID": 6,
+          "CHIN": 31,
+          "OPCID": 2
+        },
+        "output_dir": "outputs\\task4_heat_order_invariant_seed20260922"
+      },
+      "20260923": {
+        "selected_annotations": 30,
+        "merged_loci": 22,
+        "class_counts": {
+          "CHID": 4,
+          "CHIN": 24,
+          "OPCID": 2
+        },
+        "output_dir": "outputs\\task4_heat_order_invariant_seed20260923"
+      }
+    },
+    "all_seed_intersection_count": 17,
+    "all_seed_intersection_ids": [
+      "CHID_19",
+      "CHID_9",
+      "CHIN_153",
+      "CHIN_154",
+      "CHIN_156",
+      "CHIN_157",
+      "CHIN_181",
+      "CHIN_190",
+      "CHIN_191",
+      "CHIN_226",
+      "CHIN_32",
+      "CHIN_34",
+      "CHIN_79",
+      "CHIN_85",
+      "CHIN_92",
+      "CHIN_94",
+      "OPCID_55"
+    ],
+    "all_seed_intersection_merged_loci": 12,
+    "all_seed_union_count": 45,
+    "all_seed_jaccard": 0.37777777777777777,
+    "pairwise": {
+      "20260921_vs_20260922": {
+        "shared_hits": 20,
+        "jaccard": 0.5
+      },
+      "20260921_vs_20260923": {
+        "shared_hits": 17,
+        "jaccard": 0.5
+      },
+      "20260922_vs_20260923": {
+        "shared_hits": 25,
+        "jaccard": 0.5681818181818182
+      }
+    },
+    "historical_run": {
+      "selected_annotations": 30,
+      "shared_with_primary": 17,
+      "jaccard_with_primary": 0.5
+    },
+    "caution": "Heuristic hits are sensitive to random depth thinning; no formal FDR or causal proof."
+  },
+  "rif": {
+    "prespecified_primary_seed": 20260921,
+    "seeds": {
+      "20260921": {
+        "selected_annotations": 109,
+        "merged_loci": 95,
+        "class_counts": {
+          "CHID": 5,
+          "CHIN": 64,
+          "OPCID": 40
+        },
+        "output_dir": "outputs\\task4_rif_order_invariant"
+      },
+      "20260922": {
+        "selected_annotations": 107,
+        "merged_loci": 93,
+        "class_counts": {
+          "CHID": 5,
+          "CHIN": 62,
+          "OPCID": 40
+        },
+        "output_dir": "outputs\\task4_rif_order_invariant_seed20260922"
+      },
+      "20260923": {
+        "selected_annotations": 114,
+        "merged_loci": 99,
+        "class_counts": {
+          "CHID": 5,
+          "CHIN": 67,
+          "OPCID": 42
+        },
+        "output_dir": "outputs\\task4_rif_order_invariant_seed20260923"
+      }
+    },
+    "all_seed_intersection_count": 98,
+    "all_seed_intersection_ids": [
+      "CHID_1",
+      "CHID_12",
+      "CHID_20",
+      "CHID_5",
+      "CHID_9",
+      "CHIN_1",
+      "CHIN_10",
+      "CHIN_101",
+      "CHIN_104",
+      "CHIN_107",
+      "CHIN_111",
+      "CHIN_114",
+      "CHIN_126",
+      "CHIN_127",
+      "CHIN_129",
+      "CHIN_130",
+      "CHIN_131",
+      "CHIN_132",
+      "CHIN_135",
+      "CHIN_137",
+      "CHIN_138",
+      "CHIN_139",
+      "CHIN_145",
+      "CHIN_146",
+      "CHIN_147",
+      "CHIN_154",
+      "CHIN_169",
+      "CHIN_170",
+      "CHIN_179",
+      "CHIN_180",
+      "CHIN_19",
+      "CHIN_194",
+      "CHIN_198",
+      "CHIN_200",
+      "CHIN_204",
+      "CHIN_21",
+      "CHIN_218",
+      "CHIN_223",
+      "CHIN_228",
+      "CHIN_233",
+      "CHIN_234",
+      "CHIN_236",
+      "CHIN_237",
+      "CHIN_249",
+      "CHIN_30",
+      "CHIN_39",
+      "CHIN_41",
+      "CHIN_51",
+      "CHIN_56",
+      "CHIN_58",
+      "CHIN_6",
+      "CHIN_62",
+      "CHIN_66",
+      "CHIN_80",
+      "CHIN_85",
+      "CHIN_86",
+      "CHIN_93",
+      "CHIN_94",
+      "CHIN_99",
+      "OPCID_10",
+      "OPCID_12",
+      "OPCID_13",
+      "OPCID_14",
+      "OPCID_16",
+      "OPCID_17",
+      "OPCID_20",
+      "OPCID_21",
+      "OPCID_22",
+      "OPCID_23",
+      "OPCID_26",
+      "OPCID_27",
+      "OPCID_28",
+      "OPCID_29",
+      "OPCID_31",
+      "OPCID_32",
+      "OPCID_33",
+      "OPCID_36",
+      "OPCID_39",
+      "OPCID_4",
+      "OPCID_42",
+      "OPCID_43",
+      "OPCID_45",
+      "OPCID_47",
+      "OPCID_48",
+      "OPCID_49",
+      "OPCID_5",
+      "OPCID_50",
+      "OPCID_52",
+      "OPCID_53",
+      "OPCID_56",
+      "OPCID_57",
+      "OPCID_59",
+      "OPCID_60",
+      "OPCID_62",
+      "OPCID_66",
+      "OPCID_67",
+      "OPCID_68",
+      "OPCID_9"
+    ],
+    "all_seed_intersection_merged_loci": 86,
+    "all_seed_union_count": 120,
+    "all_seed_jaccard": 0.8166666666666667,
+    "pairwise": {
+      "20260921_vs_20260922": {
+        "shared_hits": 101,
+        "jaccard": 0.8782608695652174
+      },
+      "20260921_vs_20260923": {
+        "shared_hits": 104,
+        "jaccard": 0.8739495798319328
+      },
+      "20260922_vs_20260923": {
+        "shared_hits": 103,
+        "jaccard": 0.8728813559322034
+      }
+    },
+    "historical_run": {
+      "selected_annotations": 114,
+      "shared_with_primary": 102,
+      "jaccard_with_primary": 0.8429752066115702
+    },
+    "caution": "Heuristic hits are sensitive to random depth thinning; no formal FDR or causal proof."
+  }
+}

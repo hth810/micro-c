@@ -1,0 +1,38 @@
+{
+  "comparison": "saved branch bundle before rerun vs fresh same-command CPU rerun",
+  "training_parameters_rerun": {
+    "factor": 4,
+    "epochs": 12,
+    "seed": 20260921,
+    "max_patches": 1200,
+    "patch_bins": 64,
+    "peak_weight": 0.0
+  },
+  "matched_test_data": true,
+  "test_predictions": {
+    "patches": 208,
+    "mean_absolute_prediction_difference": 0.006911156233400106,
+    "max_absolute_prediction_difference": 0.1284315586090088
+  },
+  "checkpoint_sha256": {
+    "archived": "3e4316df5a75619e8e4a38fdd15865dadbb1a03cde2d17a9287acf18cd4f5435",
+    "rerun": "f3454bac6fd65f80a2177e81ee197e3a5ad647fda64a2be383a11b733fa4e39e"
+  },
+  "test_psnr_cnn": {
+    "archived": 20.84330768830392,
+    "rerun": 20.8431399593556
+  },
+  "test_ssim_cnn": {
+    "archived": 0.14059114983331583,
+    "rerun": 0.14067813288960893
+  },
+  "known_hotspot_error_bins_cnn": {
+    "archived": 15.57514680299946,
+    "rerun": 15.122052046688752
+  },
+  "validation_selected_main_weight": {
+    "archived": 0.9,
+    "rerun": 1.0
+  },
+  "conclusion": "Image metrics reproduce closely, but exact weights and some localization/blend values vary. Neither run beats bilinear for known-center hotspot localization. The rerun is promoted as the current review bundle."
+}

@@ -4,26 +4,70 @@
       "pairs": 213977,
       "original_top20_mlp": 0.3710626750341685,
       "all_positive_mlp": 0.7292870504293506,
-      "rep1_mds_baseline": 0.31348637331394347
+      "rep1_mds_baseline": 0.31348637331394347,
+      "genome_circle_baseline": 0.24922843138932013
     },
     "top_20_percent": {
       "pairs": 86026,
       "original_top20_mlp": 0.6370666893373557,
       "all_positive_mlp": 0.39407029085289624,
-      "rep1_mds_baseline": -0.04160896363142358
+      "rep1_mds_baseline": -0.04160896363142358,
+      "genome_circle_baseline": 0.16880773520563672
     },
     "weaker_positive": {
       "pairs": 127951,
       "original_top20_mlp": -0.0294642477482797,
       "all_positive_mlp": 0.45391118517666884,
-      "rep1_mds_baseline": 0.29134395448646955
+      "rep1_mds_baseline": 0.29134395448646955,
+      "genome_circle_baseline": 0.0578575389400631
     },
     "positive_vs_zero_distance_auc": {
       "positive_pairs": 213977,
       "zero_pairs": 216151,
       "original_top20_mlp": 0.3762670872924562,
       "all_positive_mlp": 0.749253598547332,
-      "rep1_mds_baseline": 0.7480080871339849
+      "rep1_mds_baseline": 0.7480080871339849,
+      "genome_circle_baseline": 0.5015741950616351
+    },
+    "exact_separation_matched_auc": {
+      "matched_pairs_per_class": 213977,
+      "eligible_genomic_offsets": 926,
+      "selection_seed": 20260928,
+      "definition": "positive vs clipped-zero distance-normalized residual, exact genomic-offset matched",
+      "original_top20_mlp": 0.37555149622810136,
+      "all_positive_mlp": 0.748515259176495,
+      "rep1_mds_baseline": 0.7472780223500293,
+      "genome_circle_baseline": 0.49999479664776303,
+      "offset_ranges": {
+        "2_to_10_bins": {
+          "matched_pairs_per_class": 4151,
+          "original_top20_mlp": 0.39851612237875655,
+          "all_positive_mlp": 0.6149315403271154,
+          "rep1_mds_baseline": 0.584128561405822,
+          "genome_circle_baseline": 0.49925987190032545
+        },
+        "11_to_50_bins": {
+          "matched_pairs_per_class": 17946,
+          "original_top20_mlp": 0.3949862515217557,
+          "all_positive_mlp": 0.6887698771239732,
+          "rep1_mds_baseline": 0.6013152109100436,
+          "genome_circle_baseline": 0.5001079290101069
+        },
+        "51_to_200_bins": {
+          "matched_pairs_per_class": 60137,
+          "original_top20_mlp": 0.3585677414922023,
+          "all_positive_mlp": 0.7831866955815417,
+          "rep1_mds_baseline": 0.732102975069201,
+          "genome_circle_baseline": 0.49995937102857096
+        },
+        "over_200_bins": {
+          "matched_pairs_per_class": 131743,
+          "original_top20_mlp": 0.36291845845776977,
+          "all_positive_mlp": 0.8037996735010944,
+          "rep1_mds_baseline": 0.8071739110702849,
+          "genome_circle_baseline": 0.5000023783983287
+        }
+      }
     }
   },
   "rep2_cross_replicate": {
@@ -31,27 +75,71 @@
       "pairs": 214065,
       "original_top20_mlp": 0.34984347916981345,
       "all_positive_mlp": 0.7122846506305693,
-      "rep1_mds_baseline": 0.3190765137013325
+      "rep1_mds_baseline": 0.3190765137013325,
+      "genome_circle_baseline": 0.2140800277526685
     },
     "top_20_percent": {
       "pairs": 86021,
       "original_top20_mlp": 0.62065114040557,
       "all_positive_mlp": 0.39788215584373415,
-      "rep1_mds_baseline": -0.03982623383086815
+      "rep1_mds_baseline": -0.03982623383086815,
+      "genome_circle_baseline": 0.15476959017303812
     },
     "weaker_positive": {
       "pairs": 128044,
       "original_top20_mlp": -0.037972350524798235,
       "all_positive_mlp": 0.42723623211560635,
-      "rep1_mds_baseline": 0.29394753875001045
+      "rep1_mds_baseline": 0.29394753875001045,
+      "genome_circle_baseline": 0.04623126443797688
     },
     "positive_vs_zero_distance_auc": {
       "positive_pairs": 214065,
       "zero_pairs": 216063,
       "original_top20_mlp": 0.3819764638838562,
       "all_positive_mlp": 0.7490465991293038,
-      "rep1_mds_baseline": 0.7531641979218027
+      "rep1_mds_baseline": 0.7531641979218027,
+      "genome_circle_baseline": 0.5013499843847693
+    },
+    "exact_separation_matched_auc": {
+      "matched_pairs_per_class": 214065,
+      "eligible_genomic_offsets": 926,
+      "selection_seed": 20260928,
+      "definition": "positive vs clipped-zero distance-normalized residual, exact genomic-offset matched",
+      "original_top20_mlp": 0.38145142374354063,
+      "all_positive_mlp": 0.7484182184054717,
+      "rep1_mds_baseline": 0.7525062742840075,
+      "genome_circle_baseline": 0.4999957189954501,
+      "offset_ranges": {
+        "2_to_10_bins": {
+          "matched_pairs_per_class": 4149,
+          "original_top20_mlp": 0.397696123102083,
+          "all_positive_mlp": 0.610867852652586,
+          "rep1_mds_baseline": 0.5828234490813718,
+          "genome_circle_baseline": 0.49933618760464105
+        },
+        "11_to_50_bins": {
+          "matched_pairs_per_class": 17943,
+          "original_top20_mlp": 0.40134006437726233,
+          "all_positive_mlp": 0.6905746776587284,
+          "rep1_mds_baseline": 0.5988722472699586,
+          "genome_circle_baseline": 0.5000557506767119
+        },
+        "51_to_200_bins": {
+          "matched_pairs_per_class": 60144,
+          "original_top20_mlp": 0.36657962518933895,
+          "all_positive_mlp": 0.7836578390589197,
+          "rep1_mds_baseline": 0.735565428530629,
+          "genome_circle_baseline": 0.499955011481799
+        },
+        "over_200_bins": {
+          "matched_pairs_per_class": 131829,
+          "original_top20_mlp": 0.36922335569958437,
+          "all_positive_mlp": 0.803305413575347,
+          "rep1_mds_baseline": 0.8154768394790621,
+          "genome_circle_baseline": 0.5000065464785814
+        }
+      }
     }
   },
-  "note": "All coordinates were fitted to rep1 only; rep2 was not used to fit or choose the all-positive model. This tests contact consistency across biological replicates, not agreement with imaged 3D truth."
+  "note": "All coordinates were fitted to rep1 only; rep2 was not used to fit or choose the all-positive model. Positive/zero labels refer to distance-normalized residuals, not raw observed read counts. Exact-offset matching checks whether AUC survives control for genomic separation. This tests contact consistency across biological replicates, not agreement with imaged 3D truth."
 }

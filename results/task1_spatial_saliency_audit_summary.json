@@ -1,0 +1,92 @@
+{
+  "method": "absolute true-class input gradient; annotated square vs outside square at same genomic diagonal offset >=2",
+  "split_mode": "spatial",
+  "pooled_bin_bp": 40,
+  "raw_bin_bp": 10,
+  "caution": "Local sensitivity is not causal structure evidence; misclassified-class figures are explicitly labeled. Large annotations filling the window lack a matched background.",
+  "classes": {
+    "CHIN": {
+      "all": {
+        "heldout_samples": 100,
+        "evaluable_samples": 84,
+        "evaluable_structures": 42,
+        "median_structure_enrichment": 0.9706921915474025,
+        "structures_enrichment_gt_1": 17,
+        "median_positive_input_enrichment": 0.9159578441410727
+      },
+      "correct_only": {
+        "heldout_samples": 98,
+        "evaluable_samples": 82,
+        "evaluable_structures": 41,
+        "median_structure_enrichment": 0.9752291075045214,
+        "structures_enrichment_gt_1": 17,
+        "median_positive_input_enrichment": 0.9225662580143079
+      }
+    },
+    "OPCID": {
+      "all": {
+        "heldout_samples": 26,
+        "evaluable_samples": 16,
+        "evaluable_structures": 8,
+        "median_structure_enrichment": 1.0659740268005353,
+        "structures_enrichment_gt_1": 4,
+        "median_positive_input_enrichment": 3.1655457848686943
+      },
+      "correct_only": {
+        "heldout_samples": 22,
+        "evaluable_samples": 16,
+        "evaluable_structures": 8,
+        "median_structure_enrichment": 1.0659740268005353,
+        "structures_enrichment_gt_1": 4,
+        "median_positive_input_enrichment": 3.1655457848686943
+      }
+    },
+    "CHID": {
+      "all": {
+        "heldout_samples": 12,
+        "evaluable_samples": 4,
+        "evaluable_structures": 2,
+        "median_structure_enrichment": 1.1308761349546264,
+        "structures_enrichment_gt_1": 2,
+        "median_positive_input_enrichment": 2.3665193055130067
+      },
+      "correct_only": {
+        "heldout_samples": 0,
+        "evaluable_samples": 0,
+        "evaluable_structures": 0,
+        "median_structure_enrichment": null,
+        "structures_enrichment_gt_1": 0,
+        "median_positive_input_enrichment": null
+      }
+    }
+  },
+  "figures": {
+    "CHIN": {
+      "selection": "correctly classified",
+      "shown": 20,
+      "heldout_samples": 100,
+      "correct_samples": 98,
+      "shown_predicted_types": {
+        "CHIN": 20
+      }
+    },
+    "OPCID": {
+      "selection": "correctly classified",
+      "shown": 20,
+      "heldout_samples": 26,
+      "correct_samples": 22,
+      "shown_predicted_types": {
+        "OPCID": 20
+      }
+    },
+    "CHID": {
+      "selection": "MISCLASSIFIED fallback",
+      "shown": 12,
+      "heldout_samples": 12,
+      "correct_samples": 0,
+      "shown_predicted_types": {
+        "CHIN": 12
+      }
+    }
+  }
+}

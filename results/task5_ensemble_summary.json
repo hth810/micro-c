@@ -1,0 +1,45 @@
+{
+  "validation_known_centers": 28,
+  "test_known_centers": 68,
+  "selection_rule": "largest product of relative validation SSIM and hotspot-error gains; both must beat bilinear",
+  "feasible_validation_weights": [
+    0.1,
+    0.2,
+    0.30000000000000004,
+    0.4,
+    0.5,
+    0.6000000000000001,
+    0.7000000000000001,
+    0.8,
+    0.9,
+    1.0
+  ],
+  "selected_main_weight": 1.0,
+  "selection_fallback_to_main": false,
+  "validation_selected": {
+    "main_weight": 1.0,
+    "n": 28,
+    "hotspot_baseline_bins": 14.748891424584317,
+    "hotspot_blend_bins": 14.138826009097738,
+    "hotspot_blend_win_fraction": 0.2857142857142857,
+    "ssim_baseline": 0.15228152139480322,
+    "ssim_blend": 0.1748781440852508
+  },
+  "test_known_selected": {
+    "n": 68,
+    "hotspot_baseline_bins": 14.169314332564603,
+    "hotspot_blend_bins": 15.122052046688752,
+    "hotspot_blend_win_fraction": 0.20588235294117646,
+    "ssim_baseline": 0.09066201746239096,
+    "ssim_blend": 0.1189285846777658
+  },
+  "test_patches_selected": {
+    "main_weight": 1.0,
+    "n": 208,
+    "psnr_baseline": 18.90144283737836,
+    "psnr_blend": 20.8431399593556,
+    "ssim_baseline": 0.11794622392678306,
+    "ssim_blend": 0.14067813288960893
+  },
+  "caution": "Earlier model development inspected this same test region; exploratory validation-selected ablation, not external confirmation. 640-bp patches cannot establish multi-kb structure recovery."
+}

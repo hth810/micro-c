@@ -2,12 +2,12 @@
   "informative_test_windows": 203,
   "zero_signal_windows_excluded": 5,
   "bilinear_mean_upper_contact_spearman": 0.27775462293054104,
-  "cnn_mean_upper_contact_spearman": 0.2956743041082325,
-  "mean_paired_gain": 0.017919681177691476,
+  "cnn_mean_upper_contact_spearman": 0.29554018716201746,
+  "mean_paired_gain": 0.01778556423147648,
   "win_fraction": 0.9014778325123153,
   "genomic_block_bootstrap_95ci": [
-    0.014366816170936374,
-    0.021031367058629007
+    0.014238453755199486,
+    0.020923780884491948
   ],
   "note": "Shape-focused contact-rank check on upper triangle k>=3; this is not external Hi-C validation."
 }

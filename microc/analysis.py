@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 from contextlib import ExitStack
 from pathlib import Path
@@ -299,12 +300,25 @@ def tracks(args) -> None:
                 fig.tight_layout(); fig.savefig(out / f"{chrom}_{start:07d}.png"); plt.close(fig)
 
 
+def _replicate_direction_agreement(wt_scores, condition_scores) -> bool:
+    """Require every condition-vs-WT contrast to have the same strict sign.
+
+    Biological repeats are not presumed to be paired by their file numbers.
+    This is a conservative, order-invariant heuristic, not a significance test.
+    """
+    wt = np.asarray(wt_scores, dtype=float)
+    condition = np.asarray(condition_scores, dtype=float)
+    if len(wt) < 2 or len(condition) < 2 or not np.isfinite(wt).all() or not np.isfinite(condition).all():
+        raise ValueError("Two finite repeats per condition are required")
+    return bool(condition.min() > wt.max() or condition.max() < wt.min())
+
+
 def differential(args) -> None:
     ann = annotations(args.annotations)
     out = Path(args.out); out.mkdir(parents=True, exist_ok=True)
     rows = []
     displayed_matrices = {}
-    rng = np.random.default_rng(getattr(args, "seed", 20260921))
+    seed = int(getattr(args, "seed", 20260921))
     if bool(getattr(args, "wt2", None)) != bool(getattr(args, "condition2", None)):
         raise ValueError("Provide both --wt2 and --condition2 for a paired repeat analysis")
     with ExitStack() as stack:
@@ -317,7 +331,7 @@ def differential(args) -> None:
             raise ValueError("WT and condition require matching bins")
         target_depth = min(float(c.info["sum"]) for c in wt + treatment)
 
-        def matched(c, chrom, center):
+        def matched(c, source_path, chrom, center):
             # Aggregate the original 10 bp integer counts before independent
             # binomial thinning. This preserves the count distribution better
             # than multiplying an already normalized image by a depth ratio.
@@ -329,15 +343,20 @@ def differential(args) -> None:
             counts = np.rint(raw.reshape(64, factor, 64, factor).sum(axis=(1, 3))).astype(np.int64)
             probability = min(1.0, target_depth / float(c.info["sum"]))
             triangle = np.triu(np.maximum(counts, 0))
-            thinned = rng.binomial(triangle, probability).astype(np.float32)
+            # Assign the thinning draw to the sample and locus, not its place
+            # in the iteration. Swapping independent replicate file order must
+            # not alter the matched matrices or downstream hit selection.
+            draw_key = f"{seed}|{Path(source_path).name}|{int(c.info['sum'])}|{chrom}|{center}"
+            draw_seed = int.from_bytes(hashlib.blake2b(draw_key.encode("utf-8"), digest_size=8).digest(), "little")
+            thinned = np.random.default_rng(draw_seed).binomial(triangle, probability).astype(np.float32)
             thinned = thinned + np.triu(thinned, 1).T
             return normalize(thinned)
 
         for _, record in ann.iterrows():
             chrom = chrom_name(wt[0], record.chrom)
             center = int(record.center)
-            wt_mats = [matched(c, chrom, center) for c in wt]
-            condition_mats = [matched(c, chrom, center) for c in treatment]
+            wt_mats = [matched(c, path, chrom, center) for c, path in zip(wt, wt_files)]
+            condition_mats = [matched(c, path, chrom, center) for c, path in zip(treatment, condition_files)]
             a, b = np.mean(wt_mats, axis=0), np.mean(condition_mats, axis=0)
             displayed_matrices[str(record.id)] = (a, b)
             region = np.triu_indices(64, k=3)
@@ -355,7 +374,7 @@ def differential(args) -> None:
                              end=record.end, condition=args.name, wt_strength=strength_wt,
                              condition_strength=strength_condition, delta=delta,
                              delta_rep1=delta_rep1, delta_rep2=delta_rep2,
-                             repeat_direction_agreement=(bool(delta_rep1 * delta_rep2 > 0)
+                             repeat_direction_agreement=(_replicate_direction_agreement(wt_scores, condition_scores)
                                  if len(wt_mats) > 1 else np.nan),
                              exceeds_repeat_variation=(bool(abs(delta) > max(wt_repeat_gap, condition_repeat_gap))
                                  if len(wt_mats) > 1 else np.nan),
@@ -397,7 +416,8 @@ def differential(args) -> None:
         "Delta is the treatment-minus-WT difference "
         "in positive normalized off-diagonal contact strength. Biological repeats are averaged when supplied; "
         f"the exploratory reproducible-change cutoff is the pooled 95th percentile of within-condition repeat "
-        f"differences ({repeat_p95:.6g}), plus matched-pair direction agreement and an effect larger than its own "
+        f"differences ({repeat_p95:.6g}), plus all treatment-vs-WT replicate contrasts sharing a direction "
+        "and an effect larger than its own "
         "repeat differences. This is not a formal false-discovery rate or causal test.\n", encoding="utf-8")
 
 

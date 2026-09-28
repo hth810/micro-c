@@ -25,6 +25,7 @@ import sys
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from microc.data import annotations as load_shared_annotations, normalize, open_cool
+from task1.saliency_audit import run_saliency_audit
 
 
 CLASSES = ["CHIN", "OPCID", "CHID"]
@@ -166,33 +167,6 @@ def select_validation_bias(logits: np.ndarray, truth: np.ndarray) -> tuple[np.nd
     return best_bias, {"uncalibrated": before, "calibrated": after}
 
 
-def save_saliency(model, x_test, y_test, out: Path, device: torch.device,
-                  logit_bias: np.ndarray | None = None) -> None:
-    model.eval()
-    x = x_test.to(device).clone().requires_grad_(True)
-    logits = model(x)
-    adjusted = logits + torch.tensor(logit_bias if logit_bias is not None else np.zeros(3),
-                                      dtype=logits.dtype, device=device)
-    pred = adjusted.argmax(1)
-    for ci, cname in enumerate(CLASSES):
-        idx = torch.where((y_test.to(device) == ci) & (pred == ci))[0]
-        if len(idx) == 0:
-            idx = torch.where(y_test.to(device) == ci)[0]
-        if len(idx) == 0:
-            continue
-        maps = []
-        for k in idx[: min(20, len(idx))]:
-            model.zero_grad(set_to_none=True); x.grad = None
-            logits[k, ci].backward(retain_graph=True)
-            maps.append(x.grad[k].detach().abs().cpu().numpy()[0])
-        sal = np.mean(maps, axis=0)
-        fig, ax = plt.subplots(figsize=(5, 4), dpi=180)
-        im = ax.imshow(sal, cmap="magma", origin="lower")
-        fig.colorbar(im, ax=ax, fraction=0.046, label="|d logit / d input|")
-        ax.set(title=f"Saliency: {cname} (n={len(maps)})", xlabel="window bin", ylabel="window bin")
-        fig.tight_layout(); fig.savefig(out / f"saliency_{cname}.png"); plt.close(fig)
-
-
 def save_example_heatmaps(x_test, y_test, preds, out: Path) -> None:
     """Save one correctly recognized normalized contact window per class."""
     xx, yy = x_test.cpu().numpy(), y_test.cpu().numpy()
@@ -244,12 +218,16 @@ def main() -> None:
             if choices:
                 cools.append(sorted(choices)[0])
     if len(cools) < 2: raise FileNotFoundError("Need the two 37C .cool biological replicates")
+    with open_cool(cools[0]) as c:
+        raw_bin_bp = int(c.binsize)
+        genome_bins = int(c.shape[0])
     ann = load_annotations(xlsx)
     if args.split_manifest and args.split_mode != "spatial":
         raise ValueError("--split-manifest requires --split-mode spatial")
     if args.split_mode == "spatial":
-        split_gap_bp = args.split_gap_bp or args.window_bins * args.aggregate * 10
-        if split_gap_bp < args.window_bins * args.aggregate * 10:
+        physical_window_bp = args.window_bins * args.aggregate * raw_bin_bp
+        split_gap_bp = args.split_gap_bp or physical_window_bp
+        if split_gap_bp < physical_window_bp:
             raise ValueError("spatial split gap must cover the full input window")
         train_ids, val_ids, test_ids = (split_from_manifest(ann, args.split_manifest, split_gap_bp)
                                        if args.split_manifest else spatial_split(ann, args.seed, split_gap_bp))
@@ -266,6 +244,8 @@ def main() -> None:
     mats, ys, groups = [], [], []
     for rep, cf in enumerate(cools[:2], 1):
         with open_cool(cf) as c:
+            if int(c.binsize) != raw_bin_bp or int(c.shape[0]) != genome_bins:
+                raise ValueError("The two 37C replicates must have matching bin geometry")
             for _, r in ann.iterrows():
                 mats.append(extract_window(c, int(r.center), args.window_bins, args.aggregate))
                 ys.append(int(r.label)); groups.append((r.id, rep))
@@ -338,7 +318,8 @@ def main() -> None:
                "spatial_grid": args.spatial_grid,
                "class_weights": class_weights.tolist(),
                "window_bins": args.window_bins, "aggregate": args.aggregate,
-               "window_bp": args.window_bins * args.aggregate * 10,
+               "window_bp": args.window_bins * args.aggregate * raw_bin_bp,
+               "raw_bin_bp": raw_bin_bp,
                "train_structures": len(train_ids), "validation_structures": len(val_ids),
                "test_structures": len(test_ids), "train_samples": int(tr.sum()),
                "validation_samples": int(va_mask.sum()), "test_samples": int(te.sum()),
@@ -355,7 +336,15 @@ def main() -> None:
                 "aggregate": args.aggregate, "spatial_grid": args.spatial_grid,
                 "seed": args.seed, "logit_bias": logit_bias.tolist()},
                args.out_dir / "task1_cnn.pt")
-    save_confusion(cm, args.out_dir); save_saliency(model, test_x, test_y, args.out_dir, device, logit_bias)
+    save_confusion(cm, args.out_dir)
+    sample_metadata = ann.set_index("id").loc[group_ids[test_indices]].reset_index()
+    sample_metadata["replicate"] = [groups[i][1] for i in test_indices]
+    run_saliency_audit(model=model, x_test=test_x, y_test=test_y,
+                       sample_metadata=sample_metadata, out=args.out_dir,
+                       device=device, pooled_bin_bp=args.aggregate * raw_bin_bp,
+                       genome_bins=genome_bins, raw_bin_bp=raw_bin_bp,
+                       logit_bias=logit_bias,
+                       split_mode=args.split_mode)
     save_example_heatmaps(test_x, test_y, preds, args.out_dir)
     print(json.dumps({"accuracy": metrics["accuracy"], "confusion_matrix": cm.tolist(), "output": str(args.out_dir)}, ensure_ascii=False))
 
