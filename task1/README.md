@@ -10,10 +10,9 @@
 
 ```powershell
 python -m pip install -r task1/requirements.txt
-python task1/run_task1.py --data-dir data/raw --annotations data/structures.csv --out-dir outputs/task1
+python task1/run_task1.py --data-dir data/raw --annotations data/structures.csv --out-dir outputs/task1_exploratory
 # 精确复现仓库 results/task1_spatial_metrics.json 使用的 206/69/69 分区
-python task1/run_task1.py --data-dir data/raw --annotations data/structures.csv \
-  --split-manifest results/task1_spatial_annotation_manifest.csv --out-dir outputs/task1
+python task1/run_task1.py --data-dir data/raw --annotations data/structures.csv --split-manifest results/task1_spatial_annotation_manifest.csv --out-dir outputs/task1_spatial
 # 可选的失败对照：验证集类别阈值校准
 python task1/run_task1.py --data-dir data/raw --annotations data/structures.csv --calibrate --out-dir outputs/task1_calibrated
 ```

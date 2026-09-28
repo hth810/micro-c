@@ -26,7 +26,7 @@ python scripts/prepare_annotations.py data/raw/标注数据.xlsx
 以下命令在仓库根目录执行。所有生成结果写入被 Git 忽略的 `outputs/`。
 
 ```bash
-python task1/run_task1.py --data-dir data/raw --annotations data/structures.csv --out-dir outputs/task1_spatial
+python task1/run_task1.py --data-dir data/raw --annotations data/structures.csv --split-manifest results/task1_spatial_annotation_manifest.csv --out-dir outputs/task1_spatial
 python -m task1.saliency_audit --run-dir outputs/task1_spatial
 
 python scripts/audit_task1_split.py outputs/task1_spatial/annotation_manifest.csv --out outputs/task1_spatial/split_audit.json

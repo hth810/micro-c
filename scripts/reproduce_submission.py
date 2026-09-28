@@ -86,6 +86,7 @@ def build_steps(root: Path, files: dict[str, Path], python: str) -> list[Step]:
     task1 = out / "task1_spatial"
     script(1, "task1-cnn", "task1/run_task1.py",
            ["--rep1", wt1, "--rep2", wt2, "--annotations", ann,
+            "--split-manifest", results / "task1_spatial_annotation_manifest.csv",
             "--out-dir", task1], task1 / "metrics.json", task1 / "saliency_audit_summary.json")
 
     strict = out / "task2_strict_current"

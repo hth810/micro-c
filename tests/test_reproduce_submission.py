@@ -25,6 +25,8 @@ def test_all_core_steps_are_ordered_and_have_expected_outputs(tmp_path: Path) ->
     assert [s.stage for s in steps] == sorted(s.stage for s in steps)
     assert len({s.name for s in steps}) == len(steps)
     assert all(s.command[0] == "python" and s.expected for s in steps)
+    assert "--split-manifest" in steps[0].command
+    assert str(tmp_path / "results" / "task1_spatial_annotation_manifest.csv") in steps[0].command
     names = [s.name for s in steps]
     assert names.index("task2-novel-cluster") < names.index("task2-transfer-hns")
     assert names.index("task2-hns-check") < names.index("task2-annotation-review")
