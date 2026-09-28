@@ -1,0 +1,369 @@
+{
+  "protocol": "same 40 kb spatial folds and labels for all modes, both replicates combined at structure level",
+  "caution": "exploratory reuse of previously analyzed annotations; interval channels and length are not available to an unannotated discovery scan",
+  "scores": {
+    "contact_dual": {
+      "accuracy": 0.7965116279069767,
+      "macro_f1": 0.5707465277777778,
+      "chid_precision": 0.16666666666666666,
+      "chid_recall": 0.11538461538461539,
+      "confusion_matrix": [
+        [
+          225,
+          14,
+          11
+        ],
+        [
+          18,
+          46,
+          4
+        ],
+        [
+          19,
+          4,
+          3
+        ]
+      ]
+    },
+    "contact_interval": {
+      "accuracy": 0.872093023255814,
+      "macro_f1": 0.7563382342184185,
+      "chid_precision": 0.631578947368421,
+      "chid_recall": 0.46153846153846156,
+      "confusion_matrix": [
+        [
+          228,
+          16,
+          6
+        ],
+        [
+          7,
+          60,
+          1
+        ],
+        [
+          11,
+          3,
+          12
+        ]
+      ]
+    },
+    "contact_short": {
+      "accuracy": 0.7965116279069767,
+      "macro_f1": 0.5947748216314837,
+      "chid_precision": 0.21739130434782608,
+      "chid_recall": 0.19230769230769232,
+      "confusion_matrix": [
+        [
+          223,
+          14,
+          13
+        ],
+        [
+          17,
+          46,
+          5
+        ],
+        [
+          18,
+          3,
+          5
+        ]
+      ]
+    },
+    "interval_only": {
+      "accuracy": 0.7412790697674418,
+      "macro_f1": 0.5607107890303024,
+      "chid_precision": 0.37037037037037035,
+      "chid_recall": 0.38461538461538464,
+      "confusion_matrix": [
+        [
+          214,
+          31,
+          5
+        ],
+        [
+          25,
+          31,
+          12
+        ],
+        [
+          4,
+          12,
+          10
+        ]
+      ]
+    },
+    "length_only": {
+      "accuracy": 0.6773255813953488,
+      "macro_f1": 0.5323225094949825,
+      "chid_precision": 0.3076923076923077,
+      "chid_recall": 0.6153846153846154,
+      "confusion_matrix": [
+        [
+          190,
+          45,
+          15
+        ],
+        [
+          20,
+          27,
+          21
+        ],
+        [
+          1,
+          9,
+          16
+        ]
+      ]
+    },
+    "existing_hybrid": {
+      "accuracy": 0.8953488372093024,
+      "macro_f1": 0.7874935889848897,
+      "chid_precision": 0.6,
+      "chid_recall": 0.5769230769230769,
+      "confusion_matrix": [
+        [
+          235,
+          8,
+          7
+        ],
+        [
+          7,
+          58,
+          3
+        ],
+        [
+          5,
+          6,
+          15
+        ]
+      ]
+    }
+  },
+  "chid_chin_overlap": {
+    "within_1000_bp": {
+      "threshold_bp": 1000,
+      "chid_near_count": 19,
+      "chid_far_count": 7,
+      "chin_near_count": 30,
+      "chin_far_count": 220,
+      "modes": {
+        "contact_dual": {
+          "chid_near_true_positive": 3,
+          "chid_far_true_positive": 0,
+          "chin_near_false_chid": 3,
+          "chin_far_false_chid": 8
+        },
+        "contact_interval": {
+          "chid_near_true_positive": 8,
+          "chid_far_true_positive": 4,
+          "chin_near_false_chid": 2,
+          "chin_far_false_chid": 4
+        },
+        "contact_short": {
+          "chid_near_true_positive": 3,
+          "chid_far_true_positive": 2,
+          "chin_near_false_chid": 3,
+          "chin_far_false_chid": 10
+        },
+        "interval_only": {
+          "chid_near_true_positive": 6,
+          "chid_far_true_positive": 4,
+          "chin_near_false_chid": 5,
+          "chin_far_false_chid": 0
+        },
+        "length_only": {
+          "chid_near_true_positive": 11,
+          "chid_far_true_positive": 5,
+          "chin_near_false_chid": 8,
+          "chin_far_false_chid": 7
+        },
+        "existing_hybrid": {
+          "chid_near_true_positive": 10,
+          "chid_far_true_positive": 5,
+          "chin_near_false_chid": 2,
+          "chin_far_false_chid": 5
+        }
+      }
+    },
+    "within_5120_bp": {
+      "threshold_bp": 5120,
+      "chid_near_count": 25,
+      "chid_far_count": 1,
+      "chin_near_count": 89,
+      "chin_far_count": 161,
+      "modes": {
+        "contact_dual": {
+          "chid_near_true_positive": 3,
+          "chid_far_true_positive": 0,
+          "chin_near_false_chid": 7,
+          "chin_far_false_chid": 4
+        },
+        "contact_interval": {
+          "chid_near_true_positive": 12,
+          "chid_far_true_positive": 0,
+          "chin_near_false_chid": 4,
+          "chin_far_false_chid": 2
+        },
+        "contact_short": {
+          "chid_near_true_positive": 5,
+          "chid_far_true_positive": 0,
+          "chin_near_false_chid": 9,
+          "chin_far_false_chid": 4
+        },
+        "interval_only": {
+          "chid_near_true_positive": 10,
+          "chid_far_true_positive": 0,
+          "chin_near_false_chid": 5,
+          "chin_far_false_chid": 0
+        },
+        "length_only": {
+          "chid_near_true_positive": 16,
+          "chid_far_true_positive": 0,
+          "chin_near_false_chid": 13,
+          "chin_far_false_chid": 2
+        },
+        "existing_hybrid": {
+          "chid_near_true_positive": 15,
+          "chid_far_true_positive": 0,
+          "chin_near_false_chid": 7,
+          "chin_far_false_chid": 0
+        }
+      }
+    }
+  },
+  "paired_uncertainty": {
+    "contact_interval_minus_contact_short": {
+      "point_difference": {
+        "accuracy": 0.07558139534883723,
+        "macro_f1": 0.16156341258693485,
+        "chid_precision": 0.41418764302059496,
+        "chid_recall": 0.2692307692307693
+      },
+      "paired_spatial_bootstrap_95ci": {
+        "accuracy": [
+          0.01999019607843139,
+          0.12575048578340006
+        ],
+        "macro_f1": [
+          0.07734211574052423,
+          0.24935833446491346
+        ],
+        "chid_precision": [
+          0.13461134453781515,
+          0.6428914835164834
+        ],
+        "chid_recall": [
+          0.06666666666666665,
+          0.49999999999999994
+        ]
+      }
+    },
+    "contact_interval_minus_contact_dual": {
+      "point_difference": {
+        "accuracy": 0.07558139534883723,
+        "macro_f1": 0.1855917064406407,
+        "chid_precision": 0.4649122807017544,
+        "chid_recall": 0.34615384615384615
+      },
+      "paired_spatial_bootstrap_95ci": {
+        "accuracy": [
+          0.010561762966248925,
+          0.13554647160068847
+        ],
+        "macro_f1": [
+          0.08533063578716013,
+          0.2757467995829443
+        ],
+        "chid_precision": [
+          0.125,
+          0.7381211180124223
+        ],
+        "chid_recall": [
+          0.14285714285714285,
+          0.5384615384615384
+        ]
+      }
+    },
+    "contact_interval_minus_interval_only": {
+      "point_difference": {
+        "accuracy": 0.1308139534883721,
+        "macro_f1": 0.19562744518811614,
+        "chid_precision": 0.26120857699805067,
+        "chid_recall": 0.07692307692307693
+      },
+      "paired_spatial_bootstrap_95ci": {
+        "accuracy": [
+          0.09470301694868279,
+          0.1652960976410705
+        ],
+        "macro_f1": [
+          0.1243796175813636,
+          0.26723655370626836
+        ],
+        "chid_precision": [
+          0.07323343920145191,
+          0.5
+        ],
+        "chid_recall": [
+          -0.11538461538461536,
+          0.2632456140350872
+        ]
+      }
+    },
+    "contact_interval_minus_length_only": {
+      "point_difference": {
+        "accuracy": 0.19476744186046513,
+        "macro_f1": 0.224015724723436,
+        "chid_precision": 0.3238866396761133,
+        "chid_recall": -0.15384615384615385
+      },
+      "paired_spatial_bootstrap_95ci": {
+        "accuracy": [
+          0.15406417710196774,
+          0.23428605935127678
+        ],
+        "macro_f1": [
+          0.14238756405138758,
+          0.314262703783394
+        ],
+        "chid_precision": [
+          0.10460989010989011,
+          0.557851909994767
+        ],
+        "chid_recall": [
+          -0.4074074074074074,
+          0.10008620689655123
+        ]
+      }
+    },
+    "contact_interval_minus_existing_hybrid": {
+      "point_difference": {
+        "accuracy": -0.023255813953488413,
+        "macro_f1": -0.031155354766471244,
+        "chid_precision": 0.03157894736842104,
+        "chid_recall": -0.11538461538461531
+      },
+      "paired_spatial_bootstrap_95ci": {
+        "accuracy": [
+          -0.070630125751777,
+          0.013588191699604742
+        ],
+        "macro_f1": [
+          -0.1058826246952373,
+          0.047495953537961474
+        ],
+        "chid_precision": [
+          -0.15251330385123843,
+          0.2646031746031743
+        ],
+        "chid_recall": [
+          -0.3182272727272727,
+          0.08339285714285685
+        ]
+      }
+    }
+  },
+  "uncertainty_method": "2000 paired resamples of nonoverlapping 40 kb spatial components; exploratory 95% percentile intervals"
+}

@@ -1,0 +1,245 @@
+{
+  "frozen_clique_bp": [
+    2042880,
+    3307520,
+    4241920
+  ],
+  "views": {
+    "far8": "upper-triangle distance >=8 bins",
+    "far16": "upper-triangle distance >=16 bins",
+    "highpass_far8": "sigma-4 Gaussian background subtracted, then distance >=8 bins",
+    "rowcol_far8": "row and column effects subtracted, then distance >=8 bins"
+  },
+  "control_matching": "rep1 raw log coverage of both loci and log genomic separation; two IQR caliper each; nearest 200; excludes candidate-proximal loci",
+  "control_balance": [
+    {
+      "target_pair_bp": [
+        2042880,
+        3307520
+      ],
+      "control_group": "annotated",
+      "control_pairs": 200,
+      "target_within_control_q10_q90_all_covariates": true,
+      "target_coverage_low": 0.33026301860809326,
+      "control_coverage_low_median": 0.3237251937389374,
+      "control_coverage_low_q10_q90": [
+        0.3150160312652588,
+        0.340221107006073
+      ],
+      "target_coverage_high": 0.4476538896560669,
+      "control_coverage_high_median": 0.440437376499176,
+      "control_coverage_high_q10_q90": [
+        0.4194680154323578,
+        0.47019994258880615
+      ],
+      "target_separation_bp": 1264640,
+      "control_separation_bp_median": 1314412.5,
+      "control_separation_bp_q10_q90": [
+        917802.0,
+        1683263.0
+      ]
+    },
+    {
+      "target_pair_bp": [
+        2042880,
+        3307520
+      ],
+      "control_group": "unannotated",
+      "control_pairs": 200,
+      "target_within_control_q10_q90_all_covariates": false,
+      "target_coverage_low": 0.33026301860809326,
+      "control_coverage_low_median": 0.32992851734161377,
+      "control_coverage_low_q10_q90": [
+        0.31434366106987,
+        0.34867390990257263
+      ],
+      "target_coverage_high": 0.4476538896560669,
+      "control_coverage_high_median": 0.4226824939250946,
+      "control_coverage_high_q10_q90": [
+        0.40733039379119873,
+        0.4422188997268677
+      ],
+      "target_separation_bp": 1264640,
+      "control_separation_bp_median": 1596160.0,
+      "control_separation_bp_q10_q90": [
+        840960.0000000001,
+        3005952.0
+      ]
+    },
+    {
+      "target_pair_bp": [
+        2042880,
+        4241920
+      ],
+      "control_group": "annotated",
+      "control_pairs": 200,
+      "target_within_control_q10_q90_all_covariates": true,
+      "target_coverage_low": 0.33026301860809326,
+      "control_coverage_low_median": 0.3237251937389374,
+      "control_coverage_low_q10_q90": [
+        0.3150160312652588,
+        0.3436790108680725
+      ],
+      "target_coverage_high": 0.4578510820865631,
+      "control_coverage_high_median": 0.449560284614563,
+      "control_coverage_high_q10_q90": [
+        0.4315981864929199,
+        0.4825040102005005
+      ],
+      "target_separation_bp": 2199040,
+      "control_separation_bp_median": 2065122.5,
+      "control_separation_bp_q10_q90": [
+        1563919.5,
+        2879487.0
+      ]
+    },
+    {
+      "target_pair_bp": [
+        2042880,
+        4241920
+      ],
+      "control_group": "unannotated",
+      "control_pairs": 200,
+      "target_within_control_q10_q90_all_covariates": false,
+      "target_coverage_low": 0.33026301860809326,
+      "control_coverage_low_median": 0.3298916220664978,
+      "control_coverage_low_q10_q90": [
+        0.30702972412109375,
+        0.35167557597160337
+      ],
+      "target_coverage_high": 0.4578510820865631,
+      "control_coverage_high_median": 0.4304346442222595,
+      "control_coverage_high_q10_q90": [
+        0.4146544635295868,
+        0.4422188997268677
+      ],
+      "target_separation_bp": 2199040,
+      "control_separation_bp_median": 2380800.0,
+      "control_separation_bp_q10_q90": [
+        1039104.0,
+        3586047.9999999995
+      ]
+    },
+    {
+      "target_pair_bp": [
+        3307520,
+        4241920
+      ],
+      "control_group": "annotated",
+      "control_pairs": 200,
+      "target_within_control_q10_q90_all_covariates": true,
+      "target_coverage_low": 0.4476538896560669,
+      "control_coverage_low_median": 0.4315981864929199,
+      "control_coverage_low_q10_q90": [
+        0.4052135944366455,
+        0.4563328504562378
+      ],
+      "target_coverage_high": 0.4578510820865631,
+      "control_coverage_high_median": 0.47019994258880615,
+      "control_coverage_high_q10_q90": [
+        0.4323936700820923,
+        0.5054036378860474
+      ],
+      "target_separation_bp": 934400,
+      "control_separation_bp_median": 1162045.0,
+      "control_separation_bp_q10_q90": [
+        533828.5,
+        1707703.9999999998
+      ]
+    },
+    {
+      "target_pair_bp": [
+        3307520,
+        4241920
+      ],
+      "control_group": "unannotated",
+      "control_pairs": 200,
+      "target_within_control_q10_q90_all_covariates": false,
+      "target_coverage_low": 0.4476538896560669,
+      "control_coverage_low_median": 0.3926616907119751,
+      "control_coverage_low_q10_q90": [
+        0.3816535174846649,
+        0.40578198432922363
+      ],
+      "target_coverage_high": 0.4578510820865631,
+      "control_coverage_high_median": 0.4146544635295868,
+      "control_coverage_high_q10_q90": [
+        0.3990771472454071,
+        0.4422188997268677
+      ],
+      "target_separation_bp": 934400,
+      "control_separation_bp_median": 865280.0,
+      "control_separation_bp_q10_q90": [
+        350464.0,
+        2186752.0
+      ]
+    }
+  ],
+  "target_within_control_q10_q90_all_covariates_by_group": {
+    "annotated": 3,
+    "unannotated": 0
+  },
+  "metric_reports": [
+    {
+      "metric": "far8",
+      "rep1_internal_min_r": 0.25723805228209895,
+      "rep2_internal_min_r": 0.03177037481761077,
+      "rep2_edges_positive": 3,
+      "rep2_edges_exceed_both_best_known": 0,
+      "minimum_rep2_matched_percentile_by_group": {
+        "annotated": 0.795,
+        "unannotated": 0.81
+      },
+      "minimum_matched_control_count_by_group": {
+        "annotated": 200,
+        "unannotated": 200
+      }
+    },
+    {
+      "metric": "far16",
+      "rep1_internal_min_r": 0.12382432532030535,
+      "rep2_internal_min_r": -0.01811463969278796,
+      "rep2_edges_positive": 1,
+      "rep2_edges_exceed_both_best_known": 0,
+      "minimum_rep2_matched_percentile_by_group": {
+        "annotated": 0.19,
+        "unannotated": 0.28
+      },
+      "minimum_matched_control_count_by_group": {
+        "annotated": 200,
+        "unannotated": 200
+      }
+    },
+    {
+      "metric": "highpass_far8",
+      "rep1_internal_min_r": -0.013625768655745194,
+      "rep2_internal_min_r": -0.04454564077534061,
+      "rep2_edges_positive": 2,
+      "rep2_edges_exceed_both_best_known": 0,
+      "minimum_rep2_matched_percentile_by_group": {
+        "annotated": 0.04,
+        "unannotated": 0.035
+      },
+      "minimum_matched_control_count_by_group": {
+        "annotated": 200,
+        "unannotated": 200
+      }
+    },
+    {
+      "metric": "rowcol_far8",
+      "rep1_internal_min_r": 0.0395275316263153,
+      "rep2_internal_min_r": 0.006078729760842247,
+      "rep2_edges_positive": 3,
+      "rep2_edges_exceed_both_best_known": 0,
+      "minimum_rep2_matched_percentile_by_group": {
+        "annotated": 0.575,
+        "unannotated": 0.555
+      },
+      "minimum_matched_control_count_by_group": {
+        "annotated": 200,
+        "unannotated": 200
+      }
+    }
+  ],
+  "caution": "Retrospective artifact/robustness audit. Matched pairs are dependent; no p-value or FDR. Unannotated controls have imperfect coverage overlap and cannot substantiate a matched significance claim. Matching does not equalize novelty distance, which lacks adequate overlap."
+}

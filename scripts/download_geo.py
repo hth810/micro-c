@@ -21,6 +21,7 @@ FILES = {
     "rif2": "GSE272159_rif25_rep2.MG1655.mapq_30.10.cool.gz",
     "hns1": "GSM9678478_HNS_mut_rep1.MG1655.mapq_30.10.cool.gz",
     "hns2": "GSM9678479_HNS_mut_rep2.MG1655.mapq_30.10.cool.gz",
+    "fix37": "GSM8950767_37C_37C_fix_rep1.MG1655.mapq_30.10.cool.gz",
     "gff": "GCF_000005845.2_ASM584v2_genomic.gff.gz",
 }
 GFF_URL = "https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/005/845/GCF_000005845.2_ASM584v2/"
@@ -69,7 +70,9 @@ def main() -> None:
         for name in args.names:
             filename = FILES[name]
             target = args.out / filename
-            if name.startswith("hns"):
+            if name == "fix37":
+                url = f"https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM8950nnn/GSM8950767/suppl/{filename}"
+            elif name.startswith("hns"):
                 accession = filename.split("_", 1)[0]
                 url = f"https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM9678nnn/{accession}/suppl/{filename}"
             else:

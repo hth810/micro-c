@@ -10,12 +10,13 @@
 
 ## 数据
 
-原始矩阵来自 [NCBI GEO GSE272159](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE272159)。`data/structures.csv` 是从课程提供的 `标注数据.xlsx` 的 Supplementary Table 4/5/6 导出的 344 条标注，来源工作簿不进入 Git。下载脚本获取六个主分析矩阵：两个 37℃ 重复、两个 44℃ 重复、两个 rifampicin 25 重复；H-NS 独立条件检查另取两个缺失突变体重复。另获取一个基因注释 GFF 文件。
+原始矩阵来自 [NCBI GEO GSE272159](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE272159)。`data/structures.csv` 是从课程提供的 `标注数据.xlsx` 的 Supplementary Table 4/5/6 导出的 344 条标注，来源工作簿不进入 Git。下载脚本获取六个主分析矩阵：两个 37℃ 重复、两个 44℃ 重复、两个 rifampicin 25 重复；H-NS 独立条件检查另取两个缺失突变体重复；任务二另取一个 WT 37℃ 培养/37℃ 固定的异制样文库作敏感性检查。另获取一个基因注释 GFF 文件。
 
 ```bash
 python -m pip install -r requirements.txt
 python scripts/download_geo.py wt1 wt2 heat heat2 rif rif2 gff
 python scripts/download_geo.py hns1 hns2
+python scripts/download_geo.py fix37
 python scripts/prepare_annotations.py data/raw/标注数据.xlsx
 ```
 
@@ -72,6 +73,15 @@ python -m task1.train_final_boundaries --out outputs/task1_boundary_final.joblib
 python -m task1.predict_handcrafted --rep1 data/raw/GSE272159_37C_rep1.mapq_30.10.cool.gz --rep2 data/raw/GSE272159_37C_rep2.mapq_30.10.cool.gz --annotations data/structures.csv --model outputs/task1_boundary_final.joblib --out outputs/task1_boundary_in_sample_smoke.csv
 python -m task1.evaluate_replicate_transfer --out outputs/task1_replicate_transfer
 python -m task1.evaluate_balanced_cnn --out outputs/task1_balanced_cnn
+python -m task1.evaluate_interval_conditioned_cnn
+python -m task1.audit_interval_cnn_occlusion
+python -m task1.audit_interval_conditioned_cnn
+python -m task1.train_final_interval_cnn
+python -m task1.render_interval_cnn_diagnostics
+python -m task1.render_interval_cnn_example
+python -m task1.render_interval_cnn_class_saliency
+
+新增四路 CNN 用同一 40 kb 空间五折；`results/task1_interval_cnn_summary.json` 给出交叉验证表现，但最终架构依据四路结果回顾性选定，分数仍有选型偏倚。全 344 标注的最终权重只对已知起止点推理，不能用来扫描无标注区域，也不能以其训练集表现报分。
 
 python task1/run_task1.py --data-dir data/raw --annotations data/structures.csv --split-mode structure --out-dir outputs/task1
 
@@ -91,6 +101,17 @@ python -m scripts.audit_candidate_sensitivity --scan outputs/task2/all_windows.c
 
 python -m scripts.prepare_individual_candidates --discovery outputs/task2_strict_current --out outputs/task2_strict_individual.csv
 
+# 回顾性 rep1-only 选点，再冻结位点到 rep2 做匹配对照审计；历史分析已看过 rep2，不是真正前瞻盲测。
+python -m scripts.task2_rep1_locked_discovery discover --rep1 data/raw/GSE272159_37C_rep1.mapq_30.10.cool --out outputs/task2_rep1_locked
+python -m scripts.task2_rep1_locked_discovery validate --rep2 data/raw/GSE272159_37C_rep2.mapq_30.10.cool --discovery outputs/task2_rep1_locked --out outputs/task2_rep1_locked
+python -m scripts.audit_task2_known_recall --out outputs/task2_known_recall_audit.json
+python -m scripts.audit_task2_shape_artifacts --rep1 data/raw/GSE272159_37C_rep1.mapq_30.10.cool --rep2 data/raw/GSE272159_37C_rep2.mapq_30.10.cool --discovery outputs/task2_rep1_locked --out outputs/task2_shape_artifact_audit
+python -m scripts.audit_task2_shape_artifacts --rep1 data/raw/GSE272159_37C_rep1.mapq_30.10.cool --rep2 data/raw/GSM8950767_37C_37C_fix_rep1.MG1655.mapq_30.10.cool.gz --discovery outputs/task2_rep1_locked --out outputs/task2_37c_fixation_sensitivity
+python -m scripts.qc_task2_fixation --discovery outputs/task2_rep1_locked --rep1 data/raw/GSE272159_37C_rep1.mapq_30.10.cool --rep2 data/raw/GSE272159_37C_rep2.mapq_30.10.cool --fix37 data/raw/GSM8950767_37C_37C_fix_rep1.MG1655.mapq_30.10.cool.gz --out outputs/task2_37c_fixation_sensitivity/qc.json
+python -m scripts.task2_fixation_depth_power --discovery outputs/task2_rep1_locked --qc outputs/task2_37c_fixation_sensitivity/qc.json --rep1 data/raw/GSE272159_37C_rep1.mapq_30.10.cool --rep2 data/raw/GSE272159_37C_rep2.mapq_30.10.cool --fix37 data/raw/GSM8950767_37C_37C_fix_rep1.MG1655.mapq_30.10.cool.gz --iterations 100 --out outputs/task2_37c_fixation_sensitivity/depth_matched_power.json
+
+最后三行仅为冻结位点的异制样敏感性、覆盖度与均匀抽稀功效 QC。GSM8950767 在 37℃ 固定，标准协议在室温固定；它不是同条件第三个生物学重复，尤其远距接触更稀疏，阴性不能证明候选不存在。官方文件的 SHA-256 为 `fcc1d263ff71be8a433058dc1ba32edabcaa960c7a6ec6e847cd85dd80dc8309`。
+
 python -m microc.analysis tracks --cool data/raw/GSE272159_37C_rep1.mapq_30.10.cool.gz data/raw/GSE272159_44C_rep1.mapq_30.10.cool.gz data/raw/GSE272159_rif25_rep1.MG1655.mapq_30.10.cool.gz --labels WT_37C Heat_44C Rif_25 --annotations data/structures.csv --gff data/raw/GCF_000005845.2_ASM584v2_genomic.gff.gz --out outputs/task3_labeled
 python -m scripts.manifest_tracks --tracks outputs/task3_labeled --out results/task3_track_manifest.csv
 
@@ -98,7 +119,12 @@ python -m microc.analysis differential --wt data/raw/GSE272159_37C_rep1.mapq_30.
 
 python -m microc.analysis differential --wt data/raw/GSE272159_37C_rep1.mapq_30.10.cool.gz --wt2 data/raw/GSE272159_37C_rep2.mapq_30.10.cool.gz --condition data/raw/GSE272159_rif25_rep1.MG1655.mapq_30.10.cool.gz --condition2 data/raw/GSE272159_rif25_rep2.MG1655.mapq_30.10.cool.gz --name rifampicin_25 --annotations data/structures.csv --seed 20260921 --out outputs/task4_rif_order_invariant
 
-以上两个条件须用 `--seed 20260922` 和 `20260923` 各再运行一次，输出目录依次加 `_seed20260922`、`_seed20260923`；随后运行 `python -m scripts.summarize_task4_thinning`，主运行和三种子交集才构成任务四的当前结果。旧 `task4_heat_final` / `task4_rif_final` 只作历史对照。
+# H-NS 缺失条件的已发布结果使用保留的未压缩 WT .cool；若仅有 .cool.gz，先解压出同名 .cool 副本。
+python -m microc.analysis differential --wt data/raw/GSE272159_37C_rep1.mapq_30.10.cool --wt2 data/raw/GSE272159_37C_rep2.mapq_30.10.cool --condition data/raw/GSM9678478_HNS_mut_rep1.MG1655.mapq_30.10.cool.gz --condition2 data/raw/GSM9678479_HNS_mut_rep2.MG1655.mapq_30.10.cool.gz --name hns_mut --annotations data/structures.csv --seed 20260921 --out outputs/task4_hns_order_invariant
+
+44℃ 与利福平两个条件须用 `--seed 20260922` 和 `20260923` 各再运行一次，输出目录依次加 `_seed20260922`、`_seed20260923`；随后运行 `python -m scripts.summarize_task4_thinning`，主运行和三种子交集才构成任务四的当前结果。旧 `task4_heat_final` / `task4_rif_final` 只作历史对照。
+
+H-NS 条件也使用相同两次敏感性运行，然后执行 `python -m scripts.summarize_task4_thinning --conditions hns --out outputs/task4_hns_sensitivity.json`。每组的三个种子必须使用完全相同的输入文件名；抽稀随机流键包含文件名，`.cool` 与 `.cool.gz` 路径切换会改变抽样。已发布的 H-NS 稳定结果见 `results/task4_hns_stable_changes.csv`，属于探索性筛选而非正式 FDR。
 
 python -m microc.analysis differential --wt data/raw/GSE272159_37C_rep1.mapq_30.10.cool.gz --condition data/raw/GSE272159_37C_rep2.mapq_30.10.cool.gz --name wt_rep2_control --annotations data/structures.csv --out outputs/task4_repeat_depth_final
 
@@ -106,6 +132,9 @@ python -m microc.deep superresolve --cool data/raw/GSE272159_37C_rep1.mapq_30.10
 python -m scripts.validate_sr_known_shape --cool data/raw/GSE272159_37C_rep1.mapq_30.10.cool.gz --checkpoint outputs/task5_corrected/super_resolution.pt --known-file outputs/task5_corrected/known_structure_recovery.csv --out outputs/task5_known_shape
 python -m microc.deep superresolve --cool data/raw/GSE272159_37C_rep1.mapq_30.10.cool.gz --annotations data/structures.csv --factor 4 --epochs 12 --peak-weight 0.5 --out outputs/task5_peak_weighted
 python -m scripts.validate_sr_known_shape --cool data/raw/GSE272159_37C_rep1.mapq_30.10.cool.gz --checkpoint outputs/task5_peak_weighted/super_resolution.pt --known-file outputs/task5_peak_weighted/known_structure_recovery.csv --out outputs/task5_peak_known_shape
+python -m scripts.evaluate_sr_peak_guard --cool data/raw/GSE272159_37C_rep1.mapq_30.10.cool --external-cool data/raw/GSE272159_37C_rep2.mapq_30.10.cool --out outputs/task5_peak_guard
+python -m scripts.train_sr_hotspot_finetune --phase select --cool data/raw/GSE272159_37C_rep1.mapq_30.10.cool --out outputs/task5_hotspot_finetune
+python -m scripts.train_sr_hotspot_finetune --phase test --cool data/raw/GSE272159_37C_rep1.mapq_30.10.cool --external-cool data/raw/GSE272159_37C_rep2.mapq_30.10.cool --out outputs/task5_hotspot_finetune
 python -m scripts.evaluate_sr_ensemble --out outputs/task5_ensemble
 
 python -m microc.deep reconstruct3d --cool data/raw/GSE272159_37C_rep1.mapq_30.10.cool.gz --annotations data/structures.csv --pretrain-epochs 0 --anchor-weight 0 --out outputs/task6_independent

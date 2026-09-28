@@ -1,0 +1,35 @@
+{
+  "analysis": "retrospective rep1-only discovery; earlier rep2 inspection prevents prospective blindness",
+  "rep1_path": "data\\raw\\GSE272159_37C_rep1.mapq_30.10.cool",
+  "scan_path": "results\\task2_all_windows.csv",
+  "scan_fields_used": [
+    "chrom",
+    "center",
+    "shape_score",
+    "density_score",
+    "reconstruction_error",
+    "is_known",
+    "known_distance_bp"
+  ],
+  "score_gate_quantile": 0.8,
+  "score_gate": 0.6881677704194262,
+  "independence_bp": 10240,
+  "known_annotations": 344,
+  "known_shape_distance_p90": 8.57604694366455,
+  "score_gated_independent_loci": 100,
+  "shape_novel_loci": 16,
+  "novel_independent_pairs": 120,
+  "rep1_top_pair_bp": [
+    3307520,
+    4241920
+  ],
+  "rep1_three_locus_cliques": 3,
+  "rep1_top_three_locus_clique_bp": [
+    2042880,
+    3307520,
+    4241920
+  ],
+  "three_locus_rule": "Every edge at or above the rep1 90th percentile in both upper and coarse similarity among independently spaced rep1-novel pairs; select clique maximizing its weakest joint rank",
+  "rep2_used_in_selection": false,
+  "caution": "Unannotated, rep1 shape-outlying positions are candidates, not validated new types."
+}

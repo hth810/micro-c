@@ -1,0 +1,1358 @@
+{
+  "selected_stage": "main",
+  "selection_sha256": "784238a417f154b700effe9260cf76010c2b4687772a2f5b621a2e39ba7b4c08",
+  "split_sha256": "460bfb651a3787e7fc332098587c545ba279c88982151451d3a9dd4f0b6a7f0c",
+  "rep1_test": {
+    "selected_vs_interpolation_tiles": {
+      "n": 208,
+      "genomic_50kb_blocks": 19,
+      "reference_method": "bilinear interpolation",
+      "prediction_method": "main",
+      "gain_definition": "prediction-reference for PSNR, SSIM, Spearman, top5_hit5; reference-prediction for top1 hotspot and top5 nearest distance; positive is better",
+      "psnr": {
+        "baseline_mean": 18.90144283737836,
+        "prediction_mean": 20.84313995930627,
+        "mean_gain": 1.9416971219279047,
+        "win_fraction": 0.9759615384615384,
+        "block_bootstrap_95ci_gain": [
+          1.8471136758894522,
+          2.0306538063450237
+        ]
+      },
+      "ssim": {
+        "baseline_mean": 0.11794622392678306,
+        "prediction_mean": 0.14067813288321693,
+        "mean_gain": 0.022731908956433868,
+        "win_fraction": 0.9134615384615384,
+        "block_bootstrap_95ci_gain": [
+          0.019754093916949794,
+          0.025532858170406167
+        ]
+      },
+      "spearman": {
+        "baseline_mean": 0.2710778291100953,
+        "prediction_mean": 0.288435860199384,
+        "mean_gain": 0.017358031089288656,
+        "win_fraction": 0.8798076923076923,
+        "block_bootstrap_95ci_gain": [
+          0.013636418528013594,
+          0.020443604830861193
+        ]
+      },
+      "hotspot_error": {
+        "baseline_mean": 16.22607135009931,
+        "prediction_mean": 16.204685111593562,
+        "mean_gain": 0.021386238505745298,
+        "win_fraction": 0.25,
+        "block_bootstrap_95ci_gain": [
+          -1.498229757698517,
+          1.4896077127621592
+        ]
+      },
+      "top5_error": {
+        "baseline_mean": 6.50843095961606,
+        "prediction_mean": 6.441071162506784,
+        "mean_gain": 0.0673597971092774,
+        "win_fraction": 0.24519230769230768,
+        "block_bootstrap_95ci_gain": [
+          -0.722640055109085,
+          0.7545043972983755
+        ]
+      },
+      "top5_hit5": {
+        "baseline_mean": 0.6298076923076923,
+        "prediction_mean": 0.6826923076923077,
+        "mean_gain": 0.052884615384615384,
+        "win_fraction": 0.08173076923076923,
+        "block_bootstrap_95ci_gain": [
+          0.009615384615384616,
+          0.0966183574879227
+        ]
+      }
+    },
+    "selected_vs_interpolation_known": {
+      "n": 68,
+      "genomic_50kb_blocks": 18,
+      "reference_method": "bilinear interpolation",
+      "prediction_method": "main",
+      "gain_definition": "prediction-reference for PSNR, SSIM, Spearman, top5_hit5; reference-prediction for top1 hotspot and top5 nearest distance; positive is better",
+      "psnr": {
+        "baseline_mean": 17.105588903408865,
+        "prediction_mean": 19.231121091286056,
+        "mean_gain": 2.125532187877189,
+        "win_fraction": 1.0,
+        "block_bootstrap_95ci_gain": [
+          2.016503575970579,
+          2.2453116425809885
+        ]
+      },
+      "ssim": {
+        "baseline_mean": 0.09066201746239096,
+        "prediction_mean": 0.11892858476305905,
+        "mean_gain": 0.028266567300668108,
+        "win_fraction": 0.9558823529411765,
+        "block_bootstrap_95ci_gain": [
+          0.02263854145381844,
+          0.03345914701832565
+        ]
+      },
+      "spearman": {
+        "baseline_mean": 0.28591556892263964,
+        "prediction_mean": 0.3066672659172647,
+        "mean_gain": 0.020751696994624896,
+        "win_fraction": 0.9117647058823529,
+        "block_bootstrap_95ci_gain": [
+          0.0184482814747892,
+          0.023054274133669027
+        ]
+      },
+      "hotspot_error": {
+        "baseline_mean": 14.169314332564603,
+        "prediction_mean": 15.122052046688752,
+        "mean_gain": -0.9527377141241518,
+        "win_fraction": 0.20588235294117646,
+        "block_bootstrap_95ci_gain": [
+          -3.3254789205553013,
+          1.4272677346909295
+        ]
+      },
+      "top5_error": {
+        "baseline_mean": 7.676055041168024,
+        "prediction_mean": 6.644855035641523,
+        "mean_gain": 1.0312000055265005,
+        "win_fraction": 0.27941176470588236,
+        "block_bootstrap_95ci_gain": [
+          0.09331180537837737,
+          1.9905492164223553
+        ]
+      },
+      "top5_hit5": {
+        "baseline_mean": 0.5588235294117647,
+        "prediction_mean": 0.6029411764705882,
+        "mean_gain": 0.04411764705882353,
+        "win_fraction": 0.11764705882352941,
+        "block_bootstrap_95ci_gain": [
+          -0.06666666666666667,
+          0.14492753623188406
+        ]
+      }
+    },
+    "selected_vs_main_tiles": {
+      "n": 208,
+      "genomic_50kb_blocks": 19,
+      "reference_method": "main CNN",
+      "prediction_method": "main",
+      "gain_definition": "prediction-reference for PSNR, SSIM, Spearman, top5_hit5; reference-prediction for top1 hotspot and top5 nearest distance; positive is better",
+      "psnr": {
+        "baseline_mean": 20.84313995930627,
+        "prediction_mean": 20.84313995930627,
+        "mean_gain": 0.0,
+        "win_fraction": 0.0,
+        "block_bootstrap_95ci_gain": [
+          0.0,
+          0.0
+        ]
+      },
+      "ssim": {
+        "baseline_mean": 0.14067813288321693,
+        "prediction_mean": 0.14067813288321693,
+        "mean_gain": 0.0,
+        "win_fraction": 0.0,
+        "block_bootstrap_95ci_gain": [
+          0.0,
+          0.0
+        ]
+      },
+      "spearman": {
+        "baseline_mean": 0.288435860199384,
+        "prediction_mean": 0.288435860199384,
+        "mean_gain": 0.0,
+        "win_fraction": 0.0,
+        "block_bootstrap_95ci_gain": [
+          0.0,
+          0.0
+        ]
+      },
+      "hotspot_error": {
+        "baseline_mean": 16.204685111593562,
+        "prediction_mean": 16.204685111593562,
+        "mean_gain": 0.0,
+        "win_fraction": 0.0,
+        "block_bootstrap_95ci_gain": [
+          0.0,
+          0.0
+        ]
+      },
+      "top5_error": {
+        "baseline_mean": 6.441071162506784,
+        "prediction_mean": 6.441071162506784,
+        "mean_gain": 0.0,
+        "win_fraction": 0.0,
+        "block_bootstrap_95ci_gain": [
+          0.0,
+          0.0
+        ]
+      },
+      "top5_hit5": {
+        "baseline_mean": 0.6826923076923077,
+        "prediction_mean": 0.6826923076923077,
+        "mean_gain": 0.0,
+        "win_fraction": 0.0,
+        "block_bootstrap_95ci_gain": [
+          0.0,
+          0.0
+        ]
+      }
+    },
+    "selected_vs_main_known": {
+      "n": 68,
+      "genomic_50kb_blocks": 18,
+      "reference_method": "main CNN",
+      "prediction_method": "main",
+      "gain_definition": "prediction-reference for PSNR, SSIM, Spearman, top5_hit5; reference-prediction for top1 hotspot and top5 nearest distance; positive is better",
+      "psnr": {
+        "baseline_mean": 19.231121091286056,
+        "prediction_mean": 19.231121091286056,
+        "mean_gain": 0.0,
+        "win_fraction": 0.0,
+        "block_bootstrap_95ci_gain": [
+          0.0,
+          0.0
+        ]
+      },
+      "ssim": {
+        "baseline_mean": 0.11892858476305905,
+        "prediction_mean": 0.11892858476305905,
+        "mean_gain": 0.0,
+        "win_fraction": 0.0,
+        "block_bootstrap_95ci_gain": [
+          0.0,
+          0.0
+        ]
+      },
+      "spearman": {
+        "baseline_mean": 0.3066672659172647,
+        "prediction_mean": 0.3066672659172647,
+        "mean_gain": 0.0,
+        "win_fraction": 0.0,
+        "block_bootstrap_95ci_gain": [
+          0.0,
+          0.0
+        ]
+      },
+      "hotspot_error": {
+        "baseline_mean": 15.122052046688752,
+        "prediction_mean": 15.122052046688752,
+        "mean_gain": 0.0,
+        "win_fraction": 0.0,
+        "block_bootstrap_95ci_gain": [
+          0.0,
+          0.0
+        ]
+      },
+      "top5_error": {
+        "baseline_mean": 6.644855035641523,
+        "prediction_mean": 6.644855035641523,
+        "mean_gain": 0.0,
+        "win_fraction": 0.0,
+        "block_bootstrap_95ci_gain": [
+          0.0,
+          0.0
+        ]
+      },
+      "top5_hit5": {
+        "baseline_mean": 0.6029411764705882,
+        "prediction_mean": 0.6029411764705882,
+        "mean_gain": 0.0,
+        "win_fraction": 0.0,
+        "block_bootstrap_95ci_gain": [
+          0.0,
+          0.0
+        ]
+      }
+    },
+    "by_type_vs_interpolation": {
+      "CHID": {
+        "n": 6,
+        "genomic_50kb_blocks": 5,
+        "reference_method": "bilinear interpolation",
+        "prediction_method": "main",
+        "gain_definition": "prediction-reference for PSNR, SSIM, Spearman, top5_hit5; reference-prediction for top1 hotspot and top5 nearest distance; positive is better",
+        "psnr": {
+          "baseline_mean": 16.915683607036055,
+          "prediction_mean": 19.20375512883943,
+          "mean_gain": 2.2880715218033774,
+          "win_fraction": 1.0,
+          "block_bootstrap_95ci_gain": [
+            1.97413598910807,
+            2.727581267576807
+          ]
+        },
+        "ssim": {
+          "baseline_mean": 0.08427141715711749,
+          "prediction_mean": 0.11829049948844622,
+          "mean_gain": 0.03401908233132874,
+          "win_fraction": 1.0,
+          "block_bootstrap_95ci_gain": [
+            0.01778478984122797,
+            0.04519180592149563
+          ]
+        },
+        "spearman": {
+          "baseline_mean": 0.2812909777973213,
+          "prediction_mean": 0.3106995954591028,
+          "mean_gain": 0.029408617661781464,
+          "win_fraction": 1.0,
+          "block_bootstrap_95ci_gain": [
+            0.0219589458707905,
+            0.038779807407010244
+          ]
+        },
+        "hotspot_error": {
+          "baseline_mean": 21.459969123336638,
+          "prediction_mean": 19.586566092697716,
+          "mean_gain": 1.8734030306389198,
+          "win_fraction": 0.3333333333333333,
+          "block_bootstrap_95ci_gain": [
+            -3.5452217087919484,
+            6.828852472644489
+          ]
+        },
+        "top5_error": {
+          "baseline_mean": 9.6849351950866,
+          "prediction_mean": 4.740905517375749,
+          "mean_gain": 4.944029677710851,
+          "win_fraction": 0.5,
+          "block_bootstrap_95ci_gain": [
+            0.634314575050762,
+            10.485227884422235
+          ]
+        },
+        "top5_hit5": {
+          "baseline_mean": 0.5,
+          "prediction_mean": 0.6666666666666666,
+          "mean_gain": 0.16666666666666666,
+          "win_fraction": 0.3333333333333333,
+          "block_bootstrap_95ci_gain": [
+            0.0,
+            0.6
+          ]
+        }
+      },
+      "CHIN": {
+        "n": 52,
+        "genomic_50kb_blocks": 15,
+        "reference_method": "bilinear interpolation",
+        "prediction_method": "main",
+        "gain_definition": "prediction-reference for PSNR, SSIM, Spearman, top5_hit5; reference-prediction for top1 hotspot and top5 nearest distance; positive is better",
+        "psnr": {
+          "baseline_mean": 17.211112708033703,
+          "prediction_mean": 19.308146151862807,
+          "mean_gain": 2.097033443829105,
+          "win_fraction": 1.0,
+          "block_bootstrap_95ci_gain": [
+            1.9576225760008215,
+            2.23812645615033
+          ]
+        },
+        "ssim": {
+          "baseline_mean": 0.09280083792396845,
+          "prediction_mean": 0.12042426689029136,
+          "mean_gain": 0.027623428966322902,
+          "win_fraction": 0.9423076923076923,
+          "block_bootstrap_95ci_gain": [
+            0.021153196118493076,
+            0.03388740173907572
+          ]
+        },
+        "spearman": {
+          "baseline_mean": 0.2961183382846301,
+          "prediction_mean": 0.31484971709848736,
+          "mean_gain": 0.018731378813857273,
+          "win_fraction": 0.9038461538461539,
+          "block_bootstrap_95ci_gain": [
+            0.015638219453688092,
+            0.021935906348009068
+          ]
+        },
+        "hotspot_error": {
+          "baseline_mean": 12.338149696195646,
+          "prediction_mean": 14.349370343694021,
+          "mean_gain": -2.0112206474983725,
+          "win_fraction": 0.17307692307692307,
+          "block_bootstrap_95ci_gain": [
+            -4.729213657623837,
+            0.7829450687282877
+          ]
+        },
+        "top5_error": {
+          "baseline_mean": 6.844469335741487,
+          "prediction_mean": 6.148425584306302,
+          "mean_gain": 0.696043751435184,
+          "win_fraction": 0.23076923076923078,
+          "block_bootstrap_95ci_gain": [
+            -0.1411938038889016,
+            1.5639961247029532
+          ]
+        },
+        "top5_hit5": {
+          "baseline_mean": 0.5769230769230769,
+          "prediction_mean": 0.6346153846153846,
+          "mean_gain": 0.057692307692307696,
+          "win_fraction": 0.11538461538461539,
+          "block_bootstrap_95ci_gain": [
+            -0.07273835920177382,
+            0.18181818181818182
+          ]
+        }
+      },
+      "OPCID": {
+        "n": 10,
+        "genomic_50kb_blocks": 9,
+        "reference_method": "bilinear interpolation",
+        "prediction_method": "main",
+        "gain_definition": "prediction-reference for PSNR, SSIM, Spearman, top5_hit5; reference-prediction for top1 hotspot and top5 nearest distance; positive is better",
+        "psnr": {
+          "baseline_mean": 16.670808297183395,
+          "prediction_mean": 18.84701035375491,
+          "mean_gain": 2.1762020565715163,
+          "win_fraction": 1.0,
+          "block_bootstrap_95ci_gain": [
+            1.9535514340639923,
+            2.4440739939532614
+          ]
+        },
+        "ssim": {
+          "baseline_mean": 0.08337451124535192,
+          "prediction_mean": 0.11153388886621866,
+          "mean_gain": 0.028159377620866777,
+          "win_fraction": 1.0,
+          "block_bootstrap_95ci_gain": [
+            0.020377098419218843,
+            0.036940906283877153
+          ]
+        },
+        "spearman": {
+          "baseline_mean": 0.23563592291548066,
+          "prediction_mean": 0.26169912204980333,
+          "mean_gain": 0.026063199134322635,
+          "win_fraction": 0.9,
+          "block_bootstrap_95ci_gain": [
+            0.015168118360963543,
+            0.03624380362372864
+          ]
+        },
+        "hotspot_error": {
+          "baseline_mean": 19.31697756721994,
+          "prediction_mean": 16.461288474655987,
+          "mean_gain": 2.8556890925639555,
+          "win_fraction": 0.3,
+          "block_bootstrap_95ci_gain": [
+            -0.5222953573407271,
+            9.948453701631873
+          ]
+        },
+        "top5_error": {
+          "baseline_mean": 10.794972617034874,
+          "prediction_mean": 10.368657893544139,
+          "mean_gain": 0.42631472349073557,
+          "win_fraction": 0.4,
+          "block_bootstrap_95ci_gain": [
+            -2.15132548171955,
+            3.383772233983162
+          ]
+        },
+        "top5_hit5": {
+          "baseline_mean": 0.5,
+          "prediction_mean": 0.4,
+          "mean_gain": -0.1,
+          "win_fraction": 0.0,
+          "block_bootstrap_95ci_gain": [
+            -0.3333333333333333,
+            0.0
+          ]
+        }
+      }
+    },
+    "by_type_vs_main": {
+      "CHID": {
+        "n": 6,
+        "genomic_50kb_blocks": 5,
+        "reference_method": "main CNN",
+        "prediction_method": "main",
+        "gain_definition": "prediction-reference for PSNR, SSIM, Spearman, top5_hit5; reference-prediction for top1 hotspot and top5 nearest distance; positive is better",
+        "psnr": {
+          "baseline_mean": 19.20375512883943,
+          "prediction_mean": 19.20375512883943,
+          "mean_gain": 0.0,
+          "win_fraction": 0.0,
+          "block_bootstrap_95ci_gain": [
+            0.0,
+            0.0
+          ]
+        },
+        "ssim": {
+          "baseline_mean": 0.11829049948844622,
+          "prediction_mean": 0.11829049948844622,
+          "mean_gain": 0.0,
+          "win_fraction": 0.0,
+          "block_bootstrap_95ci_gain": [
+            0.0,
+            0.0
+          ]
+        },
+        "spearman": {
+          "baseline_mean": 0.3106995954591028,
+          "prediction_mean": 0.3106995954591028,
+          "mean_gain": 0.0,
+          "win_fraction": 0.0,
+          "block_bootstrap_95ci_gain": [
+            0.0,
+            0.0
+          ]
+        },
+        "hotspot_error": {
+          "baseline_mean": 19.586566092697716,
+          "prediction_mean": 19.586566092697716,
+          "mean_gain": 0.0,
+          "win_fraction": 0.0,
+          "block_bootstrap_95ci_gain": [
+            0.0,
+            0.0
+          ]
+        },
+        "top5_error": {
+          "baseline_mean": 4.740905517375749,
+          "prediction_mean": 4.740905517375749,
+          "mean_gain": 0.0,
+          "win_fraction": 0.0,
+          "block_bootstrap_95ci_gain": [
+            0.0,
+            0.0
+          ]
+        },
+        "top5_hit5": {
+          "baseline_mean": 0.6666666666666666,
+          "prediction_mean": 0.6666666666666666,
+          "mean_gain": 0.0,
+          "win_fraction": 0.0,
+          "block_bootstrap_95ci_gain": [
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "CHIN": {
+        "n": 52,
+        "genomic_50kb_blocks": 15,
+        "reference_method": "main CNN",
+        "prediction_method": "main",
+        "gain_definition": "prediction-reference for PSNR, SSIM, Spearman, top5_hit5; reference-prediction for top1 hotspot and top5 nearest distance; positive is better",
+        "psnr": {
+          "baseline_mean": 19.308146151862807,
+          "prediction_mean": 19.308146151862807,
+          "mean_gain": 0.0,
+          "win_fraction": 0.0,
+          "block_bootstrap_95ci_gain": [
+            0.0,
+            0.0
+          ]
+        },
+        "ssim": {
+          "baseline_mean": 0.12042426689029136,
+          "prediction_mean": 0.12042426689029136,
+          "mean_gain": 0.0,
+          "win_fraction": 0.0,
+          "block_bootstrap_95ci_gain": [
+            0.0,
+            0.0
+          ]
+        },
+        "spearman": {
+          "baseline_mean": 0.31484971709848736,
+          "prediction_mean": 0.31484971709848736,
+          "mean_gain": 0.0,
+          "win_fraction": 0.0,
+          "block_bootstrap_95ci_gain": [
+            0.0,
+            0.0
+          ]
+        },
+        "hotspot_error": {
+          "baseline_mean": 14.349370343694021,
+          "prediction_mean": 14.349370343694021,
+          "mean_gain": 0.0,
+          "win_fraction": 0.0,
+          "block_bootstrap_95ci_gain": [
+            0.0,
+            0.0
+          ]
+        },
+        "top5_error": {
+          "baseline_mean": 6.148425584306302,
+          "prediction_mean": 6.148425584306302,
+          "mean_gain": 0.0,
+          "win_fraction": 0.0,
+          "block_bootstrap_95ci_gain": [
+            0.0,
+            0.0
+          ]
+        },
+        "top5_hit5": {
+          "baseline_mean": 0.6346153846153846,
+          "prediction_mean": 0.6346153846153846,
+          "mean_gain": 0.0,
+          "win_fraction": 0.0,
+          "block_bootstrap_95ci_gain": [
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "OPCID": {
+        "n": 10,
+        "genomic_50kb_blocks": 9,
+        "reference_method": "main CNN",
+        "prediction_method": "main",
+        "gain_definition": "prediction-reference for PSNR, SSIM, Spearman, top5_hit5; reference-prediction for top1 hotspot and top5 nearest distance; positive is better",
+        "psnr": {
+          "baseline_mean": 18.84701035375491,
+          "prediction_mean": 18.84701035375491,
+          "mean_gain": 0.0,
+          "win_fraction": 0.0,
+          "block_bootstrap_95ci_gain": [
+            0.0,
+            0.0
+          ]
+        },
+        "ssim": {
+          "baseline_mean": 0.11153388886621866,
+          "prediction_mean": 0.11153388886621866,
+          "mean_gain": 0.0,
+          "win_fraction": 0.0,
+          "block_bootstrap_95ci_gain": [
+            0.0,
+            0.0
+          ]
+        },
+        "spearman": {
+          "baseline_mean": 0.26169912204980333,
+          "prediction_mean": 0.26169912204980333,
+          "mean_gain": 0.0,
+          "win_fraction": 0.0,
+          "block_bootstrap_95ci_gain": [
+            0.0,
+            0.0
+          ]
+        },
+        "hotspot_error": {
+          "baseline_mean": 16.461288474655987,
+          "prediction_mean": 16.461288474655987,
+          "mean_gain": 0.0,
+          "win_fraction": 0.0,
+          "block_bootstrap_95ci_gain": [
+            0.0,
+            0.0
+          ]
+        },
+        "top5_error": {
+          "baseline_mean": 10.368657893544139,
+          "prediction_mean": 10.368657893544139,
+          "mean_gain": 0.0,
+          "win_fraction": 0.0,
+          "block_bootstrap_95ci_gain": [
+            0.0,
+            0.0
+          ]
+        },
+        "top5_hit5": {
+          "baseline_mean": 0.4,
+          "prediction_mean": 0.4,
+          "mean_gain": 0.0,
+          "win_fraction": 0.0,
+          "block_bootstrap_95ci_gain": [
+            0.0,
+            0.0
+          ]
+        }
+      }
+    }
+  },
+  "rep2_fixed": {
+    "selected_vs_interpolation_tiles": {
+      "n": 208,
+      "genomic_50kb_blocks": 19,
+      "reference_method": "bilinear interpolation",
+      "prediction_method": "main",
+      "gain_definition": "prediction-reference for PSNR, SSIM, Spearman, top5_hit5; reference-prediction for top1 hotspot and top5 nearest distance; positive is better",
+      "psnr": {
+        "baseline_mean": 18.95325512352011,
+        "prediction_mean": 21.0013237679932,
+        "mean_gain": 2.048068644473088,
+        "win_fraction": 0.9759615384615384,
+        "block_bootstrap_95ci_gain": [
+          1.9677423757951111,
+          2.1231224905715034
+        ]
+      },
+      "ssim": {
+        "baseline_mean": 0.11578037693899654,
+        "prediction_mean": 0.14262338547336975,
+        "mean_gain": 0.026843008534373245,
+        "win_fraction": 0.9326923076923077,
+        "block_bootstrap_95ci_gain": [
+          0.02429627936439204,
+          0.029137020805799056
+        ]
+      },
+      "spearman": {
+        "baseline_mean": 0.27242342649016305,
+        "prediction_mean": 0.29236669307025365,
+        "mean_gain": 0.01994326658009055,
+        "win_fraction": 0.8894230769230769,
+        "block_bootstrap_95ci_gain": [
+          0.015729434912095067,
+          0.023610752673893565
+        ]
+      },
+      "hotspot_error": {
+        "baseline_mean": 15.635246674539834,
+        "prediction_mean": 14.627188689448591,
+        "mean_gain": 1.0080579850912401,
+        "win_fraction": 0.27403846153846156,
+        "block_bootstrap_95ci_gain": [
+          -1.2046252522970318,
+          3.148432266226743
+        ]
+      },
+      "top5_error": {
+        "baseline_mean": 5.846940164557444,
+        "prediction_mean": 5.677035785582092,
+        "mean_gain": 0.16990437897535254,
+        "win_fraction": 0.2548076923076923,
+        "block_bootstrap_95ci_gain": [
+          -0.5788758146513103,
+          0.759794910787119
+        ]
+      },
+      "top5_hit5": {
+        "baseline_mean": 0.6826923076923077,
+        "prediction_mean": 0.6923076923076923,
+        "mean_gain": 0.009615384615384616,
+        "win_fraction": 0.038461538461538464,
+        "block_bootstrap_95ci_gain": [
+          -0.01932367149758454,
+          0.038834951456310676
+        ]
+      }
+    },
+    "selected_vs_interpolation_known": {
+      "n": 68,
+      "genomic_50kb_blocks": 18,
+      "reference_method": "bilinear interpolation",
+      "prediction_method": "main",
+      "gain_definition": "prediction-reference for PSNR, SSIM, Spearman, top5_hit5; reference-prediction for top1 hotspot and top5 nearest distance; positive is better",
+      "psnr": {
+        "baseline_mean": 17.240898406986975,
+        "prediction_mean": 19.42552464478398,
+        "mean_gain": 2.184626237796999,
+        "win_fraction": 1.0,
+        "block_bootstrap_95ci_gain": [
+          2.066134530650581,
+          2.292575864383217
+        ]
+      },
+      "ssim": {
+        "baseline_mean": 0.08824567688737578,
+        "prediction_mean": 0.1200429287875694,
+        "mean_gain": 0.03179725190019362,
+        "win_fraction": 0.9558823529411765,
+        "block_bootstrap_95ci_gain": [
+          0.027705675843711777,
+          0.03592554655073635
+        ]
+      },
+      "spearman": {
+        "baseline_mean": 0.2900486114043608,
+        "prediction_mean": 0.31246774019191814,
+        "mean_gain": 0.02241912878755738,
+        "win_fraction": 0.9117647058823529,
+        "block_bootstrap_95ci_gain": [
+          0.020169906425631816,
+          0.02490450612374216
+        ]
+      },
+      "hotspot_error": {
+        "baseline_mean": 18.595453556091506,
+        "prediction_mean": 18.015971798573062,
+        "mean_gain": 0.579481757518446,
+        "win_fraction": 0.27941176470588236,
+        "block_bootstrap_95ci_gain": [
+          -2.4953570070709628,
+          4.276497186698
+        ]
+      },
+      "top5_error": {
+        "baseline_mean": 8.973662143379938,
+        "prediction_mean": 7.964372420191376,
+        "mean_gain": 1.009289723188561,
+        "win_fraction": 0.19117647058823528,
+        "block_bootstrap_95ci_gain": [
+          -0.15004142399619746,
+          2.6276251982982184
+        ]
+      },
+      "top5_hit5": {
+        "baseline_mean": 0.5588235294117647,
+        "prediction_mean": 0.6323529411764706,
+        "mean_gain": 0.07352941176470588,
+        "win_fraction": 0.08823529411764706,
+        "block_bootstrap_95ci_gain": [
+          0.0,
+          0.17142857142857143
+        ]
+      }
+    },
+    "selected_vs_main_tiles": {
+      "n": 208,
+      "genomic_50kb_blocks": 19,
+      "reference_method": "main CNN",
+      "prediction_method": "main",
+      "gain_definition": "prediction-reference for PSNR, SSIM, Spearman, top5_hit5; reference-prediction for top1 hotspot and top5 nearest distance; positive is better",
+      "psnr": {
+        "baseline_mean": 21.0013237679932,
+        "prediction_mean": 21.0013237679932,
+        "mean_gain": 0.0,
+        "win_fraction": 0.0,
+        "block_bootstrap_95ci_gain": [
+          0.0,
+          0.0
+        ]
+      },
+      "ssim": {
+        "baseline_mean": 0.14262338547336975,
+        "prediction_mean": 0.14262338547336975,
+        "mean_gain": 0.0,
+        "win_fraction": 0.0,
+        "block_bootstrap_95ci_gain": [
+          0.0,
+          0.0
+        ]
+      },
+      "spearman": {
+        "baseline_mean": 0.29236669307025365,
+        "prediction_mean": 0.29236669307025365,
+        "mean_gain": 0.0,
+        "win_fraction": 0.0,
+        "block_bootstrap_95ci_gain": [
+          0.0,
+          0.0
+        ]
+      },
+      "hotspot_error": {
+        "baseline_mean": 14.627188689448591,
+        "prediction_mean": 14.627188689448591,
+        "mean_gain": 0.0,
+        "win_fraction": 0.0,
+        "block_bootstrap_95ci_gain": [
+          0.0,
+          0.0
+        ]
+      },
+      "top5_error": {
+        "baseline_mean": 5.677035785582092,
+        "prediction_mean": 5.677035785582092,
+        "mean_gain": 0.0,
+        "win_fraction": 0.0,
+        "block_bootstrap_95ci_gain": [
+          0.0,
+          0.0
+        ]
+      },
+      "top5_hit5": {
+        "baseline_mean": 0.6923076923076923,
+        "prediction_mean": 0.6923076923076923,
+        "mean_gain": 0.0,
+        "win_fraction": 0.0,
+        "block_bootstrap_95ci_gain": [
+          0.0,
+          0.0
+        ]
+      }
+    },
+    "selected_vs_main_known": {
+      "n": 68,
+      "genomic_50kb_blocks": 18,
+      "reference_method": "main CNN",
+      "prediction_method": "main",
+      "gain_definition": "prediction-reference for PSNR, SSIM, Spearman, top5_hit5; reference-prediction for top1 hotspot and top5 nearest distance; positive is better",
+      "psnr": {
+        "baseline_mean": 19.42552464478398,
+        "prediction_mean": 19.42552464478398,
+        "mean_gain": 0.0,
+        "win_fraction": 0.0,
+        "block_bootstrap_95ci_gain": [
+          0.0,
+          0.0
+        ]
+      },
+      "ssim": {
+        "baseline_mean": 0.1200429287875694,
+        "prediction_mean": 0.1200429287875694,
+        "mean_gain": 0.0,
+        "win_fraction": 0.0,
+        "block_bootstrap_95ci_gain": [
+          0.0,
+          0.0
+        ]
+      },
+      "spearman": {
+        "baseline_mean": 0.31246774019191814,
+        "prediction_mean": 0.31246774019191814,
+        "mean_gain": 0.0,
+        "win_fraction": 0.0,
+        "block_bootstrap_95ci_gain": [
+          0.0,
+          0.0
+        ]
+      },
+      "hotspot_error": {
+        "baseline_mean": 18.015971798573062,
+        "prediction_mean": 18.015971798573062,
+        "mean_gain": 0.0,
+        "win_fraction": 0.0,
+        "block_bootstrap_95ci_gain": [
+          0.0,
+          0.0
+        ]
+      },
+      "top5_error": {
+        "baseline_mean": 7.964372420191376,
+        "prediction_mean": 7.964372420191376,
+        "mean_gain": 0.0,
+        "win_fraction": 0.0,
+        "block_bootstrap_95ci_gain": [
+          0.0,
+          0.0
+        ]
+      },
+      "top5_hit5": {
+        "baseline_mean": 0.6323529411764706,
+        "prediction_mean": 0.6323529411764706,
+        "mean_gain": 0.0,
+        "win_fraction": 0.0,
+        "block_bootstrap_95ci_gain": [
+          0.0,
+          0.0
+        ]
+      }
+    },
+    "by_type_vs_interpolation": {
+      "CHID": {
+        "n": 6,
+        "genomic_50kb_blocks": 5,
+        "reference_method": "bilinear interpolation",
+        "prediction_method": "main",
+        "gain_definition": "prediction-reference for PSNR, SSIM, Spearman, top5_hit5; reference-prediction for top1 hotspot and top5 nearest distance; positive is better",
+        "psnr": {
+          "baseline_mean": 16.839784652080453,
+          "prediction_mean": 19.234724470129482,
+          "mean_gain": 2.394939818049029,
+          "win_fraction": 1.0,
+          "block_bootstrap_95ci_gain": [
+            2.1501914757671616,
+            2.7345249061292423
+          ]
+        },
+        "ssim": {
+          "baseline_mean": 0.08405590750701764,
+          "prediction_mean": 0.12468901801788057,
+          "mean_gain": 0.04063311051086295,
+          "win_fraction": 1.0,
+          "block_bootstrap_95ci_gain": [
+            0.02940249751472216,
+            0.04882248391507321
+          ]
+        },
+        "spearman": {
+          "baseline_mean": 0.2787028610744556,
+          "prediction_mean": 0.30943010072684535,
+          "mean_gain": 0.03072723965238972,
+          "win_fraction": 1.0,
+          "block_bootstrap_95ci_gain": [
+            0.02594272051512524,
+            0.03449321626184112
+          ]
+        },
+        "hotspot_error": {
+          "baseline_mean": 30.02936378451392,
+          "prediction_mean": 23.933397924279333,
+          "mean_gain": 6.095965860234586,
+          "win_fraction": 0.5,
+          "block_bootstrap_95ci_gain": [
+            -1.4506807036939997,
+            23.81931988953505
+          ]
+        },
+        "top5_error": {
+          "baseline_mean": 12.124913527916737,
+          "prediction_mean": 12.348226304461404,
+          "mean_gain": -0.22331277654466705,
+          "win_fraction": 0.0,
+          "block_bootstrap_95ci_gain": [
+            -0.5024537472255008,
+            0.0
+          ]
+        },
+        "top5_hit5": {
+          "baseline_mean": 0.5,
+          "prediction_mean": 0.5,
+          "mean_gain": 0.0,
+          "win_fraction": 0.0,
+          "block_bootstrap_95ci_gain": [
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "CHIN": {
+        "n": 52,
+        "genomic_50kb_blocks": 15,
+        "reference_method": "bilinear interpolation",
+        "prediction_method": "main",
+        "gain_definition": "prediction-reference for PSNR, SSIM, Spearman, top5_hit5; reference-prediction for top1 hotspot and top5 nearest distance; positive is better",
+        "psnr": {
+          "baseline_mean": 17.39020273523451,
+          "prediction_mean": 19.562937235350937,
+          "mean_gain": 2.1727345001164236,
+          "win_fraction": 1.0,
+          "block_bootstrap_95ci_gain": [
+            2.0572163241555352,
+            2.2684549917324452
+          ]
+        },
+        "ssim": {
+          "baseline_mean": 0.09195604840476543,
+          "prediction_mean": 0.12276743679876669,
+          "mean_gain": 0.030811388394001233,
+          "win_fraction": 0.9423076923076923,
+          "block_bootstrap_95ci_gain": [
+            0.026123457901948605,
+            0.03579834626986303
+          ]
+        },
+        "spearman": {
+          "baseline_mean": 0.301889419335753,
+          "prediction_mean": 0.32235281326492077,
+          "mean_gain": 0.020463393929167795,
+          "win_fraction": 0.9038461538461539,
+          "block_bootstrap_95ci_gain": [
+            0.0183793234953753,
+            0.02276958363228954
+          ]
+        },
+        "hotspot_error": {
+          "baseline_mean": 17.56963666877523,
+          "prediction_mean": 17.861431090443073,
+          "mean_gain": -0.29179442166784086,
+          "win_fraction": 0.25,
+          "block_bootstrap_95ci_gain": [
+            -3.5004560946172423,
+            3.177056506733856
+          ]
+        },
+        "top5_error": {
+          "baseline_mean": 8.941878343101893,
+          "prediction_mean": 7.907647750299058,
+          "mean_gain": 1.034230592802833,
+          "win_fraction": 0.19230769230769232,
+          "block_bootstrap_95ci_gain": [
+            -0.3183120552346505,
+            3.008289796447908
+          ]
+        },
+        "top5_hit5": {
+          "baseline_mean": 0.5769230769230769,
+          "prediction_mean": 0.6538461538461539,
+          "mean_gain": 0.07692307692307693,
+          "win_fraction": 0.09615384615384616,
+          "block_bootstrap_95ci_gain": [
+            0.0,
+            0.1875
+          ]
+        }
+      },
+      "OPCID": {
+        "n": 10,
+        "genomic_50kb_blocks": 9,
+        "reference_method": "bilinear interpolation",
+        "prediction_method": "main",
+        "gain_definition": "prediction-reference for PSNR, SSIM, Spearman, top5_hit5; reference-prediction for top1 hotspot and top5 nearest distance; positive is better",
+        "psnr": {
+          "baseline_mean": 16.705184153043724,
+          "prediction_mean": 18.825459278628493,
+          "mean_gain": 2.1202751255847723,
+          "win_fraction": 1.0,
+          "block_bootstrap_95ci_gain": [
+            1.9236595104894176,
+            2.3752712253585924
+          ]
+        },
+        "ssim": {
+          "baseline_mean": 0.07146560662516441,
+          "prediction_mean": 0.10308783359115688,
+          "mean_gain": 0.03162222696599247,
+          "win_fraction": 1.0,
+          "block_bootstrap_95ci_gain": [
+            0.027058945736901586,
+            0.036930055055712493
+          ]
+        },
+        "spearman": {
+          "baseline_mean": 0.23528386035906473,
+          "prediction_mean": 0.2628879438913485,
+          "mean_gain": 0.027604083532283785,
+          "win_fraction": 0.9,
+          "block_bootstrap_95ci_gain": [
+            0.01950582045431498,
+            0.03746072841058534
+          ]
+        },
+        "hotspot_error": {
+          "baseline_mean": 17.069355233082664,
+          "prediction_mean": 15.26912780542521,
+          "mean_gain": 1.8002274276574504,
+          "win_fraction": 0.3,
+          "block_bootstrap_95ci_gain": [
+            -0.4012921420339177,
+            6.092805550496633
+          ]
+        },
+        "top5_error": {
+          "baseline_mean": 7.248187074103688,
+          "prediction_mean": 5.629028373069404,
+          "mean_gain": 1.6191587010342843,
+          "win_fraction": 0.3,
+          "block_bootstrap_95ci_gain": [
+            -0.4,
+            4.358121304787126
+          ]
+        },
+        "top5_hit5": {
+          "baseline_mean": 0.5,
+          "prediction_mean": 0.6,
+          "mean_gain": 0.1,
+          "win_fraction": 0.1,
+          "block_bootstrap_95ci_gain": [
+            0.0,
+            0.3333333333333333
+          ]
+        }
+      }
+    },
+    "by_type_vs_main": {
+      "CHID": {
+        "n": 6,
+        "genomic_50kb_blocks": 5,
+        "reference_method": "main CNN",
+        "prediction_method": "main",
+        "gain_definition": "prediction-reference for PSNR, SSIM, Spearman, top5_hit5; reference-prediction for top1 hotspot and top5 nearest distance; positive is better",
+        "psnr": {
+          "baseline_mean": 19.234724470129482,
+          "prediction_mean": 19.234724470129482,
+          "mean_gain": 0.0,
+          "win_fraction": 0.0,
+          "block_bootstrap_95ci_gain": [
+            0.0,
+            0.0
+          ]
+        },
+        "ssim": {
+          "baseline_mean": 0.12468901801788057,
+          "prediction_mean": 0.12468901801788057,
+          "mean_gain": 0.0,
+          "win_fraction": 0.0,
+          "block_bootstrap_95ci_gain": [
+            0.0,
+            0.0
+          ]
+        },
+        "spearman": {
+          "baseline_mean": 0.30943010072684535,
+          "prediction_mean": 0.30943010072684535,
+          "mean_gain": 0.0,
+          "win_fraction": 0.0,
+          "block_bootstrap_95ci_gain": [
+            0.0,
+            0.0
+          ]
+        },
+        "hotspot_error": {
+          "baseline_mean": 23.933397924279333,
+          "prediction_mean": 23.933397924279333,
+          "mean_gain": 0.0,
+          "win_fraction": 0.0,
+          "block_bootstrap_95ci_gain": [
+            0.0,
+            0.0
+          ]
+        },
+        "top5_error": {
+          "baseline_mean": 12.348226304461404,
+          "prediction_mean": 12.348226304461404,
+          "mean_gain": 0.0,
+          "win_fraction": 0.0,
+          "block_bootstrap_95ci_gain": [
+            0.0,
+            0.0
+          ]
+        },
+        "top5_hit5": {
+          "baseline_mean": 0.5,
+          "prediction_mean": 0.5,
+          "mean_gain": 0.0,
+          "win_fraction": 0.0,
+          "block_bootstrap_95ci_gain": [
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "CHIN": {
+        "n": 52,
+        "genomic_50kb_blocks": 15,
+        "reference_method": "main CNN",
+        "prediction_method": "main",
+        "gain_definition": "prediction-reference for PSNR, SSIM, Spearman, top5_hit5; reference-prediction for top1 hotspot and top5 nearest distance; positive is better",
+        "psnr": {
+          "baseline_mean": 19.562937235350937,
+          "prediction_mean": 19.562937235350937,
+          "mean_gain": 0.0,
+          "win_fraction": 0.0,
+          "block_bootstrap_95ci_gain": [
+            0.0,
+            0.0
+          ]
+        },
+        "ssim": {
+          "baseline_mean": 0.12276743679876669,
+          "prediction_mean": 0.12276743679876669,
+          "mean_gain": 0.0,
+          "win_fraction": 0.0,
+          "block_bootstrap_95ci_gain": [
+            0.0,
+            0.0
+          ]
+        },
+        "spearman": {
+          "baseline_mean": 0.32235281326492077,
+          "prediction_mean": 0.32235281326492077,
+          "mean_gain": 0.0,
+          "win_fraction": 0.0,
+          "block_bootstrap_95ci_gain": [
+            0.0,
+            0.0
+          ]
+        },
+        "hotspot_error": {
+          "baseline_mean": 17.861431090443073,
+          "prediction_mean": 17.861431090443073,
+          "mean_gain": 0.0,
+          "win_fraction": 0.0,
+          "block_bootstrap_95ci_gain": [
+            0.0,
+            0.0
+          ]
+        },
+        "top5_error": {
+          "baseline_mean": 7.907647750299058,
+          "prediction_mean": 7.907647750299058,
+          "mean_gain": 0.0,
+          "win_fraction": 0.0,
+          "block_bootstrap_95ci_gain": [
+            0.0,
+            0.0
+          ]
+        },
+        "top5_hit5": {
+          "baseline_mean": 0.6538461538461539,
+          "prediction_mean": 0.6538461538461539,
+          "mean_gain": 0.0,
+          "win_fraction": 0.0,
+          "block_bootstrap_95ci_gain": [
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "OPCID": {
+        "n": 10,
+        "genomic_50kb_blocks": 9,
+        "reference_method": "main CNN",
+        "prediction_method": "main",
+        "gain_definition": "prediction-reference for PSNR, SSIM, Spearman, top5_hit5; reference-prediction for top1 hotspot and top5 nearest distance; positive is better",
+        "psnr": {
+          "baseline_mean": 18.825459278628493,
+          "prediction_mean": 18.825459278628493,
+          "mean_gain": 0.0,
+          "win_fraction": 0.0,
+          "block_bootstrap_95ci_gain": [
+            0.0,
+            0.0
+          ]
+        },
+        "ssim": {
+          "baseline_mean": 0.10308783359115688,
+          "prediction_mean": 0.10308783359115688,
+          "mean_gain": 0.0,
+          "win_fraction": 0.0,
+          "block_bootstrap_95ci_gain": [
+            0.0,
+            0.0
+          ]
+        },
+        "spearman": {
+          "baseline_mean": 0.2628879438913485,
+          "prediction_mean": 0.2628879438913485,
+          "mean_gain": 0.0,
+          "win_fraction": 0.0,
+          "block_bootstrap_95ci_gain": [
+            0.0,
+            0.0
+          ]
+        },
+        "hotspot_error": {
+          "baseline_mean": 15.26912780542521,
+          "prediction_mean": 15.26912780542521,
+          "mean_gain": 0.0,
+          "win_fraction": 0.0,
+          "block_bootstrap_95ci_gain": [
+            0.0,
+            0.0
+          ]
+        },
+        "top5_error": {
+          "baseline_mean": 5.629028373069404,
+          "prediction_mean": 5.629028373069404,
+          "mean_gain": 0.0,
+          "win_fraction": 0.0,
+          "block_bootstrap_95ci_gain": [
+            0.0,
+            0.0
+          ]
+        },
+        "top5_hit5": {
+          "baseline_mean": 0.6,
+          "prediction_mean": 0.6,
+          "mean_gain": 0.0,
+          "win_fraction": 0.0,
+          "block_bootstrap_95ci_gain": [
+            0.0,
+            0.0
+          ]
+        }
+      }
+    }
+  },
+  "caution": "Validation CHID n=2 is not used for selection. Test segment has been seen by previous studies; not blind. Low resolution simulated from high-resolution Micro-C."
+}

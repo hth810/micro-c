@@ -38,6 +38,10 @@ def summarize_condition(root: Path, condition: str) -> dict:
     hits = {seed: set(frame.id.astype(str)) for seed, frame in frames.items()}
     intersection = set.intersection(*hits.values())
     union = set.union(*hits.values())
+    directions = {seed: frame.set_index(frame.id.astype(str)).direction.astype(str).to_dict()
+                  for seed, frame in frames.items()}
+    sign_consistent = {identifier for identifier in intersection
+                       if len({directions[seed][identifier] for seed in SEEDS}) == 1}
     old_path = root / "outputs" / f"task4_{condition}_final" / "reproducible_changes.csv"
     old_hits = (set(pd.read_csv(old_path).id.astype(str)) if old_path.exists() else None)
     pairs = {}
@@ -57,6 +61,11 @@ def summarize_condition(root: Path, condition: str) -> dict:
         "all_seed_intersection_ids": sorted(intersection),
         "all_seed_intersection_merged_loci": merged_loci(
             frames[PRIMARY_SEED][frames[PRIMARY_SEED].id.isin(intersection)]),
+        "all_seed_sign_consistent_count": len(sign_consistent),
+        "all_seed_sign_consistent_ids": sorted(sign_consistent),
+        "all_seed_sign_consistent_merged_loci": merged_loci(
+            frames[PRIMARY_SEED][frames[PRIMARY_SEED].id.isin(sign_consistent)]),
+        "all_seed_sign_flip_count": len(intersection - sign_consistent),
         "all_seed_union_count": len(union),
         "all_seed_jaccard": len(intersection) / len(union) if union else 1.0,
         "pairwise": pairs,
@@ -72,14 +81,16 @@ def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--root", type=Path, default=Path(__file__).resolve().parents[1])
     parser.add_argument("--out", type=Path, default=Path("outputs/task4_order_invariant_sensitivity.json"))
+    parser.add_argument("--conditions", nargs="+", default=CONDITIONS,
+                        help="Condition names matching outputs/task4_<name>_order_invariant directories")
     args = parser.parse_args()
     root = args.root.resolve()
-    report = {condition: summarize_condition(root, condition) for condition in CONDITIONS}
+    report = {condition: summarize_condition(root, condition) for condition in args.conditions}
     out = args.out if args.out.is_absolute() else root / args.out
     out.parent.mkdir(parents=True, exist_ok=True)
-    for condition in CONDITIONS:
+    for condition in args.conditions:
         selected = pd.read_csv(output_dir(root, condition, PRIMARY_SEED) / "reproducible_changes.csv")
-        stable = selected[selected.id.isin(report[condition]["all_seed_intersection_ids"])]
+        stable = selected[selected.id.isin(report[condition]["all_seed_sign_consistent_ids"])]
         stable.to_csv(out.parent / f"task4_{condition}_stable_changes.csv", index=False)
     out.write_text(json.dumps(report, ensure_ascii=False, indent=2), encoding="utf-8")
     print(json.dumps(report, ensure_ascii=False, indent=2))

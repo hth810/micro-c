@@ -1,0 +1,53 @@
+{
+  "windows": 1812,
+  "selected_windows": 905,
+  "nonzero_circular_shifts": 1811,
+  "overall": {
+    "annotated_intervals": 344,
+    "observed_recall": 0.9011627906976745,
+    "circular_shift_median": 0.7674418604651163,
+    "circular_shift_p05": 0.7151162790697675,
+    "circular_shift_p95": 0.813953488372093,
+    "circular_shift_rank_percentile": 1.0,
+    "circular_shift_tail_fraction_ge_observed": 0.0
+  },
+  "merged_nonoverlapping_loci": {
+    "annotated_intervals": 216,
+    "observed_recall": 0.8842592592592593,
+    "circular_shift_median": 0.7731481481481481,
+    "circular_shift_p05": 0.7314814814814815,
+    "circular_shift_p95": 0.8148148148148148,
+    "circular_shift_rank_percentile": 1.0,
+    "circular_shift_tail_fraction_ge_observed": 0.0
+  },
+  "by_type": {
+    "CHID": {
+      "annotated_intervals": 26,
+      "observed_recall": 1.0,
+      "circular_shift_median": 0.8846153846153846,
+      "circular_shift_p05": 0.7692307692307693,
+      "circular_shift_p95": 0.9615384615384616,
+      "circular_shift_rank_percentile": 0.9850911098840419,
+      "circular_shift_tail_fraction_ge_observed": 0.014908890115958034
+    },
+    "CHIN": {
+      "annotated_intervals": 250,
+      "observed_recall": 0.872,
+      "circular_shift_median": 0.744,
+      "circular_shift_p05": 0.68,
+      "circular_shift_p95": 0.8,
+      "circular_shift_rank_percentile": 1.0,
+      "circular_shift_tail_fraction_ge_observed": 0.0
+    },
+    "OPCID": {
+      "annotated_intervals": 68,
+      "observed_recall": 0.9705882352941176,
+      "circular_shift_median": 0.8088235294117647,
+      "circular_shift_p05": 0.7352941176470589,
+      "circular_shift_p95": 0.8823529411764706,
+      "circular_shift_rank_percentile": 0.9994478188845941,
+      "circular_shift_tail_fraction_ge_observed": 0.0005521811154058532
+    }
+  },
+  "caution": "The shift baseline preserves selection clustering but is descriptive; annotations and data have been examined in prior experiments. Multiple overlapping annotations are not independent loci."
+}

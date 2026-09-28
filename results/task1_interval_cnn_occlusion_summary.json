@@ -1,0 +1,330 @@
+{
+  "protocol": "refit fixed 12-epoch five-fold CNN; seven held-out perturbations; both replicates grouped by annotation",
+  "caution": "zeroing channels is a distribution shift; attribution is sensitivity, not proof of morphology or novel structure; masks encode annotation span",
+  "zero_value": "distance-normalized median contact",
+  "matched_offset_control": "for every genomic diagonal offset >=2, zero equal random counts inside and outside the interval square in the 20.48 kb contact channel",
+  "random_seed": 20260928,
+  "structure_scores": {
+    "base": {
+      "accuracy": 0.872093023255814,
+      "macro_f1": 0.7563382342184185,
+      "chid_precision": 0.631578947368421,
+      "chid_recall": 0.46153846153846156,
+      "confusion_matrix": [
+        [
+          228,
+          16,
+          6
+        ],
+        [
+          7,
+          60,
+          1
+        ],
+        [
+          11,
+          3,
+          12
+        ]
+      ]
+    },
+    "no_short_contact": {
+      "accuracy": 0.8401162790697675,
+      "macro_f1": 0.7441018577382215,
+      "chid_precision": 0.6363636363636364,
+      "chid_recall": 0.5384615384615384,
+      "confusion_matrix": [
+        [
+          216,
+          27,
+          7
+        ],
+        [
+          8,
+          59,
+          1
+        ],
+        [
+          10,
+          2,
+          14
+        ]
+      ]
+    },
+    "no_long_contact": {
+      "accuracy": 0.747093023255814,
+      "macro_f1": 0.5722985429675885,
+      "chid_precision": 0.21739130434782608,
+      "chid_recall": 0.5769230769230769,
+      "confusion_matrix": [
+        [
+          212,
+          15,
+          23
+        ],
+        [
+          7,
+          30,
+          31
+        ],
+        [
+          6,
+          5,
+          15
+        ]
+      ]
+    },
+    "no_contact": {
+      "accuracy": 0.23255813953488372,
+      "macro_f1": 0.2565696074170651,
+      "chid_precision": 0.23076923076923078,
+      "chid_recall": 0.8076923076923077,
+      "confusion_matrix": [
+        [
+          36,
+          181,
+          33
+        ],
+        [
+          8,
+          23,
+          37
+        ],
+        [
+          1,
+          4,
+          21
+        ]
+      ]
+    },
+    "no_interval": {
+      "accuracy": 0.8023255813953488,
+      "macro_f1": 0.4947824211556647,
+      "chid_precision": 0.0,
+      "chid_recall": 0.0,
+      "confusion_matrix": [
+        [
+          243,
+          7,
+          0
+        ],
+        [
+          35,
+          33,
+          0
+        ],
+        [
+          25,
+          1,
+          0
+        ]
+      ]
+    },
+    "inside_long_contact": {
+      "accuracy": 0.8459302325581395,
+      "macro_f1": 0.7136437246963562,
+      "chid_precision": 0.5,
+      "chid_recall": 0.46153846153846156,
+      "confusion_matrix": [
+        [
+          225,
+          18,
+          7
+        ],
+        [
+          9,
+          54,
+          5
+        ],
+        [
+          10,
+          4,
+          12
+        ]
+      ]
+    },
+    "matched_outside_long_contact": {
+      "accuracy": 0.8633720930232558,
+      "macro_f1": 0.745952276387059,
+      "chid_precision": 0.4827586206896552,
+      "chid_recall": 0.5384615384615384,
+      "confusion_matrix": [
+        [
+          227,
+          13,
+          10
+        ],
+        [
+          7,
+          56,
+          5
+        ],
+        [
+          11,
+          1,
+          14
+        ]
+      ]
+    }
+  },
+  "true_class_margin_effects": {
+    "no_short_contact": {
+      "CHID": {
+        "structures": 26,
+        "median_true_class_margin_drop": -0.2533157020807266,
+        "mean_true_class_margin_drop": -0.42923329598628557,
+        "positive_drop_structures": 11
+      },
+      "CHIN": {
+        "structures": 250,
+        "median_true_class_margin_drop": 1.5153582692146301,
+        "mean_true_class_margin_drop": 1.6376404815018177,
+        "positive_drop_structures": 202
+      },
+      "OPCID": {
+        "structures": 68,
+        "median_true_class_margin_drop": 0.48329034447669983,
+        "mean_true_class_margin_drop": 0.6977515826549601,
+        "positive_drop_structures": 45
+      }
+    },
+    "no_long_contact": {
+      "CHID": {
+        "structures": 26,
+        "median_true_class_margin_drop": -0.5462125688791275,
+        "mean_true_class_margin_drop": -0.7654564460882773,
+        "positive_drop_structures": 5
+      },
+      "CHIN": {
+        "structures": 250,
+        "median_true_class_margin_drop": 0.45733675360679626,
+        "mean_true_class_margin_drop": 0.4679680361896753,
+        "positive_drop_structures": 159
+      },
+      "OPCID": {
+        "structures": 68,
+        "median_true_class_margin_drop": 1.956735447049141,
+        "mean_true_class_margin_drop": 2.8712512093650946,
+        "positive_drop_structures": 57
+      }
+    },
+    "no_contact": {
+      "CHID": {
+        "structures": 26,
+        "median_true_class_margin_drop": -1.9262068346142769,
+        "mean_true_class_margin_drop": -1.7299516378686979,
+        "positive_drop_structures": 5
+      },
+      "CHIN": {
+        "structures": 250,
+        "median_true_class_margin_drop": 5.362509287893772,
+        "mean_true_class_margin_drop": 5.257534327656031,
+        "positive_drop_structures": 244
+      },
+      "OPCID": {
+        "structures": 68,
+        "median_true_class_margin_drop": 3.6395771503448486,
+        "mean_true_class_margin_drop": 3.796762854408692,
+        "positive_drop_structures": 61
+      }
+    },
+    "no_interval": {
+      "CHID": {
+        "structures": 26,
+        "median_true_class_margin_drop": 4.508695013821125,
+        "mean_true_class_margin_drop": 4.8261866472088375,
+        "positive_drop_structures": 26
+      },
+      "CHIN": {
+        "structures": 250,
+        "median_true_class_margin_drop": -0.8665745258331299,
+        "mean_true_class_margin_drop": -1.2225832247436046,
+        "positive_drop_structures": 19
+      },
+      "OPCID": {
+        "structures": 68,
+        "median_true_class_margin_drop": 2.911124251782894,
+        "mean_true_class_margin_drop": 3.5996523103950655,
+        "positive_drop_structures": 68
+      }
+    },
+    "inside_long_contact": {
+      "CHID": {
+        "structures": 26,
+        "median_true_class_margin_drop": -0.1277007758617401,
+        "mean_true_class_margin_drop": -0.1273684407082888,
+        "positive_drop_structures": 7
+      },
+      "CHIN": {
+        "structures": 250,
+        "median_true_class_margin_drop": -0.03106844425201416,
+        "mean_true_class_margin_drop": 0.004363525353372097,
+        "positive_drop_structures": 102
+      },
+      "OPCID": {
+        "structures": 68,
+        "median_true_class_margin_drop": 0.6031127572059631,
+        "mean_true_class_margin_drop": 0.8435191250789691,
+        "positive_drop_structures": 60
+      }
+    },
+    "matched_outside_long_contact": {
+      "CHID": {
+        "structures": 26,
+        "median_true_class_margin_drop": -0.1177489385008812,
+        "mean_true_class_margin_drop": -0.35023848110666644,
+        "positive_drop_structures": 3
+      },
+      "CHIN": {
+        "structures": 250,
+        "median_true_class_margin_drop": 0.012807786464691162,
+        "mean_true_class_margin_drop": 0.016165931954979895,
+        "positive_drop_structures": 155
+      },
+      "OPCID": {
+        "structures": 68,
+        "median_true_class_margin_drop": -0.02283915877342224,
+        "mean_true_class_margin_drop": 0.312181337900898,
+        "positive_drop_structures": 29
+      }
+    }
+  },
+  "matched_contact_region_effect": {
+    "CHID": {
+      "structures": 26,
+      "median_inside_minus_outside_margin_drop": 0.03638863563537598,
+      "positive_structures": 15
+    },
+    "CHIN": {
+      "structures": 250,
+      "median_inside_minus_outside_margin_drop": -0.04328739643096924,
+      "positive_structures": 96
+    },
+    "OPCID": {
+      "structures": 68,
+      "median_inside_minus_outside_margin_drop": 0.6029488928616047,
+      "positive_structures": 53
+    }
+  },
+  "saliency": {
+    "method": "absolute true-class gradient in 20.48 kb contact channel; within annotated square vs same genomic-offset background",
+    "selection": "all CHID and nearest CHIN within 2 kb, including misclassified samples",
+    "paired_chid_chin": 24,
+    "classes": {
+      "CHID": {
+        "selected_structures": 26,
+        "evaluable_structures": 26,
+        "median_distance_matched_gradient_enrichment": 1.3435301201061125,
+        "structures_gradient_enrichment_gt_1": 21,
+        "correct_evaluable_structures": 12
+      },
+      "CHIN": {
+        "selected_structures": 24,
+        "evaluable_structures": 24,
+        "median_distance_matched_gradient_enrichment": 1.0979127765738534,
+        "structures_gradient_enrichment_gt_1": 16,
+        "correct_evaluable_structures": 22
+      }
+    }
+  }
+}

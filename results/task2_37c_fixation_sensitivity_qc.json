@@ -1,0 +1,170 @@
+{
+  "frozen_centers_bp": [
+    2042880,
+    3307520,
+    4241920
+  ],
+  "window_bp": 5120,
+  "count_definition": "unbalanced native-bin cis matrix, upper triangle counted once including diagonal",
+  "far_definition": "upper triangle at >=640 bp genomic bin separation; analysis maps use 64 bins and k>=8",
+  "normalization": "microc.data.normalize independently for each 64x64 local map",
+  "caution": "Three preselected loci only. Depth/occupancy and fixation protocol differ; a negative shape result is not proof of biological absence.",
+  "samples": {
+    "standard_rep1": {
+      "path": "data\\raw\\GSE272159_37C_rep1.mapq_30.10.cool",
+      "chrom": "NC_000913.3",
+      "native_bin_bp": 10,
+      "native_window_bins": 512,
+      "loci": [
+        {
+          "center_bp": 2042880,
+          "raw_cis_upper_count": 119863.0,
+          "raw_cis_upper_nonzero_fraction": 0.23825079191033138,
+          "raw_far_640bp_upper_count": 13081.0,
+          "raw_far_640bp_upper_nonzero_fraction": 0.10027243079860006,
+          "analysis_64bin_far8_nonzero_fraction": 0.2424812030075188,
+          "normalized_64bin_far8_finite_fraction": 1.0,
+          "normalized_64bin_far8_std": 1.5031239986419678,
+          "normalized_64bin_far8_q05_q95": [
+            0.0,
+            5.0
+          ]
+        },
+        {
+          "center_bp": 3307520,
+          "raw_cis_upper_count": 193181.0,
+          "raw_cis_upper_nonzero_fraction": 0.30659874512670565,
+          "raw_far_640bp_upper_count": 22770.0,
+          "raw_far_640bp_upper_nonzero_fraction": 0.15433105313394846,
+          "analysis_64bin_far8_nonzero_fraction": 0.38471177944862156,
+          "normalized_64bin_far8_finite_fraction": 1.0,
+          "normalized_64bin_far8_std": 2.0116565227508545,
+          "normalized_64bin_far8_q05_q95": [
+            -0.8288765549659729,
+            5.0
+          ]
+        },
+        {
+          "center_bp": 4241920,
+          "raw_cis_upper_count": 226801.0,
+          "raw_cis_upper_nonzero_fraction": 0.33264041179337234,
+          "raw_far_640bp_upper_count": 31347.0,
+          "raw_far_640bp_upper_nonzero_fraction": 0.1800827235125676,
+          "analysis_64bin_far8_nonzero_fraction": 0.37531328320802004,
+          "normalized_64bin_far8_finite_fraction": 1.0,
+          "normalized_64bin_far8_std": 2.1107089519500732,
+          "normalized_64bin_far8_q05_q95": [
+            -2.1200867891311646,
+            5.0
+          ]
+        }
+      ],
+      "median_raw_cis_upper_count": 193181.0,
+      "median_raw_far_640bp_upper_nonzero_fraction": 0.15433105313394846
+    },
+    "standard_rep2": {
+      "path": "data\\raw\\GSE272159_37C_rep2.mapq_30.10.cool",
+      "chrom": "NC_000913.3",
+      "native_bin_bp": 10,
+      "native_window_bins": 512,
+      "loci": [
+        {
+          "center_bp": 2042880,
+          "raw_cis_upper_count": 114524.0,
+          "raw_cis_upper_nonzero_fraction": 0.23211348684210525,
+          "raw_far_640bp_upper_count": 13250.0,
+          "raw_far_640bp_upper_nonzero_fraction": 0.0994173560292714,
+          "analysis_64bin_far8_nonzero_fraction": 0.2669172932330827,
+          "normalized_64bin_far8_finite_fraction": 1.0,
+          "normalized_64bin_far8_std": 1.5730674266815186,
+          "normalized_64bin_far8_q05_q95": [
+            0.0,
+            5.0
+          ]
+        },
+        {
+          "center_bp": 3307520,
+          "raw_cis_upper_count": 196553.0,
+          "raw_cis_upper_nonzero_fraction": 0.31712962962962965,
+          "raw_far_640bp_upper_count": 26938.0,
+          "raw_far_640bp_upper_nonzero_fraction": 0.1708956411072224,
+          "analysis_64bin_far8_nonzero_fraction": 0.4066416040100251,
+          "normalized_64bin_far8_finite_fraction": 1.0,
+          "normalized_64bin_far8_std": 1.8279131650924683,
+          "normalized_64bin_far8_q05_q95": [
+            -1.406341314315796,
+            5.0
+          ]
+        },
+        {
+          "center_bp": 4241920,
+          "raw_cis_upper_count": 215262.0,
+          "raw_cis_upper_nonzero_fraction": 0.3187895955165692,
+          "raw_far_640bp_upper_count": 28451.0,
+          "raw_far_640bp_upper_nonzero_fraction": 0.1676642538975501,
+          "analysis_64bin_far8_nonzero_fraction": 0.36027568922305764,
+          "normalized_64bin_far8_finite_fraction": 1.0,
+          "normalized_64bin_far8_std": 1.9893909692764282,
+          "normalized_64bin_far8_q05_q95": [
+            -1.802618145942688,
+            5.0
+          ]
+        }
+      ],
+      "median_raw_cis_upper_count": 196553.0,
+      "median_raw_far_640bp_upper_nonzero_fraction": 0.1676642538975501
+    },
+    "wt_37c_growth_37c_fix": {
+      "path": "data\\raw\\GSM8950767_37C_37C_fix_rep1.MG1655.mapq_30.10.cool.gz",
+      "chrom": "NC_000913.3",
+      "native_bin_bp": 10,
+      "native_window_bins": 512,
+      "loci": [
+        {
+          "center_bp": 2042880,
+          "raw_cis_upper_count": 50299.0,
+          "raw_cis_upper_nonzero_fraction": 0.13143427144249512,
+          "raw_far_640bp_upper_count": 2086.0,
+          "raw_far_640bp_upper_nonzero_fraction": 0.02015391345847916,
+          "analysis_64bin_far8_nonzero_fraction": 0.07769423558897243,
+          "normalized_64bin_far8_finite_fraction": 1.0,
+          "normalized_64bin_far8_std": 0.7226232290267944,
+          "normalized_64bin_far8_q05_q95": [
+            0.0,
+            1.2184534668922424
+          ]
+        },
+        {
+          "center_bp": 3307520,
+          "raw_cis_upper_count": 75646.0,
+          "raw_cis_upper_nonzero_fraction": 0.16469450536062377,
+          "raw_far_640bp_upper_count": 3637.0,
+          "raw_far_640bp_upper_nonzero_fraction": 0.034322303531657654,
+          "analysis_64bin_far8_nonzero_fraction": 0.12781954887218044,
+          "normalized_64bin_far8_finite_fraction": 1.0,
+          "normalized_64bin_far8_std": 1.046270489692688,
+          "normalized_64bin_far8_q05_q95": [
+            0.0,
+            2.8998624086380005
+          ]
+        },
+        {
+          "center_bp": 4241920,
+          "raw_cis_upper_count": 69918.0,
+          "raw_cis_upper_nonzero_fraction": 0.15452150341130605,
+          "raw_far_640bp_upper_count": 2549.0,
+          "raw_far_640bp_upper_nonzero_fraction": 0.024449172764874325,
+          "analysis_64bin_far8_nonzero_fraction": 0.08208020050125313,
+          "normalized_64bin_far8_finite_fraction": 1.0,
+          "normalized_64bin_far8_std": 0.8023446202278137,
+          "normalized_64bin_far8_q05_q95": [
+            0.0,
+            1.6989903450012207
+          ]
+        }
+      ],
+      "median_raw_cis_upper_count": 69918.0,
+      "median_raw_far_640bp_upper_nonzero_fraction": 0.024449172764874325
+    }
+  }
+}

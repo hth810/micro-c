@@ -1,0 +1,95 @@
+{
+  "selection_rule": "Require validation tile PSNR >= main-0.05 dB, SSIM >= main-0.001, overall known top1 error < main, CHIN top1 error < main; minimize equal-weight sum of relative CHIN and overall top1 error; ties choose fewer epochs; otherwise main",
+  "selected_stage": "main",
+  "selected_checkpoint": "results\\task5_super_resolution.pt",
+  "selected_checkpoint_sha256": "f3454bac6fd65f80a2177e81ee197e3a5ad647fda64a2be383a11b733fa4e39e",
+  "baseline_checkpoint": "results\\task5_super_resolution.pt",
+  "baseline_checkpoint_sha256": "f3454bac6fd65f80a2177e81ee197e3a5ad647fda64a2be383a11b733fa4e39e",
+  "annotation_sha256": "d9a5f0f380ff2c919e8edabc7aa8d612eedb29b67825118377b43e98b8ed7cdf",
+  "split_sha256": "460bfb651a3787e7fc332098587c545ba279c88982151451d3a9dd4f0b6a7f0c",
+  "split_counts": {
+    "train_tiles": 725,
+    "validation_tiles": 103,
+    "test_tiles": 208,
+    "train_known": {
+      "CHIN": 178,
+      "OPCID": 52,
+      "CHID": 18
+    },
+    "validation_known": {
+      "CHIN": 20,
+      "OPCID": 6,
+      "CHID": 2
+    },
+    "test_known": {
+      "CHIN": 52,
+      "OPCID": 10,
+      "CHID": 6
+    },
+    "informative_train_known": 243
+  },
+  "fixed_training": {
+    "learning_rate": 0.0001,
+    "hotspot_weight": 0.05,
+    "hotspot_temperature": 0.75,
+    "hotspot_target_gaussian_sigma": 3.0,
+    "epochs_checked": [
+      2,
+      5
+    ],
+    "regular_batch": 16,
+    "known_batch": 8,
+    "loss": "regular MSE + 0.15 gradient + 0.5*(known MSE + 0.15 gradient) + 0.05 soft-hotspot cross-entropy"
+  },
+  "validation_stages": [
+    {
+      "stage": "main",
+      "epochs": 0,
+      "checkpoint": "results\\task5_super_resolution.pt",
+      "sha256": "f3454bac6fd65f80a2177e81ee197e3a5ad647fda64a2be383a11b733fa4e39e",
+      "tile_psnr": 20.59229234007592,
+      "tile_ssim": 0.14259306975612485,
+      "known_hotspot_error": 14.138826009097738,
+      "CHIN_hotspot_error": 15.879488022842546,
+      "known_top5_error": 6.236306640989116,
+      "CHIN_top5_error": 6.968560962332158,
+      "baseline_tile_psnr": 18.510845213485858,
+      "baseline_tile_ssim": 0.11883293302788397,
+      "baseline_known_hotspot_error": 14.748891424584317,
+      "baseline_CHIN_hotspot_error": 17.450932208182106
+    },
+    {
+      "stage": "epoch2",
+      "epochs": 2,
+      "checkpoint": "outputs\\task5_hotspot_finetune\\hotspot_finetune_epoch2.pt",
+      "sha256": "3cc72d115bf20f5f22a10b2b65b40fefd9c6fbdabe941d7e12ed60ec054b64b6",
+      "tile_psnr": 20.604064713812583,
+      "tile_ssim": 0.1434878129818777,
+      "known_hotspot_error": 14.461885207622274,
+      "CHIN_hotspot_error": 16.191226064429692,
+      "known_top5_error": 6.659367698697605,
+      "CHIN_top5_error": 7.12956940277022,
+      "baseline_tile_psnr": 18.510845213485858,
+      "baseline_tile_ssim": 0.11883293302788397,
+      "baseline_known_hotspot_error": 14.748891424584317,
+      "baseline_CHIN_hotspot_error": 17.450932208182106
+    },
+    {
+      "stage": "epoch5",
+      "epochs": 5,
+      "checkpoint": "outputs\\task5_hotspot_finetune\\hotspot_finetune_epoch5.pt",
+      "sha256": "99bec049f9f122d16324b6af29bc7496e886e3a73071a5051090f336a1db6bac",
+      "tile_psnr": 20.610886814195304,
+      "tile_ssim": 0.14258949413534902,
+      "known_hotspot_error": 14.38642233527923,
+      "CHIN_hotspot_error": 16.120515386311038,
+      "known_top5_error": 6.579378150445762,
+      "CHIN_top5_error": 7.409221357461253,
+      "baseline_tile_psnr": 18.510845213485858,
+      "baseline_tile_ssim": 0.11883293302788397,
+      "baseline_known_hotspot_error": 14.748891424584317,
+      "baseline_CHIN_hotspot_error": 17.450932208182106
+    }
+  ],
+  "caution": "Validation CHID n=2 is not used for selection. Test segment has been seen by previous studies; not blind. Low resolution simulated from high-resolution Micro-C."
+}

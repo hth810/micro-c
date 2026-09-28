@@ -1,0 +1,56 @@
+{
+  "analysis": "retrospective rep1-only selection; rep2 held out within this run only",
+  "rep1_locked_pair_table_sha256": "8b78ab5eab71525347e841d22058bbda808431da7903173ee643ef6d17ff1521",
+  "rep1_pair_nominated": true,
+  "selected_pair_bp": [
+    3307520,
+    4241920
+  ],
+  "n_rep1_novel_pairs": 120,
+  "matched_control_pairs": 0,
+  "matching_diagnostics": {
+    "independent_pairs": 91,
+    "two_iqr_caliper_pairs": 0,
+    "covariate_only_caliper_sensitivity": {
+      "1": 0,
+      "2": 0,
+      "4": 0,
+      "8": 0,
+      "10": 1
+    },
+    "nearest_independent_standardized_distance": 9.86173005231505,
+    "nearest_independent_largest_covariate_gap_iqr": 9.109310933853452
+  },
+  "matched_distance_median": null,
+  "rep1_upper_r": 0.3712296186839633,
+  "rep1_coarse_r": 0.80131939937718,
+  "rep2_upper_r": 0.3524500886448239,
+  "rep2_coarse_r": 0.7972427569475509,
+  "rep2_matched_percentiles_strict": {
+    "upper": null,
+    "coarse": null
+  },
+  "rep2_unadjusted_independent_pair_percentiles_descriptive": {
+    "upper": 1.0,
+    "coarse": 1.0
+  },
+  "rep2_better_than_known_upper": true,
+  "rep2_better_than_known_coarse": true,
+  "three_locus_audit": {
+    "rep1_three_locus_cliques": 3,
+    "rep1_locked_clique_bp": [
+      2042880,
+      3307520,
+      4241920
+    ],
+    "rep2_min_upper_r": 0.26866422874707657,
+    "rep2_min_coarse_r": 0.6290143660807702,
+    "rep2_min_upper_percentile_unmatched": 0.9583333333333334,
+    "rep2_min_coarse_percentile_unmatched": 0.9083333333333333,
+    "rep2_all_edges_top_decile_both_views": true,
+    "rep2_all_edges_better_than_member_best_known_both_views": false
+  },
+  "passes_exploratory_rep2_rule": false,
+  "rule": "At least 20 controls sharing no selected locus and within two IQR of all seven score, novelty, rep1 morphology and separation covariates; rep2 upper and coarse above 99% of controls; pair exceeds each member's best annotated-reference similarity in both views",
+  "caution": "No formal discovery p/FDR. An unmatched descriptive percentile cannot validate a new class. Historical analyses inspected rep2; this is not prospective blindness or biological proof."
+}

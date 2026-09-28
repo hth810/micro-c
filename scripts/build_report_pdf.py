@@ -54,12 +54,12 @@ RULE = colors.HexColor("#C8D4DC")
 
 FIGURES = {
     "任务一": (
-        ("task1_spatial_confusion_matrix.png",),
-        "图 1. 严格空间隔离 CNN 混淆矩阵；CHID 测试样本未被正确识别。",
+        ("task1_interval_cnn_confusion_contact_interval.png",),
+        "图 1. 接触图加已知区间通道 CNN 的 40 kb 空间五折混淆矩阵；CHID 仍有 14/26 条误判。",
     ),
     "任务二": (
-        ("task2_novel_cluster_N1_3307520_rep1.png", "task2_novel_cluster_N1_3307520_rep2.png"),
-        "图 2. 待验证 N1 位点之一在两个 WT 生物学重复中的局部接触图；不是新结构的独立验证。",
+        ("task2_rep1_locked_rep1_locked_pair_replication.png",),
+        "图 2. rep1 冻结配对在 rep2 中形态可见，但缺少协变量匹配的独立背景对照，不能确证新类型。",
     ),
     "任务三": (
         ("task3_example_005.png",),
@@ -123,8 +123,8 @@ def styles(font: str) -> dict[str, ParagraphStyle]:
             wordWrap="CJK",
         ),
         "body": ParagraphStyle(
-            "Body", fontName=font, fontSize=9.3, leading=16.2,
-            textColor=INK, spaceAfter=2.7 * mm, wordWrap="CJK",
+            "Body", fontName=font, fontSize=9.3, leading=16.0,
+            textColor=INK, spaceAfter=2.5 * mm, wordWrap="CJK",
             allowWidows=0, allowOrphans=0,
         ),
         "table": ParagraphStyle(
@@ -190,7 +190,8 @@ def figure(section: str, text_styles: dict[str, ParagraphStyle]) -> list[Flowabl
     if missing:
         raise FileNotFoundError(f"Representative figure(s) missing: {missing}")
     if len(paths) == 1:
-        visual: Flowable = figure_image(paths[0], 168 * mm, 77 * mm)
+        visual: Flowable = figure_image(paths[0], 168 * mm,
+                                        (96 if section == "任务一" else 77) * mm)
     else:
         visuals = [figure_image(path, 76 * mm, 68 * mm) for path in paths]
         visual = Table([[visuals[0], visuals[1]]], colWidths=[83 * mm, 83 * mm])
@@ -324,10 +325,10 @@ def cover(text_styles: dict[str, ParagraphStyle]) -> list[Flowable]:
     story.append(Spacer(1, 8 * mm))
     story.append(para("结果总览", text_styles["h1"]))
     overview = [
-        ("任务一", "空间隔离 CNN 准确率 0.870，但 CHID F1=0；新纯 CNN 找回一条 CHID 却使整体退步；混合模型不是纯深度学习。"),
-        ("任务二", "7 个未注释位点，仅提名 N1 一对形态候选；旧簇规则为 0，旧经验 p 对照不匹配，尚未证实新类型。"),
+        ("任务一", "接触+已知区间 CNN 五折宏 F1 0.756、CHID 精确率/召回率 0.632/0.462；仍低于边界混合模型，归因有限。"),
+        ("任务二", "已知合并位点召回 88.4%，高于环形移位基线；三位点计算候选簇未通过严格新类型验证。"),
         ("任务三", "覆盖全基因组的 465 张 10 kb 多轨道图，附原始图像清单与哈希。"),
-        ("任务四", "44℃ 主种子筛出 21 条注释，三种子交集 17 条；属于探索性差异候选。"),
+        ("任务四", "44℃/利福平/H-NS 三种子交集分别为 17/98/82 条注释；均是探索性候选，H-NS 有平台混杂。"),
         ("任务五", "4 倍模拟超分辨率 PSNR 提升 1.942 dB；局部融合平均热点误差略降，但置信区间跨 0。"),
         ("任务六", "WT rep2 接触-距离 Spearman 0.712；精确距离匹配 AUC 0.748，未超过 MDS 0.753；无三维真值。"),
     ]

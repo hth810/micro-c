@@ -1,0 +1,35 @@
+{
+  "purpose": "inference for supplied annotated intervals only; no in-sample performance claim",
+  "classes": [
+    "CHIN",
+    "OPCID",
+    "CHID"
+  ],
+  "model": "PairAwareCNN(input_channels=4), GroupNorm, 4x4 spatial pooling",
+  "channel_order": [
+    "5.12 kb contact",
+    "20.48 kb contact",
+    "within-interval square",
+    "interval-boundary-crossing contact indicator"
+  ],
+  "contact_preprocessing": "per-window log1p then diagonal-median distance normalization, MAD scaling and clipping to [-5,5]",
+  "short_window": {
+    "bins": 128,
+    "bin_bp": 40,
+    "context_bp": 5120
+  },
+  "long_window": {
+    "bins": 128,
+    "bin_bp": 160,
+    "context_bp": 20480
+  },
+  "interval_mask": "start/end relative to supplied center at 160 bp per long-window pixel; square is inside×inside, crossing is XOR",
+  "training_structures": 344,
+  "training_samples": 688,
+  "biological_replicates": 2,
+  "epochs": 12,
+  "seed": 20260921,
+  "class_weight_power": 0.5,
+  "generalization_estimate": "results/task1_interval_cnn_summary.json (40 kb five-fold spatial crossfit)",
+  "caution": "All annotated labels were used for this weight. Its predictions on them are in-sample, not a held-out score. The shipped architecture was selected retrospectively from the four crossfit comparisons, so that score has selection bias. Interval masks cannot be formed for unknown structures."
+}

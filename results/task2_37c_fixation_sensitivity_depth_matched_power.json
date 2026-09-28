@@ -1,0 +1,467 @@
+{
+  "frozen_centers_bp": [
+    2042880,
+    3307520,
+    4241920
+  ],
+  "iterations_per_standard_replicate": 100,
+  "seed": 20260928,
+  "views": [
+    "far8",
+    "far16",
+    "highpass_far8",
+    "rowcol_far8"
+  ],
+  "simulation": "Each unique native 10-bp cis count is independently binomial-thinned at a locus-specific fraction equal to fix37/standard >=640-bp cis count ratio; then the existing 512-to-64 interpolation and map-wise distance normalization are applied.",
+  "caution": "A fixed-locus coverage-power sensitivity check, not a new-type significance test. Uniform count thinning cannot reproduce fixation-dependent distance decay, locus biology, or technical biases; the fix37 sample is not an equal-protocol biological replicate.",
+  "sources": {
+    "standard_rep1": "data\\raw\\GSE272159_37C_rep1.mapq_30.10.cool",
+    "standard_rep2": "data\\raw\\GSE272159_37C_rep2.mapq_30.10.cool",
+    "fix37": "data\\raw\\GSM8950767_37C_37C_fix_rep1.MG1655.mapq_30.10.cool.gz",
+    "qc": "outputs\\task2_37c_fixation_sensitivity\\qc.json"
+  },
+  "standard_replicates": {
+    "standard_rep1": {
+      "far_count_thinning_fraction_by_locus": {
+        "2042880": 0.15946793058634662,
+        "3307520": 0.15972771190162494,
+        "4241920": 0.08131559638880914
+      },
+      "metrics": {
+        "far8": {
+          "edges": [
+            {
+              "centers_bp": [
+                2042880,
+                3307520
+              ],
+              "full_depth_r": 0.25723805228209895,
+              "fix37_observed_r": 0.050663285486126385,
+              "thinned_median_r": 0.12332679728939788,
+              "thinned_q05_q95_r": [
+                0.07004708631376562,
+                0.18532012777699788
+              ],
+              "fraction_thinned_r_le_fix37": 0.04
+            },
+            {
+              "centers_bp": [
+                2042880,
+                4241920
+              ],
+              "full_depth_r": 0.27709424346454936,
+              "fix37_observed_r": 0.05197160406766016,
+              "thinned_median_r": 0.09743752578581877,
+              "thinned_q05_q95_r": [
+                0.029632667640685187,
+                0.18087399734071263
+              ],
+              "fraction_thinned_r_le_fix37": 0.13
+            },
+            {
+              "centers_bp": [
+                3307520,
+                4241920
+              ],
+              "full_depth_r": 0.31684922215680056,
+              "fix37_observed_r": 0.03177037481761077,
+              "thinned_median_r": 0.12928219436847077,
+              "thinned_q05_q95_r": [
+                0.07323291847714292,
+                0.1981924321820791
+              ],
+              "fraction_thinned_r_le_fix37": 0.01
+            }
+          ],
+          "thinned_all_three_edges_positive_fraction": 1.0,
+          "thinned_min_edge_median_r": 0.08692533592625482,
+          "thinned_min_edge_q05_q95_r": [
+            0.026377178048787052,
+            0.13236846888921877
+          ],
+          "fix37_min_edge_r": 0.03177037481761077
+        },
+        "far16": {
+          "edges": [
+            {
+              "centers_bp": [
+                2042880,
+                3307520
+              ],
+              "full_depth_r": 0.12382432532030535,
+              "fix37_observed_r": 0.03065491857757576,
+              "thinned_median_r": 0.03264308812153503,
+              "thinned_q05_q95_r": [
+                -0.006830667506486532,
+                0.11458911186395573
+              ],
+              "fraction_thinned_r_le_fix37": 0.47
+            },
+            {
+              "centers_bp": [
+                2042880,
+                4241920
+              ],
+              "full_depth_r": 0.20072522531097683,
+              "fix37_observed_r": -0.01811463969278796,
+              "thinned_median_r": 0.033912210314781324,
+              "thinned_q05_q95_r": [
+                -0.020434782115247414,
+                0.13565707470801497
+              ],
+              "fraction_thinned_r_le_fix37": 0.07
+            },
+            {
+              "centers_bp": [
+                3307520,
+                4241920
+              ],
+              "full_depth_r": 0.1662256291954544,
+              "fix37_observed_r": -0.01698599849897284,
+              "thinned_median_r": 0.050214937000410784,
+              "thinned_q05_q95_r": [
+                -0.017308742038998494,
+                0.12621482805922923
+              ],
+              "fraction_thinned_r_le_fix37": 0.06
+            }
+          ],
+          "thinned_all_three_edges_positive_fraction": 0.64,
+          "thinned_min_edge_median_r": 0.006712152755179973,
+          "thinned_min_edge_q05_q95_r": [
+            -0.026383091173754536,
+            0.06454786608979628
+          ],
+          "fix37_min_edge_r": -0.01811463969278796
+        },
+        "highpass_far8": {
+          "edges": [
+            {
+              "centers_bp": [
+                2042880,
+                3307520
+              ],
+              "full_depth_r": 0.00742884277005682,
+              "fix37_observed_r": 0.019346893209872502,
+              "thinned_median_r": 0.00871092508422093,
+              "thinned_q05_q95_r": [
+                -0.04558926391293158,
+                0.07346850478416399
+              ],
+              "fraction_thinned_r_le_fix37": 0.61
+            },
+            {
+              "centers_bp": [
+                2042880,
+                4241920
+              ],
+              "full_depth_r": 0.0325876439905038,
+              "fix37_observed_r": 0.014609945528146881,
+              "thinned_median_r": 0.002913498466974098,
+              "thinned_q05_q95_r": [
+                -0.06475636936585866,
+                0.09659538306267379
+              ],
+              "fraction_thinned_r_le_fix37": 0.57
+            },
+            {
+              "centers_bp": [
+                3307520,
+                4241920
+              ],
+              "full_depth_r": -0.013625768655745194,
+              "fix37_observed_r": -0.04454564077534061,
+              "thinned_median_r": 0.006519532034015235,
+              "thinned_q05_q95_r": [
+                -0.04992441723147894,
+                0.08943189256988406
+              ],
+              "fraction_thinned_r_le_fix37": 0.07
+            }
+          ],
+          "thinned_all_three_edges_positive_fraction": 0.23,
+          "thinned_min_edge_median_r": -0.01971305227264787,
+          "thinned_min_edge_q05_q95_r": [
+            -0.07467453159874465,
+            0.02540511085910002
+          ],
+          "fix37_min_edge_r": -0.04454564077534061
+        },
+        "rowcol_far8": {
+          "edges": [
+            {
+              "centers_bp": [
+                2042880,
+                3307520
+              ],
+              "full_depth_r": 0.054161422006846247,
+              "fix37_observed_r": 0.055247085606718045,
+              "thinned_median_r": 0.08342590748403513,
+              "thinned_q05_q95_r": [
+                0.03028539840776905,
+                0.1381594739216751
+              ],
+              "fraction_thinned_r_le_fix37": 0.2
+            },
+            {
+              "centers_bp": [
+                2042880,
+                4241920
+              ],
+              "full_depth_r": 0.07127053076129494,
+              "fix37_observed_r": 0.014544157110487173,
+              "thinned_median_r": 0.07623516557082927,
+              "thinned_q05_q95_r": [
+                0.020859094987053,
+                0.15422335149396624
+              ],
+              "fraction_thinned_r_le_fix37": 0.04
+            },
+            {
+              "centers_bp": [
+                3307520,
+                4241920
+              ],
+              "full_depth_r": 0.0395275316263153,
+              "fix37_observed_r": 0.006078729760842247,
+              "thinned_median_r": 0.08307481988950491,
+              "thinned_q05_q95_r": [
+                0.03348398134636159,
+                0.15274935194710718
+              ],
+              "fraction_thinned_r_le_fix37": 0.01
+            }
+          ],
+          "thinned_all_three_edges_positive_fraction": 0.98,
+          "thinned_min_edge_median_r": 0.05441236369719264,
+          "thinned_min_edge_q05_q95_r": [
+            0.008725882887105815,
+            0.09430453864875066
+          ],
+          "fix37_min_edge_r": 0.006078729760842247
+        }
+      }
+    },
+    "standard_rep2": {
+      "far_count_thinning_fraction_by_locus": {
+        "2042880": 0.15743396226415093,
+        "3307520": 0.13501373524389337,
+        "4241920": 0.0895926329478753
+      },
+      "metrics": {
+        "far8": {
+          "edges": [
+            {
+              "centers_bp": [
+                2042880,
+                3307520
+              ],
+              "full_depth_r": 0.2575998734718796,
+              "fix37_observed_r": 0.050663285486126385,
+              "thinned_median_r": 0.1147657769708922,
+              "thinned_q05_q95_r": [
+                0.07228075884820939,
+                0.1682247243155354
+              ],
+              "fraction_thinned_r_le_fix37": 0.01
+            },
+            {
+              "centers_bp": [
+                2042880,
+                4241920
+              ],
+              "full_depth_r": 0.31740081530411457,
+              "fix37_observed_r": 0.05197160406766016,
+              "thinned_median_r": 0.09166940453969177,
+              "thinned_q05_q95_r": [
+                0.019986211203280712,
+                0.15996840824189978
+              ],
+              "fraction_thinned_r_le_fix37": 0.17
+            },
+            {
+              "centers_bp": [
+                3307520,
+                4241920
+              ],
+              "full_depth_r": 0.29316249442257925,
+              "fix37_observed_r": 0.03177037481761077,
+              "thinned_median_r": 0.09830207550194614,
+              "thinned_q05_q95_r": [
+                0.04481966419781789,
+                0.16907557091459188
+              ],
+              "fraction_thinned_r_le_fix37": 0.04
+            }
+          ],
+          "thinned_all_three_edges_positive_fraction": 1.0,
+          "thinned_min_edge_median_r": 0.077005928994638,
+          "thinned_min_edge_q05_q95_r": [
+            0.01779650571632124,
+            0.12075319828890169
+          ],
+          "fix37_min_edge_r": 0.03177037481761077
+        },
+        "far16": {
+          "edges": [
+            {
+              "centers_bp": [
+                2042880,
+                3307520
+              ],
+              "full_depth_r": 0.19201051148587606,
+              "fix37_observed_r": 0.03065491857757576,
+              "thinned_median_r": 0.05056677335533603,
+              "thinned_q05_q95_r": [
+                -0.007157513300333118,
+                0.1282478344073243
+              ],
+              "fraction_thinned_r_le_fix37": 0.26
+            },
+            {
+              "centers_bp": [
+                2042880,
+                4241920
+              ],
+              "full_depth_r": 0.24069448910869318,
+              "fix37_observed_r": -0.01811463969278796,
+              "thinned_median_r": 0.035681363492230014,
+              "thinned_q05_q95_r": [
+                -0.01852952283717489,
+                0.11144993899360933
+              ],
+              "fraction_thinned_r_le_fix37": 0.06
+            },
+            {
+              "centers_bp": [
+                3307520,
+                4241920
+              ],
+              "full_depth_r": 0.16990187436093773,
+              "fix37_observed_r": -0.01698599849897284,
+              "thinned_median_r": 0.034398738456300176,
+              "thinned_q05_q95_r": [
+                -0.019891834729309086,
+                0.10769354822070723
+              ],
+              "fraction_thinned_r_le_fix37": 0.06
+            }
+          ],
+          "thinned_all_three_edges_positive_fraction": 0.61,
+          "thinned_min_edge_median_r": 0.009331163453719357,
+          "thinned_min_edge_q05_q95_r": [
+            -0.02185357841153564,
+            0.04575787375748024
+          ],
+          "fix37_min_edge_r": -0.01811463969278796
+        },
+        "highpass_far8": {
+          "edges": [
+            {
+              "centers_bp": [
+                2042880,
+                3307520
+              ],
+              "full_depth_r": -0.001973390215795793,
+              "fix37_observed_r": 0.019346893209872502,
+              "thinned_median_r": -0.00671185971656605,
+              "thinned_q05_q95_r": [
+                -0.05184439009893837,
+                0.05704164190243761
+              ],
+              "fraction_thinned_r_le_fix37": 0.74
+            },
+            {
+              "centers_bp": [
+                2042880,
+                4241920
+              ],
+              "full_depth_r": 0.11505035624197371,
+              "fix37_observed_r": 0.014609945528146881,
+              "thinned_median_r": 0.014032372198526578,
+              "thinned_q05_q95_r": [
+                -0.046329822607590554,
+                0.07557708840393182
+              ],
+              "fraction_thinned_r_le_fix37": 0.5
+            },
+            {
+              "centers_bp": [
+                3307520,
+                4241920
+              ],
+              "full_depth_r": -0.05608571977136011,
+              "fix37_observed_r": -0.04454564077534061,
+              "thinned_median_r": -0.01222726002918451,
+              "thinned_q05_q95_r": [
+                -0.06961095076663941,
+                0.047339979406483115
+              ],
+              "fraction_thinned_r_le_fix37": 0.2
+            }
+          ],
+          "thinned_all_three_edges_positive_fraction": 0.1,
+          "thinned_min_edge_median_r": -0.03278792149743178,
+          "thinned_min_edge_q05_q95_r": [
+            -0.07753951086561521,
+            0.0068413245338023775
+          ],
+          "fix37_min_edge_r": -0.04454564077534061
+        },
+        "rowcol_far8": {
+          "edges": [
+            {
+              "centers_bp": [
+                2042880,
+                3307520
+              ],
+              "full_depth_r": 0.03787560371351027,
+              "fix37_observed_r": 0.055247085606718045,
+              "thinned_median_r": 0.07276850337580462,
+              "thinned_q05_q95_r": [
+                0.029977750276552674,
+                0.12311338348321672
+              ],
+              "fraction_thinned_r_le_fix37": 0.3
+            },
+            {
+              "centers_bp": [
+                2042880,
+                4241920
+              ],
+              "full_depth_r": 0.14635164441725818,
+              "fix37_observed_r": 0.014544157110487173,
+              "thinned_median_r": 0.062009216385208545,
+              "thinned_q05_q95_r": [
+                -0.0023641247728550903,
+                0.1207181660700426
+              ],
+              "fraction_thinned_r_le_fix37": 0.11
+            },
+            {
+              "centers_bp": [
+                3307520,
+                4241920
+              ],
+              "full_depth_r": 0.01871273064698647,
+              "fix37_observed_r": 0.006078729760842247,
+              "thinned_median_r": 0.061083131250185975,
+              "thinned_q05_q95_r": [
+                -0.0017328241078215173,
+                0.13013545706151972
+              ],
+              "fraction_thinned_r_le_fix37": 0.06
+            }
+          ],
+          "thinned_all_three_edges_positive_fraction": 0.88,
+          "thinned_min_edge_median_r": 0.03534038459889928,
+          "thinned_min_edge_q05_q95_r": [
+            -0.00853932952298174,
+            0.07865869463704411
+          ],
+          "fix37_min_edge_r": 0.006078729760842247
+        }
+      }
+    }
+  }
+}
