@@ -56,6 +56,7 @@ RESULT_PNGS = {
 RESULT_HTMLS = {"task2_annotation_review.html"}
 RESULT_MODELS = {
     "task1_spatial_task1_cnn.pt",
+    "task1_val_selected_cnn_selected.pt",
     "task1_groupnorm_final.pt",
     "task1_handcrafted_final.joblib",
     "task1_boundary_final.joblib",
@@ -71,15 +72,19 @@ REQUIRED_RESULTS = {
     "provenance.json",
     "task1_spatial_metrics.json",
     "task1_spatial_saliency_audit_summary.json",
+    "task1_val_selected_cnn_summary.json",
     "task2_novel_cluster_summary.json",
     "task2_novel_cluster_putative_novel_clusters.csv",
+    "task2_all_pair_transfer_summary.json",
     "task3_track_manifest.csv",
     "task4_order_invariant_sensitivity.json",
     "task4_heat_stable_changes.csv",
     "task5_ensemble_summary.json",
     "task5_reproducibility_audit.json",
+    "task5_spatial_blend_summary.json",
     "task6_all_positive_replicate_validation.json",
     "task6_domain_overlay_summary.json",
+    "task6_macroregion_validation.json",
 }
 MANIFEST_NAME = "MANIFEST.json"
 CHECKSUM_NAME = "SHA256SUMS.txt"

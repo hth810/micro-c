@@ -33,7 +33,7 @@ STAGE_INPUTS = {
     2: ("wt1", "wt2", "heat", "heat2", "rif", "rif2", "hns1", "hns2"),
     3: ("wt1", "heat", "rif", "gff"),
     4: ("wt1", "wt2", "heat", "heat2", "rif", "rif2"),
-    5: ("wt1",),
+    5: ("wt1", "wt2"),
     6: ("wt1", "wt2"),
 }
 
@@ -88,6 +88,12 @@ def build_steps(root: Path, files: dict[str, Path], python: str) -> list[Step]:
            ["--rep1", wt1, "--rep2", wt2, "--annotations", ann,
             "--split-manifest", results / "task1_spatial_annotation_manifest.csv",
             "--out-dir", task1], task1 / "metrics.json", task1 / "saliency_audit_summary.json")
+    module(1, "task1-val-selected-cnn-audit", "task1.evaluate_val_selected_cnn",
+           ["--windows", task1 / "extracted_windows.npz",
+            "--manifest", results / "task1_spatial_annotation_manifest.csv",
+            "--annotations", ann,
+            "--epochs", 18, "--out", out / "task1_val_selected_cnn"],
+           out / "task1_val_selected_cnn" / "summary.json")
 
     strict = out / "task2_strict_current"
     revised = out / "task2_strict_revised"
@@ -139,6 +145,16 @@ def build_steps(root: Path, files: dict[str, Path], python: str) -> list[Step]:
             "--loci", loci_csv, "--scan", revised / "all_windows.csv",
             "--annotations", ann, "--out", out / "task2_hns_validation"],
            out / "task2_hns_validation" / "summary.json")
+    module(2, "task2-all-pair-transfer-audit", "scripts.audit_novel_pair_transfer",
+           ["--condition", "WT", wt1, wt2,
+            "--condition", "heat44", heat1, heat2,
+            "--condition", "rif25", rif1, rif2,
+            "--condition", "HNS_mut", hns1, hns2,
+            "--scan", revised / "all_windows.csv", "--loci", loci_csv,
+            "--selected", revised / "all_candidates.csv",
+            "--discovery-summary", revised / "summary.json",
+            "--out", out / "task2_all_pair_transfer"],
+           out / "task2_all_pair_transfer" / "summary.json")
     module(2, "task2-annotation-review", "scripts.build_annotation_review",
            ["--evidence", evidence,
             "--images", out / "task2_strict_individual_heatmaps",
@@ -198,6 +214,14 @@ def build_steps(root: Path, files: dict[str, Path], python: str) -> list[Step]:
             "--main-patches", sr / "reconstructed_test_patches.npz",
             "--peak-patches", peak / "reconstructed_test_patches.npz",
             "--out", out / "task5_ensemble"], out / "task5_ensemble" / "summary.json")
+    module(5, "task5-spatial-blend-audit", "scripts.evaluate_sr_spatial_blend",
+           ["--cool", wt1, "--annotations", ann,
+            "--main-checkpoint", sr / "super_resolution.pt",
+            "--peak-checkpoint", peak / "super_resolution.pt",
+            "--main-patches", sr / "reconstructed_test_patches.npz",
+            "--peak-patches", peak / "reconstructed_test_patches.npz",
+            "--external-cool", wt2, "--out", out / "task5_spatial_blend"],
+           out / "task5_spatial_blend" / "summary.json")
 
     independent = out / "task6_independent"
     positive = out / "task6_all_positive"
@@ -218,6 +242,11 @@ def build_steps(root: Path, files: dict[str, Path], python: str) -> list[Step]:
             "--out", out / "task6_domain_overlay"],
            out / "task6_domain_overlay" / "summary.json",
            out / "task6_domain_overlay" / "chromosome_3d_macroregions.png")
+    module(6, "task6-macroregion-audit", "scripts.validate_3d_macroregions",
+           ["--bundle", positive / "contact_and_baseline.npz",
+            "--overlay", out / "task6_domain_overlay" / "coordinates_with_macroregions.csv",
+            "--shifts", 928, "--out", out / "task6_macroregion_validation.json"],
+           out / "task6_macroregion_validation.json")
     return steps
 
 

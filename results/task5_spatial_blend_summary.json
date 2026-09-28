@@ -1,0 +1,188 @@
+{
+  "selection_rule": "minimize validation known-center hotspot error, requiring validation tile SSIM at least baseline +0.005, PSNR above baseline, and hotspot below baseline; fallback to main model",
+  "selected": {
+    "method": "peak_roi",
+    "weight": 0.5,
+    "sigma": 3.0
+  },
+  "validation_selected": {
+    "method": "peak_roi",
+    "weight": 0.5,
+    "sigma": 3.0,
+    "val_tile_psnr_baseline": 18.510845213485858,
+    "val_tile_psnr_prediction": 20.586993632109504,
+    "val_tile_ssim_baseline": 0.11883293302788397,
+    "val_tile_ssim_prediction": 0.14276057910988785,
+    "val_known_hotspot_baseline_bins": 14.748891424584317,
+    "val_known_hotspot_prediction_bins": 13.046324633144513,
+    "val_known_hotspot_win_fraction": 0.35714285714285715,
+    "val_known_hotspot_tie_fraction": 0.32142857142857145,
+    "val_known_n_known": 28
+  },
+  "validation_candidates": 17,
+  "validation_tiles": 103,
+  "validation_known_centers": 28,
+  "test_tiles": 208,
+  "test_known_centers": 68,
+  "test_tiles_selected": {
+    "psnr_baseline": 18.90144283737836,
+    "psnr_prediction": 20.84021296976696,
+    "ssim_baseline": 0.11794622392678306,
+    "ssim_prediction": 0.14082176108742891
+  },
+  "test_known_selected": {
+    "hotspot_baseline_bins": 14.169314332564603,
+    "hotspot_prediction_bins": 13.902873666098783,
+    "hotspot_win_fraction": 0.35294117647058826,
+    "hotspot_tie_fraction": 0.29411764705882354,
+    "n_known": 68
+  },
+  "test_tiles_main": {
+    "psnr_baseline": 18.90144283737836,
+    "psnr_prediction": 20.8431399593556,
+    "ssim_baseline": 0.11794622392678306,
+    "ssim_prediction": 0.14067813288960893
+  },
+  "test_tiles_peak": {
+    "psnr_baseline": 18.90144283737836,
+    "psnr_prediction": 20.670440647213898,
+    "ssim_baseline": 0.11794622392678306,
+    "ssim_prediction": 0.11079363985689808
+  },
+  "test_known_main": {
+    "hotspot_baseline_bins": 14.169314332564603,
+    "hotspot_prediction_bins": 15.122052046688752,
+    "hotspot_win_fraction": 0.20588235294117646,
+    "hotspot_tie_fraction": 0.4264705882352941,
+    "n_known": 68
+  },
+  "test_known_peak": {
+    "hotspot_baseline_bins": 14.169314332564603,
+    "hotspot_prediction_bins": 13.866502766543796,
+    "hotspot_win_fraction": 0.38235294117647056,
+    "hotspot_tie_fraction": 0.25,
+    "n_known": 68
+  },
+  "test_known_by_type": {
+    "CHID": {
+      "n": 6,
+      "hotspot_baseline_bins": 21.459969123336638,
+      "hotspot_main_bins": 19.586566092697716,
+      "hotspot_peak_bins": 19.579005923166505,
+      "hotspot_prediction_bins": 19.579005923166505
+    },
+    "CHIN": {
+      "n": 52,
+      "hotspot_baseline_bins": 12.338149696195646,
+      "hotspot_main_bins": 14.349370343694021,
+      "hotspot_peak_bins": 13.501403831557186,
+      "hotspot_prediction_bins": 13.52973500789832
+    },
+    "OPCID": {
+      "n": 10,
+      "hotspot_baseline_bins": 19.31697756721994,
+      "hotspot_main_bins": 16.461288474655987,
+      "hotspot_peak_bins": 12.33751533450054,
+      "hotspot_prediction_bins": 12.437515334500542
+    }
+  },
+  "saved_test_bundle_audit": {
+    "main_checkpoint_sha256": "f3454bac6fd65f80a2177e81ee197e3a5ad647fda64a2be383a11b733fa4e39e",
+    "peak_checkpoint_sha256": "84163ce557a3ad952063238687888fa3d00f310995a6be6a6b5f86530d069ede",
+    "main_bundle_sha256": "5b4ca37592fdeb9a9f0614e54122c183cdb6e99a8a04f2d6fc31877d68136216",
+    "peak_bundle_sha256": "6b6b858a32171906ad7c85d816af3c7601145c1c47c166e5476610bcf8327c64",
+    "truth_exact_match": true,
+    "baseline_exact_match": true,
+    "main_prediction_max_abs_difference": 0.0,
+    "peak_prediction_max_abs_difference": 0.0,
+    "note": "All reported test tile metrics use fresh inference from the listed checkpoints, not these saved bundles."
+  },
+  "test_known_hotspot_gain_bins": 0.26644066646582043,
+  "test_known_hotspot_gain_site_bootstrap_95ci_bins": [
+    -2.8397261667941054,
+    3.27450774896037
+  ],
+  "test_known_hotspot_gain_vs_main_bins": 1.219178380589972,
+  "test_known_hotspot_gain_vs_main_site_bootstrap_95ci_bins": [
+    -1.3229293111010496,
+    3.934068031991806
+  ],
+  "caution": "Exploratory validation-selected ablation; the same test chromosome segment was inspected in earlier experiments. The low-resolution input is simulated from the high-resolution Micro-C map. Local 640-bp patches do not verify multi-kb structure recovery.",
+  "external_replicate": {
+    "cool": "data\\raw\\GSE272159_37C_rep2.mapq_30.10.cool",
+    "test_tiles": 208,
+    "test_known_centers": 68,
+    "tile_metrics": {
+      "psnr_baseline": 18.95325512352011,
+      "psnr_prediction": 20.99792712435965,
+      "ssim_baseline": 0.11578037693899654,
+      "ssim_prediction": 0.14271157363923834
+    },
+    "known_metrics": {
+      "hotspot_baseline_bins": 18.595453556091506,
+      "hotspot_prediction_bins": 17.986262074031007,
+      "hotspot_win_fraction": 0.3235294117647059,
+      "hotspot_tie_fraction": 0.35294117647058826,
+      "n_known": 68
+    },
+    "tile_main": {
+      "psnr_baseline": 18.95325512352011,
+      "psnr_prediction": 21.00132376892975,
+      "ssim_baseline": 0.11578037693899654,
+      "ssim_prediction": 0.14262338549518525
+    },
+    "tile_peak": {
+      "psnr_baseline": 18.95325512352011,
+      "psnr_prediction": 20.835394793516464,
+      "ssim_baseline": 0.11578037693899654,
+      "ssim_prediction": 0.11516300504759623
+    },
+    "known_main": {
+      "hotspot_baseline_bins": 18.595453556091506,
+      "hotspot_prediction_bins": 18.015971798573062,
+      "hotspot_win_fraction": 0.27941176470588236,
+      "hotspot_tie_fraction": 0.4411764705882353,
+      "n_known": 68
+    },
+    "known_peak": {
+      "hotspot_baseline_bins": 18.595453556091506,
+      "hotspot_prediction_bins": 17.973465975554177,
+      "hotspot_win_fraction": 0.35294117647058826,
+      "hotspot_tie_fraction": 0.3088235294117647,
+      "n_known": 68
+    },
+    "known_by_type": {
+      "CHID": {
+        "n": 6,
+        "hotspot_baseline_bins": 30.02936378451392,
+        "hotspot_main_bins": 23.933397924279333,
+        "hotspot_peak_bins": 23.5660517652463,
+        "hotspot_prediction_bins": 23.648483968437997
+      },
+      "CHIN": {
+        "n": 52,
+        "hotspot_baseline_bins": 17.56963666877523,
+        "hotspot_main_bins": 17.861431090443073,
+        "hotspot_peak_bins": 18.07455738218663,
+        "hotspot_prediction_bins": 18.091100461667626
+      },
+      "OPCID": {
+        "n": 10,
+        "hotspot_baseline_bins": 17.069355233082664,
+        "hotspot_main_bins": 15.26912780542521,
+        "hotspot_peak_bins": 14.092239187250158,
+        "hotspot_prediction_bins": 14.043769321676411
+      }
+    },
+    "hotspot_gain_bins": 0.6091914820604953,
+    "hotspot_gain_site_bootstrap_95ci_bins": [
+      -1.9652913348668015,
+      3.322436300941486
+    ],
+    "hotspot_gain_vs_main_bins": 0.02970972454204967,
+    "hotspot_gain_vs_main_site_bootstrap_95ci_bins": [
+      -2.0575679749288525,
+      2.282289768771848
+    ]
+  }
+}

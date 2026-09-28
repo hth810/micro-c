@@ -148,7 +148,7 @@ TOKEN = re.compile(r"(\*\*[^*]+\*\*|\[[^\]]+\]\([^)]+\)|`[^`]+`)")
 
 def markup(source: str) -> str:
     """Convert the small Markdown subset used by REPORT.md to Paragraph XML."""
-    source = source.replace("‑", "-").replace("–", "-").replace("—", "-")
+    source = source.replace("‑", "-").replace("–", "-").replace("—", "-").replace("−", "-")
     chunks: list[str] = []
     for part in TOKEN.split(source):
         if not part:
@@ -324,12 +324,12 @@ def cover(text_styles: dict[str, ParagraphStyle]) -> list[Flowable]:
     story.append(Spacer(1, 8 * mm))
     story.append(para("结果总览", text_styles["h1"]))
     overview = [
-        ("任务一", "空间隔离 CNN 准确率 0.870，但 CHID F1=0；边界感知混合模型五折 CHID 精确率/召回率 0.600/0.577。"),
-        ("任务二", "7 个未注释位点，组成 1 个待验证形态簇 N1；严格旧簇规则为 0，跨处理条件不稳定。"),
+        ("任务一", "空间隔离 CNN 准确率 0.870，但 CHID F1=0；新纯 CNN 找回一条 CHID 却使整体退步；混合模型不是纯深度学习。"),
+        ("任务二", "7 个未注释位点，仅提名 N1 一对形态候选；旧簇规则为 0，旧经验 p 对照不匹配，尚未证实新类型。"),
         ("任务三", "覆盖全基因组的 465 张 10 kb 多轨道图，附原始图像清单与哈希。"),
         ("任务四", "44℃ 主种子筛出 21 条注释，三种子交集 17 条；属于探索性差异候选。"),
-        ("任务五", "4 倍模拟超分辨率 PSNR 较双线性插值提升 1.942 dB，热点定位仍未达标。"),
-        ("任务六", "WT rep2 接触-距离 Spearman 0.712；精确距离匹配 AUC 0.748，未超过 MDS 0.753。"),
+        ("任务五", "4 倍模拟超分辨率 PSNR 提升 1.942 dB；局部融合平均热点误差略降，但置信区间跨 0。"),
+        ("任务六", "WT rep2 接触-距离 Spearman 0.712；精确距离匹配 AUC 0.748，未超过 MDS 0.753；无三维真值。"),
     ]
     table = Table(
         [[para(a, text_styles["cover_label"]), para(b, text_styles["cover_table"])] for a, b in overview],

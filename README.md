@@ -2,7 +2,7 @@
 
 本仓库实现课程方案中的任务一至六。任务一使用有监督 CNN 和显著性图；任务二进行全基因组候选发现、形态表征、聚类和跨重复核验；任务三绘制全基因组多条件轨道；任务四定位条件变化；任务五进行接触矩阵超分辨重建；任务六输出三维坐标并与 MDS 比较。方法和验收边界见 [方法说明](METHODS.md)。
 
-逐项交付核查、失败对照及课程正式提交尚缺的材料见 [六任务核查表](AUDIT.md)。从原始数据按依赖顺序运行的命令与断点续跑说明见 [一键复现指南](REPRODUCE.md)。当前最强的已知区间分类器是手工特征加梯度提升，不能称为纯深度学习；疑似新结构 N1 尚未获独立生物学验证；超分辨虽提升图像指标，结构热点定位仍不优于插值。
+逐项交付核查、失败对照及课程正式提交尚缺的材料见 [六任务核查表](AUDIT.md)。从原始数据按依赖顺序运行的命令与断点续跑说明见 [一键复现指南](REPRODUCE.md)。当前最强的已知区间分类器是手工特征加梯度提升，不能称为纯深度学习；N1 只是 WT 下的形态候选对，原经验 p 因背景不匹配已降级，尚未证实新结构类型；超分辨局部融合在平均热点误差上略有改善，但区间跨 0，不能称稳定恢复。
 
 课程加分项的[离线辅助标注页](results/task2_annotation_review.html)展示 7 个候选位点的双重复热图、已知类 CNN 形态提示和人工复核导出。它不会自动把候选判定为新结构；模型对未注释区域属于分布外应用。报告 PDF 可用 `python scripts/build_report_pdf.py` 从 [Markdown 报告](REPORT.md)重建（另需 `reportlab>=4,<6` 及本机中文字体）；[已生成 PDF](output/pdf/microc_experiment_report.pdf)随分支保存。讲解视频的[分镜口播稿](submission/PRESENTATION_OUTLINE.md)供组员制作，不能代替录制完成的视频。
 
@@ -135,6 +135,16 @@ python -m scripts.evaluate_saved_sr --bundle results
 python scripts/collect_results.py
 python -m scripts.check_deliverables --out results/quality_audit.json
 ```
+
+最新探索性复核的复现命令：任务一纯 CNN 选模见 `python -m task1.evaluate_val_selected_cnn --epochs 18`，其测试成绩低于原 CNN，不作为主模型。任务二的完整 21 对跨条件审计须同时提供四组双重复（命令中的 `--condition` 后依次为条件名、rep1、rep2）：
+
+```bash
+python -m scripts.audit_novel_pair_transfer --condition WT data/raw/GSE272159_37C_rep1.mapq_30.10.cool data/raw/GSE272159_37C_rep2.mapq_30.10.cool --condition heat44 data/raw/GSE272159_44C_rep1.mapq_30.10.cool data/raw/GSE272159_44C_rep2.mapq_30.10.cool.gz --condition rif25 data/raw/GSE272159_rif25_rep1.MG1655.mapq_30.10.cool data/raw/GSE272159_rif25_rep2.MG1655.mapq_30.10.cool --condition HNS_mut data/raw/GSM9678478_HNS_mut_rep1.MG1655.mapq_30.10.cool.gz data/raw/GSM9678479_HNS_mut_rep2.MG1655.mapq_30.10.cool.gz --out outputs/task2_all_pair_transfer
+python -m scripts.evaluate_sr_spatial_blend --cool data/raw/GSE272159_37C_rep1.mapq_30.10.cool --external-cool data/raw/GSE272159_37C_rep2.mapq_30.10.cool --out outputs/task5_spatial_blend
+python -m scripts.validate_3d_macroregions --shifts 928 --out outputs/task6_macroregion_validation.json
+```
+
+任务二审计、任务五验证选定局部融合和任务六外部近似宏区域位置检验均不构成新结构或真实三维形态的独立确证；逐项数值和限制见报告。
 
 ## 验证
 

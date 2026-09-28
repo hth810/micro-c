@@ -1,7 +1,8 @@
 {
   "checks_passed": 6,
   "known_annotations": 344,
-  "task2_putative_clusters": 1,
+  "task2_putative_clusters_unvalidated": 1,
+  "task2_novelty_matched_independent_background_windows": 0,
   "task3_track_pngs_local": 465,
   "task3_manifest_pngs": 465,
   "task4_primary_selected_annotations": 21,

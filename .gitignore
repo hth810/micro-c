@@ -4,6 +4,7 @@
 *.xlsx
 *.pdf
 !output/pdf/microc_experiment_report.pdf
+output/pdf/qa/
 data/raw/
 outputs/
 tmp/pdfs/

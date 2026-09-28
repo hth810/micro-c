@@ -1,0 +1,194 @@
+{
+  "conditions": [
+    {
+      "condition": "WT",
+      "n_candidate_loci": 7,
+      "n_candidate_pairs": 21,
+      "n_background_windows": 123,
+      "n_independent_background_pairs": 7456,
+      "pairs_passing_all_six_p99": 1,
+      "best_pair_bp": [
+        3307520,
+        4241920
+      ],
+      "best_joint_percentile_floor": 0.9997317596566524,
+      "n1_joint_percentile_floor": 0.9997317596566524,
+      "full_gate_independent_pairs": 8332,
+      "full_gate_pairs_passing_all_six_p99": 14,
+      "n1_full_gate_rank_by_joint_floor": 3,
+      "full_gate_top_five": [
+        {
+          "center_a_bp": 4241920,
+          "center_b_bp": 3532800,
+          "joint_percentile_floor": 0.9998658798283262
+        },
+        {
+          "center_a_bp": 3307520,
+          "center_b_bp": 3532800,
+          "joint_percentile_floor": 0.9998658798283262
+        },
+        {
+          "center_a_bp": 3307520,
+          "center_b_bp": 4241920,
+          "joint_percentile_floor": 0.9997317596566524
+        },
+        {
+          "center_a_bp": 1400320,
+          "center_b_bp": 2045440,
+          "joint_percentile_floor": 0.9987929184549357
+        },
+        {
+          "center_a_bp": 3307520,
+          "center_b_bp": 2042880,
+          "joint_percentile_floor": 0.9971834763948498
+        }
+      ],
+      "caution": "WT-selected candidate positions and WT-gated controls; controls do not match novelty distance. Percentiles are descriptive, not independent discovery FDR."
+    },
+    {
+      "condition": "heat44",
+      "n_candidate_loci": 7,
+      "n_candidate_pairs": 21,
+      "n_background_windows": 123,
+      "n_independent_background_pairs": 7456,
+      "pairs_passing_all_six_p99": 0,
+      "best_pair_bp": [
+        2736640,
+        3307520
+      ],
+      "best_joint_percentile_floor": 0.740343347639485,
+      "n1_joint_percentile_floor": 0.21915236051502146,
+      "full_gate_independent_pairs": 8332,
+      "full_gate_pairs_passing_all_six_p99": 13,
+      "n1_full_gate_rank_by_joint_floor": 4989,
+      "full_gate_top_five": [
+        {
+          "center_a_bp": 3307520,
+          "center_b_bp": 921600,
+          "joint_percentile_floor": 0.9995976394849786
+        },
+        {
+          "center_a_bp": 1021440,
+          "center_b_bp": 2739200,
+          "joint_percentile_floor": 0.9983905579399142
+        },
+        {
+          "center_a_bp": 3307520,
+          "center_b_bp": 1018880,
+          "joint_percentile_floor": 0.9983905579399142
+        },
+        {
+          "center_a_bp": 463360,
+          "center_b_bp": 2831360,
+          "joint_percentile_floor": 0.9981223175965666
+        },
+        {
+          "center_a_bp": 463360,
+          "center_b_bp": 1021440,
+          "joint_percentile_floor": 0.9963787553648069
+        }
+      ],
+      "caution": "WT-selected candidate positions and WT-gated controls; controls do not match novelty distance. Percentiles are descriptive, not independent discovery FDR."
+    },
+    {
+      "condition": "rif25",
+      "n_candidate_loci": 7,
+      "n_candidate_pairs": 21,
+      "n_background_windows": 123,
+      "n_independent_background_pairs": 7456,
+      "pairs_passing_all_six_p99": 0,
+      "best_pair_bp": [
+        1991680,
+        3886080
+      ],
+      "best_joint_percentile_floor": 0.39954399141630903,
+      "n1_joint_percentile_floor": 0.012741416309012876,
+      "full_gate_independent_pairs": 8332,
+      "full_gate_pairs_passing_all_six_p99": 0,
+      "n1_full_gate_rank_by_joint_floor": 7856,
+      "full_gate_top_five": [
+        {
+          "center_a_bp": 3430400,
+          "center_b_bp": 4418560,
+          "joint_percentile_floor": 0.9790772532188842
+        },
+        {
+          "center_a_bp": 3394560,
+          "center_b_bp": 3430400,
+          "joint_percentile_floor": 0.9703594420600858
+        },
+        {
+          "center_a_bp": 3453440,
+          "center_b_bp": 4188160,
+          "joint_percentile_floor": 0.9455472103004292
+        },
+        {
+          "center_a_bp": 3394560,
+          "center_b_bp": 4439040,
+          "joint_percentile_floor": 0.9436695278969958
+        },
+        {
+          "center_a_bp": 363520,
+          "center_b_bp": 1111040,
+          "joint_percentile_floor": 0.9333422746781116
+        }
+      ],
+      "caution": "WT-selected candidate positions and WT-gated controls; controls do not match novelty distance. Percentiles are descriptive, not independent discovery FDR."
+    },
+    {
+      "condition": "HNS_mut",
+      "n_candidate_loci": 7,
+      "n_candidate_pairs": 21,
+      "n_background_windows": 123,
+      "n_independent_background_pairs": 7456,
+      "pairs_passing_all_six_p99": 0,
+      "best_pair_bp": [
+        2736640,
+        3307520
+      ],
+      "best_joint_percentile_floor": 0.9431330472103004,
+      "n1_joint_percentile_floor": 0.7748122317596566,
+      "full_gate_independent_pairs": 8332,
+      "full_gate_pairs_passing_all_six_p99": 9,
+      "n1_full_gate_rank_by_joint_floor": 535,
+      "full_gate_top_five": [
+        {
+          "center_a_bp": 1018880,
+          "center_b_bp": 2311680,
+          "joint_percentile_floor": 0.9997317596566524
+        },
+        {
+          "center_a_bp": 3453440,
+          "center_b_bp": 4188160,
+          "joint_percentile_floor": 0.9974517167381974
+        },
+        {
+          "center_a_bp": 1021440,
+          "center_b_bp": 3709440,
+          "joint_percentile_floor": 0.9965128755364807
+        },
+        {
+          "center_a_bp": 3307520,
+          "center_b_bp": 2311680,
+          "joint_percentile_floor": 0.9951716738197425
+        },
+        {
+          "center_a_bp": 780800,
+          "center_b_bp": 1021440,
+          "joint_percentile_floor": 0.9949034334763949
+        }
+      ],
+      "caution": "WT-selected candidate positions and WT-gated controls; controls do not match novelty distance. Percentiles are descriptive, not independent discovery FDR."
+    }
+  ],
+  "selection_data_reuse": "Both WT replicates enter the replicate-r candidate gate; the same WT matrices enter the pair-morphology audit. The WT pair is therefore not a held-out validation.",
+  "novelty_distance_threshold_p90": 9.698930549621581,
+  "novelty_distance_matched_background_windows": 2,
+  "independent_novelty_distance_matched_background_windows": 0,
+  "pair_passing_every_condition": 0,
+  "best_worst_condition_pair_bp": [
+    2736640,
+    3307520
+  ],
+  "caution": "Exploratory robustness audit of WT-selected loci. The same-gate background is not novelty-distance matched and does not support a formal discovery p or FDR; conditions are biological perturbations, not independent WT replicates."
+}

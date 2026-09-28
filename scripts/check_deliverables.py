@@ -49,6 +49,12 @@ def main() -> None:
     balanced = read_json(bundle / "task1_balanced_cnn_summary.json")
     assert balanced["class_weight_power"] == 1.0
     assert len(pd.read_csv(required(bundle / "task1_balanced_cnn_crossfit_predictions.csv"))) == 344
+    val_cnn = read_json(bundle / "task1_val_selected_cnn_summary.json")
+    assert len(val_cnn["candidates"]) == 4 and val_cnn["test_structures"] == 69
+    assert val_cnn["test"]["classification_report"]["CHID"]["support"] == 6
+    assert len(pd.read_csv(required(bundle / "task1_val_selected_cnn_test_predictions.csv"))) == 69
+    assert len(pd.read_csv(required(bundle / "task1_val_selected_cnn_test_sample_predictions.csv"))) == 138
+    required(bundle / "task1_val_selected_cnn_selected.pt")
 
     # Task 2: a candidate cluster means independent loci, not duplicate slide windows.
     discovery = read_json(bundle / "task2_summary.json")
@@ -75,6 +81,13 @@ def main() -> None:
         transfer = read_json(bundle / f"task2_novel_cluster_transfer_{condition}.json")
         assert transfer["pair_centers_bp"] == loci.center.astype(int).tolist()
         assert transfer["independent_background_pairs"] == 7456
+    pair_audit = read_json(bundle / "task2_all_pair_transfer_summary.json")
+    assert len(pair_audit["conditions"]) == 4
+    assert [row["pairs_passing_all_six_p99"] for row in pair_audit["conditions"]] == [1, 0, 0, 0]
+    assert pair_audit["conditions"][0]["full_gate_independent_pairs"] == 8332
+    assert pair_audit["independent_novelty_distance_matched_background_windows"] == 0
+    assert len(pd.read_csv(required(bundle / "task2_all_pair_transfer_all_condition_pairs.csv"))) == 84
+    required(bundle / "task2_all_pair_transfer_cross_condition_pairs.csv")
 
     # Task 3: the full PNG corpus is ignored in Git; validate the committed
     # manifest in a clean checkout, and every local PNG when present.
@@ -131,6 +144,14 @@ def main() -> None:
     assert sr_rerun["matched_test_data"] and sr_rerun["test_predictions"]["patches"] == 208
     assert abs(sr_rerun["test_psnr_cnn"]["rerun"] - sr["comparison"]["psnr"]["cnn"]) < 1e-8
     assert sr_rerun["checkpoint_sha256"]["archived"] != sr_rerun["checkpoint_sha256"]["rerun"]
+    spatial_blend = read_json(bundle / "task5_spatial_blend_summary.json")
+    assert spatial_blend["validation_candidates"] == 17
+    assert spatial_blend["test_tiles"] == 208 and spatial_blend["test_known_centers"] == 68
+    assert spatial_blend["external_replicate"]["test_tiles"] == 208
+    assert spatial_blend["saved_test_bundle_audit"]["truth_exact_match"]
+    assert len(pd.read_csv(required(bundle / "task5_spatial_blend_validation_grid.csv"))) == 17
+    for name in ("test_known_per_structure", "external_known_per_structure"):
+        assert len(pd.read_csv(required(bundle / f"task5_spatial_blend_{name}.csv"))) == 68
 
     # Task 6: coordinates, independent baseline, and WT-replicate check.
     rep = read_json(bundle / "task6_all_positive_replicate_validation.json")
@@ -152,6 +173,12 @@ def main() -> None:
     overlay = read_json(bundle / "task6_domain_overlay_summary.json")
     assert sum(overlay["region_bin_counts"].values()) == len(coords)
     required(bundle / "task6_domain_overlay_chromosome_3d_macroregions.png")
+    macro = read_json(bundle / "task6_macroregion_validation.json")
+    assert macro["bins"] == len(coords) and macro["shift_count"] == len(coords) - 1
+    for trim in ("0", "50000"):
+        methods = macro["trim_checks"][trim]["methods"]
+        assert abs(methods["genome_circle_baseline"]["same_region_vs_different_auc"] - .5) < .01
+        assert methods["all_positive_mlp"]["matched_pairs_per_class"] > 20_000
 
     # Every local Markdown evidence link must resolve in a clean checkout.
     for document in ("README.md", "REPRODUCE.md", "METHODS.md", "REPORT.md",
@@ -162,7 +189,9 @@ def main() -> None:
                 assert (path.parent / destination).exists(), f"Broken link in {document}: {destination}"
 
     report = {"checks_passed": 6, "known_annotations": len(annotation),
-              "task2_putative_clusters": novel["putative_novel_clusters"],
+              "task2_putative_clusters_unvalidated": novel["putative_novel_clusters"],
+              "task2_novelty_matched_independent_background_windows":
+                  pair_audit["independent_novelty_distance_matched_background_windows"],
               "task3_track_pngs_local": len(starts), "task3_manifest_pngs": len(manifest),
               "task4_primary_selected_annotations": len(changes),
               "task4_stable_annotations": len(stable),

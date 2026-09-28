@@ -1,0 +1,81 @@
+{
+  "bins": 929,
+  "region_source": "https://doi.org/10.1371/journal.pgen.1006758",
+  "region_definition": "approximate published genomic macroregion intervals",
+  "label_shift_null": "rotate all six region intervals together around the chromosome; excludes unshifted labels",
+  "shift_seed": 20260928,
+  "shift_count": 928,
+  "trim_checks": {
+    "0": {
+      "retained_bins": 929,
+      "methods": {
+        "all_positive_mlp": {
+          "same_region_vs_different_auc": 0.6421738975420233,
+          "matched_pairs_per_class": 38682,
+          "eligible_circular_offsets": 185,
+          "selection_seed": 20260928,
+          "standardized_between_minus_within_distance": 0.35412433350122097,
+          "circular_shift_empirical_upper_p": 0.02906350914962325,
+          "shift_null_mean": -0.0003815994973073243,
+          "shift_null_p95": 0.2977504658391042
+        },
+        "rep1_mds_baseline": {
+          "same_region_vs_different_auc": 0.6017539558540246,
+          "matched_pairs_per_class": 38682,
+          "eligible_circular_offsets": 185,
+          "selection_seed": 20260928,
+          "standardized_between_minus_within_distance": 0.33881501395453156,
+          "circular_shift_empirical_upper_p": 0.004305705059203444,
+          "shift_null_mean": -0.0003651023857268339,
+          "shift_null_p95": 0.2594732941580535
+        },
+        "genome_circle_baseline": {
+          "same_region_vs_different_auc": 0.500608116854203,
+          "matched_pairs_per_class": 38682,
+          "eligible_circular_offsets": 185,
+          "selection_seed": 20260928,
+          "standardized_between_minus_within_distance": 1.2940616623331277e-16,
+          "circular_shift_empirical_upper_p": null,
+          "shift_null_mean": -3.7249405540699153e-17,
+          "shift_null_p95": 9.681921129031309e-17
+        }
+      }
+    },
+    "50000": {
+      "retained_bins": 809,
+      "methods": {
+        "all_positive_mlp": {
+          "same_region_vs_different_auc": 0.6773414108488772,
+          "matched_pairs_per_class": 22508,
+          "eligible_circular_offsets": 146,
+          "selection_seed": 20260928,
+          "standardized_between_minus_within_distance": 0.42275201257065625,
+          "circular_shift_empirical_upper_p": 0.03336921420882669,
+          "shift_null_mean": -0.0006162868351126461,
+          "shift_null_p95": 0.3708923055090382
+        },
+        "rep1_mds_baseline": {
+          "same_region_vs_different_auc": 0.6257146561541659,
+          "matched_pairs_per_class": 22508,
+          "eligible_circular_offsets": 146,
+          "selection_seed": 20260928,
+          "standardized_between_minus_within_distance": 0.4020422359959736,
+          "circular_shift_empirical_upper_p": 0.012917115177610334,
+          "shift_null_mean": -0.0007224393462198813,
+          "shift_null_p95": 0.31699769597494615
+        },
+        "genome_circle_baseline": {
+          "same_region_vs_different_auc": 0.5008025462360337,
+          "matched_pairs_per_class": 22508,
+          "eligible_circular_offsets": 146,
+          "selection_seed": 20260928,
+          "standardized_between_minus_within_distance": 3.5013534125264466e-16,
+          "circular_shift_empirical_upper_p": null,
+          "shift_null_mean": 2.2131399294143178e-16,
+          "shift_null_p95": 3.895658033353912e-16
+        }
+      }
+    }
+  },
+  "caution": "Exploratory external genomic-label alignment, not microscopy truth; macroregion boundaries are approximate and published in a different experimental setting. Circular-shift p values test label alignment only, not physical 3D accuracy."
+}
