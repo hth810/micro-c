@@ -1,0 +1,153 @@
+{
+  "protocol": "Training-only candidate ranker; validation-only selection; frozen rep1/rep2 test. Detector proposals are distinct from main CNN image argmax.",
+  "metric_protocol": "Target hotspot and image top1 are Gaussian(sigma=2 bins) upper-triangle (column-row>=3) argmax. Each image baseline's top5 is its five highest 5x5 local maxima on that same smoothed region. The detector ranks the unique union of bilinear/main/peak-weighted top5 candidates and reports its own top1 and top5; hit5 means any of five candidates within Euclidean 5 bins of target. These detector metrics are not the restored image's hotspot metrics.",
+  "uncertainty_protocol": "Paired gain intervals use 5000 bootstrap draws of complete fixed 50-kb genomic blocks, not independent individual windows; intervals are descriptive because only one genomic region and two related biological replicates are available.",
+  "features": [
+    "row",
+    "col",
+    "offdiag",
+    "center_distance",
+    "edge_distance",
+    "base_z",
+    "main_z",
+    "peak_z",
+    "base_peak_gap",
+    "main_peak_gap",
+    "peak_peak_gap",
+    "base_local_contrast",
+    "main_local_contrast",
+    "peak_local_contrast",
+    "base_top1_distance",
+    "main_top1_distance",
+    "peak_top1_distance",
+    "base_vote",
+    "main_vote",
+    "peak_vote"
+  ],
+  "train": {
+    "patches": 725,
+    "candidates": 7133,
+    "positive_candidate_fraction": 0.13416514790410766,
+    "oracle_top1_mean_error_bins": 3.900337810291088,
+    "oracle_top5_hit5": 0.8110344827586207
+  },
+  "validation_tiles": 103,
+  "validation_known": 28,
+  "validation_known_by_type": {
+    "CHIN": 20,
+    "OPCID": 6,
+    "CHID": 2
+  },
+  "selection_rule": "Minimize validation known top1 error subject to CHIN and tile top1 no worse than bilinear, known top5 hit5 no worse than bilinear, and overall known top1 strictly better; else bilinear detector.",
+  "selection": {
+    "grid": [
+      {
+        "name": "bilinear",
+        "val_known_top1_error": 14.748891424584317,
+        "val_chin_top1_error": 17.450932208182106,
+        "val_tile_top1_error": 14.15027088930936,
+        "val_known_top5_hit5": 0.7142857142857143,
+        "feasible": false
+      },
+      {
+        "name": "main",
+        "val_known_top1_error": 14.138826009097738,
+        "val_chin_top1_error": 15.879488022842546,
+        "val_tile_top1_error": 13.636536078205928,
+        "val_known_top5_hit5": 0.7142857142857143,
+        "feasible": true
+      },
+      {
+        "name": "peak",
+        "val_known_top1_error": 13.091607992081135,
+        "val_chin_top1_error": 15.263051776780742,
+        "val_tile_top1_error": 14.227425947745495,
+        "val_known_top5_hit5": 0.7142857142857143,
+        "feasible": false
+      },
+      {
+        "name": "logistic",
+        "val_known_top1_error": 13.809314145471154,
+        "val_chin_top1_error": 14.740361722427673,
+        "val_tile_top1_error": 11.179547710504947,
+        "val_known_top5_hit5": 0.7142857142857143,
+        "feasible": true
+      },
+      {
+        "name": "boosted",
+        "val_known_top1_error": 15.489720641177104,
+        "val_chin_top1_error": 15.303924284901948,
+        "val_tile_top1_error": 11.77535154468849,
+        "val_known_top5_hit5": 0.6785714285714286,
+        "feasible": false
+      }
+    ],
+    "selected": {
+      "name": "logistic",
+      "val_known_top1_error": 13.809314145471154,
+      "val_chin_top1_error": 14.740361722427673,
+      "val_tile_top1_error": 11.179547710504947,
+      "val_known_top5_hit5": 0.7142857142857143,
+      "feasible": true
+    }
+  },
+  "selected_detector": "logistic",
+  "genomic_split": {
+    "patch_bp": 640,
+    "train_tile_centers": 725,
+    "validation_tile_centers": 103,
+    "test_tile_centers": 208,
+    "train_to_validation_tiles": {
+      "first_windows": 725,
+      "second_windows": 103,
+      "overlap_pairs": 0,
+      "first_windows_overlapping": 0,
+      "second_windows_overlapping": 0,
+      "minimum_center_distance_bp": 4480
+    },
+    "train_to_validation_known": {
+      "first_windows": 725,
+      "second_windows": 28,
+      "overlap_pairs": 0,
+      "first_windows_overlapping": 0,
+      "second_windows_overlapping": 0,
+      "minimum_center_distance_bp": 19110
+    },
+    "train_to_test_tiles": {
+      "first_windows": 725,
+      "second_windows": 208,
+      "overlap_pairs": 0,
+      "first_windows_overlapping": 0,
+      "second_windows_overlapping": 0,
+      "minimum_center_distance_bp": 465920
+    },
+    "train_to_test_known": {
+      "first_windows": 725,
+      "second_windows": 68,
+      "overlap_pairs": 0,
+      "first_windows_overlapping": 0,
+      "second_windows_overlapping": 0,
+      "minimum_center_distance_bp": 477350
+    },
+    "validation_tiles_to_test_known": {
+      "first_windows": 103,
+      "second_windows": 68,
+      "overlap_pairs": 0,
+      "first_windows_overlapping": 0,
+      "second_windows_overlapping": 0,
+      "minimum_center_distance_bp": 15910
+    },
+    "validation_known_to_test_known": {
+      "first_windows": 28,
+      "second_windows": 68,
+      "overlap_pairs": 0,
+      "first_windows_overlapping": 0,
+      "second_windows_overlapping": 0,
+      "minimum_center_distance_bp": 46690
+    },
+    "note": "Rep2 reuses identical genomic coordinates intentionally and is a replicate transfer, not independent loci."
+  },
+  "main_checkpoint_sha256": "f3454bac6fd65f80a2177e81ee197e3a5ad647fda64a2be383a11b733fa4e39e",
+  "peak_checkpoint_sha256": "84163ce557a3ad952063238687888fa3d00f310995a6be6a6b5f86530d069ede",
+  "caution": "Earlier model development inspected this test genomic segment; results remain exploratory. The restored image is unchanged main CNN; detector hotspot metrics must not be reported as image hotspot metrics. Synthetic low-resolution input from the same Micro-C map."
+}

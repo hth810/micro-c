@@ -1,0 +1,854 @@
+{
+  "protocol": "Training-only candidate ranker; validation-only selection; frozen rep1/rep2 test. Detector proposals are distinct from main CNN image argmax.",
+  "metric_protocol": "Target hotspot and image top1 are Gaussian(sigma=2 bins) upper-triangle (column-row>=3) argmax. Each image baseline's top5 is its five highest 5x5 local maxima on that same smoothed region. The detector ranks the unique union of bilinear/main/peak-weighted top5 candidates and reports its own top1 and top5; hit5 means any of five candidates within Euclidean 5 bins of target. These detector metrics are not the restored image's hotspot metrics.",
+  "uncertainty_protocol": "Paired gain intervals use 5000 bootstrap draws of complete fixed 50-kb genomic blocks, not independent individual windows; intervals are descriptive because only one genomic region and two related biological replicates are available.",
+  "features": [
+    "row",
+    "col",
+    "offdiag",
+    "center_distance",
+    "edge_distance",
+    "base_z",
+    "main_z",
+    "peak_z",
+    "base_peak_gap",
+    "main_peak_gap",
+    "peak_peak_gap",
+    "base_local_contrast",
+    "main_local_contrast",
+    "peak_local_contrast",
+    "base_top1_distance",
+    "main_top1_distance",
+    "peak_top1_distance",
+    "base_vote",
+    "main_vote",
+    "peak_vote"
+  ],
+  "train": {
+    "patches": 725,
+    "candidates": 7133,
+    "positive_candidate_fraction": 0.13416514790410766,
+    "oracle_top1_mean_error_bins": 3.900337810291088,
+    "oracle_top5_hit5": 0.8110344827586207
+  },
+  "validation_tiles": 103,
+  "validation_known": 28,
+  "validation_known_by_type": {
+    "CHIN": 20,
+    "OPCID": 6,
+    "CHID": 2
+  },
+  "selection_rule": "Minimize validation known top1 error subject to CHIN and tile top1 no worse than bilinear, known top5 hit5 no worse than bilinear, and overall known top1 strictly better; else bilinear detector.",
+  "selection": {
+    "grid": [
+      {
+        "name": "bilinear",
+        "val_known_top1_error": 14.748891424584317,
+        "val_chin_top1_error": 17.450932208182106,
+        "val_tile_top1_error": 14.15027088930936,
+        "val_known_top5_hit5": 0.7142857142857143,
+        "feasible": false
+      },
+      {
+        "name": "main",
+        "val_known_top1_error": 14.138826009097738,
+        "val_chin_top1_error": 15.879488022842546,
+        "val_tile_top1_error": 13.636536078205928,
+        "val_known_top5_hit5": 0.7142857142857143,
+        "feasible": true
+      },
+      {
+        "name": "peak",
+        "val_known_top1_error": 13.091607992081135,
+        "val_chin_top1_error": 15.263051776780742,
+        "val_tile_top1_error": 14.227425947745495,
+        "val_known_top5_hit5": 0.7142857142857143,
+        "feasible": false
+      },
+      {
+        "name": "logistic",
+        "val_known_top1_error": 13.809314145471154,
+        "val_chin_top1_error": 14.740361722427673,
+        "val_tile_top1_error": 11.179547710504947,
+        "val_known_top5_hit5": 0.7142857142857143,
+        "feasible": true
+      },
+      {
+        "name": "boosted",
+        "val_known_top1_error": 15.489720641177104,
+        "val_chin_top1_error": 15.303924284901948,
+        "val_tile_top1_error": 11.77535154468849,
+        "val_known_top5_hit5": 0.6785714285714286,
+        "feasible": false
+      }
+    ],
+    "selected": {
+      "name": "logistic",
+      "val_known_top1_error": 13.809314145471154,
+      "val_chin_top1_error": 14.740361722427673,
+      "val_tile_top1_error": 11.179547710504947,
+      "val_known_top5_hit5": 0.7142857142857143,
+      "feasible": true
+    }
+  },
+  "selected_detector": "logistic",
+  "genomic_split": {
+    "patch_bp": 640,
+    "train_tile_centers": 725,
+    "validation_tile_centers": 103,
+    "test_tile_centers": 208,
+    "train_to_validation_tiles": {
+      "first_windows": 725,
+      "second_windows": 103,
+      "overlap_pairs": 0,
+      "first_windows_overlapping": 0,
+      "second_windows_overlapping": 0,
+      "minimum_center_distance_bp": 4480
+    },
+    "train_to_validation_known": {
+      "first_windows": 725,
+      "second_windows": 28,
+      "overlap_pairs": 0,
+      "first_windows_overlapping": 0,
+      "second_windows_overlapping": 0,
+      "minimum_center_distance_bp": 19110
+    },
+    "train_to_test_tiles": {
+      "first_windows": 725,
+      "second_windows": 208,
+      "overlap_pairs": 0,
+      "first_windows_overlapping": 0,
+      "second_windows_overlapping": 0,
+      "minimum_center_distance_bp": 465920
+    },
+    "train_to_test_known": {
+      "first_windows": 725,
+      "second_windows": 68,
+      "overlap_pairs": 0,
+      "first_windows_overlapping": 0,
+      "second_windows_overlapping": 0,
+      "minimum_center_distance_bp": 477350
+    },
+    "validation_tiles_to_test_known": {
+      "first_windows": 103,
+      "second_windows": 68,
+      "overlap_pairs": 0,
+      "first_windows_overlapping": 0,
+      "second_windows_overlapping": 0,
+      "minimum_center_distance_bp": 15910
+    },
+    "validation_known_to_test_known": {
+      "first_windows": 28,
+      "second_windows": 68,
+      "overlap_pairs": 0,
+      "first_windows_overlapping": 0,
+      "second_windows_overlapping": 0,
+      "minimum_center_distance_bp": 46690
+    },
+    "note": "Rep2 reuses identical genomic coordinates intentionally and is a replicate transfer, not independent loci."
+  },
+  "main_checkpoint_sha256": "f3454bac6fd65f80a2177e81ee197e3a5ad647fda64a2be383a11b733fa4e39e",
+  "peak_checkpoint_sha256": "84163ce557a3ad952063238687888fa3d00f310995a6be6a6b5f86530d069ede",
+  "caution": "Earlier model development inspected this test genomic segment; results remain exploratory. The restored image is unchanged main CNN; detector hotspot metrics must not be reported as image hotspot metrics. Synthetic low-resolution input from the same Micro-C map.",
+  "pretest_validation_artifact_sha256": "1e32859fcb2868e5d4fe2d0f0a1ff0497a69d26bf59d4b3589d8eff7c49a4294",
+  "rep1_test": {
+    "tiles": {
+      "n": 208,
+      "genomic_50kb_blocks": 19,
+      "top1_error": {
+        "reference_mean": 16.22607135009931,
+        "prediction_mean": 13.558361038411498,
+        "mean_gain": 2.667710311687811,
+        "win_fraction": 0.3269230769230769,
+        "block_bootstrap_95ci_gain": [
+          0.7775826847774203,
+          4.932606133973165
+        ]
+      },
+      "top5_error": {
+        "reference_mean": 6.50843095961606,
+        "prediction_mean": 7.155489948099076,
+        "mean_gain": -0.6470589884830152,
+        "win_fraction": 0.3605769230769231,
+        "block_bootstrap_95ci_gain": [
+          -1.486878286239617,
+          0.1359197585803427
+        ]
+      },
+      "top5_hit5": {
+        "reference_mean": 0.6298076923076923,
+        "prediction_mean": 0.7259615384615384,
+        "mean_gain": 0.09615384615384616,
+        "win_fraction": 0.11538461538461539,
+        "block_bootstrap_95ci_gain": [
+          0.059113300492610835,
+          0.13592233009708737
+        ]
+      }
+    },
+    "known": {
+      "n": 68,
+      "genomic_50kb_blocks": 18,
+      "top1_error": {
+        "reference_mean": 14.169314332564603,
+        "prediction_mean": 12.90709323413149,
+        "mean_gain": 1.262221098433114,
+        "win_fraction": 0.3235294117647059,
+        "block_bootstrap_95ci_gain": [
+          -2.739927615719448,
+          4.538888400320756
+        ]
+      },
+      "top5_error": {
+        "reference_mean": 7.676055041168024,
+        "prediction_mean": 6.93501127884857,
+        "mean_gain": 0.7410437623194535,
+        "win_fraction": 0.3235294117647059,
+        "block_bootstrap_95ci_gain": [
+          -0.6526133285941885,
+          2.1372423947295163
+        ]
+      },
+      "top5_hit5": {
+        "reference_mean": 0.5588235294117647,
+        "prediction_mean": 0.6470588235294118,
+        "mean_gain": 0.08823529411764706,
+        "win_fraction": 0.11764705882352941,
+        "block_bootstrap_95ci_gain": [
+          0.029411764705882353,
+          0.15151515151515152
+        ]
+      }
+    },
+    "known_vs_main_detector": {
+      "n": 68,
+      "genomic_50kb_blocks": 18,
+      "top1_error": {
+        "reference_mean": 15.122052046688752,
+        "prediction_mean": 12.90709323413149,
+        "mean_gain": 2.2149588125572657,
+        "win_fraction": 0.5441176470588235,
+        "block_bootstrap_95ci_gain": [
+          -2.5873231982047185,
+          6.046607116670705
+        ]
+      },
+      "top5_error": {
+        "reference_mean": 6.644855035641523,
+        "prediction_mean": 6.93501127884857,
+        "mean_gain": -0.2901562432070472,
+        "win_fraction": 0.29411764705882354,
+        "block_bootstrap_95ci_gain": [
+          -1.338859024053899,
+          0.788434971580502
+        ]
+      },
+      "top5_hit5": {
+        "reference_mean": 0.6029411764705882,
+        "prediction_mean": 0.6470588235294118,
+        "mean_gain": 0.04411764705882353,
+        "win_fraction": 0.07352941176470588,
+        "block_bootstrap_95ci_gain": [
+          -0.0196078431372549,
+          0.1206896551724138
+        ]
+      }
+    },
+    "known_by_type": {
+      "CHID": {
+        "n": 6,
+        "genomic_50kb_blocks": 5,
+        "top1_error": {
+          "reference_mean": 21.459969123336638,
+          "prediction_mean": 12.236518222817423,
+          "mean_gain": 9.223450900519213,
+          "win_fraction": 0.6666666666666666,
+          "block_bootstrap_95ci_gain": [
+            1.3925996527884648,
+            18.09190642231182
+          ]
+        },
+        "top5_error": {
+          "reference_mean": 9.6849351950866,
+          "prediction_mean": 5.905495632145463,
+          "mean_gain": 3.779439562941137,
+          "win_fraction": 0.5,
+          "block_bootstrap_95ci_gain": [
+            0.8,
+            5.9076106793276635
+          ]
+        },
+        "top5_hit5": {
+          "reference_mean": 0.5,
+          "prediction_mean": 0.6666666666666666,
+          "mean_gain": 0.16666666666666666,
+          "win_fraction": 0.16666666666666666,
+          "block_bootstrap_95ci_gain": [
+            0.0,
+            0.375
+          ]
+        }
+      },
+      "CHIN": {
+        "n": 52,
+        "genomic_50kb_blocks": 15,
+        "top1_error": {
+          "reference_mean": 12.338149696195646,
+          "prediction_mean": 11.748641644356177,
+          "mean_gain": 0.5895080518394711,
+          "win_fraction": 0.3076923076923077,
+          "block_bootstrap_95ci_gain": [
+            -3.776254672644038,
+            4.632351259261172
+          ]
+        },
+        "top5_error": {
+          "reference_mean": 6.844469335741487,
+          "prediction_mean": 6.092403531692343,
+          "mean_gain": 0.7520658040491438,
+          "win_fraction": 0.3076923076923077,
+          "block_bootstrap_95ci_gain": [
+            -1.002467497219125,
+            2.661046215103863
+          ]
+        },
+        "top5_hit5": {
+          "reference_mean": 0.5769230769230769,
+          "prediction_mean": 0.6730769230769231,
+          "mean_gain": 0.09615384615384616,
+          "win_fraction": 0.1346153846153846,
+          "block_bootstrap_95ci_gain": [
+            0.0,
+            0.19607843137254902
+          ]
+        }
+      },
+      "OPCID": {
+        "n": 10,
+        "genomic_50kb_blocks": 9,
+        "top1_error": {
+          "reference_mean": 19.31697756721994,
+          "prediction_mean": 19.33338650775155,
+          "mean_gain": -0.016408940531604087,
+          "win_fraction": 0.2,
+          "block_bootstrap_95ci_gain": [
+            -13.99630867794018,
+            11.409518030204469
+          ]
+        },
+        "top5_error": {
+          "reference_mean": 10.794972617034874,
+          "prediction_mean": 11.93428095208282,
+          "mean_gain": -1.139308335047947,
+          "win_fraction": 0.3,
+          "block_bootstrap_95ci_gain": [
+            -4.484885371770135,
+            0.45454545454545453
+          ]
+        },
+        "top5_hit5": {
+          "reference_mean": 0.5,
+          "prediction_mean": 0.5,
+          "mean_gain": 0.0,
+          "win_fraction": 0.0,
+          "block_bootstrap_95ci_gain": [
+            0.0,
+            0.0
+          ]
+        }
+      }
+    },
+    "image_tile_psnr_bilinear": 18.90144283737836,
+    "image_tile_psnr_main": 20.8431399593556,
+    "image_tile_ssim_bilinear": 0.11794622392678306,
+    "image_tile_ssim_main": 0.14067813288960893,
+    "image_known_psnr_bilinear": 17.105588903408865,
+    "image_known_psnr_main": 19.231121090241633,
+    "image_known_ssim_bilinear": 0.09066201746239096,
+    "image_known_ssim_main": 0.1189285846777658,
+    "image_tiles_paired": {
+      "n": 208,
+      "genomic_50kb_blocks": 19,
+      "reference_method": "bilinear image",
+      "prediction_method": "main CNN image",
+      "gain_definition": "prediction-reference for PSNR, SSIM, Spearman, top5_hit5; reference-prediction for top1 hotspot and top5 nearest distance; positive is better",
+      "psnr": {
+        "baseline_mean": 18.90144283737836,
+        "prediction_mean": 20.8431399593556,
+        "mean_gain": 1.9416971219772405,
+        "win_fraction": 0.9759615384615384,
+        "block_bootstrap_95ci_gain": [
+          1.8471136765325993,
+          2.030653805998997
+        ]
+      },
+      "ssim": {
+        "baseline_mean": 0.11794622392678306,
+        "prediction_mean": 0.14067813288960893,
+        "mean_gain": 0.022731908962825873,
+        "win_fraction": 0.9134615384615384,
+        "block_bootstrap_95ci_gain": [
+          0.019754093923383946,
+          0.025532858101382908
+        ]
+      },
+      "spearman": {
+        "baseline_mean": 0.2710778291100953,
+        "prediction_mean": 0.28843585573985364,
+        "mean_gain": 0.017358026629758296,
+        "win_fraction": 0.8798076923076923,
+        "block_bootstrap_95ci_gain": [
+          0.013636403853979998,
+          0.020443600307245638
+        ]
+      },
+      "hotspot_error": {
+        "baseline_mean": 16.22607135009931,
+        "prediction_mean": 16.204685111593562,
+        "mean_gain": 0.021386238505745298,
+        "win_fraction": 0.25,
+        "block_bootstrap_95ci_gain": [
+          -1.498229757698517,
+          1.4896077127621592
+        ]
+      },
+      "top5_error": {
+        "baseline_mean": 6.50843095961606,
+        "prediction_mean": 6.441071162506784,
+        "mean_gain": 0.0673597971092774,
+        "win_fraction": 0.24519230769230768,
+        "block_bootstrap_95ci_gain": [
+          -0.722640055109085,
+          0.7545043972983755
+        ]
+      },
+      "top5_hit5": {
+        "baseline_mean": 0.6298076923076923,
+        "prediction_mean": 0.6826923076923077,
+        "mean_gain": 0.052884615384615384,
+        "win_fraction": 0.08173076923076923,
+        "block_bootstrap_95ci_gain": [
+          0.009615384615384616,
+          0.0966183574879227
+        ]
+      }
+    },
+    "image_known_paired": {
+      "n": 68,
+      "genomic_50kb_blocks": 18,
+      "reference_method": "bilinear image",
+      "prediction_method": "main CNN image",
+      "gain_definition": "prediction-reference for PSNR, SSIM, Spearman, top5_hit5; reference-prediction for top1 hotspot and top5 nearest distance; positive is better",
+      "psnr": {
+        "baseline_mean": 17.105588903408865,
+        "prediction_mean": 19.231121090241633,
+        "mean_gain": 2.125532186832767,
+        "win_fraction": 1.0,
+        "block_bootstrap_95ci_gain": [
+          2.0165035754551224,
+          2.245311641915034
+        ]
+      },
+      "ssim": {
+        "baseline_mean": 0.09066201746239096,
+        "prediction_mean": 0.1189285846777658,
+        "mean_gain": 0.028266567215374867,
+        "win_fraction": 0.9558823529411765,
+        "block_bootstrap_95ci_gain": [
+          0.022638541315395746,
+          0.033459147104054704
+        ]
+      },
+      "spearman": {
+        "baseline_mean": 0.28591556892263964,
+        "prediction_mean": 0.3066672519586844,
+        "mean_gain": 0.020751683036044685,
+        "win_fraction": 0.9117647058823529,
+        "block_bootstrap_95ci_gain": [
+          0.018448242914211356,
+          0.02305425817756785
+        ]
+      },
+      "hotspot_error": {
+        "baseline_mean": 14.169314332564603,
+        "prediction_mean": 15.122052046688752,
+        "mean_gain": -0.9527377141241518,
+        "win_fraction": 0.20588235294117646,
+        "block_bootstrap_95ci_gain": [
+          -3.3254789205553013,
+          1.4272677346909295
+        ]
+      },
+      "top5_error": {
+        "baseline_mean": 7.676055041168024,
+        "prediction_mean": 6.644855035641523,
+        "mean_gain": 1.0312000055265005,
+        "win_fraction": 0.27941176470588236,
+        "block_bootstrap_95ci_gain": [
+          0.09331180537837737,
+          1.9905492164223553
+        ]
+      },
+      "top5_hit5": {
+        "baseline_mean": 0.5588235294117647,
+        "prediction_mean": 0.6029411764705882,
+        "mean_gain": 0.04411764705882353,
+        "win_fraction": 0.11764705882352941,
+        "block_bootstrap_95ci_gain": [
+          -0.06666666666666667,
+          0.14492753623188406
+        ]
+      }
+    }
+  },
+  "rep2_fixed": {
+    "tiles": {
+      "n": 208,
+      "genomic_50kb_blocks": 19,
+      "top1_error": {
+        "reference_mean": 15.635246674539834,
+        "prediction_mean": 12.72696253306406,
+        "mean_gain": 2.908284141475772,
+        "win_fraction": 0.32211538461538464,
+        "block_bootstrap_95ci_gain": [
+          1.2802088913269276,
+          4.516641699360396
+        ]
+      },
+      "top5_error": {
+        "reference_mean": 5.846940164557444,
+        "prediction_mean": 5.88819804166485,
+        "mean_gain": -0.041257877107406346,
+        "win_fraction": 0.33653846153846156,
+        "block_bootstrap_95ci_gain": [
+          -0.9015648081307478,
+          0.7291325707552896
+        ]
+      },
+      "top5_hit5": {
+        "reference_mean": 0.6826923076923077,
+        "prediction_mean": 0.7403846153846154,
+        "mean_gain": 0.057692307692307696,
+        "win_fraction": 0.07211538461538461,
+        "block_bootstrap_95ci_gain": [
+          0.019138755980861243,
+          0.0966183574879227
+        ]
+      }
+    },
+    "known": {
+      "n": 68,
+      "genomic_50kb_blocks": 18,
+      "top1_error": {
+        "reference_mean": 18.595453556091506,
+        "prediction_mean": 17.322399188193558,
+        "mean_gain": 1.273054367897947,
+        "win_fraction": 0.3235294117647059,
+        "block_bootstrap_95ci_gain": [
+          -3.376794344820277,
+          5.819529593560405
+        ]
+      },
+      "top5_error": {
+        "reference_mean": 8.973662143379938,
+        "prediction_mean": 8.704264719050457,
+        "mean_gain": 0.26939742432947955,
+        "win_fraction": 0.3088235294117647,
+        "block_bootstrap_95ci_gain": [
+          -1.6540318271411156,
+          2.477809344376489
+        ]
+      },
+      "top5_hit5": {
+        "reference_mean": 0.5588235294117647,
+        "prediction_mean": 0.6911764705882353,
+        "mean_gain": 0.1323529411764706,
+        "win_fraction": 0.14705882352941177,
+        "block_bootstrap_95ci_gain": [
+          0.05331578947368422,
+          0.22917520491803264
+        ]
+      }
+    },
+    "known_vs_main_detector": {
+      "n": 68,
+      "genomic_50kb_blocks": 18,
+      "top1_error": {
+        "reference_mean": 18.015971798573062,
+        "prediction_mean": 17.322399188193558,
+        "mean_gain": 0.6935726103795011,
+        "win_fraction": 0.36764705882352944,
+        "block_bootstrap_95ci_gain": [
+          -4.402019983875379,
+          5.588293688451593
+        ]
+      },
+      "top5_error": {
+        "reference_mean": 7.964372420191376,
+        "prediction_mean": 8.704264719050457,
+        "mean_gain": -0.7398922988590818,
+        "win_fraction": 0.36764705882352944,
+        "block_bootstrap_95ci_gain": [
+          -2.439565640723829,
+          0.9834815236286967
+        ]
+      },
+      "top5_hit5": {
+        "reference_mean": 0.6323529411764706,
+        "prediction_mean": 0.6911764705882353,
+        "mean_gain": 0.058823529411764705,
+        "win_fraction": 0.07352941176470588,
+        "block_bootstrap_95ci_gain": [
+          0.015151515151515152,
+          0.10526315789473684
+        ]
+      }
+    },
+    "known_by_type": {
+      "CHID": {
+        "n": 6,
+        "genomic_50kb_blocks": 5,
+        "top1_error": {
+          "reference_mean": 30.02936378451392,
+          "prediction_mean": 16.800820298620557,
+          "mean_gain": 13.22854348589336,
+          "win_fraction": 0.8333333333333334,
+          "block_bootstrap_95ci_gain": [
+            -0.12445043751147788,
+            31.34720082161001
+          ]
+        },
+        "top5_error": {
+          "reference_mean": 12.124913527916737,
+          "prediction_mean": 16.6164507701541,
+          "mean_gain": -4.491537242237363,
+          "win_fraction": 0.0,
+          "block_bootstrap_95ci_gain": [
+            -8.070961850841261,
+            0.0
+          ]
+        },
+        "top5_hit5": {
+          "reference_mean": 0.5,
+          "prediction_mean": 0.5,
+          "mean_gain": 0.0,
+          "win_fraction": 0.0,
+          "block_bootstrap_95ci_gain": [
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "CHIN": {
+        "n": 52,
+        "genomic_50kb_blocks": 15,
+        "top1_error": {
+          "reference_mean": 17.56963666877523,
+          "prediction_mean": 16.920414693866352,
+          "mean_gain": 0.6492219749088795,
+          "win_fraction": 0.28846153846153844,
+          "block_bootstrap_95ci_gain": [
+            -4.033689128903198,
+            5.691755484253839
+          ]
+        },
+        "top5_error": {
+          "reference_mean": 8.941878343101893,
+          "prediction_mean": 7.541488422650104,
+          "mean_gain": 1.400389920451788,
+          "win_fraction": 0.36538461538461536,
+          "block_bootstrap_95ci_gain": [
+            -0.6550581614572896,
+            4.108383414932341
+          ]
+        },
+        "top5_hit5": {
+          "reference_mean": 0.5769230769230769,
+          "prediction_mean": 0.7307692307692307,
+          "mean_gain": 0.15384615384615385,
+          "win_fraction": 0.17307692307692307,
+          "block_bootstrap_95ci_gain": [
+            0.06556486101211689,
+            0.26925675675675637
+          ]
+        }
+      },
+      "OPCID": {
+        "n": 10,
+        "genomic_50kb_blocks": 9,
+        "top1_error": {
+          "reference_mean": 17.069355233082664,
+          "prediction_mean": 19.725665892438812,
+          "mean_gain": -2.65631065935615,
+          "win_fraction": 0.2,
+          "block_bootstrap_95ci_gain": [
+            -15.960976123188592,
+            6.712651239881306
+          ]
+        },
+        "top5_error": {
+          "reference_mean": 7.248187074103688,
+          "prediction_mean": 10.003389829670109,
+          "mean_gain": -2.7552027555664207,
+          "win_fraction": 0.2,
+          "block_bootstrap_95ci_gain": [
+            -7.945009492715368,
+            1.3553376696872854
+          ]
+        },
+        "top5_hit5": {
+          "reference_mean": 0.5,
+          "prediction_mean": 0.6,
+          "mean_gain": 0.1,
+          "win_fraction": 0.1,
+          "block_bootstrap_95ci_gain": [
+            0.0,
+            0.3333333333333333
+          ]
+        }
+      }
+    },
+    "image_tile_psnr_bilinear": 18.95325512352011,
+    "image_tile_psnr_main": 21.00132376892975,
+    "image_tile_ssim_bilinear": 0.11578037693899654,
+    "image_tile_ssim_main": 0.14262338549518525,
+    "image_known_psnr_bilinear": 17.240898406986975,
+    "image_known_psnr_main": 19.425524645396905,
+    "image_known_ssim_bilinear": 0.08824567688737578,
+    "image_known_ssim_main": 0.12004292873435046,
+    "image_tiles_paired": {
+      "n": 208,
+      "genomic_50kb_blocks": 19,
+      "reference_method": "bilinear image",
+      "prediction_method": "main CNN image",
+      "gain_definition": "prediction-reference for PSNR, SSIM, Spearman, top5_hit5; reference-prediction for top1 hotspot and top5 nearest distance; positive is better",
+      "psnr": {
+        "baseline_mean": 18.95325512352011,
+        "prediction_mean": 21.00132376892975,
+        "mean_gain": 2.0480686454096397,
+        "win_fraction": 0.9759615384615384,
+        "block_bootstrap_95ci_gain": [
+          1.9677423768278406,
+          2.123122491711342
+        ]
+      },
+      "ssim": {
+        "baseline_mean": 0.11578037693899654,
+        "prediction_mean": 0.14262338549518525,
+        "mean_gain": 0.026843008556188708,
+        "win_fraction": 0.9326923076923077,
+        "block_bootstrap_95ci_gain": [
+          0.024296279351295857,
+          0.029137020841179067
+        ]
+      },
+      "spearman": {
+        "baseline_mean": 0.27242342649016305,
+        "prediction_mean": 0.2923666906176815,
+        "mean_gain": 0.019943264127518383,
+        "win_fraction": 0.8894230769230769,
+        "block_bootstrap_95ci_gain": [
+          0.01572942409343847,
+          0.02361076153601123
+        ]
+      },
+      "hotspot_error": {
+        "baseline_mean": 15.635246674539834,
+        "prediction_mean": 14.627188689448591,
+        "mean_gain": 1.0080579850912401,
+        "win_fraction": 0.27403846153846156,
+        "block_bootstrap_95ci_gain": [
+          -1.2046252522970318,
+          3.148432266226743
+        ]
+      },
+      "top5_error": {
+        "baseline_mean": 5.846940164557444,
+        "prediction_mean": 5.677035785582092,
+        "mean_gain": 0.16990437897535254,
+        "win_fraction": 0.2548076923076923,
+        "block_bootstrap_95ci_gain": [
+          -0.5788758146513103,
+          0.759794910787119
+        ]
+      },
+      "top5_hit5": {
+        "baseline_mean": 0.6826923076923077,
+        "prediction_mean": 0.6923076923076923,
+        "mean_gain": 0.009615384615384616,
+        "win_fraction": 0.038461538461538464,
+        "block_bootstrap_95ci_gain": [
+          -0.01932367149758454,
+          0.038834951456310676
+        ]
+      }
+    },
+    "image_known_paired": {
+      "n": 68,
+      "genomic_50kb_blocks": 18,
+      "reference_method": "bilinear image",
+      "prediction_method": "main CNN image",
+      "gain_definition": "prediction-reference for PSNR, SSIM, Spearman, top5_hit5; reference-prediction for top1 hotspot and top5 nearest distance; positive is better",
+      "psnr": {
+        "baseline_mean": 17.240898406986975,
+        "prediction_mean": 19.425524645396905,
+        "mean_gain": 2.184626238409935,
+        "win_fraction": 1.0,
+        "block_bootstrap_95ci_gain": [
+          2.0661345317268083,
+          2.2925758654530246
+        ]
+      },
+      "ssim": {
+        "baseline_mean": 0.08824567688737578,
+        "prediction_mean": 0.12004292873435046,
+        "mean_gain": 0.031797251846974725,
+        "win_fraction": 0.9558823529411765,
+        "block_bootstrap_95ci_gain": [
+          0.027705675840560894,
+          0.035925546454808895
+        ]
+      },
+      "spearman": {
+        "baseline_mean": 0.2900486114043608,
+        "prediction_mean": 0.31246774019191814,
+        "mean_gain": 0.02241912878755738,
+        "win_fraction": 0.9117647058823529,
+        "block_bootstrap_95ci_gain": [
+          0.020169906425631816,
+          0.02490450612374216
+        ]
+      },
+      "hotspot_error": {
+        "baseline_mean": 18.595453556091506,
+        "prediction_mean": 18.015971798573062,
+        "mean_gain": 0.579481757518446,
+        "win_fraction": 0.27941176470588236,
+        "block_bootstrap_95ci_gain": [
+          -2.4953570070709628,
+          4.276497186698
+        ]
+      },
+      "top5_error": {
+        "baseline_mean": 8.973662143379938,
+        "prediction_mean": 7.964372420191376,
+        "mean_gain": 1.009289723188561,
+        "win_fraction": 0.19117647058823528,
+        "block_bootstrap_95ci_gain": [
+          -0.15004142399619746,
+          2.6276251982982184
+        ]
+      },
+      "top5_hit5": {
+        "baseline_mean": 0.5588235294117647,
+        "prediction_mean": 0.6323529411764706,
+        "mean_gain": 0.07352941176470588,
+        "win_fraction": 0.08823529411764706,
+        "block_bootstrap_95ci_gain": [
+          0.0,
+          0.17142857142857143
+        ]
+      }
+    }
+  }
+}

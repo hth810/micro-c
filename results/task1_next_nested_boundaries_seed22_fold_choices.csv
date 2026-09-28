@@ -1,0 +1,6 @@
+fold,selected_mode,selected_chid_threshold,train_structures,outer_test_structures,outer_test_chid,inner_macro_f1
+0,short_boundary_plus_span,0.3,274,70,5,0.7028590973379495
+1,short_boundary_plus_span,,276,68,6,0.7428695619119394
+2,both_boundary_plus_span,0.2,272,72,5,0.7401049090866323
+3,short_boundary_plus_span,0.3,279,65,5,0.78122041275101
+4,both_boundary_plus_span,0.3,275,69,5,0.7247857376096757

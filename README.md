@@ -80,8 +80,10 @@ python -m task1.train_final_interval_cnn
 python -m task1.render_interval_cnn_diagnostics
 python -m task1.render_interval_cnn_example
 python -m task1.render_interval_cnn_class_saliency
+python -m task1.evaluate_next_nested_boundaries
+python -m task1.evaluate_next_nested_boundaries --seed 20260922 --out outputs/task1_next_nested_boundaries_seed22
 
-新增四路 CNN 用同一 40 kb 空间五折；`results/task1_interval_cnn_summary.json` 给出交叉验证表现，但最终架构依据四路结果回顾性选定，分数仍有选型偏倚。全 344 标注的最终权重只对已知起止点推理，不能用来扫描无标注区域，也不能以其训练集表现报分。
+新增四路 CNN 用同一 40 kb 空间五折；`results/task1_interval_cnn_summary.json` 给出交叉验证表现，但最终架构依据四路结果回顾性选定，分数仍有选型偏倚。新增训练折内三折选型及种子敏感性只作为公平审计，未证明进一步稳定提升，见 `results/task1_next_nested_boundaries_seed21_summary.json` 和 seed22 对照。全 344 标注的最终权重只对已知起止点推理，不能用来扫描无标注区域，也不能以其训练集表现报分。
 
 python task1/run_task1.py --data-dir data/raw --annotations data/structures.csv --split-mode structure --out-dir outputs/task1
 
@@ -109,8 +111,9 @@ python -m scripts.audit_task2_shape_artifacts --rep1 data/raw/GSE272159_37C_rep1
 python -m scripts.audit_task2_shape_artifacts --rep1 data/raw/GSE272159_37C_rep1.mapq_30.10.cool --rep2 data/raw/GSM8950767_37C_37C_fix_rep1.MG1655.mapq_30.10.cool.gz --discovery outputs/task2_rep1_locked --out outputs/task2_37c_fixation_sensitivity
 python -m scripts.qc_task2_fixation --discovery outputs/task2_rep1_locked --rep1 data/raw/GSE272159_37C_rep1.mapq_30.10.cool --rep2 data/raw/GSE272159_37C_rep2.mapq_30.10.cool --fix37 data/raw/GSM8950767_37C_37C_fix_rep1.MG1655.mapq_30.10.cool.gz --out outputs/task2_37c_fixation_sensitivity/qc.json
 python -m scripts.task2_fixation_depth_power --discovery outputs/task2_rep1_locked --qc outputs/task2_37c_fixation_sensitivity/qc.json --rep1 data/raw/GSE272159_37C_rep1.mapq_30.10.cool --rep2 data/raw/GSE272159_37C_rep2.mapq_30.10.cool --fix37 data/raw/GSM8950767_37C_37C_fix_rep1.MG1655.mapq_30.10.cool.gz --iterations 100 --out outputs/task2_37c_fixation_sensitivity/depth_matched_power.json
+python -m scripts.task2_next_rep2_shape_novelty --rep2 data/raw/GSE272159_37C_rep2.mapq_30.10.cool
 
-最后三行仅为冻结位点的异制样敏感性、覆盖度与均匀抽稀功效 QC。GSM8950767 在 37℃ 固定，标准协议在室温固定；它不是同条件第三个生物学重复，尤其远距接触更稀疏，阴性不能证明候选不存在。官方文件的 SHA-256 为 `fcc1d263ff71be8a433058dc1ba32edabcaa960c7a6ec6e847cd85dd80dc8309`。
+异制样的三条命令仅做冻结位点敏感性、覆盖度与均匀抽稀功效 QC。GSM8950767 在 37℃ 固定，标准协议在室温固定；它不是同条件第三个生物学重复，尤其远距接触更稀疏，阴性不能证明候选不存在。其后 rep2 新颖性命令只用 rep1 已知形态冻结模型和阈值，再以全部 100 个已选未注释位点作背景，不是新类型 FDR。官方异制样文件 SHA-256 为 `fcc1d263ff71be8a433058dc1ba32edabcaa960c7a6ec6e847cd85dd80dc8309`。
 
 python -m microc.analysis tracks --cool data/raw/GSE272159_37C_rep1.mapq_30.10.cool.gz data/raw/GSE272159_44C_rep1.mapq_30.10.cool.gz data/raw/GSE272159_rif25_rep1.MG1655.mapq_30.10.cool.gz --labels WT_37C Heat_44C Rif_25 --annotations data/structures.csv --gff data/raw/GCF_000005845.2_ASM584v2_genomic.gff.gz --out outputs/task3_labeled
 python -m scripts.manifest_tracks --tracks outputs/task3_labeled --out results/task3_track_manifest.csv
@@ -135,15 +138,20 @@ python -m scripts.validate_sr_known_shape --cool data/raw/GSE272159_37C_rep1.map
 python -m scripts.evaluate_sr_peak_guard --cool data/raw/GSE272159_37C_rep1.mapq_30.10.cool --external-cool data/raw/GSE272159_37C_rep2.mapq_30.10.cool --out outputs/task5_peak_guard
 python -m scripts.train_sr_hotspot_finetune --phase select --cool data/raw/GSE272159_37C_rep1.mapq_30.10.cool --out outputs/task5_hotspot_finetune
 python -m scripts.train_sr_hotspot_finetune --phase test --cool data/raw/GSE272159_37C_rep1.mapq_30.10.cool --external-cool data/raw/GSE272159_37C_rep2.mapq_30.10.cool --out outputs/task5_hotspot_finetune
+python -m scripts.task5_next_peak_ranker --cool data/raw/GSE272159_37C_rep1.mapq_30.10.cool --external-cool data/raw/GSE272159_37C_rep2.mapq_30.10.cool --validation-only --out outputs/task5_next_peak_ranker
+python -m scripts.task5_next_peak_ranker --cool data/raw/GSE272159_37C_rep1.mapq_30.10.cool --external-cool data/raw/GSE272159_37C_rep2.mapq_30.10.cool --out outputs/task5_next_peak_ranker
 python -m scripts.evaluate_sr_ensemble --out outputs/task5_ensemble
 
 python -m microc.deep reconstruct3d --cool data/raw/GSE272159_37C_rep1.mapq_30.10.cool.gz --annotations data/structures.csv --pretrain-epochs 0 --anchor-weight 0 --out outputs/task6_independent
 python -m microc.deep reconstruct3d --cool data/raw/GSE272159_37C_rep1.mapq_30.10.cool.gz --annotations data/structures.csv --pretrain-epochs 0 --anchor-weight 0 --contact-quantile 0 --out outputs/task6_all_positive
 python -m scripts.validate_3d_replicate --rep2 data/raw/GSE272159_37C_rep2.mapq_30.10.cool.gz
+python -m scripts.audit_3d_seed_stability --rep2 data/raw/GSE272159_37C_rep2.mapq_30.10.cool.gz --out outputs/task6_seed_stability
 python -m scripts.annotate_3d_domains --coordinates outputs/task6_all_positive/coordinates.csv --out outputs/task6_domain_overlay
 ```
 
 `.cool.gz` 会临时解压后读取。重复运行时可自行保留同名 `.cool` 并将参数指向解压后的文件，避免反复解压。
+
+任务五的 `task5_next_peak_ranker` 第一次运行只锁定验证选择，第二次才评估留出区；它排序候选峰，不改变主 CNN 的重建图像。任务六的五随机种子审计列出所有结果，不取 rep2 得分最高者替换主模型。
 
 任务二与任务五的独立验证：
 

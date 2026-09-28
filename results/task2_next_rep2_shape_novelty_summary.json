@@ -1,0 +1,66 @@
+{
+  "frozen_centers_bp": [
+    2042880,
+    3307520,
+    4241920
+  ],
+  "rep2_path": "data\\raw\\GSE272159_37C_rep2.mapq_30.10.cool",
+  "projections": [
+    {
+      "projection": "rep1_known_frozen_projection_and_cutoff",
+      "decision_threshold": 8.57604694366455,
+      "threshold_source": "rep1_known_frozen",
+      "rep2_known_reference_p90": 7.8138227462768555,
+      "rep1_score_gated_unannotated_loci": 100,
+      "rep1_shape_novel_loci": 16,
+      "all_loci_passing_rep2_p90": 13,
+      "non_frozen_loci_passing_rep2_p90": 10,
+      "non_frozen_loci_denominator": 97,
+      "rep1_novel_loci_passing_rep2_p90": 8,
+      "rep1_novel_non_frozen_loci_passing_rep2_p90": 5,
+      "rep1_novel_non_frozen_loci_denominator": 13,
+      "rep1_non_novel_loci_passing_rep2_p90": 5,
+      "frozen_clique_loci_passing_rep2_p90": 3,
+      "known_reference_count": 344
+    },
+    {
+      "projection": "rep1_projection_rep2_reference_recalibration_sensitivity",
+      "decision_threshold": 7.8138227462768555,
+      "threshold_source": "rep2_known_reference",
+      "rep2_known_reference_p90": 7.8138227462768555,
+      "rep1_score_gated_unannotated_loci": 100,
+      "rep1_shape_novel_loci": 16,
+      "all_loci_passing_rep2_p90": 20,
+      "non_frozen_loci_passing_rep2_p90": 17,
+      "non_frozen_loci_denominator": 97,
+      "rep1_novel_loci_passing_rep2_p90": 12,
+      "rep1_novel_non_frozen_loci_passing_rep2_p90": 9,
+      "rep1_novel_non_frozen_loci_denominator": 13,
+      "rep1_non_novel_loci_passing_rep2_p90": 8,
+      "frozen_clique_loci_passing_rep2_p90": 3,
+      "known_reference_count": 344
+    },
+    {
+      "projection": "rep2_known_refit_sensitivity",
+      "decision_threshold": 8.618298530578613,
+      "threshold_source": "rep2_known_reference",
+      "rep2_known_reference_p90": 8.618298530578613,
+      "rep1_score_gated_unannotated_loci": 100,
+      "rep1_shape_novel_loci": 16,
+      "all_loci_passing_rep2_p90": 18,
+      "non_frozen_loci_passing_rep2_p90": 15,
+      "non_frozen_loci_denominator": 97,
+      "rep1_novel_loci_passing_rep2_p90": 11,
+      "rep1_novel_non_frozen_loci_passing_rep2_p90": 8,
+      "rep1_novel_non_frozen_loci_denominator": 13,
+      "rep1_non_novel_loci_passing_rep2_p90": 7,
+      "frozen_clique_loci_passing_rep2_p90": 3,
+      "known_reference_count": 344
+    }
+  ],
+  "first_projection_coordinates_model_and_decision_cutoff_frozen_on_rep1": true,
+  "rep2_known_recalibrations_are_sensitivity_only": true,
+  "rep1_novel_pair_hypotheses_examined": 120,
+  "candidate_rep2_shapes_used_in_selection_or_cutoff": false,
+  "caution": "Retrospective candidate-shape audit, not prospective blinded replication or formal new-type significance. Rep2 known reference calibration/refit is sensitivity only; the first projection and cutoff are fully frozen from rep1 known loci. Candidate rep2 shapes are not used in fitting or cutoff selection. The rep2 pass rate among all rep1 score-gated unannotated loci is a necessary specificity context for the frozen three. The three were selected from 120 rep1 pair hypotheses, so three-of-three is not a single pre-specified test."
+}

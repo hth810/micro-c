@@ -1,0 +1,90 @@
+{
+  "protocol": "Five predeclared seeds, identical rep1-only MDS-free all-positive training; no seed selected by rep2 or macroregion labels",
+  "seeds": [
+    20260921,
+    20260922,
+    20260923,
+    20260924,
+    20260925
+  ],
+  "epochs": 200,
+  "pairs_per_epoch": 20000,
+  "rep2_metrics_by_seed": {
+    "20260921": {
+      "rep2_all_positive_spearman": 0.711985968936623,
+      "rep2_top20_spearman": 0.4053466923602285,
+      "rep2_weaker_positive_spearman": 0.4241790995329077,
+      "rep2_exact_offset_positive_vs_zero_auc": 0.7470760849620033,
+      "macroregion_same_vs_different_auc": {
+        "0": 0.6426861895111148,
+        "50000": 0.6772323605083377
+      }
+    },
+    "20260922": {
+      "rep2_all_positive_spearman": 0.7164149044467152,
+      "rep2_top20_spearman": 0.4224860413578132,
+      "rep2_weaker_positive_spearman": 0.4255720523711617,
+      "rep2_exact_offset_positive_vs_zero_auc": 0.7462782437600013,
+      "macroregion_same_vs_different_auc": {
+        "0": 0.6335413774410221,
+        "50000": 0.661305957593452
+      }
+    },
+    "20260923": {
+      "rep2_all_positive_spearman": 0.7060699850495323,
+      "rep2_top20_spearman": 0.4109205751162978,
+      "rep2_weaker_positive_spearman": 0.4197063848239305,
+      "rep2_exact_offset_positive_vs_zero_auc": 0.7391097552159833,
+      "macroregion_same_vs_different_auc": {
+        "0": 0.6272696043757149,
+        "50000": 0.650364832665464
+      }
+    },
+    "20260924": {
+      "rep2_all_positive_spearman": 0.7143225303487277,
+      "rep2_top20_spearman": 0.3992117912001045,
+      "rep2_weaker_positive_spearman": 0.43030151620519275,
+      "rep2_exact_offset_positive_vs_zero_auc": 0.7477772333830132,
+      "macroregion_same_vs_different_auc": {
+        "0": 0.639061915352582,
+        "50000": 0.667248257626402
+      }
+    },
+    "20260925": {
+      "rep2_all_positive_spearman": 0.7116640976296957,
+      "rep2_top20_spearman": 0.40100942256138666,
+      "rep2_weaker_positive_spearman": 0.42477976022601843,
+      "rep2_exact_offset_positive_vs_zero_auc": 0.7499488453050429,
+      "macroregion_same_vs_different_auc": {
+        "0": 0.6437625886929126,
+        "50000": 0.6724240608453447
+      }
+    }
+  },
+  "pairwise_seed_distance_spearman": {
+    "20260921__20260922": 0.9865247305274115,
+    "20260921__20260923": 0.9542382705924491,
+    "20260921__20260924": 0.9725825107428742,
+    "20260921__20260925": 0.9914896116863631,
+    "20260922__20260923": 0.9580132236052427,
+    "20260922__20260924": 0.9656513040904933,
+    "20260922__20260925": 0.9887415949039214,
+    "20260923__20260924": 0.9633524554421476,
+    "20260923__20260925": 0.9602236242234856,
+    "20260924__20260925": 0.9725931599151262
+  },
+  "published_coordinate_distance_spearman_by_seed": {
+    "20260921": 0.998709287885602,
+    "20260922": 0.987827347338396,
+    "20260923": 0.9538682607129231,
+    "20260924": 0.9720800966412665,
+    "20260925": 0.9915413173978469
+  },
+  "published_rep2_baselines": {
+    "mlp_all_positive_spearman": 0.7122846506305693,
+    "mds_all_positive_spearman": 0.3190765137013325,
+    "mlp_exact_offset_auc": 0.7484182184054717,
+    "mds_exact_offset_auc": 0.7525062742840075
+  },
+  "caution": "Correlations and AUCs test contact consistency and approximate genomic labels, not true imaged 3D coordinates. Seeds are a robustness audit, not an opportunity to choose the best rep2 score."
+}

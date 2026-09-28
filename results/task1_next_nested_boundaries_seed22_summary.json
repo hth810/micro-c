@@ -1,0 +1,144 @@
+{
+  "protocol": "five 40 kb spatial outer folds; each outer train uses three inner spatial folds",
+  "caution": "Same published annotations and outer folds have informed earlier work; not independent confirmation",
+  "selection": "three predeclared boundary feature sets x four CHID threshold choices; inner training OOF macro F1, then accuracy, then simpler candidate order",
+  "modes": [
+    "short_plus_span",
+    "short_boundary_plus_span",
+    "both_boundary_plus_span"
+  ],
+  "thresholds": [
+    null,
+    0.4,
+    0.3,
+    0.2
+  ],
+  "seed": 20260922,
+  "spatial_gap_bp": 40000,
+  "fixed_published": {
+    "accuracy": 0.875,
+    "macro_f1": 0.7381921781921782,
+    "chid_precision": 0.5,
+    "chid_recall": 0.46153846153846156,
+    "confusion_matrix": [
+      [
+        232,
+        10,
+        8
+      ],
+      [
+        7,
+        57,
+        4
+      ],
+      [
+        6,
+        8,
+        12
+      ]
+    ]
+  },
+  "nested_selected": {
+    "accuracy": 0.875,
+    "macro_f1": 0.7610641526264929,
+    "chid_precision": 0.45714285714285713,
+    "chid_recall": 0.6153846153846154,
+    "confusion_matrix": [
+      [
+        228,
+        7,
+        15
+      ],
+      [
+        7,
+        57,
+        4
+      ],
+      [
+        4,
+        6,
+        16
+      ]
+    ]
+  },
+  "paired_spatial_uncertainty": {
+    "nested_selected_minus_fixed_published": {
+      "point_difference": {
+        "accuracy": 0.0,
+        "macro_f1": 0.022871974434314657,
+        "chid_precision": -0.04285714285714287,
+        "chid_recall": 0.15384615384615385
+      },
+      "paired_spatial_bootstrap_95ci": {
+        "accuracy": [
+          -0.0148892633606163,
+          0.017361865942029035
+        ],
+        "macro_f1": [
+          -0.012770765559136771,
+          0.06990187947508926
+        ],
+        "chid_precision": [
+          -0.13231814253298077,
+          0.07407407407407407
+        ],
+        "chid_recall": [
+          0.03703703703703709,
+          0.29032258064516125
+        ]
+      }
+    }
+  },
+  "selected_counts": {
+    "short_plus_span": 0,
+    "short_boundary_plus_span": 3,
+    "both_boundary_plus_span": 2
+  },
+  "folds": [
+    {
+      "fold": 0,
+      "selected_mode": "short_boundary_plus_span",
+      "selected_chid_threshold": 0.3,
+      "train_structures": 274,
+      "outer_test_structures": 70,
+      "outer_test_chid": 5,
+      "inner_macro_f1": 0.7028590973379495
+    },
+    {
+      "fold": 1,
+      "selected_mode": "short_boundary_plus_span",
+      "selected_chid_threshold": null,
+      "train_structures": 276,
+      "outer_test_structures": 68,
+      "outer_test_chid": 6,
+      "inner_macro_f1": 0.7428695619119394
+    },
+    {
+      "fold": 2,
+      "selected_mode": "both_boundary_plus_span",
+      "selected_chid_threshold": 0.2,
+      "train_structures": 272,
+      "outer_test_structures": 72,
+      "outer_test_chid": 5,
+      "inner_macro_f1": 0.7401049090866323
+    },
+    {
+      "fold": 3,
+      "selected_mode": "short_boundary_plus_span",
+      "selected_chid_threshold": 0.3,
+      "train_structures": 279,
+      "outer_test_structures": 65,
+      "outer_test_chid": 5,
+      "inner_macro_f1": 0.78122041275101
+    },
+    {
+      "fold": 4,
+      "selected_mode": "both_boundary_plus_span",
+      "selected_chid_threshold": 0.3,
+      "train_structures": 275,
+      "outer_test_structures": 69,
+      "outer_test_chid": 5,
+      "inner_macro_f1": 0.7247857376096757
+    }
+  ]
+}
