@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import re
 from pathlib import Path
@@ -101,9 +102,14 @@ def main() -> None:
     assert manifest.end_bp.iloc[-1] == 4_641_652
     if starts:
         for row in manifest.itertuples():
-            image = generated / "task3_labeled" / row.filename
+            image = required(generated / "task3_labeled" / row.filename)
             assert image.stat().st_size == row.bytes
-    required(bundle / "task3_example_005.png")
+            assert hashlib.sha256(image.read_bytes()).hexdigest() == row.sha256
+    for index in (0, 5, 250, 450):
+        row = manifest.iloc[index]
+        example = required(bundle / f"task3_example_{index:03d}.png")
+        assert example.stat().st_size == row.bytes
+        assert hashlib.sha256(example.read_bytes()).hexdigest() == row.sha256
 
     # Task 4: paired-repeat table and a heatmap for every selected annotation.
     changes = pd.read_csv(required(bundle / "task4_reproducible_changes.csv"))
