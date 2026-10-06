@@ -29,9 +29,12 @@ python -m scripts.task2_candidate_artifact_followup --out outputs/replay_task2_a
 python -m scripts.task2_artifact_addendum_followup --results outputs/replay_task2_published
 python -m scripts.task6_zero_residual_followup --out outputs/replay_task6_ranking
 python -m scripts.task6_zero_residual_controlled_followup --out outputs/replay_task6_controlled
+python -m scripts.audit_raw_read_availability_followup --out outputs/replay_raw_availability
 ```
 
 上面重跑命令不向已带冻结结果的 `results/` 覆盖发布：任务一/六不传 `--publish`，任务二用独立 `--results`，补充图再读取该新目录。`replay_*` 目录也须尚不存在；再次重跑应换新名称。任务六最后一项隔离排序项随机流，使正接触minibatch与旧训练严格一致；参数不因第一次追加实验的rep2结果改变。两个追加实验都保留，历史rep2已被查看，不冒称新盲测。大型排序配对表只在本地outputs保存并记录哈希；可由固定rep1和种子重新生成。任务二默认[-5,5]与额外截断敏感性分开，参考唯一性和原生接触覆盖仅为风险诊断，不能补足原始reads或新实验。
+
+最后的raw-availability命令只查询四个WT37℃ t1/t2 run的GEO/ENA/SRA metadata；加 `--sample-fastq-prefix` 时，每个配对文件最多取64KiB压缩前缀，只检验前100完整记录，不核验全FASTQ的MD5，也不证明全run读长分布。发布的[小包审计](results/task2_followup_20261006_raw_read_availability_audit_index.json)另列源码/响应/输出哈希，不修改六份实验索引或75项完整性记录。原始reads可获取，但raw-to-current-COOL处理manifest仍未明确，未开始约198GB WT压缩reads的全量重比对。
 
 ## 上轮改良实验
 

@@ -7,6 +7,8 @@
 
 本轮追加证据（原冻结包不改写）：`task1_followup_20261006_transfer_*` 是固定CNN的双向单重复训练迁移；`task2_reference_followup_20261006_*` 是匹配参考序列的31/51/101mer精确唯一性风险核查；`task2_followup_20261006_*` 是固定四位点的原生接触覆盖、支持与截断敏感性；`task6_followup_20261006_*` 和 `task6_controlled_followup_20261006_*` 是固定权重正/零残差排序及随机流隔离对照。所有候选/种子，包括失败结果均保留。`followups_20261006_integrity.json` 验证追加结果及源码；这不等于科学验收或独立验证。
 
+`task2_followup_20261006_raw_read_availability_*` 单独记录公开WT37℃ t1/t2四runs的metadata和最多64KiB/配对文件的范围响应；没有下载全量FASTQ、没有实际重比对、没有验全文件MD5。这是非实验数据来源审计，`audit_index.json` 与此前六个实验 `evidence_index.json` 分开。t1双端gzip约10.76GB、t2约187.33GB可取得，但现COOL来源合并manifest不明，不能把t1来源直接当作当前矩阵唯一输入，或把t2冒称未用过的第三重复。
+
 任务二的 `task2_improve_20261006_evidence_index.json` 绑定35件小型结果，含legacy/area各自的规则、冻结表、完整背景、逐窗口验证、匹配对照及重采样比较。`task2_improve_20261006_summary.json` 汇总4个独立异常候选、3/4跨重复延续、0个一致新类型。候选图明确标出失败A3，不将新颖性距离写成新类型概率。面积聚合改善已知位点重复一致性，但未注释位点行列残差相关下降，全部保留。
 
 任务一的 `task1_improve_20261006_evidence_index.json` 绑定 30 件小型结果的 SHA-256，含逐结构 OOF、两种空间种子、消融、失败 MLP、时序修正及最终推理权重。主模型 CNN＋ROI＋边界描述符：准确率 0.924、宏 F1 0.839、CHID 0.696/0.615；与旧 CNN 同折对照。`task1_improve_20261006_audit_summary.json` 及三类显著性图对应当前模型，不混用旧模型归因。已有注释和折被反复使用，不是新盲测；仅用于已知区间分类。
