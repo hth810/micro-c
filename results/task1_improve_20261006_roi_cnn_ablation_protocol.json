@@ -1,0 +1,21 @@
+{
+  "frozen_at_utc": "2026-10-06T08:26:22.398702+00:00",
+  "source_sha256": "1670f4335ff9514cb2f6fcde2de3fd3b95a48392362b3a8f63f45e5fb9eabbeb",
+  "base_source_sha256": "dd0c68d1c2ab8c6efc5fc40ff3b34820c470a287d18dacb21f597b11e85da3db",
+  "base_protocol_sha256": "bceec0f2ba71386f1c465395ef1d6be68ea294562e96e808d8df3d8c44c27c89",
+  "input_sha256": {
+    "windows": "c5cdbb6193b92207b1519cd45a92014a7d880937e5419bea4aafbcdbd7ba817a",
+    "annotations": "d9a5f0f380ff2c919e8edabc7aa8d612eedb29b67825118377b43e98b8ed7cdf"
+  },
+  "reason": "Separate CNN+ROI image contribution from 15-dimensional boundary/length side branch after the main model score was observed",
+  "caution": "Retrospective necessary ablation; neither a new holdout nor an architecture selection trial",
+  "settings": "24 epochs, AdamW .001/.001, batch32, sqrt train frequency weights, initialization offsets0/31, genomic reversal augmentation",
+  "modes": {
+    "roi_images_only": "Identical five CNN contact/mask/ROI channels, side branch removed",
+    "boundary_only_mlp": "Original side branch 15->16 GELU dropout.2->3, no image inputs"
+  },
+  "seed": 20260921,
+  "spatial_gap_bp": 40000,
+  "folds": 5,
+  "selection": "No choice of model, threshold, settings from ablation results"
+}

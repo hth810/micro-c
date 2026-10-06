@@ -1,1 +1,32 @@
 output/pdf/*.pdf binary
+
+# Frozen run receipts hash physical bytes, including historical LF/CRLF.
+# Do not normalize pinned evidence or helper sources during checkout/staging.
+results/task1_improve_20261006_* -text
+results/task2_improve_20261006_* -text
+results/task6_circular_20261006_* -text
+results/improvements_20261006_integrity.json -text
+task1/*_20261006.py -text
+scripts/*_20261006.py -text
+tests/*_20261006.py -text
+microc/data.py -text
+microc/deep.py -text
+microc/circular.py -text
+microc/analysis.py -text
+scripts/task6_circular_sensitivity.py -text
+scripts/check_deliverables.py -text
+scripts/validate_discovery.py -text
+scripts/task2_rep1_locked_discovery.py -text
+scripts/annotate_3d_domains.py -text
+task1/audit_interval_conditioned_cnn.py -text
+task1/evaluate_chid_overlap.py -text
+task1/evaluate_interval_boundaries.py -text
+task1/evaluate_interval_conditioned_cnn.py -text
+task1/evaluate_nested_threshold.py -text
+task1/evaluate_pairwise.py -text
+task1/run_task1.py -text
+tests/test_area_resampling.py -text
+tests/test_circular_contact.py -text
+tests/test_task2_resampling_comparison.py -text
+tests/test_task2_residual_motif_screen.py -text
+data/structures.csv -text

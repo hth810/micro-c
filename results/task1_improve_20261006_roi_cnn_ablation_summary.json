@@ -1,0 +1,134 @@
+{
+  "protocol_sha256": "e2b323d0c060fa7164cc8bc2de71f438530aacaf82bce0b12559f279f97a56b2",
+  "caution": "Retrospective necessary ablation; neither a new holdout nor an architecture selection trial",
+  "seed": 20260921,
+  "scores": {
+    "roi_images_only": {
+      "accuracy": 0.9273255813953488,
+      "macro_f1": 0.8485159657709853,
+      "chid_precision": 0.7083333333333334,
+      "chid_recall": 0.6538461538461539,
+      "confusion_matrix": [
+        [
+          238,
+          6,
+          6
+        ],
+        [
+          3,
+          64,
+          1
+        ],
+        [
+          6,
+          3,
+          17
+        ]
+      ]
+    },
+    "boundary_only_mlp": {
+      "accuracy": 0.8633720930232558,
+      "macro_f1": 0.7608353018626804,
+      "chid_precision": 0.5,
+      "chid_recall": 0.6923076923076923,
+      "confusion_matrix": [
+        [
+          226,
+          12,
+          12
+        ],
+        [
+          9,
+          53,
+          6
+        ],
+        [
+          5,
+          3,
+          18
+        ]
+      ]
+    },
+    "cnn_roi_boundary": {
+      "accuracy": 0.9244186046511628,
+      "macro_f1": 0.8388953120340675,
+      "chid_precision": 0.6956521739130435,
+      "chid_recall": 0.6153846153846154,
+      "confusion_matrix": [
+        [
+          238,
+          6,
+          6
+        ],
+        [
+          3,
+          64,
+          1
+        ],
+        [
+          7,
+          3,
+          16
+        ]
+      ]
+    }
+  },
+  "paired_spatial_uncertainty": {
+    "cnn_roi_boundary_minus_roi_images_only": {
+      "point_difference": {
+        "accuracy": -0.0029069767441860517,
+        "macro_f1": -0.009620653736917784,
+        "chid_precision": -0.012681159420289911,
+        "chid_recall": -0.038461538461538436
+      },
+      "paired_spatial_bootstrap_95ci": {
+        "accuracy": [
+          -0.020577192312587516,
+          0.014535589297809917
+        ],
+        "macro_f1": [
+          -0.06005671002098072,
+          0.04210625635168292
+        ],
+        "chid_precision": [
+          -0.1363755980861244,
+          0.10717326404245926
+        ],
+        "chid_recall": [
+          -0.19999999999999996,
+          0.13640282131661466
+        ]
+      }
+    },
+    "cnn_roi_boundary_minus_boundary_only_mlp": {
+      "point_difference": {
+        "accuracy": 0.061046511627906974,
+        "macro_f1": 0.07806001017138708,
+        "chid_precision": 0.19565217391304346,
+        "chid_recall": -0.07692307692307687
+      },
+      "paired_spatial_bootstrap_95ci": {
+        "accuracy": [
+          0.0334541511771995,
+          0.08991850116636935
+        ],
+        "macro_f1": [
+          0.01945150652724826,
+          0.12829426237057884
+        ],
+        "chid_precision": [
+          0.023793436293436325,
+          0.4285978835978837
+        ],
+        "chid_recall": [
+          -0.2666666666666666,
+          0.1071428571428571
+        ]
+      }
+    }
+  },
+  "output_sha256": {
+    "outer_predictions.csv": "a75607ba43ecf34a2600b5f8a4ca59feffbca689e1e9fde6211f4e61fab4ba10"
+  },
+  "completed_at_utc": "2026-10-06T08:26:52.300045+00:00"
+}

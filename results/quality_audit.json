@@ -9,5 +9,9 @@
   "task4_stable_annotations": 17,
   "task5_test_patches": 208,
   "task6_bins": 929,
-  "caution": "Completeness/integrity checks only; not proof of biological novelty or physical 3D truth."
+  "caution": "Completeness/integrity checks only; not proof of biological novelty or physical 3D truth.",
+  "improvements_20261006": {
+    "verified_files": 109,
+    "scope": "micro-c only; byte integrity, not independent scientific validation"
+  }
 }

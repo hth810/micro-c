@@ -101,7 +101,9 @@ def window(c, chrom: str, center_bp: int, size_bp: int, output_bins: int = 128) 
         off = a - lo
         result[off:off + b - a, off:off + b - a] = block
     if n != output_bins:
-        # Area interpolation preserves coarse contact intensity better than a crop.
+        # Legacy linear interpolation retained for frozen historical analyses.
+        # It samples intensities and does not preserve total contact counts.
+        # Use area_window for an explicit count-conserving measurement.
         from scipy.ndimage import zoom
 
         result = zoom(result, output_bins / n, order=1)
@@ -111,6 +113,41 @@ def window(c, chrom: str, center_bp: int, size_bp: int, output_bins: int = 128) 
             padded[:result.shape[0], :result.shape[1]] = result
             result = padded
     return (result + result.T) / 2
+
+
+def area_resample(mat: np.ndarray, output_bins: int) -> np.ndarray:
+    """Integrate counts over output pixel areas instead of sampling pixels.
+
+    Integer downsampling sums disjoint blocks. Fractional boundaries distribute
+    each native count by its area overlap, preserving the total and symmetry.
+    Output values are counts, so normalization must occur after this operation.
+    """
+    mat = np.asarray(mat, dtype=np.float64)
+    if (mat.ndim != 2 or mat.shape[0] != mat.shape[1] or not len(mat) or
+            not np.isfinite(mat).all()):
+        raise ValueError("Area resampling requires a finite nonempty square matrix")
+    if (isinstance(output_bins, bool) or not isinstance(output_bins, (int, np.integer)) or
+            output_bins < 1):
+        raise ValueError("output_bins must be a positive integer")
+    n = len(mat)
+    if n == output_bins:
+        return mat.copy()
+    if n % output_bins == 0:
+        factor = n // output_bins
+        return mat.reshape(output_bins, factor, output_bins, factor).sum(axis=(1, 3))
+    edges = np.linspace(0, n, output_bins + 1)
+    native = np.arange(n, dtype=float)
+    overlap = np.maximum(0, np.minimum(edges[1:, None], native[None, :] + 1) -
+                         np.maximum(edges[:-1, None], native[None, :]))
+    return overlap @ mat @ overlap.T
+
+
+def area_window(c, chrom: str, center_bp: int, size_bp: int,
+                output_bins: int = 128) -> np.ndarray:
+    """Read the same padded native window, then sum counts into output areas."""
+    native_bins = max(1, int(round(size_bp / int(c.binsize))))
+    native = window(c, chrom, center_bp, size_bp, native_bins)
+    return area_resample(native, output_bins)
 
 
 def normalize(mat: np.ndarray) -> np.ndarray:

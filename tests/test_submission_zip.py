@@ -25,4 +25,10 @@ def test_submission_archive_is_compact_and_verifiable(tmp_path: Path):
     assert "results/task1_boundary_final.joblib" in names
     assert "results/task6_genome_3d.pt" in names
     assert not any(name.startswith(("data/raw/", "outputs/", ".git/")) for name in names)
-    assert not any(name.endswith((".cool", ".cool.gz", ".npz", ".pdf", ".zip")) for name in names)
+    assert not any(name.endswith((".cool", ".cool.gz", ".pdf", ".zip")) for name in names)
+    assert {name for name in names if name.endswith(".npz")} == {
+        "results/task6_circular_20261006_coordinate_models.npz"}
+    import json
+    with zipfile.ZipFile(output) as archive:
+        receipt = json.loads(archive.read("results/improvements_20261006_integrity.json"))
+    assert set(receipt["sha256"]).issubset(names)

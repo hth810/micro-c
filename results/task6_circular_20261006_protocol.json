@@ -1,0 +1,29 @@
+{
+  "experiment": "task6-circular-topology-20261006",
+  "frozen_utc": "2026-10-06T08:28:46.841581+00:00",
+  "run_parent_sha": "a78ed13d8d4954746873c4c2652d753c10cbc16a",
+  "implementation_sha256": "f9418aa7e38399360916bd2d40b4c3c357c75041dabd255c3115ae55d860db05",
+  "module_sha256": "fc7ff8719b119b3d9d626693ef25e3ea0f8a6e87bb9569029c280b7b7d4f19cc",
+  "dependency_sha256": {
+    "microc/deep.py": "31f3b08f4c13dd52538e1cf9985f09773265d0bc6fe1a50e6e73a6ec1e1dca7c",
+    "scripts/annotate_3d_domains.py": "277e68e0cba12d0277532fd488f244d04c0ead6c1776d94d04a16061a41f176e"
+  },
+  "python_version": "3.14.3",
+  "torch_version": "2.14.0+cpu",
+  "numpy_version": "2.4.4",
+  "rep1_sha256": "0256e10da36abfe0238bf16952bc43bc78365f43c201e6e3ba0c49bd243549a8",
+  "rep2_sha256": "ede9b4f7c0c6b40c8f098e43cdd0abbc0a8987f05e8b37051a5e3cbf143ad106",
+  "model": "GenomeMLP, rep1 only, all positive ring-offset>=2 edges, no MDS prior",
+  "seeds": [
+    20261006,
+    20261007,
+    20261008
+  ],
+  "epochs": 200,
+  "pairs_per_epoch": 20000,
+  "selection": "All three seeds reported; fixed first seed for exported checkpoint and plot; same-seed linear-target training uses identical ring pair mask and cyclic chain penalty, isolating target normalization",
+  "chain_penalty": "0.1 times variance of all n cyclic neighbor lengths; no separate zero-length wrap closure",
+  "normalization": "log1p median at exact circular bin-index separation, clip positive, global p95",
+  "evaluation": "Rep2 positive contact correlation, exact ring-offset balanced AUC, origin-crossing stratum",
+  "caution": "Retrospective sensitivity; historical rep2 inspection. Final partial bin uses bin-index approximation."
+}

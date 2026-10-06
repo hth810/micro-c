@@ -54,12 +54,12 @@ RULE = colors.HexColor("#C8D4DC")
 
 FIGURES = {
     "任务一": (
-        ("task1_interval_cnn_confusion_contact_interval.png",),
-        "图 1. 接触图加已知区间通道 CNN 的 40 kb 空间五折混淆矩阵；CHID 仍有 14/26 条误判。",
+        ("task1_improve_20261006_confusion_comparison.png",),
+        "图 1. 同一 40 kb 空间五折：旧 CNN 与当前 CNN＋ROI＋边界描述符；CHID 找回 12/26→16/26。",
     ),
     "任务二": (
-        ("task2_rep1_locked_rep1_locked_pair_replication.png",),
-        "图 2. rep1 冻结配对在 rep2 中形态可见，但缺少协变量匹配的独立背景对照，不能确证新类型。",
+        ("task2_improve_20261006_individual_candidates.png",),
+        "图 2. 四个 rep1 冻结的独立异常位点及双重复热图；3/4 延续，A3 失败，未建立一致的新结构类型。",
     ),
     "任务三": (
         ("task3_example_005.png",),
@@ -74,8 +74,8 @@ FIGURES = {
         "图 5. 4 倍降分辨率任务的重建指标；像素质量改善不代表热点定位改善。",
     ),
     "任务六": (
-        ("task6_domain_overlay_chromosome_3d_macroregions.png",),
-        "图 6. 学得的三维坐标与外部基因组宏区标签；颜色不证明真实空间分区。",
+        ("task6_circular_20261006_chromosome_circular_3d.png",),
+        "图 6. 当前环形目标、固定首种子的三维坐标与近似宏区标签；颜色不是成像真值。",
     ),
 }
 
@@ -191,7 +191,7 @@ def figure(section: str, text_styles: dict[str, ParagraphStyle]) -> list[Flowabl
         raise FileNotFoundError(f"Representative figure(s) missing: {missing}")
     if len(paths) == 1:
         visual: Flowable = figure_image(paths[0], 168 * mm,
-                                        (96 if section == "任务一" else 77) * mm)
+                                        ({"任务一": 96, "任务二": 160}.get(section, 77)) * mm)
     else:
         visuals = [figure_image(path, 76 * mm, 68 * mm) for path in paths]
         visual = Table([[visuals[0], visuals[1]]], colWidths=[83 * mm, 83 * mm])
@@ -212,7 +212,12 @@ def result_table(rows: list[list[str]], text_styles: dict[str, ParagraphStyle]) 
          for cell in row]
         for row_index, row in enumerate(rows)
     ]
-    item = Table(parsed, colWidths=[28 * mm, 67 * mm, 73 * mm], repeatRows=1, hAlign="LEFT")
+    count = len(rows[0])
+    if any(len(row) != count for row in rows):
+        raise ValueError("Report table rows have inconsistent column counts")
+    widths = {3: [28, 67, 73], 4: [24, 35, 67, 42], 5: [46, 24, 24, 36, 38]}.get(
+        count, [168 / count] * count)
+    item = Table(parsed, colWidths=[width * mm for width in widths], repeatRows=1, hAlign="LEFT")
     item.setStyle(TableStyle([
         ("BACKGROUND", (0, 0), (-1, 0), BLUE),
         ("ROWBACKGROUNDS", (0, 1), (-1, -1), [colors.white, PALE]),
@@ -265,7 +270,7 @@ def parse_report(text: str, text_styles: dict[str, ParagraphStyle]) -> list[Flow
             rows = [[cell.strip() for cell in item.strip().strip("|").split("|")]
                     for item in table_lines]
             rows = [row for row in rows if not all(re.fullmatch(r"-+", c) for c in row)]
-            story.append(result_table(rows, text_styles))
+            story.append(KeepTogether([result_table(rows, text_styles)]))
             story.append(Spacer(1, 2 * mm))
             continue
         paragraph_lines = [line]
@@ -325,12 +330,12 @@ def cover(text_styles: dict[str, ParagraphStyle]) -> list[Flowable]:
     story.append(Spacer(1, 8 * mm))
     story.append(para("结果总览", text_styles["h1"]))
     overview = [
-        ("任务一", "接触+已知区间 CNN 五折宏 F1 0.756、CHID 精确率/召回率 0.632/0.462；仍低于边界混合模型，归因有限。"),
-        ("任务二", "已知合并位点召回 88.4%；三位点 rep2 新颖性 3/3，但同批背景 13/100，未确证新类型。"),
+        ("任务一", "当前 CNN＋ROI＋边界描述符：同折准确率0.924、宏F1 0.839、CHID 0.696/0.615；消融及OOF归因齐备，仍属回顾性。"),
+        ("任务二", "计数守恒面积聚合；4个rep1冻结异常位点，3/4在rep2延续，一致新类型为0；扩大全基因组背景，保留失败结果。"),
         ("任务三", "覆盖全基因组的 465 张 10 kb 多轨道图，附原始图像清单与哈希。"),
         ("任务四", "44℃/利福平/H-NS 三种子交集分别为 17/98/82 条注释；均是探索性候选，H-NS 有平台混杂。"),
         ("任务五", "4 倍模拟超分辨 PSNR 提升约 2 dB；独立峰排序 top5 命中率跨重复提高，top1 仍不稳健。"),
-        ("任务六", "五随机种子 WT rep2 相关 0.706–0.716；精确间距 AUC 均未超过 MDS 0.753；无三维真值。"),
+        ("任务六", "环状距离/循环链/末bin坐标已修正；同新目标rep2相关0.697–0.701，匹配AUC仍未胜MDS；无三维真值。"),
     ]
     table = Table(
         [[para(a, text_styles["cover_label"]), para(b, text_styles["cover_table"])] for a, b in overview],

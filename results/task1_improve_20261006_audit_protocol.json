@@ -1,0 +1,18 @@
+{
+  "frozen_at_utc": "2026-10-06T08:25:44.926824+00:00",
+  "source_sha256": "40c8028edf0b6ae7fb45db977e240b28a5e54bf879158f40beb5134ae0d94b5a",
+  "cnn_protocol_sha256": "bceec0f2ba71386f1c465395ef1d6be68ea294562e96e808d8df3d8c44c27c89",
+  "seed": 20260921,
+  "masking_seed": 20261006,
+  "occlusion": "25% of min(inner,outside) available contacts per exact |i-j| band 2..32, separately at each 40/160 bp scale and replicate; replace selected symmetric contacts by normalized zero",
+  "geometry": "within both endpoints inside interval versus both endpoints outside; contact pixels and derived boundary statistics updated, masks and length unchanged",
+  "matching": "Identical number of upper triangle contact pairs at every global diagonal distance in inner/outside masks; absent matchable bands excluded, recorded per sample",
+  "caution": "Exploratory OOF perturbation evidence for learned contact dependence; not functional/causal proof; interval geometry and clipping remain directly available",
+  "saliency": "OOF class-logit gradient times image; side branch fixed; representative is correct OOF sample nearest class median interval length",
+  "original_protocol_addendum": {
+    "scoring": "CNN uses 2 initialization models and 2 biological repeats, not the 3 initializations inherited in the protocol scoring text",
+    "preprocessing": "15 side features standardized with training replicates only; contact images already independently normalized per cached input window",
+    "architecture_note": "ROI input and two mask channels make structure width directly available; side branch contains contact-derived summaries and log length",
+    "fixed_protocol_retained": true
+  }
+}

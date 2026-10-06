@@ -1,0 +1,113 @@
+{
+  "primary_model_name": "CNN + interval ROI + explicit contact-boundary descriptors",
+  "primary_result": {
+    "accuracy": 0.9244186046511628,
+    "macro_f1": 0.8388953120340675,
+    "chid_precision": 0.6956521739130435,
+    "chid_recall": 0.6153846153846154,
+    "confusion_matrix": [
+      [
+        238,
+        6,
+        6
+      ],
+      [
+        3,
+        64,
+        1
+      ],
+      [
+        7,
+        3,
+        16
+      ]
+    ],
+    "classification_report": {
+      "CHIN": {
+        "precision": 0.9596774193548387,
+        "recall": 0.952,
+        "f1-score": 0.9558232931726908,
+        "support": 250.0
+      },
+      "OPCID": {
+        "precision": 0.8767123287671232,
+        "recall": 0.9411764705882353,
+        "f1-score": 0.9078014184397163,
+        "support": 68.0
+      },
+      "CHID": {
+        "precision": 0.6956521739130435,
+        "recall": 0.6153846153846154,
+        "f1-score": 0.6530612244897959,
+        "support": 26.0
+      },
+      "accuracy": 0.9244186046511628,
+      "macro avg": {
+        "precision": 0.8440139740116684,
+        "recall": 0.8361870286576168,
+        "f1-score": 0.8388953120340675,
+        "support": 344.0
+      },
+      "weighted avg": {
+        "precision": 0.9233219468506199,
+        "recall": 0.9244186046511628,
+        "f1-score": 0.923447417394791,
+        "support": 344.0
+      }
+    }
+  },
+  "scope": "Original single-label three-class classification of supplied known annotated intervals; not a genome-wide unknown-interval classifier",
+  "sample_counts": {
+    "CHIN": 250,
+    "OPCID": 68,
+    "CHID": 26
+  },
+  "historical_data_reuse": true,
+  "second_seed_interpretation": "Same annotations, alternative spatial fold grouping and model initializations; sensitivity analysis, not new blind data",
+  "hybrid_timing_addendum": {
+    "cnn_summary_completed_at_utc": "2026-10-06T08:21:45.174434+00:00",
+    "hybrid_protocol_frozen_at_utc": "2026-10-06T08:22:01.486200+00:00",
+    "meaning": "Hybrid freeze was after the primary CNN computation finished. It is a retrospective fixed equal-weight auxiliary comparison; the freeze cannot establish it preceded CNN outer results or inspection."
+  },
+  "original_cnn_protocol_addendum": {
+    "actual_initializations": 2,
+    "scoring_text_correction": "Inherited field says 3; actual source, offsets0/31 and computation use 2",
+    "original_frozen_protocols_retained": true
+  },
+  "contact_evidence": "OOF matched inside/outside occlusion excludes first two diagonals and preserves the interval mask/length; contact-derived side summaries update; effect is perturbation evidence, not functional proof",
+  "inference_checkpoint": "Fits all supplied annotations; no in-sample accuracy is reported",
+  "failed_model_retained": "Nested descriptor MLP macro F1 .719 versus previous CNN .756 on matching folds; no improvement claim",
+  "occlusion_unmatched_records_definition": "audit_summary.unmatched_samples counts scale x replicate records, not unique structures. All structures retain long-scale matches; some short windows fully contained in annotated intervals cannot supply outside contacts.",
+  "published_artifact_sha256": {
+    "task1_improve_20261006_nested_neural_seed21_protocol.json": "da47bade0e3207d12f2d97722bffb9bba34696f6c99fa44bebea397141ff566f",
+    "task1_improve_20261006_nested_neural_seed21_summary.json": "5c5a53085e2c0877816ec48b81263398821e44287a28f5c5250b4f2ff50745d7",
+    "task1_improve_20261006_nested_neural_seed21_outer_predictions.csv": "73576f6d7724fec2eabf78edeac8358393db81a32bad68718440bb8e96ae22d1",
+    "task1_improve_20261006_nested_neural_seed21_fold_choices.csv": "18753f9fdfa0f6c29ed28ec19263e2ba07a9ffd24c36a044f335432bb4bb351e",
+    "task1_improve_20261006_nested_neural_seed21_inner_options.csv": "da3982cbad526c9c12d1c55a7856dfc85bb1dc09b4affdce8c9714cfddeaa791",
+    "task1_improve_20261006_roi_cnn_seed21_protocol.json": "bceec0f2ba71386f1c465395ef1d6be68ea294562e96e808d8df3d8c44c27c89",
+    "task1_improve_20261006_roi_cnn_seed21_summary.json": "e3de27e065269168d8532daa2b0a330192e9a18fdecfa0869cda2ff73a525dfd",
+    "task1_improve_20261006_roi_cnn_seed21_outer_predictions.csv": "0a6a80965ef4aa2d5afe4ab78474fbe889d53067681ffe4f91cb6b26f0233387",
+    "task1_improve_20261006_roi_cnn_seed22_protocol.json": "adecf783b6655ba79af34edf7b15025f1ef80f3452663925962640f645519b15",
+    "task1_improve_20261006_roi_cnn_seed22_summary.json": "029ee9aec296a205fcb8e5d2b0e99538009313b96ac64229090b160e45159cdd",
+    "task1_improve_20261006_roi_cnn_seed22_outer_predictions.csv": "941856b9721c0724580eac53f0ffe2559475ed349475c591b9e2a637845fefe6",
+    "task1_improve_20261006_hybrid_seed21_protocol.json": "afcab918fa01c94310b3ee4f7c8e67b2158d542dcccc084a942ab268a13c25be",
+    "task1_improve_20261006_hybrid_seed21_summary.json": "a0091a3324542fcc6bd860c978959296153388941fa8903a8e403abce3fdf7a9",
+    "task1_improve_20261006_hybrid_seed21_outer_predictions.csv": "c279a86e8849a4c4ce39d74a06ea3ca48e38a4cf3e8a333f508575796adea198",
+    "task1_improve_20261006_hybrid_seed22_protocol.json": "7b4b2f98e99513d4e82d137632baa74aadcb83f4d7f828565436a6e9c56c9cf0",
+    "task1_improve_20261006_hybrid_seed22_summary.json": "2abf30356a677431b1567e64849964af2c63261df8b122dd22ad6fbf196444ee",
+    "task1_improve_20261006_hybrid_seed22_outer_predictions.csv": "5f246e4e1da984613cbbc418d28647a7ee4614d330c1e5570d48860f31599e34",
+    "task1_improve_20261006_roi_cnn_ablation_protocol.json": "e2b323d0c060fa7164cc8bc2de71f438530aacaf82bce0b12559f279f97a56b2",
+    "task1_improve_20261006_roi_cnn_ablation_summary.json": "30757b96dee7bc48eea2afc508726cc099ba10c96dcd54088a875191287fd3b0",
+    "task1_improve_20261006_roi_cnn_ablation_outer_predictions.csv": "a75607ba43ecf34a2600b5f8a4ca59feffbca689e1e9fde6211f4e61fab4ba10",
+    "task1_improve_20261006_audit_protocol.json": "a1d2f096a87780aa1e907d28c10525597e5d7a97eb634ae7f6cdd5a8c7a8bd35",
+    "task1_improve_20261006_audit_summary.json": "f5d8a9ace7d880ecfa61c0f65cc30949c117360d49e2afcaab3f997f4bb966fb",
+    "task1_improve_20261006_oof_occlusion_samples.csv": "6fe98c28d30122d31ce66b21e0e7b835369d1ef4ccd1f12f7be1c1d342214271",
+    "task1_improve_20261006_occlusion_matching.csv": "0e2f44e59ec222f5cc1a18cb96d137c3566ee859221f7ce5f997a33878645cde",
+    "task1_improve_20261006_oof_saliency_by_class.png": "aa0f38b7b5ccce7fce5e991ef1ad17ea50b143cdff7c2a7e954489c2f6c24b77",
+    "task1_improve_20261006_final_interval_roi_cnn.pt": "999b0d86bf81ae656fce7c392b98997fe08d9ae7b5abe484c7d45af142623353",
+    "task1_improve_20261006_final_interval_roi_cnn.json": "fc0347be76eb15de7cda844ea2d58d5e9aa294404be9d05910a84b235652d02c",
+    "task1_improve_20261006_score_table.csv": "c80cd24c1e940a92a97acf3ac5ee789f5b90f36c0fb88fb0ebf792b8f7e38e21",
+    "task1_improve_20261006_confusion_comparison.png": "be462cada1bcc85567d283c50ee118ac1f7a0ab0b44a4167afd081db9c1bf101",
+    "task1_improve_20261006_occlusion_matched.png": "f71945a03abdc97dc884bebfc07abf86ad18ec0780530b2a49f76486b0c886ad"
+  }
+}

@@ -1,0 +1,70 @@
+{
+  "audit_protocol_sha256": "a1d2f096a87780aa1e907d28c10525597e5d7a97eb634ae7f6cdd5a8c7a8bd35",
+  "source_sha256": "40c8028edf0b6ae7fb45db977e240b28a5e54bf879158f40beb5134ae0d94b5a",
+  "caution": "Exploratory OOF perturbation evidence for learned contact dependence; not functional/causal proof; interval geometry and clipping remain directly available",
+  "reproduced_predictions_match": true,
+  "unchanged_interval_masks": true,
+  "unchanged_interval_lengths": true,
+  "exact_global_diagonal_matching": true,
+  "unmatched_samples": 128,
+  "representative_ids": {
+    "CHIN": "CHIN_98",
+    "OPCID": "OPCID_35",
+    "CHID": "CHID_1"
+  },
+  "occlusion_summary": {
+    "all": {
+      "structures": 344,
+      "inside_mean_true_class_probability_drop": 0.009802031330764294,
+      "outside_mean_true_class_probability_drop": 0.0003311804321128875,
+      "inside_minus_outside_mean_drop": 0.00947085116058588,
+      "paired_spatial_95ci": [
+        0.005913160445017319,
+        0.013931858015325871
+      ]
+    },
+    "CHIN": {
+      "structures": 250,
+      "inside_mean_true_class_probability_drop": 0.006315640639513731,
+      "outside_mean_true_class_probability_drop": -0.00023042400425765663,
+      "inside_minus_outside_mean_drop": 0.006546063348650932,
+      "paired_spatial_95ci": [
+        0.0027269361168661965,
+        0.01088668053595854
+      ]
+    },
+    "OPCID": {
+      "structures": 68,
+      "inside_mean_true_class_probability_drop": 0.007824566215276718,
+      "outside_mean_true_class_probability_drop": 0.005006175022572279,
+      "inside_minus_outside_mean_drop": 0.0028183916583657265,
+      "paired_spatial_95ci": [
+        -0.006118992736126015,
+        0.013268475841473918
+      ]
+    },
+    "CHID": {
+      "structures": 26,
+      "inside_mean_true_class_probability_drop": 0.04849686101078987,
+      "outside_mean_true_class_probability_drop": -0.006495686247944832,
+      "inside_minus_outside_mean_drop": 0.05499254912137985,
+      "paired_spatial_95ci": [
+        0.017747177449720247,
+        0.09732509592459315
+      ]
+    }
+  },
+  "original_protocol_addendum": {
+    "scoring": "CNN uses 2 initialization models and 2 biological repeats, not the 3 initializations inherited in the protocol scoring text",
+    "preprocessing": "15 side features standardized with training replicates only; contact images already independently normalized per cached input window",
+    "architecture_note": "ROI input and two mask channels make structure width directly available; side branch contains contact-derived summaries and log length",
+    "fixed_protocol_retained": true
+  },
+  "output_sha256": {
+    "oof_occlusion_samples.csv": "6fe98c28d30122d31ce66b21e0e7b835369d1ef4ccd1f12f7be1c1d342214271",
+    "occlusion_matching.csv": "0e2f44e59ec222f5cc1a18cb96d137c3566ee859221f7ce5f997a33878645cde",
+    "oof_saliency_by_class.png": "aa0f38b7b5ccce7fce5e991ef1ad17ea50b143cdff7c2a7e954489c2f6c24b77",
+    "final_interval_roi_cnn.pt": "999b0d86bf81ae656fce7c392b98997fe08d9ae7b5abe484c7d45af142623353",
+    "final_interval_roi_cnn.json": "fc0347be76eb15de7cda844ea2d58d5e9aa294404be9d05910a84b235652d02c"
+  }
+}

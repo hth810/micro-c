@@ -1,0 +1,4763 @@
+{
+  "experiment": "task6-circular-topology-20261006",
+  "protocol_sha256": "45b9dc7fc4622fb676cc93bd6db1894d873bd083f730b18475b89aa61af33abe",
+  "coordinate_freeze": {
+    "frozen_utc": "2026-10-06T08:29:35.673436+00:00",
+    "protocol_sha256": "45b9dc7fc4622fb676cc93bd6db1894d873bd083f730b18475b89aa61af33abe",
+    "coordinate_models_sha256": "97ec1cfadc2b3cc6d757b8b52ee650dd895dc7cd8fd8028a2e06de9207b1d257",
+    "checkpoint_sha256": "8db0c73f3d3eb1f20872741ad3e845ec1dcd797a37d7ff00345c9d4a5685c63f"
+  },
+  "bins": 929,
+  "genome_bp": 4641652,
+  "last_bin_bp": 1652,
+  "rep1_in_sample": {
+    "strata": {
+      "all_positive": {
+        "pairs": 214127,
+        "legacy_mlp": 0.5283830672525645,
+        "matched_linear_mlp": 0.532826970606804,
+        "circular_mds": 0.2121027862565288,
+        "circular_mlp_seed20261006": 0.7156140485826021,
+        "circular_mlp_seed20261007": 0.7130022066643789,
+        "circular_mlp_seed20261008": 0.7101491411794479
+      },
+      "top20": {
+        "pairs": 86025,
+        "legacy_mlp": 0.3421383157618151,
+        "matched_linear_mlp": 0.3552269976685303,
+        "circular_mds": -0.024134610192237553,
+        "circular_mlp_seed20261006": 0.35954240081774397,
+        "circular_mlp_seed20261007": 0.3554750595502751,
+        "circular_mlp_seed20261008": 0.36712551450530956
+      },
+      "weaker_positive": {
+        "pairs": 128102,
+        "legacy_mlp": 0.263550816359165,
+        "matched_linear_mlp": 0.26254977236199106,
+        "circular_mds": 0.3099265168011641,
+        "circular_mlp_seed20261006": 0.5010663883419699,
+        "circular_mlp_seed20261007": 0.500642224313056,
+        "circular_mlp_seed20261008": 0.4912209453935788
+      },
+      "origin_crossing_2_to_20": {
+        "pairs": 107,
+        "legacy_mlp": 0.28533082544720706,
+        "matched_linear_mlp": 0.2941965947608692,
+        "circular_mds": 0.13980485511079763,
+        "circular_mlp_seed20261006": 0.28147103195595524,
+        "circular_mlp_seed20261007": 0.3468034248319912,
+        "circular_mlp_seed20261008": 0.24440134015164872
+      }
+    },
+    "exact_circular_offset_matched_auc": {
+      "matched_pairs_per_class": 214127,
+      "selection_seed": 20261006,
+      "offsets": [
+        {
+          "circular_offset_bins": 2,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 3,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 4,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 5,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 6,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 7,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 8,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 9,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 10,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 11,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 12,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 13,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 14,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 15,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 16,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 17,
+          "positive": 461,
+          "zero": 461
+        },
+        {
+          "circular_offset_bins": 18,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 19,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 20,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 21,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 22,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 23,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 24,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 25,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 26,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 27,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 28,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 29,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 30,
+          "positive": 462,
+          "zero": 462
+        },
+        {
+          "circular_offset_bins": 31,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 32,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 33,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 34,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 35,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 36,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 37,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 38,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 39,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 40,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 41,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 42,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 43,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 44,
+          "positive": 462,
+          "zero": 462
+        },
+        {
+          "circular_offset_bins": 45,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 46,
+          "positive": 462,
+          "zero": 462
+        },
+        {
+          "circular_offset_bins": 47,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 48,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 49,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 50,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 51,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 52,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 53,
+          "positive": 462,
+          "zero": 462
+        },
+        {
+          "circular_offset_bins": 54,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 55,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 56,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 57,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 58,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 59,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 60,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 61,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 62,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 63,
+          "positive": 462,
+          "zero": 462
+        },
+        {
+          "circular_offset_bins": 64,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 65,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 66,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 67,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 68,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 69,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 70,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 71,
+          "positive": 462,
+          "zero": 462
+        },
+        {
+          "circular_offset_bins": 72,
+          "positive": 462,
+          "zero": 462
+        },
+        {
+          "circular_offset_bins": 73,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 74,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 75,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 76,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 77,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 78,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 79,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 80,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 81,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 82,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 83,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 84,
+          "positive": 462,
+          "zero": 462
+        },
+        {
+          "circular_offset_bins": 85,
+          "positive": 461,
+          "zero": 461
+        },
+        {
+          "circular_offset_bins": 86,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 87,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 88,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 89,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 90,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 91,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 92,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 93,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 94,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 95,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 96,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 97,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 98,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 99,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 100,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 101,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 102,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 103,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 104,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 105,
+          "positive": 461,
+          "zero": 461
+        },
+        {
+          "circular_offset_bins": 106,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 107,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 108,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 109,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 110,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 111,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 112,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 113,
+          "positive": 462,
+          "zero": 462
+        },
+        {
+          "circular_offset_bins": 114,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 115,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 116,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 117,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 118,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 119,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 120,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 121,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 122,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 123,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 124,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 125,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 126,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 127,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 128,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 129,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 130,
+          "positive": 462,
+          "zero": 462
+        },
+        {
+          "circular_offset_bins": 131,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 132,
+          "positive": 461,
+          "zero": 461
+        },
+        {
+          "circular_offset_bins": 133,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 134,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 135,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 136,
+          "positive": 460,
+          "zero": 460
+        },
+        {
+          "circular_offset_bins": 137,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 138,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 139,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 140,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 141,
+          "positive": 461,
+          "zero": 461
+        },
+        {
+          "circular_offset_bins": 142,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 143,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 144,
+          "positive": 462,
+          "zero": 462
+        },
+        {
+          "circular_offset_bins": 145,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 146,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 147,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 148,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 149,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 150,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 151,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 152,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 153,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 154,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 155,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 156,
+          "positive": 462,
+          "zero": 462
+        },
+        {
+          "circular_offset_bins": 157,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 158,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 159,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 160,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 161,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 162,
+          "positive": 462,
+          "zero": 462
+        },
+        {
+          "circular_offset_bins": 163,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 164,
+          "positive": 462,
+          "zero": 462
+        },
+        {
+          "circular_offset_bins": 165,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 166,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 167,
+          "positive": 461,
+          "zero": 461
+        },
+        {
+          "circular_offset_bins": 168,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 169,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 170,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 171,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 172,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 173,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 174,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 175,
+          "positive": 461,
+          "zero": 461
+        },
+        {
+          "circular_offset_bins": 176,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 177,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 178,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 179,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 180,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 181,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 182,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 183,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 184,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 185,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 186,
+          "positive": 460,
+          "zero": 460
+        },
+        {
+          "circular_offset_bins": 187,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 188,
+          "positive": 460,
+          "zero": 460
+        },
+        {
+          "circular_offset_bins": 189,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 190,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 191,
+          "positive": 462,
+          "zero": 462
+        },
+        {
+          "circular_offset_bins": 192,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 193,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 194,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 195,
+          "positive": 462,
+          "zero": 462
+        },
+        {
+          "circular_offset_bins": 196,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 197,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 198,
+          "positive": 461,
+          "zero": 461
+        },
+        {
+          "circular_offset_bins": 199,
+          "positive": 460,
+          "zero": 460
+        },
+        {
+          "circular_offset_bins": 200,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 201,
+          "positive": 461,
+          "zero": 461
+        },
+        {
+          "circular_offset_bins": 202,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 203,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 204,
+          "positive": 462,
+          "zero": 462
+        },
+        {
+          "circular_offset_bins": 205,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 206,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 207,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 208,
+          "positive": 462,
+          "zero": 462
+        },
+        {
+          "circular_offset_bins": 209,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 210,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 211,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 212,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 213,
+          "positive": 462,
+          "zero": 462
+        },
+        {
+          "circular_offset_bins": 214,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 215,
+          "positive": 462,
+          "zero": 462
+        },
+        {
+          "circular_offset_bins": 216,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 217,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 218,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 219,
+          "positive": 461,
+          "zero": 461
+        },
+        {
+          "circular_offset_bins": 220,
+          "positive": 462,
+          "zero": 462
+        },
+        {
+          "circular_offset_bins": 221,
+          "positive": 461,
+          "zero": 461
+        },
+        {
+          "circular_offset_bins": 222,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 223,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 224,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 225,
+          "positive": 460,
+          "zero": 460
+        },
+        {
+          "circular_offset_bins": 226,
+          "positive": 462,
+          "zero": 462
+        },
+        {
+          "circular_offset_bins": 227,
+          "positive": 462,
+          "zero": 462
+        },
+        {
+          "circular_offset_bins": 228,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 229,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 230,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 231,
+          "positive": 461,
+          "zero": 461
+        },
+        {
+          "circular_offset_bins": 232,
+          "positive": 462,
+          "zero": 462
+        },
+        {
+          "circular_offset_bins": 233,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 234,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 235,
+          "positive": 460,
+          "zero": 460
+        },
+        {
+          "circular_offset_bins": 236,
+          "positive": 459,
+          "zero": 459
+        },
+        {
+          "circular_offset_bins": 237,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 238,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 239,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 240,
+          "positive": 462,
+          "zero": 462
+        },
+        {
+          "circular_offset_bins": 241,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 242,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 243,
+          "positive": 462,
+          "zero": 462
+        },
+        {
+          "circular_offset_bins": 244,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 245,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 246,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 247,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 248,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 249,
+          "positive": 461,
+          "zero": 461
+        },
+        {
+          "circular_offset_bins": 250,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 251,
+          "positive": 461,
+          "zero": 461
+        },
+        {
+          "circular_offset_bins": 252,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 253,
+          "positive": 461,
+          "zero": 461
+        },
+        {
+          "circular_offset_bins": 254,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 255,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 256,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 257,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 258,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 259,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 260,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 261,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 262,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 263,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 264,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 265,
+          "positive": 462,
+          "zero": 462
+        },
+        {
+          "circular_offset_bins": 266,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 267,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 268,
+          "positive": 460,
+          "zero": 460
+        },
+        {
+          "circular_offset_bins": 269,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 270,
+          "positive": 461,
+          "zero": 461
+        },
+        {
+          "circular_offset_bins": 271,
+          "positive": 461,
+          "zero": 461
+        },
+        {
+          "circular_offset_bins": 272,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 273,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 274,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 275,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 276,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 277,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 278,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 279,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 280,
+          "positive": 462,
+          "zero": 462
+        },
+        {
+          "circular_offset_bins": 281,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 282,
+          "positive": 462,
+          "zero": 462
+        },
+        {
+          "circular_offset_bins": 283,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 284,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 285,
+          "positive": 462,
+          "zero": 462
+        },
+        {
+          "circular_offset_bins": 286,
+          "positive": 459,
+          "zero": 459
+        },
+        {
+          "circular_offset_bins": 287,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 288,
+          "positive": 462,
+          "zero": 462
+        },
+        {
+          "circular_offset_bins": 289,
+          "positive": 461,
+          "zero": 461
+        },
+        {
+          "circular_offset_bins": 290,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 291,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 292,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 293,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 294,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 295,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 296,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 297,
+          "positive": 462,
+          "zero": 462
+        },
+        {
+          "circular_offset_bins": 298,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 299,
+          "positive": 460,
+          "zero": 460
+        },
+        {
+          "circular_offset_bins": 300,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 301,
+          "positive": 462,
+          "zero": 462
+        },
+        {
+          "circular_offset_bins": 302,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 303,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 304,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 305,
+          "positive": 462,
+          "zero": 462
+        },
+        {
+          "circular_offset_bins": 306,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 307,
+          "positive": 462,
+          "zero": 462
+        },
+        {
+          "circular_offset_bins": 308,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 309,
+          "positive": 462,
+          "zero": 462
+        },
+        {
+          "circular_offset_bins": 310,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 311,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 312,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 313,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 314,
+          "positive": 461,
+          "zero": 461
+        },
+        {
+          "circular_offset_bins": 315,
+          "positive": 462,
+          "zero": 462
+        },
+        {
+          "circular_offset_bins": 316,
+          "positive": 462,
+          "zero": 462
+        },
+        {
+          "circular_offset_bins": 317,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 318,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 319,
+          "positive": 461,
+          "zero": 461
+        },
+        {
+          "circular_offset_bins": 320,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 321,
+          "positive": 462,
+          "zero": 462
+        },
+        {
+          "circular_offset_bins": 322,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 323,
+          "positive": 462,
+          "zero": 462
+        },
+        {
+          "circular_offset_bins": 324,
+          "positive": 460,
+          "zero": 460
+        },
+        {
+          "circular_offset_bins": 325,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 326,
+          "positive": 460,
+          "zero": 460
+        },
+        {
+          "circular_offset_bins": 327,
+          "positive": 461,
+          "zero": 461
+        },
+        {
+          "circular_offset_bins": 328,
+          "positive": 460,
+          "zero": 460
+        },
+        {
+          "circular_offset_bins": 329,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 330,
+          "positive": 462,
+          "zero": 462
+        },
+        {
+          "circular_offset_bins": 331,
+          "positive": 459,
+          "zero": 459
+        },
+        {
+          "circular_offset_bins": 332,
+          "positive": 461,
+          "zero": 461
+        },
+        {
+          "circular_offset_bins": 333,
+          "positive": 460,
+          "zero": 460
+        },
+        {
+          "circular_offset_bins": 334,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 335,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 336,
+          "positive": 462,
+          "zero": 462
+        },
+        {
+          "circular_offset_bins": 337,
+          "positive": 462,
+          "zero": 462
+        },
+        {
+          "circular_offset_bins": 338,
+          "positive": 460,
+          "zero": 460
+        },
+        {
+          "circular_offset_bins": 339,
+          "positive": 458,
+          "zero": 458
+        },
+        {
+          "circular_offset_bins": 340,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 341,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 342,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 343,
+          "positive": 461,
+          "zero": 461
+        },
+        {
+          "circular_offset_bins": 344,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 345,
+          "positive": 458,
+          "zero": 458
+        },
+        {
+          "circular_offset_bins": 346,
+          "positive": 461,
+          "zero": 461
+        },
+        {
+          "circular_offset_bins": 347,
+          "positive": 459,
+          "zero": 459
+        },
+        {
+          "circular_offset_bins": 348,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 349,
+          "positive": 461,
+          "zero": 461
+        },
+        {
+          "circular_offset_bins": 350,
+          "positive": 460,
+          "zero": 460
+        },
+        {
+          "circular_offset_bins": 351,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 352,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 353,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 354,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 355,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 356,
+          "positive": 462,
+          "zero": 462
+        },
+        {
+          "circular_offset_bins": 357,
+          "positive": 460,
+          "zero": 460
+        },
+        {
+          "circular_offset_bins": 358,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 359,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 360,
+          "positive": 460,
+          "zero": 460
+        },
+        {
+          "circular_offset_bins": 361,
+          "positive": 462,
+          "zero": 462
+        },
+        {
+          "circular_offset_bins": 362,
+          "positive": 459,
+          "zero": 459
+        },
+        {
+          "circular_offset_bins": 363,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 364,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 365,
+          "positive": 460,
+          "zero": 460
+        },
+        {
+          "circular_offset_bins": 366,
+          "positive": 461,
+          "zero": 461
+        },
+        {
+          "circular_offset_bins": 367,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 368,
+          "positive": 459,
+          "zero": 459
+        },
+        {
+          "circular_offset_bins": 369,
+          "positive": 462,
+          "zero": 462
+        },
+        {
+          "circular_offset_bins": 370,
+          "positive": 461,
+          "zero": 461
+        },
+        {
+          "circular_offset_bins": 371,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 372,
+          "positive": 461,
+          "zero": 461
+        },
+        {
+          "circular_offset_bins": 373,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 374,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 375,
+          "positive": 460,
+          "zero": 460
+        },
+        {
+          "circular_offset_bins": 376,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 377,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 378,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 379,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 380,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 381,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 382,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 383,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 384,
+          "positive": 459,
+          "zero": 459
+        },
+        {
+          "circular_offset_bins": 385,
+          "positive": 460,
+          "zero": 460
+        },
+        {
+          "circular_offset_bins": 386,
+          "positive": 460,
+          "zero": 460
+        },
+        {
+          "circular_offset_bins": 387,
+          "positive": 460,
+          "zero": 460
+        },
+        {
+          "circular_offset_bins": 388,
+          "positive": 457,
+          "zero": 457
+        },
+        {
+          "circular_offset_bins": 389,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 390,
+          "positive": 459,
+          "zero": 459
+        },
+        {
+          "circular_offset_bins": 391,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 392,
+          "positive": 461,
+          "zero": 461
+        },
+        {
+          "circular_offset_bins": 393,
+          "positive": 458,
+          "zero": 458
+        },
+        {
+          "circular_offset_bins": 394,
+          "positive": 461,
+          "zero": 461
+        },
+        {
+          "circular_offset_bins": 395,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 396,
+          "positive": 457,
+          "zero": 457
+        },
+        {
+          "circular_offset_bins": 397,
+          "positive": 459,
+          "zero": 459
+        },
+        {
+          "circular_offset_bins": 398,
+          "positive": 457,
+          "zero": 457
+        },
+        {
+          "circular_offset_bins": 399,
+          "positive": 456,
+          "zero": 456
+        },
+        {
+          "circular_offset_bins": 400,
+          "positive": 459,
+          "zero": 459
+        },
+        {
+          "circular_offset_bins": 401,
+          "positive": 460,
+          "zero": 460
+        },
+        {
+          "circular_offset_bins": 402,
+          "positive": 459,
+          "zero": 459
+        },
+        {
+          "circular_offset_bins": 403,
+          "positive": 462,
+          "zero": 462
+        },
+        {
+          "circular_offset_bins": 404,
+          "positive": 462,
+          "zero": 462
+        },
+        {
+          "circular_offset_bins": 405,
+          "positive": 458,
+          "zero": 458
+        },
+        {
+          "circular_offset_bins": 406,
+          "positive": 460,
+          "zero": 460
+        },
+        {
+          "circular_offset_bins": 407,
+          "positive": 459,
+          "zero": 459
+        },
+        {
+          "circular_offset_bins": 408,
+          "positive": 458,
+          "zero": 458
+        },
+        {
+          "circular_offset_bins": 409,
+          "positive": 458,
+          "zero": 458
+        },
+        {
+          "circular_offset_bins": 410,
+          "positive": 459,
+          "zero": 459
+        },
+        {
+          "circular_offset_bins": 411,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 412,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 413,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 414,
+          "positive": 462,
+          "zero": 462
+        },
+        {
+          "circular_offset_bins": 415,
+          "positive": 461,
+          "zero": 461
+        },
+        {
+          "circular_offset_bins": 416,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 417,
+          "positive": 462,
+          "zero": 462
+        },
+        {
+          "circular_offset_bins": 418,
+          "positive": 460,
+          "zero": 460
+        },
+        {
+          "circular_offset_bins": 419,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 420,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 421,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 422,
+          "positive": 458,
+          "zero": 458
+        },
+        {
+          "circular_offset_bins": 423,
+          "positive": 459,
+          "zero": 459
+        },
+        {
+          "circular_offset_bins": 424,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 425,
+          "positive": 461,
+          "zero": 461
+        },
+        {
+          "circular_offset_bins": 426,
+          "positive": 460,
+          "zero": 460
+        },
+        {
+          "circular_offset_bins": 427,
+          "positive": 461,
+          "zero": 461
+        },
+        {
+          "circular_offset_bins": 428,
+          "positive": 462,
+          "zero": 462
+        },
+        {
+          "circular_offset_bins": 429,
+          "positive": 460,
+          "zero": 460
+        },
+        {
+          "circular_offset_bins": 430,
+          "positive": 460,
+          "zero": 460
+        },
+        {
+          "circular_offset_bins": 431,
+          "positive": 455,
+          "zero": 455
+        },
+        {
+          "circular_offset_bins": 432,
+          "positive": 457,
+          "zero": 457
+        },
+        {
+          "circular_offset_bins": 433,
+          "positive": 461,
+          "zero": 461
+        },
+        {
+          "circular_offset_bins": 434,
+          "positive": 458,
+          "zero": 458
+        },
+        {
+          "circular_offset_bins": 435,
+          "positive": 461,
+          "zero": 461
+        },
+        {
+          "circular_offset_bins": 436,
+          "positive": 459,
+          "zero": 459
+        },
+        {
+          "circular_offset_bins": 437,
+          "positive": 457,
+          "zero": 457
+        },
+        {
+          "circular_offset_bins": 438,
+          "positive": 458,
+          "zero": 458
+        },
+        {
+          "circular_offset_bins": 439,
+          "positive": 460,
+          "zero": 460
+        },
+        {
+          "circular_offset_bins": 440,
+          "positive": 455,
+          "zero": 455
+        },
+        {
+          "circular_offset_bins": 441,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 442,
+          "positive": 460,
+          "zero": 460
+        },
+        {
+          "circular_offset_bins": 443,
+          "positive": 453,
+          "zero": 453
+        },
+        {
+          "circular_offset_bins": 444,
+          "positive": 459,
+          "zero": 459
+        },
+        {
+          "circular_offset_bins": 445,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 446,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 447,
+          "positive": 462,
+          "zero": 462
+        },
+        {
+          "circular_offset_bins": 448,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 449,
+          "positive": 459,
+          "zero": 459
+        },
+        {
+          "circular_offset_bins": 450,
+          "positive": 457,
+          "zero": 457
+        },
+        {
+          "circular_offset_bins": 451,
+          "positive": 462,
+          "zero": 462
+        },
+        {
+          "circular_offset_bins": 452,
+          "positive": 462,
+          "zero": 462
+        },
+        {
+          "circular_offset_bins": 453,
+          "positive": 460,
+          "zero": 460
+        },
+        {
+          "circular_offset_bins": 454,
+          "positive": 459,
+          "zero": 459
+        },
+        {
+          "circular_offset_bins": 455,
+          "positive": 461,
+          "zero": 461
+        },
+        {
+          "circular_offset_bins": 456,
+          "positive": 459,
+          "zero": 459
+        },
+        {
+          "circular_offset_bins": 457,
+          "positive": 459,
+          "zero": 459
+        },
+        {
+          "circular_offset_bins": 458,
+          "positive": 460,
+          "zero": 460
+        },
+        {
+          "circular_offset_bins": 459,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 460,
+          "positive": 459,
+          "zero": 459
+        },
+        {
+          "circular_offset_bins": 461,
+          "positive": 462,
+          "zero": 462
+        },
+        {
+          "circular_offset_bins": 462,
+          "positive": 458,
+          "zero": 458
+        },
+        {
+          "circular_offset_bins": 463,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 464,
+          "positive": 457,
+          "zero": 457
+        }
+      ],
+      "auc": {
+        "legacy_mlp": 0.7222461926771333,
+        "matched_linear_mlp": 0.7294500982653083,
+        "circular_mds": 0.7771138582202194,
+        "circular_mlp_seed20261006": 0.721441739751512,
+        "circular_mlp_seed20261007": 0.7239584832727062,
+        "circular_mlp_seed20261008": 0.7198775587063022,
+        "exact_ring_offset_baseline": 0.5
+      },
+      "definition": "positive vs clipped-zero residual at the same circular bin offset"
+    }
+  },
+  "rep2_cross_replicate": {
+    "strata": {
+      "all_positive": {
+        "pairs": 214041,
+        "legacy_mlp": 0.5083066137197372,
+        "matched_linear_mlp": 0.511999115471196,
+        "circular_mds": 0.22069559203167738,
+        "circular_mlp_seed20261006": 0.701330452534813,
+        "circular_mlp_seed20261007": 0.7001307383275006,
+        "circular_mlp_seed20261008": 0.6971621159576749
+      },
+      "top20": {
+        "pairs": 86014,
+        "legacy_mlp": 0.3124071710987875,
+        "matched_linear_mlp": 0.3246599703822431,
+        "circular_mds": -0.02889896930695041,
+        "circular_mlp_seed20261006": 0.3502472124573602,
+        "circular_mlp_seed20261007": 0.35055324914724606,
+        "circular_mlp_seed20261008": 0.35985039812728814
+      },
+      "weaker_positive": {
+        "pairs": 128027,
+        "legacy_mlp": 0.26477986462746567,
+        "matched_linear_mlp": 0.262081812314773,
+        "circular_mds": 0.31561188078054364,
+        "circular_mlp_seed20261006": 0.4856318474784959,
+        "circular_mlp_seed20261007": 0.4861788223139502,
+        "circular_mlp_seed20261008": 0.47838196254587123
+      },
+      "origin_crossing_2_to_20": {
+        "pairs": 106,
+        "legacy_mlp": 0.24763142713993264,
+        "matched_linear_mlp": 0.3265242374100025,
+        "circular_mds": 0.20819761744685913,
+        "circular_mlp_seed20261006": 0.2851255387709346,
+        "circular_mlp_seed20261007": 0.34286808289924875,
+        "circular_mlp_seed20261008": 0.26692764422495513
+      }
+    },
+    "exact_circular_offset_matched_auc": {
+      "matched_pairs_per_class": 214041,
+      "selection_seed": 20261006,
+      "offsets": [
+        {
+          "circular_offset_bins": 2,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 3,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 4,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 5,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 6,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 7,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 8,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 9,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 10,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 11,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 12,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 13,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 14,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 15,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 16,
+          "positive": 462,
+          "zero": 462
+        },
+        {
+          "circular_offset_bins": 17,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 18,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 19,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 20,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 21,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 22,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 23,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 24,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 25,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 26,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 27,
+          "positive": 462,
+          "zero": 462
+        },
+        {
+          "circular_offset_bins": 28,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 29,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 30,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 31,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 32,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 33,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 34,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 35,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 36,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 37,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 38,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 39,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 40,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 41,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 42,
+          "positive": 461,
+          "zero": 461
+        },
+        {
+          "circular_offset_bins": 43,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 44,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 45,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 46,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 47,
+          "positive": 462,
+          "zero": 462
+        },
+        {
+          "circular_offset_bins": 48,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 49,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 50,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 51,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 52,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 53,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 54,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 55,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 56,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 57,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 58,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 59,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 60,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 61,
+          "positive": 462,
+          "zero": 462
+        },
+        {
+          "circular_offset_bins": 62,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 63,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 64,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 65,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 66,
+          "positive": 462,
+          "zero": 462
+        },
+        {
+          "circular_offset_bins": 67,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 68,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 69,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 70,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 71,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 72,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 73,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 74,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 75,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 76,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 77,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 78,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 79,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 80,
+          "positive": 462,
+          "zero": 462
+        },
+        {
+          "circular_offset_bins": 81,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 82,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 83,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 84,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 85,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 86,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 87,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 88,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 89,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 90,
+          "positive": 462,
+          "zero": 462
+        },
+        {
+          "circular_offset_bins": 91,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 92,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 93,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 94,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 95,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 96,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 97,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 98,
+          "positive": 462,
+          "zero": 462
+        },
+        {
+          "circular_offset_bins": 99,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 100,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 101,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 102,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 103,
+          "positive": 462,
+          "zero": 462
+        },
+        {
+          "circular_offset_bins": 104,
+          "positive": 462,
+          "zero": 462
+        },
+        {
+          "circular_offset_bins": 105,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 106,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 107,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 108,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 109,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 110,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 111,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 112,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 113,
+          "positive": 462,
+          "zero": 462
+        },
+        {
+          "circular_offset_bins": 114,
+          "positive": 462,
+          "zero": 462
+        },
+        {
+          "circular_offset_bins": 115,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 116,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 117,
+          "positive": 462,
+          "zero": 462
+        },
+        {
+          "circular_offset_bins": 118,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 119,
+          "positive": 462,
+          "zero": 462
+        },
+        {
+          "circular_offset_bins": 120,
+          "positive": 461,
+          "zero": 461
+        },
+        {
+          "circular_offset_bins": 121,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 122,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 123,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 124,
+          "positive": 461,
+          "zero": 461
+        },
+        {
+          "circular_offset_bins": 125,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 126,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 127,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 128,
+          "positive": 462,
+          "zero": 462
+        },
+        {
+          "circular_offset_bins": 129,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 130,
+          "positive": 462,
+          "zero": 462
+        },
+        {
+          "circular_offset_bins": 131,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 132,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 133,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 134,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 135,
+          "positive": 461,
+          "zero": 461
+        },
+        {
+          "circular_offset_bins": 136,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 137,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 138,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 139,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 140,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 141,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 142,
+          "positive": 462,
+          "zero": 462
+        },
+        {
+          "circular_offset_bins": 143,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 144,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 145,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 146,
+          "positive": 462,
+          "zero": 462
+        },
+        {
+          "circular_offset_bins": 147,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 148,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 149,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 150,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 151,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 152,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 153,
+          "positive": 462,
+          "zero": 462
+        },
+        {
+          "circular_offset_bins": 154,
+          "positive": 459,
+          "zero": 459
+        },
+        {
+          "circular_offset_bins": 155,
+          "positive": 461,
+          "zero": 461
+        },
+        {
+          "circular_offset_bins": 156,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 157,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 158,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 159,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 160,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 161,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 162,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 163,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 164,
+          "positive": 460,
+          "zero": 460
+        },
+        {
+          "circular_offset_bins": 165,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 166,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 167,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 168,
+          "positive": 462,
+          "zero": 462
+        },
+        {
+          "circular_offset_bins": 169,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 170,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 171,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 172,
+          "positive": 462,
+          "zero": 462
+        },
+        {
+          "circular_offset_bins": 173,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 174,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 175,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 176,
+          "positive": 460,
+          "zero": 460
+        },
+        {
+          "circular_offset_bins": 177,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 178,
+          "positive": 462,
+          "zero": 462
+        },
+        {
+          "circular_offset_bins": 179,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 180,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 181,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 182,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 183,
+          "positive": 462,
+          "zero": 462
+        },
+        {
+          "circular_offset_bins": 184,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 185,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 186,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 187,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 188,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 189,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 190,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 191,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 192,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 193,
+          "positive": 461,
+          "zero": 461
+        },
+        {
+          "circular_offset_bins": 194,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 195,
+          "positive": 462,
+          "zero": 462
+        },
+        {
+          "circular_offset_bins": 196,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 197,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 198,
+          "positive": 462,
+          "zero": 462
+        },
+        {
+          "circular_offset_bins": 199,
+          "positive": 462,
+          "zero": 462
+        },
+        {
+          "circular_offset_bins": 200,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 201,
+          "positive": 461,
+          "zero": 461
+        },
+        {
+          "circular_offset_bins": 202,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 203,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 204,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 205,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 206,
+          "positive": 462,
+          "zero": 462
+        },
+        {
+          "circular_offset_bins": 207,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 208,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 209,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 210,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 211,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 212,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 213,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 214,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 215,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 216,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 217,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 218,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 219,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 220,
+          "positive": 461,
+          "zero": 461
+        },
+        {
+          "circular_offset_bins": 221,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 222,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 223,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 224,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 225,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 226,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 227,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 228,
+          "positive": 461,
+          "zero": 461
+        },
+        {
+          "circular_offset_bins": 229,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 230,
+          "positive": 459,
+          "zero": 459
+        },
+        {
+          "circular_offset_bins": 231,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 232,
+          "positive": 461,
+          "zero": 461
+        },
+        {
+          "circular_offset_bins": 233,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 234,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 235,
+          "positive": 462,
+          "zero": 462
+        },
+        {
+          "circular_offset_bins": 236,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 237,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 238,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 239,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 240,
+          "positive": 462,
+          "zero": 462
+        },
+        {
+          "circular_offset_bins": 241,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 242,
+          "positive": 461,
+          "zero": 461
+        },
+        {
+          "circular_offset_bins": 243,
+          "positive": 459,
+          "zero": 459
+        },
+        {
+          "circular_offset_bins": 244,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 245,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 246,
+          "positive": 462,
+          "zero": 462
+        },
+        {
+          "circular_offset_bins": 247,
+          "positive": 462,
+          "zero": 462
+        },
+        {
+          "circular_offset_bins": 248,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 249,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 250,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 251,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 252,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 253,
+          "positive": 461,
+          "zero": 461
+        },
+        {
+          "circular_offset_bins": 254,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 255,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 256,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 257,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 258,
+          "positive": 461,
+          "zero": 461
+        },
+        {
+          "circular_offset_bins": 259,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 260,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 261,
+          "positive": 462,
+          "zero": 462
+        },
+        {
+          "circular_offset_bins": 262,
+          "positive": 462,
+          "zero": 462
+        },
+        {
+          "circular_offset_bins": 263,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 264,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 265,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 266,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 267,
+          "positive": 461,
+          "zero": 461
+        },
+        {
+          "circular_offset_bins": 268,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 269,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 270,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 271,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 272,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 273,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 274,
+          "positive": 460,
+          "zero": 460
+        },
+        {
+          "circular_offset_bins": 275,
+          "positive": 462,
+          "zero": 462
+        },
+        {
+          "circular_offset_bins": 276,
+          "positive": 462,
+          "zero": 462
+        },
+        {
+          "circular_offset_bins": 277,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 278,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 279,
+          "positive": 462,
+          "zero": 462
+        },
+        {
+          "circular_offset_bins": 280,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 281,
+          "positive": 462,
+          "zero": 462
+        },
+        {
+          "circular_offset_bins": 282,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 283,
+          "positive": 461,
+          "zero": 461
+        },
+        {
+          "circular_offset_bins": 284,
+          "positive": 456,
+          "zero": 456
+        },
+        {
+          "circular_offset_bins": 285,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 286,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 287,
+          "positive": 461,
+          "zero": 461
+        },
+        {
+          "circular_offset_bins": 288,
+          "positive": 461,
+          "zero": 461
+        },
+        {
+          "circular_offset_bins": 289,
+          "positive": 461,
+          "zero": 461
+        },
+        {
+          "circular_offset_bins": 290,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 291,
+          "positive": 458,
+          "zero": 458
+        },
+        {
+          "circular_offset_bins": 292,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 293,
+          "positive": 461,
+          "zero": 461
+        },
+        {
+          "circular_offset_bins": 294,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 295,
+          "positive": 461,
+          "zero": 461
+        },
+        {
+          "circular_offset_bins": 296,
+          "positive": 462,
+          "zero": 462
+        },
+        {
+          "circular_offset_bins": 297,
+          "positive": 460,
+          "zero": 460
+        },
+        {
+          "circular_offset_bins": 298,
+          "positive": 461,
+          "zero": 461
+        },
+        {
+          "circular_offset_bins": 299,
+          "positive": 461,
+          "zero": 461
+        },
+        {
+          "circular_offset_bins": 300,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 301,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 302,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 303,
+          "positive": 462,
+          "zero": 462
+        },
+        {
+          "circular_offset_bins": 304,
+          "positive": 461,
+          "zero": 461
+        },
+        {
+          "circular_offset_bins": 305,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 306,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 307,
+          "positive": 460,
+          "zero": 460
+        },
+        {
+          "circular_offset_bins": 308,
+          "positive": 462,
+          "zero": 462
+        },
+        {
+          "circular_offset_bins": 309,
+          "positive": 461,
+          "zero": 461
+        },
+        {
+          "circular_offset_bins": 310,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 311,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 312,
+          "positive": 462,
+          "zero": 462
+        },
+        {
+          "circular_offset_bins": 313,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 314,
+          "positive": 461,
+          "zero": 461
+        },
+        {
+          "circular_offset_bins": 315,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 316,
+          "positive": 460,
+          "zero": 460
+        },
+        {
+          "circular_offset_bins": 317,
+          "positive": 459,
+          "zero": 459
+        },
+        {
+          "circular_offset_bins": 318,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 319,
+          "positive": 462,
+          "zero": 462
+        },
+        {
+          "circular_offset_bins": 320,
+          "positive": 461,
+          "zero": 461
+        },
+        {
+          "circular_offset_bins": 321,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 322,
+          "positive": 461,
+          "zero": 461
+        },
+        {
+          "circular_offset_bins": 323,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 324,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 325,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 326,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 327,
+          "positive": 462,
+          "zero": 462
+        },
+        {
+          "circular_offset_bins": 328,
+          "positive": 461,
+          "zero": 461
+        },
+        {
+          "circular_offset_bins": 329,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 330,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 331,
+          "positive": 456,
+          "zero": 456
+        },
+        {
+          "circular_offset_bins": 332,
+          "positive": 462,
+          "zero": 462
+        },
+        {
+          "circular_offset_bins": 333,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 334,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 335,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 336,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 337,
+          "positive": 458,
+          "zero": 458
+        },
+        {
+          "circular_offset_bins": 338,
+          "positive": 458,
+          "zero": 458
+        },
+        {
+          "circular_offset_bins": 339,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 340,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 341,
+          "positive": 461,
+          "zero": 461
+        },
+        {
+          "circular_offset_bins": 342,
+          "positive": 462,
+          "zero": 462
+        },
+        {
+          "circular_offset_bins": 343,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 344,
+          "positive": 462,
+          "zero": 462
+        },
+        {
+          "circular_offset_bins": 345,
+          "positive": 459,
+          "zero": 459
+        },
+        {
+          "circular_offset_bins": 346,
+          "positive": 461,
+          "zero": 461
+        },
+        {
+          "circular_offset_bins": 347,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 348,
+          "positive": 461,
+          "zero": 461
+        },
+        {
+          "circular_offset_bins": 349,
+          "positive": 462,
+          "zero": 462
+        },
+        {
+          "circular_offset_bins": 350,
+          "positive": 461,
+          "zero": 461
+        },
+        {
+          "circular_offset_bins": 351,
+          "positive": 458,
+          "zero": 458
+        },
+        {
+          "circular_offset_bins": 352,
+          "positive": 462,
+          "zero": 462
+        },
+        {
+          "circular_offset_bins": 353,
+          "positive": 462,
+          "zero": 462
+        },
+        {
+          "circular_offset_bins": 354,
+          "positive": 462,
+          "zero": 462
+        },
+        {
+          "circular_offset_bins": 355,
+          "positive": 462,
+          "zero": 462
+        },
+        {
+          "circular_offset_bins": 356,
+          "positive": 461,
+          "zero": 461
+        },
+        {
+          "circular_offset_bins": 357,
+          "positive": 457,
+          "zero": 457
+        },
+        {
+          "circular_offset_bins": 358,
+          "positive": 457,
+          "zero": 457
+        },
+        {
+          "circular_offset_bins": 359,
+          "positive": 462,
+          "zero": 462
+        },
+        {
+          "circular_offset_bins": 360,
+          "positive": 462,
+          "zero": 462
+        },
+        {
+          "circular_offset_bins": 361,
+          "positive": 458,
+          "zero": 458
+        },
+        {
+          "circular_offset_bins": 362,
+          "positive": 461,
+          "zero": 461
+        },
+        {
+          "circular_offset_bins": 363,
+          "positive": 460,
+          "zero": 460
+        },
+        {
+          "circular_offset_bins": 364,
+          "positive": 457,
+          "zero": 457
+        },
+        {
+          "circular_offset_bins": 365,
+          "positive": 458,
+          "zero": 458
+        },
+        {
+          "circular_offset_bins": 366,
+          "positive": 461,
+          "zero": 461
+        },
+        {
+          "circular_offset_bins": 367,
+          "positive": 459,
+          "zero": 459
+        },
+        {
+          "circular_offset_bins": 368,
+          "positive": 462,
+          "zero": 462
+        },
+        {
+          "circular_offset_bins": 369,
+          "positive": 459,
+          "zero": 459
+        },
+        {
+          "circular_offset_bins": 370,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 371,
+          "positive": 461,
+          "zero": 461
+        },
+        {
+          "circular_offset_bins": 372,
+          "positive": 458,
+          "zero": 458
+        },
+        {
+          "circular_offset_bins": 373,
+          "positive": 454,
+          "zero": 454
+        },
+        {
+          "circular_offset_bins": 374,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 375,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 376,
+          "positive": 458,
+          "zero": 458
+        },
+        {
+          "circular_offset_bins": 377,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 378,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 379,
+          "positive": 461,
+          "zero": 461
+        },
+        {
+          "circular_offset_bins": 380,
+          "positive": 459,
+          "zero": 459
+        },
+        {
+          "circular_offset_bins": 381,
+          "positive": 461,
+          "zero": 461
+        },
+        {
+          "circular_offset_bins": 382,
+          "positive": 459,
+          "zero": 459
+        },
+        {
+          "circular_offset_bins": 383,
+          "positive": 462,
+          "zero": 462
+        },
+        {
+          "circular_offset_bins": 384,
+          "positive": 457,
+          "zero": 457
+        },
+        {
+          "circular_offset_bins": 385,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 386,
+          "positive": 460,
+          "zero": 460
+        },
+        {
+          "circular_offset_bins": 387,
+          "positive": 461,
+          "zero": 461
+        },
+        {
+          "circular_offset_bins": 388,
+          "positive": 462,
+          "zero": 462
+        },
+        {
+          "circular_offset_bins": 389,
+          "positive": 462,
+          "zero": 462
+        },
+        {
+          "circular_offset_bins": 390,
+          "positive": 461,
+          "zero": 461
+        },
+        {
+          "circular_offset_bins": 391,
+          "positive": 457,
+          "zero": 457
+        },
+        {
+          "circular_offset_bins": 392,
+          "positive": 461,
+          "zero": 461
+        },
+        {
+          "circular_offset_bins": 393,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 394,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 395,
+          "positive": 462,
+          "zero": 462
+        },
+        {
+          "circular_offset_bins": 396,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 397,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 398,
+          "positive": 458,
+          "zero": 458
+        },
+        {
+          "circular_offset_bins": 399,
+          "positive": 462,
+          "zero": 462
+        },
+        {
+          "circular_offset_bins": 400,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 401,
+          "positive": 462,
+          "zero": 462
+        },
+        {
+          "circular_offset_bins": 402,
+          "positive": 457,
+          "zero": 457
+        },
+        {
+          "circular_offset_bins": 403,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 404,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 405,
+          "positive": 454,
+          "zero": 454
+        },
+        {
+          "circular_offset_bins": 406,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 407,
+          "positive": 462,
+          "zero": 462
+        },
+        {
+          "circular_offset_bins": 408,
+          "positive": 459,
+          "zero": 459
+        },
+        {
+          "circular_offset_bins": 409,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 410,
+          "positive": 459,
+          "zero": 459
+        },
+        {
+          "circular_offset_bins": 411,
+          "positive": 462,
+          "zero": 462
+        },
+        {
+          "circular_offset_bins": 412,
+          "positive": 458,
+          "zero": 458
+        },
+        {
+          "circular_offset_bins": 413,
+          "positive": 460,
+          "zero": 460
+        },
+        {
+          "circular_offset_bins": 414,
+          "positive": 462,
+          "zero": 462
+        },
+        {
+          "circular_offset_bins": 415,
+          "positive": 455,
+          "zero": 455
+        },
+        {
+          "circular_offset_bins": 416,
+          "positive": 462,
+          "zero": 462
+        },
+        {
+          "circular_offset_bins": 417,
+          "positive": 461,
+          "zero": 461
+        },
+        {
+          "circular_offset_bins": 418,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 419,
+          "positive": 461,
+          "zero": 461
+        },
+        {
+          "circular_offset_bins": 420,
+          "positive": 461,
+          "zero": 461
+        },
+        {
+          "circular_offset_bins": 421,
+          "positive": 453,
+          "zero": 453
+        },
+        {
+          "circular_offset_bins": 422,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 423,
+          "positive": 462,
+          "zero": 462
+        },
+        {
+          "circular_offset_bins": 424,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 425,
+          "positive": 461,
+          "zero": 461
+        },
+        {
+          "circular_offset_bins": 426,
+          "positive": 462,
+          "zero": 462
+        },
+        {
+          "circular_offset_bins": 427,
+          "positive": 457,
+          "zero": 457
+        },
+        {
+          "circular_offset_bins": 428,
+          "positive": 462,
+          "zero": 462
+        },
+        {
+          "circular_offset_bins": 429,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 430,
+          "positive": 462,
+          "zero": 462
+        },
+        {
+          "circular_offset_bins": 431,
+          "positive": 461,
+          "zero": 461
+        },
+        {
+          "circular_offset_bins": 432,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 433,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 434,
+          "positive": 459,
+          "zero": 459
+        },
+        {
+          "circular_offset_bins": 435,
+          "positive": 462,
+          "zero": 462
+        },
+        {
+          "circular_offset_bins": 436,
+          "positive": 457,
+          "zero": 457
+        },
+        {
+          "circular_offset_bins": 437,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 438,
+          "positive": 449,
+          "zero": 449
+        },
+        {
+          "circular_offset_bins": 439,
+          "positive": 457,
+          "zero": 457
+        },
+        {
+          "circular_offset_bins": 440,
+          "positive": 457,
+          "zero": 457
+        },
+        {
+          "circular_offset_bins": 441,
+          "positive": 462,
+          "zero": 462
+        },
+        {
+          "circular_offset_bins": 442,
+          "positive": 457,
+          "zero": 457
+        },
+        {
+          "circular_offset_bins": 443,
+          "positive": 456,
+          "zero": 456
+        },
+        {
+          "circular_offset_bins": 444,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 445,
+          "positive": 457,
+          "zero": 457
+        },
+        {
+          "circular_offset_bins": 446,
+          "positive": 457,
+          "zero": 457
+        },
+        {
+          "circular_offset_bins": 447,
+          "positive": 457,
+          "zero": 457
+        },
+        {
+          "circular_offset_bins": 448,
+          "positive": 454,
+          "zero": 454
+        },
+        {
+          "circular_offset_bins": 449,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 450,
+          "positive": 458,
+          "zero": 458
+        },
+        {
+          "circular_offset_bins": 451,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 452,
+          "positive": 462,
+          "zero": 462
+        },
+        {
+          "circular_offset_bins": 453,
+          "positive": 461,
+          "zero": 461
+        },
+        {
+          "circular_offset_bins": 454,
+          "positive": 464,
+          "zero": 464
+        },
+        {
+          "circular_offset_bins": 455,
+          "positive": 458,
+          "zero": 458
+        },
+        {
+          "circular_offset_bins": 456,
+          "positive": 457,
+          "zero": 457
+        },
+        {
+          "circular_offset_bins": 457,
+          "positive": 460,
+          "zero": 460
+        },
+        {
+          "circular_offset_bins": 458,
+          "positive": 463,
+          "zero": 463
+        },
+        {
+          "circular_offset_bins": 459,
+          "positive": 461,
+          "zero": 461
+        },
+        {
+          "circular_offset_bins": 460,
+          "positive": 461,
+          "zero": 461
+        },
+        {
+          "circular_offset_bins": 461,
+          "positive": 459,
+          "zero": 459
+        },
+        {
+          "circular_offset_bins": 462,
+          "positive": 458,
+          "zero": 458
+        },
+        {
+          "circular_offset_bins": 463,
+          "positive": 458,
+          "zero": 458
+        },
+        {
+          "circular_offset_bins": 464,
+          "positive": 454,
+          "zero": 454
+        }
+      ],
+      "auc": {
+        "legacy_mlp": 0.7227203898529541,
+        "matched_linear_mlp": 0.7302568883212924,
+        "circular_mds": 0.7812771301989783,
+        "circular_mlp_seed20261006": 0.724375522658161,
+        "circular_mlp_seed20261007": 0.7266870535859625,
+        "circular_mlp_seed20261008": 0.7227565549833911,
+        "exact_ring_offset_baseline": 0.5
+      },
+      "definition": "positive vs clipped-zero residual at the same circular bin offset"
+    }
+  },
+  "seed_distance_spearman": {
+    "circular_mlp_seed20261006__circular_mlp_seed20261007": 0.9676045127400641,
+    "circular_mlp_seed20261006__circular_mlp_seed20261008": 0.96717141385247,
+    "circular_mlp_seed20261007__circular_mlp_seed20261008": 0.9818985904803155
+  },
+  "legacy_wrap_neighbor_target": 0.0,
+  "corrected_wrap_neighbor_target": 0.0,
+  "caution": "Fixed topology sensitivity only. Corrected and legacy metrics use the same circular target here; historical linear-target numbers are a different estimand. No physical 3D truth or newly blind validation is claimed."
+}

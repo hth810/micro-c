@@ -19,6 +19,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 ROOT_FILES = (
+    ".gitattributes",
     "README.md",
     "REPORT.md",
     "METHODS.md",
@@ -133,7 +134,9 @@ def select_files(root: Path) -> list[Path]:
         if (path.is_file() and not path.is_symlink() and
                 (path.suffix in RESULT_SUFFIXES or path.name in RESULT_PNGS or
                  path.name in RESULT_HTMLS or
-                 path.name in RESULT_MODELS or path.name == "README.md")):
+                 path.name in RESULT_MODELS or path.name == "README.md" or
+                 path.name.startswith(("task1_improve_20261006_", "task2_improve_20261006_",
+                                       "task6_circular_20261006_")))):
             paths.add(path)
 
     for path in paths:
