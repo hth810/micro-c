@@ -1,0 +1,12 @@
+{
+  "artifacts_sha256": {
+    "task2_reference_followup_20261006_candidate_reference_diagnostics.csv": "3cc0ddc0eb44703e9ce79c6030490eba2268d4b3e328962b0d255d8f6d1850d4",
+    "task2_reference_followup_20261006_protocol.json": "8997d45aaa439a4fb25b73c5a26a72305f8561dc450ede0faff12bd748d38a7e",
+    "task2_reference_followup_20261006_reference_receipt.json": "54810d479cd70e4e39249e5604e914b0274e4c233600e51179a63dfc38f4e0a8",
+    "task2_reference_followup_20261006_reference_uniqueness.png": "f7769b9e15858ae6eb936fcf281d39476fb2388c238bbf3e91b5f931ccb9a0f3",
+    "task2_reference_followup_20261006_reference_window_uniqueness.csv": "b5cdb5b6fdb2e040f47050729b910b582279a38dedadce521b8801d2a07f59d7",
+    "task2_reference_followup_20261006_summary.json": "3bf8cacf978ca84d94cfbc0523180dbf0d155440681bfa6e51da2e18e3978f6b"
+  },
+  "script_sha256": "b5517c310784369175859f17a772a8a79836932add450a4300387943a51e69b7",
+  "reference_sha256": "a96d3cfa58c88d477013c768f90a11d2386d42a70d566abfb6d9013dcbd24255"
+}

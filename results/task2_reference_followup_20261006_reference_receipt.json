@@ -1,0 +1,10 @@
+{
+  "url": "https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/005/845/GCF_000005845.2_ASM584v2/GCF_000005845.2_ASM584v2_genomic.fna.gz",
+  "official_md5_url": "https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/005/845/GCF_000005845.2_ASM584v2/md5checksums.txt",
+  "official_md5": "c13d459b5caa702ff7e1f26fe44b8ad7",
+  "sha256": "a96d3cfa58c88d477013c768f90a11d2386d42a70d566abfb6d9013dcbd24255",
+  "accession": "NC_000913.3",
+  "bases": 4641652,
+  "sequence_sha256": "e999dceccb76562d40e49a10d9e6d4cf1c05d184f4f80b92bb32d4a2420c11d0",
+  "protocol_sha256": "8997d45aaa439a4fb25b73c5a26a72305f8561dc450ede0faff12bd748d38a7e"
+}

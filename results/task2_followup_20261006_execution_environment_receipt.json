@@ -1,0 +1,24 @@
+{
+  "recorded_after_run_at_utc": "2026-10-06T09:15:49.7755681Z",
+  "receipt_kind": "Additive post-run clarification; original freezes are unchanged",
+  "execution_device": "CPU; NumPy/SciPy/scikit-learn path, no GPU implementation",
+  "requested_numerical_thread_limit": 2,
+  "dependency_version_source": "results/task2_followup_20261006_diagnostic_plan_freeze.json",
+  "empty_control_manifest": {
+    "original": "results/task2_followup_20261006_rep1_selected_control_ids.csv",
+    "original_retained_unchanged": true,
+    "reason": "Every candidate selected zero qualifying controls; the frozen original is newline-only and pandas.read_csv raises EmptyDataError",
+    "schema_companion": "results/task2_followup_20261006_empty_control_manifest_schema.csv",
+    "schema_companion_rows": 0,
+    "schema_companion_used_in_analysis": false
+  },
+  "caliper_factor_diagnostic": {
+    "artifact": "results/task2_followup_20261006_caliper_factor_diagnostic.csv",
+    "type": "Post-run explanatory calculation from frozen rep1 QC, not matching changes or new candidate selection",
+    "permitted_pool_loci": 287,
+    "algorithm": "Load rep1_native_qc and fixed_candidates. Use qc_covariates on rows 344 onward. Exclude loci within 10240 bp of ANY fixed candidate. For each factor compute pool min/q10/q90/max, scale=max(pool q75-q25,1e-8), and count abs(pool-target)<=2*scale. These are marginal counts; the original joint caliper selected zero for every candidate.",
+    "principal_rejection_factor": "native_zero_offdiag_row_fraction has q10=q90=IQR=0 in permitted pool, while A1/A2/A3/A4 are 0.15234375/0.42578125/0.19921875/0.18359375; none has a control within the frozen 2-IQR floor",
+    "other_risk": "Contact mass is lower, top-1% concentration and marginal CV are higher than ordinary pool. A2 has only two contacts-mass caliper controls and zero marginal-CV caliper controls.",
+    "interpretation": "The selected background lacks common support. This does not prove the candidates are biological structures or alignment artifacts. Sparse rows are contact-coverage proxies, not fragment counts or measured aligner mappability."
+  }
+}

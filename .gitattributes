@@ -30,3 +30,12 @@ tests/test_circular_contact.py -text
 tests/test_task2_resampling_comparison.py -text
 tests/test_task2_residual_motif_screen.py -text
 data/structures.csv -text
+
+# Additive follow-ups keep the bytes that were frozen before evaluation.
+task1/*_followup.py -text
+scripts/*_followup.py -text
+scripts/verify_followups_20261006.py -text
+tests/*_followup.py -text
+tests/test_followup_integrity.py -text
+results/*followup_20261006_* -text
+results/followups_20261006_integrity.json -text

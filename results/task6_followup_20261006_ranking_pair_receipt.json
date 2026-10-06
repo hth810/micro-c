@@ -1,0 +1,2786 @@
+{
+  "selected_using": "rep1 only",
+  "seed": 20261006,
+  "total_matched_rank_pairs": 214127,
+  "offsets": [
+    {
+      "exact_ring_offset": 2,
+      "positive_available": 464,
+      "zero_available": 465,
+      "matched_count": 464
+    },
+    {
+      "exact_ring_offset": 3,
+      "positive_available": 464,
+      "zero_available": 465,
+      "matched_count": 464
+    },
+    {
+      "exact_ring_offset": 4,
+      "positive_available": 464,
+      "zero_available": 465,
+      "matched_count": 464
+    },
+    {
+      "exact_ring_offset": 5,
+      "positive_available": 464,
+      "zero_available": 465,
+      "matched_count": 464
+    },
+    {
+      "exact_ring_offset": 6,
+      "positive_available": 464,
+      "zero_available": 465,
+      "matched_count": 464
+    },
+    {
+      "exact_ring_offset": 7,
+      "positive_available": 464,
+      "zero_available": 465,
+      "matched_count": 464
+    },
+    {
+      "exact_ring_offset": 8,
+      "positive_available": 464,
+      "zero_available": 465,
+      "matched_count": 464
+    },
+    {
+      "exact_ring_offset": 9,
+      "positive_available": 463,
+      "zero_available": 466,
+      "matched_count": 463
+    },
+    {
+      "exact_ring_offset": 10,
+      "positive_available": 464,
+      "zero_available": 465,
+      "matched_count": 464
+    },
+    {
+      "exact_ring_offset": 11,
+      "positive_available": 463,
+      "zero_available": 466,
+      "matched_count": 463
+    },
+    {
+      "exact_ring_offset": 12,
+      "positive_available": 463,
+      "zero_available": 466,
+      "matched_count": 463
+    },
+    {
+      "exact_ring_offset": 13,
+      "positive_available": 464,
+      "zero_available": 465,
+      "matched_count": 464
+    },
+    {
+      "exact_ring_offset": 14,
+      "positive_available": 464,
+      "zero_available": 465,
+      "matched_count": 464
+    },
+    {
+      "exact_ring_offset": 15,
+      "positive_available": 464,
+      "zero_available": 465,
+      "matched_count": 464
+    },
+    {
+      "exact_ring_offset": 16,
+      "positive_available": 464,
+      "zero_available": 465,
+      "matched_count": 464
+    },
+    {
+      "exact_ring_offset": 17,
+      "positive_available": 461,
+      "zero_available": 468,
+      "matched_count": 461
+    },
+    {
+      "exact_ring_offset": 18,
+      "positive_available": 464,
+      "zero_available": 465,
+      "matched_count": 464
+    },
+    {
+      "exact_ring_offset": 19,
+      "positive_available": 463,
+      "zero_available": 466,
+      "matched_count": 463
+    },
+    {
+      "exact_ring_offset": 20,
+      "positive_available": 464,
+      "zero_available": 465,
+      "matched_count": 464
+    },
+    {
+      "exact_ring_offset": 21,
+      "positive_available": 464,
+      "zero_available": 465,
+      "matched_count": 464
+    },
+    {
+      "exact_ring_offset": 22,
+      "positive_available": 464,
+      "zero_available": 465,
+      "matched_count": 464
+    },
+    {
+      "exact_ring_offset": 23,
+      "positive_available": 464,
+      "zero_available": 465,
+      "matched_count": 464
+    },
+    {
+      "exact_ring_offset": 24,
+      "positive_available": 464,
+      "zero_available": 465,
+      "matched_count": 464
+    },
+    {
+      "exact_ring_offset": 25,
+      "positive_available": 464,
+      "zero_available": 465,
+      "matched_count": 464
+    },
+    {
+      "exact_ring_offset": 26,
+      "positive_available": 464,
+      "zero_available": 465,
+      "matched_count": 464
+    },
+    {
+      "exact_ring_offset": 27,
+      "positive_available": 464,
+      "zero_available": 465,
+      "matched_count": 464
+    },
+    {
+      "exact_ring_offset": 28,
+      "positive_available": 464,
+      "zero_available": 465,
+      "matched_count": 464
+    },
+    {
+      "exact_ring_offset": 29,
+      "positive_available": 464,
+      "zero_available": 465,
+      "matched_count": 464
+    },
+    {
+      "exact_ring_offset": 30,
+      "positive_available": 462,
+      "zero_available": 467,
+      "matched_count": 462
+    },
+    {
+      "exact_ring_offset": 31,
+      "positive_available": 464,
+      "zero_available": 465,
+      "matched_count": 464
+    },
+    {
+      "exact_ring_offset": 32,
+      "positive_available": 464,
+      "zero_available": 465,
+      "matched_count": 464
+    },
+    {
+      "exact_ring_offset": 33,
+      "positive_available": 464,
+      "zero_available": 465,
+      "matched_count": 464
+    },
+    {
+      "exact_ring_offset": 34,
+      "positive_available": 464,
+      "zero_available": 465,
+      "matched_count": 464
+    },
+    {
+      "exact_ring_offset": 35,
+      "positive_available": 464,
+      "zero_available": 465,
+      "matched_count": 464
+    },
+    {
+      "exact_ring_offset": 36,
+      "positive_available": 464,
+      "zero_available": 465,
+      "matched_count": 464
+    },
+    {
+      "exact_ring_offset": 37,
+      "positive_available": 463,
+      "zero_available": 466,
+      "matched_count": 463
+    },
+    {
+      "exact_ring_offset": 38,
+      "positive_available": 464,
+      "zero_available": 465,
+      "matched_count": 464
+    },
+    {
+      "exact_ring_offset": 39,
+      "positive_available": 464,
+      "zero_available": 465,
+      "matched_count": 464
+    },
+    {
+      "exact_ring_offset": 40,
+      "positive_available": 464,
+      "zero_available": 465,
+      "matched_count": 464
+    },
+    {
+      "exact_ring_offset": 41,
+      "positive_available": 464,
+      "zero_available": 465,
+      "matched_count": 464
+    },
+    {
+      "exact_ring_offset": 42,
+      "positive_available": 463,
+      "zero_available": 466,
+      "matched_count": 463
+    },
+    {
+      "exact_ring_offset": 43,
+      "positive_available": 464,
+      "zero_available": 465,
+      "matched_count": 464
+    },
+    {
+      "exact_ring_offset": 44,
+      "positive_available": 462,
+      "zero_available": 467,
+      "matched_count": 462
+    },
+    {
+      "exact_ring_offset": 45,
+      "positive_available": 464,
+      "zero_available": 465,
+      "matched_count": 464
+    },
+    {
+      "exact_ring_offset": 46,
+      "positive_available": 462,
+      "zero_available": 467,
+      "matched_count": 462
+    },
+    {
+      "exact_ring_offset": 47,
+      "positive_available": 464,
+      "zero_available": 465,
+      "matched_count": 464
+    },
+    {
+      "exact_ring_offset": 48,
+      "positive_available": 464,
+      "zero_available": 465,
+      "matched_count": 464
+    },
+    {
+      "exact_ring_offset": 49,
+      "positive_available": 464,
+      "zero_available": 465,
+      "matched_count": 464
+    },
+    {
+      "exact_ring_offset": 50,
+      "positive_available": 464,
+      "zero_available": 465,
+      "matched_count": 464
+    },
+    {
+      "exact_ring_offset": 51,
+      "positive_available": 464,
+      "zero_available": 465,
+      "matched_count": 464
+    },
+    {
+      "exact_ring_offset": 52,
+      "positive_available": 464,
+      "zero_available": 465,
+      "matched_count": 464
+    },
+    {
+      "exact_ring_offset": 53,
+      "positive_available": 462,
+      "zero_available": 467,
+      "matched_count": 462
+    },
+    {
+      "exact_ring_offset": 54,
+      "positive_available": 464,
+      "zero_available": 465,
+      "matched_count": 464
+    },
+    {
+      "exact_ring_offset": 55,
+      "positive_available": 464,
+      "zero_available": 465,
+      "matched_count": 464
+    },
+    {
+      "exact_ring_offset": 56,
+      "positive_available": 464,
+      "zero_available": 465,
+      "matched_count": 464
+    },
+    {
+      "exact_ring_offset": 57,
+      "positive_available": 464,
+      "zero_available": 465,
+      "matched_count": 464
+    },
+    {
+      "exact_ring_offset": 58,
+      "positive_available": 464,
+      "zero_available": 465,
+      "matched_count": 464
+    },
+    {
+      "exact_ring_offset": 59,
+      "positive_available": 463,
+      "zero_available": 466,
+      "matched_count": 463
+    },
+    {
+      "exact_ring_offset": 60,
+      "positive_available": 464,
+      "zero_available": 465,
+      "matched_count": 464
+    },
+    {
+      "exact_ring_offset": 61,
+      "positive_available": 464,
+      "zero_available": 465,
+      "matched_count": 464
+    },
+    {
+      "exact_ring_offset": 62,
+      "positive_available": 464,
+      "zero_available": 465,
+      "matched_count": 464
+    },
+    {
+      "exact_ring_offset": 63,
+      "positive_available": 462,
+      "zero_available": 467,
+      "matched_count": 462
+    },
+    {
+      "exact_ring_offset": 64,
+      "positive_available": 464,
+      "zero_available": 465,
+      "matched_count": 464
+    },
+    {
+      "exact_ring_offset": 65,
+      "positive_available": 464,
+      "zero_available": 465,
+      "matched_count": 464
+    },
+    {
+      "exact_ring_offset": 66,
+      "positive_available": 464,
+      "zero_available": 465,
+      "matched_count": 464
+    },
+    {
+      "exact_ring_offset": 67,
+      "positive_available": 464,
+      "zero_available": 465,
+      "matched_count": 464
+    },
+    {
+      "exact_ring_offset": 68,
+      "positive_available": 464,
+      "zero_available": 465,
+      "matched_count": 464
+    },
+    {
+      "exact_ring_offset": 69,
+      "positive_available": 464,
+      "zero_available": 465,
+      "matched_count": 464
+    },
+    {
+      "exact_ring_offset": 70,
+      "positive_available": 463,
+      "zero_available": 466,
+      "matched_count": 463
+    },
+    {
+      "exact_ring_offset": 71,
+      "positive_available": 462,
+      "zero_available": 467,
+      "matched_count": 462
+    },
+    {
+      "exact_ring_offset": 72,
+      "positive_available": 462,
+      "zero_available": 467,
+      "matched_count": 462
+    },
+    {
+      "exact_ring_offset": 73,
+      "positive_available": 464,
+      "zero_available": 465,
+      "matched_count": 464
+    },
+    {
+      "exact_ring_offset": 74,
+      "positive_available": 463,
+      "zero_available": 466,
+      "matched_count": 463
+    },
+    {
+      "exact_ring_offset": 75,
+      "positive_available": 463,
+      "zero_available": 466,
+      "matched_count": 463
+    },
+    {
+      "exact_ring_offset": 76,
+      "positive_available": 463,
+      "zero_available": 466,
+      "matched_count": 463
+    },
+    {
+      "exact_ring_offset": 77,
+      "positive_available": 464,
+      "zero_available": 465,
+      "matched_count": 464
+    },
+    {
+      "exact_ring_offset": 78,
+      "positive_available": 463,
+      "zero_available": 466,
+      "matched_count": 463
+    },
+    {
+      "exact_ring_offset": 79,
+      "positive_available": 463,
+      "zero_available": 466,
+      "matched_count": 463
+    },
+    {
+      "exact_ring_offset": 80,
+      "positive_available": 464,
+      "zero_available": 465,
+      "matched_count": 464
+    },
+    {
+      "exact_ring_offset": 81,
+      "positive_available": 464,
+      "zero_available": 465,
+      "matched_count": 464
+    },
+    {
+      "exact_ring_offset": 82,
+      "positive_available": 464,
+      "zero_available": 465,
+      "matched_count": 464
+    },
+    {
+      "exact_ring_offset": 83,
+      "positive_available": 463,
+      "zero_available": 466,
+      "matched_count": 463
+    },
+    {
+      "exact_ring_offset": 84,
+      "positive_available": 462,
+      "zero_available": 467,
+      "matched_count": 462
+    },
+    {
+      "exact_ring_offset": 85,
+      "positive_available": 461,
+      "zero_available": 468,
+      "matched_count": 461
+    },
+    {
+      "exact_ring_offset": 86,
+      "positive_available": 463,
+      "zero_available": 466,
+      "matched_count": 463
+    },
+    {
+      "exact_ring_offset": 87,
+      "positive_available": 463,
+      "zero_available": 466,
+      "matched_count": 463
+    },
+    {
+      "exact_ring_offset": 88,
+      "positive_available": 464,
+      "zero_available": 465,
+      "matched_count": 464
+    },
+    {
+      "exact_ring_offset": 89,
+      "positive_available": 464,
+      "zero_available": 465,
+      "matched_count": 464
+    },
+    {
+      "exact_ring_offset": 90,
+      "positive_available": 464,
+      "zero_available": 465,
+      "matched_count": 464
+    },
+    {
+      "exact_ring_offset": 91,
+      "positive_available": 463,
+      "zero_available": 466,
+      "matched_count": 463
+    },
+    {
+      "exact_ring_offset": 92,
+      "positive_available": 463,
+      "zero_available": 466,
+      "matched_count": 463
+    },
+    {
+      "exact_ring_offset": 93,
+      "positive_available": 464,
+      "zero_available": 465,
+      "matched_count": 464
+    },
+    {
+      "exact_ring_offset": 94,
+      "positive_available": 464,
+      "zero_available": 465,
+      "matched_count": 464
+    },
+    {
+      "exact_ring_offset": 95,
+      "positive_available": 464,
+      "zero_available": 465,
+      "matched_count": 464
+    },
+    {
+      "exact_ring_offset": 96,
+      "positive_available": 464,
+      "zero_available": 465,
+      "matched_count": 464
+    },
+    {
+      "exact_ring_offset": 97,
+      "positive_available": 464,
+      "zero_available": 465,
+      "matched_count": 464
+    },
+    {
+      "exact_ring_offset": 98,
+      "positive_available": 464,
+      "zero_available": 465,
+      "matched_count": 464
+    },
+    {
+      "exact_ring_offset": 99,
+      "positive_available": 464,
+      "zero_available": 465,
+      "matched_count": 464
+    },
+    {
+      "exact_ring_offset": 100,
+      "positive_available": 463,
+      "zero_available": 466,
+      "matched_count": 463
+    },
+    {
+      "exact_ring_offset": 101,
+      "positive_available": 464,
+      "zero_available": 465,
+      "matched_count": 464
+    },
+    {
+      "exact_ring_offset": 102,
+      "positive_available": 464,
+      "zero_available": 465,
+      "matched_count": 464
+    },
+    {
+      "exact_ring_offset": 103,
+      "positive_available": 463,
+      "zero_available": 466,
+      "matched_count": 463
+    },
+    {
+      "exact_ring_offset": 104,
+      "positive_available": 464,
+      "zero_available": 465,
+      "matched_count": 464
+    },
+    {
+      "exact_ring_offset": 105,
+      "positive_available": 461,
+      "zero_available": 468,
+      "matched_count": 461
+    },
+    {
+      "exact_ring_offset": 106,
+      "positive_available": 463,
+      "zero_available": 466,
+      "matched_count": 463
+    },
+    {
+      "exact_ring_offset": 107,
+      "positive_available": 464,
+      "zero_available": 465,
+      "matched_count": 464
+    },
+    {
+      "exact_ring_offset": 108,
+      "positive_available": 464,
+      "zero_available": 465,
+      "matched_count": 464
+    },
+    {
+      "exact_ring_offset": 109,
+      "positive_available": 464,
+      "zero_available": 465,
+      "matched_count": 464
+    },
+    {
+      "exact_ring_offset": 110,
+      "positive_available": 464,
+      "zero_available": 465,
+      "matched_count": 464
+    },
+    {
+      "exact_ring_offset": 111,
+      "positive_available": 463,
+      "zero_available": 466,
+      "matched_count": 463
+    },
+    {
+      "exact_ring_offset": 112,
+      "positive_available": 463,
+      "zero_available": 466,
+      "matched_count": 463
+    },
+    {
+      "exact_ring_offset": 113,
+      "positive_available": 462,
+      "zero_available": 467,
+      "matched_count": 462
+    },
+    {
+      "exact_ring_offset": 114,
+      "positive_available": 463,
+      "zero_available": 466,
+      "matched_count": 463
+    },
+    {
+      "exact_ring_offset": 115,
+      "positive_available": 464,
+      "zero_available": 465,
+      "matched_count": 464
+    },
+    {
+      "exact_ring_offset": 116,
+      "positive_available": 464,
+      "zero_available": 465,
+      "matched_count": 464
+    },
+    {
+      "exact_ring_offset": 117,
+      "positive_available": 464,
+      "zero_available": 465,
+      "matched_count": 464
+    },
+    {
+      "exact_ring_offset": 118,
+      "positive_available": 464,
+      "zero_available": 465,
+      "matched_count": 464
+    },
+    {
+      "exact_ring_offset": 119,
+      "positive_available": 464,
+      "zero_available": 465,
+      "matched_count": 464
+    },
+    {
+      "exact_ring_offset": 120,
+      "positive_available": 463,
+      "zero_available": 466,
+      "matched_count": 463
+    },
+    {
+      "exact_ring_offset": 121,
+      "positive_available": 464,
+      "zero_available": 465,
+      "matched_count": 464
+    },
+    {
+      "exact_ring_offset": 122,
+      "positive_available": 464,
+      "zero_available": 465,
+      "matched_count": 464
+    },
+    {
+      "exact_ring_offset": 123,
+      "positive_available": 463,
+      "zero_available": 466,
+      "matched_count": 463
+    },
+    {
+      "exact_ring_offset": 124,
+      "positive_available": 464,
+      "zero_available": 465,
+      "matched_count": 464
+    },
+    {
+      "exact_ring_offset": 125,
+      "positive_available": 464,
+      "zero_available": 465,
+      "matched_count": 464
+    },
+    {
+      "exact_ring_offset": 126,
+      "positive_available": 463,
+      "zero_available": 466,
+      "matched_count": 463
+    },
+    {
+      "exact_ring_offset": 127,
+      "positive_available": 463,
+      "zero_available": 466,
+      "matched_count": 463
+    },
+    {
+      "exact_ring_offset": 128,
+      "positive_available": 464,
+      "zero_available": 465,
+      "matched_count": 464
+    },
+    {
+      "exact_ring_offset": 129,
+      "positive_available": 463,
+      "zero_available": 466,
+      "matched_count": 463
+    },
+    {
+      "exact_ring_offset": 130,
+      "positive_available": 462,
+      "zero_available": 467,
+      "matched_count": 462
+    },
+    {
+      "exact_ring_offset": 131,
+      "positive_available": 463,
+      "zero_available": 466,
+      "matched_count": 463
+    },
+    {
+      "exact_ring_offset": 132,
+      "positive_available": 461,
+      "zero_available": 468,
+      "matched_count": 461
+    },
+    {
+      "exact_ring_offset": 133,
+      "positive_available": 464,
+      "zero_available": 465,
+      "matched_count": 464
+    },
+    {
+      "exact_ring_offset": 134,
+      "positive_available": 463,
+      "zero_available": 466,
+      "matched_count": 463
+    },
+    {
+      "exact_ring_offset": 135,
+      "positive_available": 464,
+      "zero_available": 465,
+      "matched_count": 464
+    },
+    {
+      "exact_ring_offset": 136,
+      "positive_available": 460,
+      "zero_available": 469,
+      "matched_count": 460
+    },
+    {
+      "exact_ring_offset": 137,
+      "positive_available": 463,
+      "zero_available": 466,
+      "matched_count": 463
+    },
+    {
+      "exact_ring_offset": 138,
+      "positive_available": 464,
+      "zero_available": 465,
+      "matched_count": 464
+    },
+    {
+      "exact_ring_offset": 139,
+      "positive_available": 464,
+      "zero_available": 465,
+      "matched_count": 464
+    },
+    {
+      "exact_ring_offset": 140,
+      "positive_available": 464,
+      "zero_available": 465,
+      "matched_count": 464
+    },
+    {
+      "exact_ring_offset": 141,
+      "positive_available": 461,
+      "zero_available": 468,
+      "matched_count": 461
+    },
+    {
+      "exact_ring_offset": 142,
+      "positive_available": 463,
+      "zero_available": 466,
+      "matched_count": 463
+    },
+    {
+      "exact_ring_offset": 143,
+      "positive_available": 463,
+      "zero_available": 466,
+      "matched_count": 463
+    },
+    {
+      "exact_ring_offset": 144,
+      "positive_available": 462,
+      "zero_available": 467,
+      "matched_count": 462
+    },
+    {
+      "exact_ring_offset": 145,
+      "positive_available": 463,
+      "zero_available": 466,
+      "matched_count": 463
+    },
+    {
+      "exact_ring_offset": 146,
+      "positive_available": 464,
+      "zero_available": 465,
+      "matched_count": 464
+    },
+    {
+      "exact_ring_offset": 147,
+      "positive_available": 463,
+      "zero_available": 466,
+      "matched_count": 463
+    },
+    {
+      "exact_ring_offset": 148,
+      "positive_available": 464,
+      "zero_available": 465,
+      "matched_count": 464
+    },
+    {
+      "exact_ring_offset": 149,
+      "positive_available": 463,
+      "zero_available": 466,
+      "matched_count": 463
+    },
+    {
+      "exact_ring_offset": 150,
+      "positive_available": 464,
+      "zero_available": 465,
+      "matched_count": 464
+    },
+    {
+      "exact_ring_offset": 151,
+      "positive_available": 464,
+      "zero_available": 465,
+      "matched_count": 464
+    },
+    {
+      "exact_ring_offset": 152,
+      "positive_available": 464,
+      "zero_available": 465,
+      "matched_count": 464
+    },
+    {
+      "exact_ring_offset": 153,
+      "positive_available": 463,
+      "zero_available": 466,
+      "matched_count": 463
+    },
+    {
+      "exact_ring_offset": 154,
+      "positive_available": 463,
+      "zero_available": 466,
+      "matched_count": 463
+    },
+    {
+      "exact_ring_offset": 155,
+      "positive_available": 464,
+      "zero_available": 465,
+      "matched_count": 464
+    },
+    {
+      "exact_ring_offset": 156,
+      "positive_available": 462,
+      "zero_available": 467,
+      "matched_count": 462
+    },
+    {
+      "exact_ring_offset": 157,
+      "positive_available": 463,
+      "zero_available": 466,
+      "matched_count": 463
+    },
+    {
+      "exact_ring_offset": 158,
+      "positive_available": 463,
+      "zero_available": 466,
+      "matched_count": 463
+    },
+    {
+      "exact_ring_offset": 159,
+      "positive_available": 463,
+      "zero_available": 466,
+      "matched_count": 463
+    },
+    {
+      "exact_ring_offset": 160,
+      "positive_available": 463,
+      "zero_available": 466,
+      "matched_count": 463
+    },
+    {
+      "exact_ring_offset": 161,
+      "positive_available": 464,
+      "zero_available": 465,
+      "matched_count": 464
+    },
+    {
+      "exact_ring_offset": 162,
+      "positive_available": 462,
+      "zero_available": 467,
+      "matched_count": 462
+    },
+    {
+      "exact_ring_offset": 163,
+      "positive_available": 464,
+      "zero_available": 465,
+      "matched_count": 464
+    },
+    {
+      "exact_ring_offset": 164,
+      "positive_available": 462,
+      "zero_available": 467,
+      "matched_count": 462
+    },
+    {
+      "exact_ring_offset": 165,
+      "positive_available": 464,
+      "zero_available": 465,
+      "matched_count": 464
+    },
+    {
+      "exact_ring_offset": 166,
+      "positive_available": 463,
+      "zero_available": 466,
+      "matched_count": 463
+    },
+    {
+      "exact_ring_offset": 167,
+      "positive_available": 461,
+      "zero_available": 468,
+      "matched_count": 461
+    },
+    {
+      "exact_ring_offset": 168,
+      "positive_available": 464,
+      "zero_available": 465,
+      "matched_count": 464
+    },
+    {
+      "exact_ring_offset": 169,
+      "positive_available": 463,
+      "zero_available": 466,
+      "matched_count": 463
+    },
+    {
+      "exact_ring_offset": 170,
+      "positive_available": 464,
+      "zero_available": 465,
+      "matched_count": 464
+    },
+    {
+      "exact_ring_offset": 171,
+      "positive_available": 464,
+      "zero_available": 465,
+      "matched_count": 464
+    },
+    {
+      "exact_ring_offset": 172,
+      "positive_available": 463,
+      "zero_available": 466,
+      "matched_count": 463
+    },
+    {
+      "exact_ring_offset": 173,
+      "positive_available": 463,
+      "zero_available": 466,
+      "matched_count": 463
+    },
+    {
+      "exact_ring_offset": 174,
+      "positive_available": 463,
+      "zero_available": 466,
+      "matched_count": 463
+    },
+    {
+      "exact_ring_offset": 175,
+      "positive_available": 461,
+      "zero_available": 468,
+      "matched_count": 461
+    },
+    {
+      "exact_ring_offset": 176,
+      "positive_available": 463,
+      "zero_available": 466,
+      "matched_count": 463
+    },
+    {
+      "exact_ring_offset": 177,
+      "positive_available": 463,
+      "zero_available": 466,
+      "matched_count": 463
+    },
+    {
+      "exact_ring_offset": 178,
+      "positive_available": 463,
+      "zero_available": 466,
+      "matched_count": 463
+    },
+    {
+      "exact_ring_offset": 179,
+      "positive_available": 463,
+      "zero_available": 466,
+      "matched_count": 463
+    },
+    {
+      "exact_ring_offset": 180,
+      "positive_available": 464,
+      "zero_available": 465,
+      "matched_count": 464
+    },
+    {
+      "exact_ring_offset": 181,
+      "positive_available": 464,
+      "zero_available": 465,
+      "matched_count": 464
+    },
+    {
+      "exact_ring_offset": 182,
+      "positive_available": 464,
+      "zero_available": 465,
+      "matched_count": 464
+    },
+    {
+      "exact_ring_offset": 183,
+      "positive_available": 463,
+      "zero_available": 466,
+      "matched_count": 463
+    },
+    {
+      "exact_ring_offset": 184,
+      "positive_available": 464,
+      "zero_available": 465,
+      "matched_count": 464
+    },
+    {
+      "exact_ring_offset": 185,
+      "positive_available": 463,
+      "zero_available": 466,
+      "matched_count": 463
+    },
+    {
+      "exact_ring_offset": 186,
+      "positive_available": 460,
+      "zero_available": 469,
+      "matched_count": 460
+    },
+    {
+      "exact_ring_offset": 187,
+      "positive_available": 464,
+      "zero_available": 465,
+      "matched_count": 464
+    },
+    {
+      "exact_ring_offset": 188,
+      "positive_available": 460,
+      "zero_available": 469,
+      "matched_count": 460
+    },
+    {
+      "exact_ring_offset": 189,
+      "positive_available": 463,
+      "zero_available": 466,
+      "matched_count": 463
+    },
+    {
+      "exact_ring_offset": 190,
+      "positive_available": 463,
+      "zero_available": 466,
+      "matched_count": 463
+    },
+    {
+      "exact_ring_offset": 191,
+      "positive_available": 462,
+      "zero_available": 467,
+      "matched_count": 462
+    },
+    {
+      "exact_ring_offset": 192,
+      "positive_available": 464,
+      "zero_available": 465,
+      "matched_count": 464
+    },
+    {
+      "exact_ring_offset": 193,
+      "positive_available": 464,
+      "zero_available": 465,
+      "matched_count": 464
+    },
+    {
+      "exact_ring_offset": 194,
+      "positive_available": 464,
+      "zero_available": 465,
+      "matched_count": 464
+    },
+    {
+      "exact_ring_offset": 195,
+      "positive_available": 462,
+      "zero_available": 467,
+      "matched_count": 462
+    },
+    {
+      "exact_ring_offset": 196,
+      "positive_available": 463,
+      "zero_available": 466,
+      "matched_count": 463
+    },
+    {
+      "exact_ring_offset": 197,
+      "positive_available": 463,
+      "zero_available": 466,
+      "matched_count": 463
+    },
+    {
+      "exact_ring_offset": 198,
+      "positive_available": 461,
+      "zero_available": 468,
+      "matched_count": 461
+    },
+    {
+      "exact_ring_offset": 199,
+      "positive_available": 460,
+      "zero_available": 469,
+      "matched_count": 460
+    },
+    {
+      "exact_ring_offset": 200,
+      "positive_available": 463,
+      "zero_available": 466,
+      "matched_count": 463
+    },
+    {
+      "exact_ring_offset": 201,
+      "positive_available": 461,
+      "zero_available": 468,
+      "matched_count": 461
+    },
+    {
+      "exact_ring_offset": 202,
+      "positive_available": 464,
+      "zero_available": 465,
+      "matched_count": 464
+    },
+    {
+      "exact_ring_offset": 203,
+      "positive_available": 464,
+      "zero_available": 465,
+      "matched_count": 464
+    },
+    {
+      "exact_ring_offset": 204,
+      "positive_available": 462,
+      "zero_available": 467,
+      "matched_count": 462
+    },
+    {
+      "exact_ring_offset": 205,
+      "positive_available": 463,
+      "zero_available": 466,
+      "matched_count": 463
+    },
+    {
+      "exact_ring_offset": 206,
+      "positive_available": 464,
+      "zero_available": 465,
+      "matched_count": 464
+    },
+    {
+      "exact_ring_offset": 207,
+      "positive_available": 464,
+      "zero_available": 465,
+      "matched_count": 464
+    },
+    {
+      "exact_ring_offset": 208,
+      "positive_available": 462,
+      "zero_available": 467,
+      "matched_count": 462
+    },
+    {
+      "exact_ring_offset": 209,
+      "positive_available": 463,
+      "zero_available": 466,
+      "matched_count": 463
+    },
+    {
+      "exact_ring_offset": 210,
+      "positive_available": 464,
+      "zero_available": 465,
+      "matched_count": 464
+    },
+    {
+      "exact_ring_offset": 211,
+      "positive_available": 463,
+      "zero_available": 466,
+      "matched_count": 463
+    },
+    {
+      "exact_ring_offset": 212,
+      "positive_available": 464,
+      "zero_available": 465,
+      "matched_count": 464
+    },
+    {
+      "exact_ring_offset": 213,
+      "positive_available": 462,
+      "zero_available": 467,
+      "matched_count": 462
+    },
+    {
+      "exact_ring_offset": 214,
+      "positive_available": 464,
+      "zero_available": 465,
+      "matched_count": 464
+    },
+    {
+      "exact_ring_offset": 215,
+      "positive_available": 462,
+      "zero_available": 467,
+      "matched_count": 462
+    },
+    {
+      "exact_ring_offset": 216,
+      "positive_available": 464,
+      "zero_available": 465,
+      "matched_count": 464
+    },
+    {
+      "exact_ring_offset": 217,
+      "positive_available": 463,
+      "zero_available": 466,
+      "matched_count": 463
+    },
+    {
+      "exact_ring_offset": 218,
+      "positive_available": 464,
+      "zero_available": 465,
+      "matched_count": 464
+    },
+    {
+      "exact_ring_offset": 219,
+      "positive_available": 461,
+      "zero_available": 468,
+      "matched_count": 461
+    },
+    {
+      "exact_ring_offset": 220,
+      "positive_available": 462,
+      "zero_available": 467,
+      "matched_count": 462
+    },
+    {
+      "exact_ring_offset": 221,
+      "positive_available": 461,
+      "zero_available": 468,
+      "matched_count": 461
+    },
+    {
+      "exact_ring_offset": 222,
+      "positive_available": 463,
+      "zero_available": 466,
+      "matched_count": 463
+    },
+    {
+      "exact_ring_offset": 223,
+      "positive_available": 463,
+      "zero_available": 466,
+      "matched_count": 463
+    },
+    {
+      "exact_ring_offset": 224,
+      "positive_available": 463,
+      "zero_available": 466,
+      "matched_count": 463
+    },
+    {
+      "exact_ring_offset": 225,
+      "positive_available": 460,
+      "zero_available": 469,
+      "matched_count": 460
+    },
+    {
+      "exact_ring_offset": 226,
+      "positive_available": 462,
+      "zero_available": 467,
+      "matched_count": 462
+    },
+    {
+      "exact_ring_offset": 227,
+      "positive_available": 462,
+      "zero_available": 467,
+      "matched_count": 462
+    },
+    {
+      "exact_ring_offset": 228,
+      "positive_available": 463,
+      "zero_available": 466,
+      "matched_count": 463
+    },
+    {
+      "exact_ring_offset": 229,
+      "positive_available": 464,
+      "zero_available": 465,
+      "matched_count": 464
+    },
+    {
+      "exact_ring_offset": 230,
+      "positive_available": 464,
+      "zero_available": 465,
+      "matched_count": 464
+    },
+    {
+      "exact_ring_offset": 231,
+      "positive_available": 461,
+      "zero_available": 468,
+      "matched_count": 461
+    },
+    {
+      "exact_ring_offset": 232,
+      "positive_available": 462,
+      "zero_available": 467,
+      "matched_count": 462
+    },
+    {
+      "exact_ring_offset": 233,
+      "positive_available": 464,
+      "zero_available": 465,
+      "matched_count": 464
+    },
+    {
+      "exact_ring_offset": 234,
+      "positive_available": 464,
+      "zero_available": 465,
+      "matched_count": 464
+    },
+    {
+      "exact_ring_offset": 235,
+      "positive_available": 460,
+      "zero_available": 469,
+      "matched_count": 460
+    },
+    {
+      "exact_ring_offset": 236,
+      "positive_available": 459,
+      "zero_available": 470,
+      "matched_count": 459
+    },
+    {
+      "exact_ring_offset": 237,
+      "positive_available": 463,
+      "zero_available": 466,
+      "matched_count": 463
+    },
+    {
+      "exact_ring_offset": 238,
+      "positive_available": 464,
+      "zero_available": 465,
+      "matched_count": 464
+    },
+    {
+      "exact_ring_offset": 239,
+      "positive_available": 463,
+      "zero_available": 466,
+      "matched_count": 463
+    },
+    {
+      "exact_ring_offset": 240,
+      "positive_available": 462,
+      "zero_available": 467,
+      "matched_count": 462
+    },
+    {
+      "exact_ring_offset": 241,
+      "positive_available": 464,
+      "zero_available": 465,
+      "matched_count": 464
+    },
+    {
+      "exact_ring_offset": 242,
+      "positive_available": 463,
+      "zero_available": 466,
+      "matched_count": 463
+    },
+    {
+      "exact_ring_offset": 243,
+      "positive_available": 462,
+      "zero_available": 467,
+      "matched_count": 462
+    },
+    {
+      "exact_ring_offset": 244,
+      "positive_available": 463,
+      "zero_available": 466,
+      "matched_count": 463
+    },
+    {
+      "exact_ring_offset": 245,
+      "positive_available": 463,
+      "zero_available": 466,
+      "matched_count": 463
+    },
+    {
+      "exact_ring_offset": 246,
+      "positive_available": 464,
+      "zero_available": 465,
+      "matched_count": 464
+    },
+    {
+      "exact_ring_offset": 247,
+      "positive_available": 463,
+      "zero_available": 466,
+      "matched_count": 463
+    },
+    {
+      "exact_ring_offset": 248,
+      "positive_available": 464,
+      "zero_available": 465,
+      "matched_count": 464
+    },
+    {
+      "exact_ring_offset": 249,
+      "positive_available": 461,
+      "zero_available": 468,
+      "matched_count": 461
+    },
+    {
+      "exact_ring_offset": 250,
+      "positive_available": 463,
+      "zero_available": 466,
+      "matched_count": 463
+    },
+    {
+      "exact_ring_offset": 251,
+      "positive_available": 461,
+      "zero_available": 468,
+      "matched_count": 461
+    },
+    {
+      "exact_ring_offset": 252,
+      "positive_available": 464,
+      "zero_available": 465,
+      "matched_count": 464
+    },
+    {
+      "exact_ring_offset": 253,
+      "positive_available": 461,
+      "zero_available": 468,
+      "matched_count": 461
+    },
+    {
+      "exact_ring_offset": 254,
+      "positive_available": 464,
+      "zero_available": 465,
+      "matched_count": 464
+    },
+    {
+      "exact_ring_offset": 255,
+      "positive_available": 463,
+      "zero_available": 466,
+      "matched_count": 463
+    },
+    {
+      "exact_ring_offset": 256,
+      "positive_available": 464,
+      "zero_available": 465,
+      "matched_count": 464
+    },
+    {
+      "exact_ring_offset": 257,
+      "positive_available": 464,
+      "zero_available": 465,
+      "matched_count": 464
+    },
+    {
+      "exact_ring_offset": 258,
+      "positive_available": 464,
+      "zero_available": 465,
+      "matched_count": 464
+    },
+    {
+      "exact_ring_offset": 259,
+      "positive_available": 463,
+      "zero_available": 466,
+      "matched_count": 463
+    },
+    {
+      "exact_ring_offset": 260,
+      "positive_available": 464,
+      "zero_available": 465,
+      "matched_count": 464
+    },
+    {
+      "exact_ring_offset": 261,
+      "positive_available": 464,
+      "zero_available": 465,
+      "matched_count": 464
+    },
+    {
+      "exact_ring_offset": 262,
+      "positive_available": 463,
+      "zero_available": 466,
+      "matched_count": 463
+    },
+    {
+      "exact_ring_offset": 263,
+      "positive_available": 464,
+      "zero_available": 465,
+      "matched_count": 464
+    },
+    {
+      "exact_ring_offset": 264,
+      "positive_available": 464,
+      "zero_available": 465,
+      "matched_count": 464
+    },
+    {
+      "exact_ring_offset": 265,
+      "positive_available": 462,
+      "zero_available": 467,
+      "matched_count": 462
+    },
+    {
+      "exact_ring_offset": 266,
+      "positive_available": 463,
+      "zero_available": 466,
+      "matched_count": 463
+    },
+    {
+      "exact_ring_offset": 267,
+      "positive_available": 463,
+      "zero_available": 466,
+      "matched_count": 463
+    },
+    {
+      "exact_ring_offset": 268,
+      "positive_available": 460,
+      "zero_available": 469,
+      "matched_count": 460
+    },
+    {
+      "exact_ring_offset": 269,
+      "positive_available": 463,
+      "zero_available": 466,
+      "matched_count": 463
+    },
+    {
+      "exact_ring_offset": 270,
+      "positive_available": 461,
+      "zero_available": 468,
+      "matched_count": 461
+    },
+    {
+      "exact_ring_offset": 271,
+      "positive_available": 461,
+      "zero_available": 468,
+      "matched_count": 461
+    },
+    {
+      "exact_ring_offset": 272,
+      "positive_available": 464,
+      "zero_available": 465,
+      "matched_count": 464
+    },
+    {
+      "exact_ring_offset": 273,
+      "positive_available": 463,
+      "zero_available": 466,
+      "matched_count": 463
+    },
+    {
+      "exact_ring_offset": 274,
+      "positive_available": 464,
+      "zero_available": 465,
+      "matched_count": 464
+    },
+    {
+      "exact_ring_offset": 275,
+      "positive_available": 464,
+      "zero_available": 465,
+      "matched_count": 464
+    },
+    {
+      "exact_ring_offset": 276,
+      "positive_available": 464,
+      "zero_available": 465,
+      "matched_count": 464
+    },
+    {
+      "exact_ring_offset": 277,
+      "positive_available": 464,
+      "zero_available": 465,
+      "matched_count": 464
+    },
+    {
+      "exact_ring_offset": 278,
+      "positive_available": 464,
+      "zero_available": 465,
+      "matched_count": 464
+    },
+    {
+      "exact_ring_offset": 279,
+      "positive_available": 464,
+      "zero_available": 465,
+      "matched_count": 464
+    },
+    {
+      "exact_ring_offset": 280,
+      "positive_available": 462,
+      "zero_available": 467,
+      "matched_count": 462
+    },
+    {
+      "exact_ring_offset": 281,
+      "positive_available": 464,
+      "zero_available": 465,
+      "matched_count": 464
+    },
+    {
+      "exact_ring_offset": 282,
+      "positive_available": 462,
+      "zero_available": 467,
+      "matched_count": 462
+    },
+    {
+      "exact_ring_offset": 283,
+      "positive_available": 464,
+      "zero_available": 465,
+      "matched_count": 464
+    },
+    {
+      "exact_ring_offset": 284,
+      "positive_available": 464,
+      "zero_available": 465,
+      "matched_count": 464
+    },
+    {
+      "exact_ring_offset": 285,
+      "positive_available": 462,
+      "zero_available": 467,
+      "matched_count": 462
+    },
+    {
+      "exact_ring_offset": 286,
+      "positive_available": 459,
+      "zero_available": 470,
+      "matched_count": 459
+    },
+    {
+      "exact_ring_offset": 287,
+      "positive_available": 464,
+      "zero_available": 465,
+      "matched_count": 464
+    },
+    {
+      "exact_ring_offset": 288,
+      "positive_available": 462,
+      "zero_available": 467,
+      "matched_count": 462
+    },
+    {
+      "exact_ring_offset": 289,
+      "positive_available": 461,
+      "zero_available": 468,
+      "matched_count": 461
+    },
+    {
+      "exact_ring_offset": 290,
+      "positive_available": 464,
+      "zero_available": 465,
+      "matched_count": 464
+    },
+    {
+      "exact_ring_offset": 291,
+      "positive_available": 463,
+      "zero_available": 466,
+      "matched_count": 463
+    },
+    {
+      "exact_ring_offset": 292,
+      "positive_available": 464,
+      "zero_available": 465,
+      "matched_count": 464
+    },
+    {
+      "exact_ring_offset": 293,
+      "positive_available": 463,
+      "zero_available": 466,
+      "matched_count": 463
+    },
+    {
+      "exact_ring_offset": 294,
+      "positive_available": 464,
+      "zero_available": 465,
+      "matched_count": 464
+    },
+    {
+      "exact_ring_offset": 295,
+      "positive_available": 463,
+      "zero_available": 466,
+      "matched_count": 463
+    },
+    {
+      "exact_ring_offset": 296,
+      "positive_available": 464,
+      "zero_available": 465,
+      "matched_count": 464
+    },
+    {
+      "exact_ring_offset": 297,
+      "positive_available": 462,
+      "zero_available": 467,
+      "matched_count": 462
+    },
+    {
+      "exact_ring_offset": 298,
+      "positive_available": 464,
+      "zero_available": 465,
+      "matched_count": 464
+    },
+    {
+      "exact_ring_offset": 299,
+      "positive_available": 460,
+      "zero_available": 469,
+      "matched_count": 460
+    },
+    {
+      "exact_ring_offset": 300,
+      "positive_available": 464,
+      "zero_available": 465,
+      "matched_count": 464
+    },
+    {
+      "exact_ring_offset": 301,
+      "positive_available": 462,
+      "zero_available": 467,
+      "matched_count": 462
+    },
+    {
+      "exact_ring_offset": 302,
+      "positive_available": 464,
+      "zero_available": 465,
+      "matched_count": 464
+    },
+    {
+      "exact_ring_offset": 303,
+      "positive_available": 464,
+      "zero_available": 465,
+      "matched_count": 464
+    },
+    {
+      "exact_ring_offset": 304,
+      "positive_available": 464,
+      "zero_available": 465,
+      "matched_count": 464
+    },
+    {
+      "exact_ring_offset": 305,
+      "positive_available": 462,
+      "zero_available": 467,
+      "matched_count": 462
+    },
+    {
+      "exact_ring_offset": 306,
+      "positive_available": 464,
+      "zero_available": 465,
+      "matched_count": 464
+    },
+    {
+      "exact_ring_offset": 307,
+      "positive_available": 462,
+      "zero_available": 467,
+      "matched_count": 462
+    },
+    {
+      "exact_ring_offset": 308,
+      "positive_available": 464,
+      "zero_available": 465,
+      "matched_count": 464
+    },
+    {
+      "exact_ring_offset": 309,
+      "positive_available": 462,
+      "zero_available": 467,
+      "matched_count": 462
+    },
+    {
+      "exact_ring_offset": 310,
+      "positive_available": 464,
+      "zero_available": 465,
+      "matched_count": 464
+    },
+    {
+      "exact_ring_offset": 311,
+      "positive_available": 464,
+      "zero_available": 465,
+      "matched_count": 464
+    },
+    {
+      "exact_ring_offset": 312,
+      "positive_available": 464,
+      "zero_available": 465,
+      "matched_count": 464
+    },
+    {
+      "exact_ring_offset": 313,
+      "positive_available": 464,
+      "zero_available": 465,
+      "matched_count": 464
+    },
+    {
+      "exact_ring_offset": 314,
+      "positive_available": 461,
+      "zero_available": 468,
+      "matched_count": 461
+    },
+    {
+      "exact_ring_offset": 315,
+      "positive_available": 462,
+      "zero_available": 467,
+      "matched_count": 462
+    },
+    {
+      "exact_ring_offset": 316,
+      "positive_available": 462,
+      "zero_available": 467,
+      "matched_count": 462
+    },
+    {
+      "exact_ring_offset": 317,
+      "positive_available": 463,
+      "zero_available": 466,
+      "matched_count": 463
+    },
+    {
+      "exact_ring_offset": 318,
+      "positive_available": 464,
+      "zero_available": 465,
+      "matched_count": 464
+    },
+    {
+      "exact_ring_offset": 319,
+      "positive_available": 461,
+      "zero_available": 468,
+      "matched_count": 461
+    },
+    {
+      "exact_ring_offset": 320,
+      "positive_available": 464,
+      "zero_available": 465,
+      "matched_count": 464
+    },
+    {
+      "exact_ring_offset": 321,
+      "positive_available": 462,
+      "zero_available": 467,
+      "matched_count": 462
+    },
+    {
+      "exact_ring_offset": 322,
+      "positive_available": 463,
+      "zero_available": 466,
+      "matched_count": 463
+    },
+    {
+      "exact_ring_offset": 323,
+      "positive_available": 462,
+      "zero_available": 467,
+      "matched_count": 462
+    },
+    {
+      "exact_ring_offset": 324,
+      "positive_available": 460,
+      "zero_available": 469,
+      "matched_count": 460
+    },
+    {
+      "exact_ring_offset": 325,
+      "positive_available": 463,
+      "zero_available": 466,
+      "matched_count": 463
+    },
+    {
+      "exact_ring_offset": 326,
+      "positive_available": 460,
+      "zero_available": 469,
+      "matched_count": 460
+    },
+    {
+      "exact_ring_offset": 327,
+      "positive_available": 461,
+      "zero_available": 468,
+      "matched_count": 461
+    },
+    {
+      "exact_ring_offset": 328,
+      "positive_available": 460,
+      "zero_available": 469,
+      "matched_count": 460
+    },
+    {
+      "exact_ring_offset": 329,
+      "positive_available": 463,
+      "zero_available": 466,
+      "matched_count": 463
+    },
+    {
+      "exact_ring_offset": 330,
+      "positive_available": 462,
+      "zero_available": 467,
+      "matched_count": 462
+    },
+    {
+      "exact_ring_offset": 331,
+      "positive_available": 459,
+      "zero_available": 470,
+      "matched_count": 459
+    },
+    {
+      "exact_ring_offset": 332,
+      "positive_available": 461,
+      "zero_available": 468,
+      "matched_count": 461
+    },
+    {
+      "exact_ring_offset": 333,
+      "positive_available": 460,
+      "zero_available": 469,
+      "matched_count": 460
+    },
+    {
+      "exact_ring_offset": 334,
+      "positive_available": 464,
+      "zero_available": 465,
+      "matched_count": 464
+    },
+    {
+      "exact_ring_offset": 335,
+      "positive_available": 464,
+      "zero_available": 465,
+      "matched_count": 464
+    },
+    {
+      "exact_ring_offset": 336,
+      "positive_available": 462,
+      "zero_available": 467,
+      "matched_count": 462
+    },
+    {
+      "exact_ring_offset": 337,
+      "positive_available": 462,
+      "zero_available": 467,
+      "matched_count": 462
+    },
+    {
+      "exact_ring_offset": 338,
+      "positive_available": 460,
+      "zero_available": 469,
+      "matched_count": 460
+    },
+    {
+      "exact_ring_offset": 339,
+      "positive_available": 458,
+      "zero_available": 471,
+      "matched_count": 458
+    },
+    {
+      "exact_ring_offset": 340,
+      "positive_available": 463,
+      "zero_available": 466,
+      "matched_count": 463
+    },
+    {
+      "exact_ring_offset": 341,
+      "positive_available": 464,
+      "zero_available": 465,
+      "matched_count": 464
+    },
+    {
+      "exact_ring_offset": 342,
+      "positive_available": 463,
+      "zero_available": 466,
+      "matched_count": 463
+    },
+    {
+      "exact_ring_offset": 343,
+      "positive_available": 461,
+      "zero_available": 468,
+      "matched_count": 461
+    },
+    {
+      "exact_ring_offset": 344,
+      "positive_available": 464,
+      "zero_available": 465,
+      "matched_count": 464
+    },
+    {
+      "exact_ring_offset": 345,
+      "positive_available": 458,
+      "zero_available": 471,
+      "matched_count": 458
+    },
+    {
+      "exact_ring_offset": 346,
+      "positive_available": 461,
+      "zero_available": 468,
+      "matched_count": 461
+    },
+    {
+      "exact_ring_offset": 347,
+      "positive_available": 459,
+      "zero_available": 470,
+      "matched_count": 459
+    },
+    {
+      "exact_ring_offset": 348,
+      "positive_available": 463,
+      "zero_available": 466,
+      "matched_count": 463
+    },
+    {
+      "exact_ring_offset": 349,
+      "positive_available": 461,
+      "zero_available": 468,
+      "matched_count": 461
+    },
+    {
+      "exact_ring_offset": 350,
+      "positive_available": 460,
+      "zero_available": 469,
+      "matched_count": 460
+    },
+    {
+      "exact_ring_offset": 351,
+      "positive_available": 464,
+      "zero_available": 465,
+      "matched_count": 464
+    },
+    {
+      "exact_ring_offset": 352,
+      "positive_available": 463,
+      "zero_available": 466,
+      "matched_count": 463
+    },
+    {
+      "exact_ring_offset": 353,
+      "positive_available": 464,
+      "zero_available": 465,
+      "matched_count": 464
+    },
+    {
+      "exact_ring_offset": 354,
+      "positive_available": 464,
+      "zero_available": 465,
+      "matched_count": 464
+    },
+    {
+      "exact_ring_offset": 355,
+      "positive_available": 464,
+      "zero_available": 465,
+      "matched_count": 464
+    },
+    {
+      "exact_ring_offset": 356,
+      "positive_available": 462,
+      "zero_available": 467,
+      "matched_count": 462
+    },
+    {
+      "exact_ring_offset": 357,
+      "positive_available": 460,
+      "zero_available": 469,
+      "matched_count": 460
+    },
+    {
+      "exact_ring_offset": 358,
+      "positive_available": 463,
+      "zero_available": 466,
+      "matched_count": 463
+    },
+    {
+      "exact_ring_offset": 359,
+      "positive_available": 463,
+      "zero_available": 466,
+      "matched_count": 463
+    },
+    {
+      "exact_ring_offset": 360,
+      "positive_available": 460,
+      "zero_available": 469,
+      "matched_count": 460
+    },
+    {
+      "exact_ring_offset": 361,
+      "positive_available": 462,
+      "zero_available": 467,
+      "matched_count": 462
+    },
+    {
+      "exact_ring_offset": 362,
+      "positive_available": 459,
+      "zero_available": 470,
+      "matched_count": 459
+    },
+    {
+      "exact_ring_offset": 363,
+      "positive_available": 463,
+      "zero_available": 466,
+      "matched_count": 463
+    },
+    {
+      "exact_ring_offset": 364,
+      "positive_available": 464,
+      "zero_available": 465,
+      "matched_count": 464
+    },
+    {
+      "exact_ring_offset": 365,
+      "positive_available": 460,
+      "zero_available": 469,
+      "matched_count": 460
+    },
+    {
+      "exact_ring_offset": 366,
+      "positive_available": 461,
+      "zero_available": 468,
+      "matched_count": 461
+    },
+    {
+      "exact_ring_offset": 367,
+      "positive_available": 464,
+      "zero_available": 465,
+      "matched_count": 464
+    },
+    {
+      "exact_ring_offset": 368,
+      "positive_available": 459,
+      "zero_available": 470,
+      "matched_count": 459
+    },
+    {
+      "exact_ring_offset": 369,
+      "positive_available": 462,
+      "zero_available": 467,
+      "matched_count": 462
+    },
+    {
+      "exact_ring_offset": 370,
+      "positive_available": 461,
+      "zero_available": 468,
+      "matched_count": 461
+    },
+    {
+      "exact_ring_offset": 371,
+      "positive_available": 463,
+      "zero_available": 466,
+      "matched_count": 463
+    },
+    {
+      "exact_ring_offset": 372,
+      "positive_available": 461,
+      "zero_available": 468,
+      "matched_count": 461
+    },
+    {
+      "exact_ring_offset": 373,
+      "positive_available": 464,
+      "zero_available": 465,
+      "matched_count": 464
+    },
+    {
+      "exact_ring_offset": 374,
+      "positive_available": 463,
+      "zero_available": 466,
+      "matched_count": 463
+    },
+    {
+      "exact_ring_offset": 375,
+      "positive_available": 460,
+      "zero_available": 469,
+      "matched_count": 460
+    },
+    {
+      "exact_ring_offset": 376,
+      "positive_available": 464,
+      "zero_available": 465,
+      "matched_count": 464
+    },
+    {
+      "exact_ring_offset": 377,
+      "positive_available": 463,
+      "zero_available": 466,
+      "matched_count": 463
+    },
+    {
+      "exact_ring_offset": 378,
+      "positive_available": 463,
+      "zero_available": 466,
+      "matched_count": 463
+    },
+    {
+      "exact_ring_offset": 379,
+      "positive_available": 464,
+      "zero_available": 465,
+      "matched_count": 464
+    },
+    {
+      "exact_ring_offset": 380,
+      "positive_available": 463,
+      "zero_available": 466,
+      "matched_count": 463
+    },
+    {
+      "exact_ring_offset": 381,
+      "positive_available": 463,
+      "zero_available": 466,
+      "matched_count": 463
+    },
+    {
+      "exact_ring_offset": 382,
+      "positive_available": 463,
+      "zero_available": 466,
+      "matched_count": 463
+    },
+    {
+      "exact_ring_offset": 383,
+      "positive_available": 463,
+      "zero_available": 466,
+      "matched_count": 463
+    },
+    {
+      "exact_ring_offset": 384,
+      "positive_available": 459,
+      "zero_available": 470,
+      "matched_count": 459
+    },
+    {
+      "exact_ring_offset": 385,
+      "positive_available": 460,
+      "zero_available": 469,
+      "matched_count": 460
+    },
+    {
+      "exact_ring_offset": 386,
+      "positive_available": 460,
+      "zero_available": 469,
+      "matched_count": 460
+    },
+    {
+      "exact_ring_offset": 387,
+      "positive_available": 460,
+      "zero_available": 469,
+      "matched_count": 460
+    },
+    {
+      "exact_ring_offset": 388,
+      "positive_available": 457,
+      "zero_available": 472,
+      "matched_count": 457
+    },
+    {
+      "exact_ring_offset": 389,
+      "positive_available": 464,
+      "zero_available": 465,
+      "matched_count": 464
+    },
+    {
+      "exact_ring_offset": 390,
+      "positive_available": 459,
+      "zero_available": 470,
+      "matched_count": 459
+    },
+    {
+      "exact_ring_offset": 391,
+      "positive_available": 463,
+      "zero_available": 466,
+      "matched_count": 463
+    },
+    {
+      "exact_ring_offset": 392,
+      "positive_available": 461,
+      "zero_available": 468,
+      "matched_count": 461
+    },
+    {
+      "exact_ring_offset": 393,
+      "positive_available": 458,
+      "zero_available": 471,
+      "matched_count": 458
+    },
+    {
+      "exact_ring_offset": 394,
+      "positive_available": 461,
+      "zero_available": 468,
+      "matched_count": 461
+    },
+    {
+      "exact_ring_offset": 395,
+      "positive_available": 464,
+      "zero_available": 465,
+      "matched_count": 464
+    },
+    {
+      "exact_ring_offset": 396,
+      "positive_available": 457,
+      "zero_available": 472,
+      "matched_count": 457
+    },
+    {
+      "exact_ring_offset": 397,
+      "positive_available": 459,
+      "zero_available": 470,
+      "matched_count": 459
+    },
+    {
+      "exact_ring_offset": 398,
+      "positive_available": 457,
+      "zero_available": 472,
+      "matched_count": 457
+    },
+    {
+      "exact_ring_offset": 399,
+      "positive_available": 456,
+      "zero_available": 473,
+      "matched_count": 456
+    },
+    {
+      "exact_ring_offset": 400,
+      "positive_available": 459,
+      "zero_available": 470,
+      "matched_count": 459
+    },
+    {
+      "exact_ring_offset": 401,
+      "positive_available": 460,
+      "zero_available": 469,
+      "matched_count": 460
+    },
+    {
+      "exact_ring_offset": 402,
+      "positive_available": 459,
+      "zero_available": 470,
+      "matched_count": 459
+    },
+    {
+      "exact_ring_offset": 403,
+      "positive_available": 462,
+      "zero_available": 467,
+      "matched_count": 462
+    },
+    {
+      "exact_ring_offset": 404,
+      "positive_available": 462,
+      "zero_available": 467,
+      "matched_count": 462
+    },
+    {
+      "exact_ring_offset": 405,
+      "positive_available": 458,
+      "zero_available": 471,
+      "matched_count": 458
+    },
+    {
+      "exact_ring_offset": 406,
+      "positive_available": 460,
+      "zero_available": 469,
+      "matched_count": 460
+    },
+    {
+      "exact_ring_offset": 407,
+      "positive_available": 459,
+      "zero_available": 470,
+      "matched_count": 459
+    },
+    {
+      "exact_ring_offset": 408,
+      "positive_available": 458,
+      "zero_available": 471,
+      "matched_count": 458
+    },
+    {
+      "exact_ring_offset": 409,
+      "positive_available": 458,
+      "zero_available": 471,
+      "matched_count": 458
+    },
+    {
+      "exact_ring_offset": 410,
+      "positive_available": 459,
+      "zero_available": 470,
+      "matched_count": 459
+    },
+    {
+      "exact_ring_offset": 411,
+      "positive_available": 463,
+      "zero_available": 466,
+      "matched_count": 463
+    },
+    {
+      "exact_ring_offset": 412,
+      "positive_available": 463,
+      "zero_available": 466,
+      "matched_count": 463
+    },
+    {
+      "exact_ring_offset": 413,
+      "positive_available": 464,
+      "zero_available": 465,
+      "matched_count": 464
+    },
+    {
+      "exact_ring_offset": 414,
+      "positive_available": 462,
+      "zero_available": 467,
+      "matched_count": 462
+    },
+    {
+      "exact_ring_offset": 415,
+      "positive_available": 461,
+      "zero_available": 468,
+      "matched_count": 461
+    },
+    {
+      "exact_ring_offset": 416,
+      "positive_available": 463,
+      "zero_available": 466,
+      "matched_count": 463
+    },
+    {
+      "exact_ring_offset": 417,
+      "positive_available": 462,
+      "zero_available": 467,
+      "matched_count": 462
+    },
+    {
+      "exact_ring_offset": 418,
+      "positive_available": 460,
+      "zero_available": 469,
+      "matched_count": 460
+    },
+    {
+      "exact_ring_offset": 419,
+      "positive_available": 464,
+      "zero_available": 465,
+      "matched_count": 464
+    },
+    {
+      "exact_ring_offset": 420,
+      "positive_available": 464,
+      "zero_available": 465,
+      "matched_count": 464
+    },
+    {
+      "exact_ring_offset": 421,
+      "positive_available": 463,
+      "zero_available": 466,
+      "matched_count": 463
+    },
+    {
+      "exact_ring_offset": 422,
+      "positive_available": 458,
+      "zero_available": 471,
+      "matched_count": 458
+    },
+    {
+      "exact_ring_offset": 423,
+      "positive_available": 459,
+      "zero_available": 470,
+      "matched_count": 459
+    },
+    {
+      "exact_ring_offset": 424,
+      "positive_available": 463,
+      "zero_available": 466,
+      "matched_count": 463
+    },
+    {
+      "exact_ring_offset": 425,
+      "positive_available": 461,
+      "zero_available": 468,
+      "matched_count": 461
+    },
+    {
+      "exact_ring_offset": 426,
+      "positive_available": 460,
+      "zero_available": 469,
+      "matched_count": 460
+    },
+    {
+      "exact_ring_offset": 427,
+      "positive_available": 461,
+      "zero_available": 468,
+      "matched_count": 461
+    },
+    {
+      "exact_ring_offset": 428,
+      "positive_available": 462,
+      "zero_available": 467,
+      "matched_count": 462
+    },
+    {
+      "exact_ring_offset": 429,
+      "positive_available": 460,
+      "zero_available": 469,
+      "matched_count": 460
+    },
+    {
+      "exact_ring_offset": 430,
+      "positive_available": 460,
+      "zero_available": 469,
+      "matched_count": 460
+    },
+    {
+      "exact_ring_offset": 431,
+      "positive_available": 455,
+      "zero_available": 474,
+      "matched_count": 455
+    },
+    {
+      "exact_ring_offset": 432,
+      "positive_available": 457,
+      "zero_available": 472,
+      "matched_count": 457
+    },
+    {
+      "exact_ring_offset": 433,
+      "positive_available": 461,
+      "zero_available": 468,
+      "matched_count": 461
+    },
+    {
+      "exact_ring_offset": 434,
+      "positive_available": 458,
+      "zero_available": 471,
+      "matched_count": 458
+    },
+    {
+      "exact_ring_offset": 435,
+      "positive_available": 461,
+      "zero_available": 468,
+      "matched_count": 461
+    },
+    {
+      "exact_ring_offset": 436,
+      "positive_available": 459,
+      "zero_available": 470,
+      "matched_count": 459
+    },
+    {
+      "exact_ring_offset": 437,
+      "positive_available": 457,
+      "zero_available": 472,
+      "matched_count": 457
+    },
+    {
+      "exact_ring_offset": 438,
+      "positive_available": 458,
+      "zero_available": 471,
+      "matched_count": 458
+    },
+    {
+      "exact_ring_offset": 439,
+      "positive_available": 460,
+      "zero_available": 469,
+      "matched_count": 460
+    },
+    {
+      "exact_ring_offset": 440,
+      "positive_available": 455,
+      "zero_available": 474,
+      "matched_count": 455
+    },
+    {
+      "exact_ring_offset": 441,
+      "positive_available": 463,
+      "zero_available": 466,
+      "matched_count": 463
+    },
+    {
+      "exact_ring_offset": 442,
+      "positive_available": 460,
+      "zero_available": 469,
+      "matched_count": 460
+    },
+    {
+      "exact_ring_offset": 443,
+      "positive_available": 453,
+      "zero_available": 476,
+      "matched_count": 453
+    },
+    {
+      "exact_ring_offset": 444,
+      "positive_available": 459,
+      "zero_available": 470,
+      "matched_count": 459
+    },
+    {
+      "exact_ring_offset": 445,
+      "positive_available": 464,
+      "zero_available": 465,
+      "matched_count": 464
+    },
+    {
+      "exact_ring_offset": 446,
+      "positive_available": 463,
+      "zero_available": 466,
+      "matched_count": 463
+    },
+    {
+      "exact_ring_offset": 447,
+      "positive_available": 462,
+      "zero_available": 467,
+      "matched_count": 462
+    },
+    {
+      "exact_ring_offset": 448,
+      "positive_available": 463,
+      "zero_available": 466,
+      "matched_count": 463
+    },
+    {
+      "exact_ring_offset": 449,
+      "positive_available": 459,
+      "zero_available": 470,
+      "matched_count": 459
+    },
+    {
+      "exact_ring_offset": 450,
+      "positive_available": 457,
+      "zero_available": 472,
+      "matched_count": 457
+    },
+    {
+      "exact_ring_offset": 451,
+      "positive_available": 462,
+      "zero_available": 467,
+      "matched_count": 462
+    },
+    {
+      "exact_ring_offset": 452,
+      "positive_available": 462,
+      "zero_available": 467,
+      "matched_count": 462
+    },
+    {
+      "exact_ring_offset": 453,
+      "positive_available": 460,
+      "zero_available": 469,
+      "matched_count": 460
+    },
+    {
+      "exact_ring_offset": 454,
+      "positive_available": 459,
+      "zero_available": 470,
+      "matched_count": 459
+    },
+    {
+      "exact_ring_offset": 455,
+      "positive_available": 461,
+      "zero_available": 468,
+      "matched_count": 461
+    },
+    {
+      "exact_ring_offset": 456,
+      "positive_available": 459,
+      "zero_available": 470,
+      "matched_count": 459
+    },
+    {
+      "exact_ring_offset": 457,
+      "positive_available": 459,
+      "zero_available": 470,
+      "matched_count": 459
+    },
+    {
+      "exact_ring_offset": 458,
+      "positive_available": 460,
+      "zero_available": 469,
+      "matched_count": 460
+    },
+    {
+      "exact_ring_offset": 459,
+      "positive_available": 464,
+      "zero_available": 465,
+      "matched_count": 464
+    },
+    {
+      "exact_ring_offset": 460,
+      "positive_available": 459,
+      "zero_available": 470,
+      "matched_count": 459
+    },
+    {
+      "exact_ring_offset": 461,
+      "positive_available": 462,
+      "zero_available": 467,
+      "matched_count": 462
+    },
+    {
+      "exact_ring_offset": 462,
+      "positive_available": 458,
+      "zero_available": 471,
+      "matched_count": 458
+    },
+    {
+      "exact_ring_offset": 463,
+      "positive_available": 464,
+      "zero_available": 465,
+      "matched_count": 464
+    },
+    {
+      "exact_ring_offset": 464,
+      "positive_available": 457,
+      "zero_available": 472,
+      "matched_count": 457
+    }
+  ],
+  "ranking_pairs_sha256": "2ac40033ee8d3409ff319418a8647c53dd8f4e3020a862805d521cfa522b8a22"
+}

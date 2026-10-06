@@ -1,0 +1,144 @@
+{
+  "protocol_sha256": "8997d45aaa439a4fb25b73c5a26a72305f8561dc450ede0faff12bd748d38a7e",
+  "reference": {
+    "url": "https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/005/845/GCF_000005845.2_ASM584v2/GCF_000005845.2_ASM584v2_genomic.fna.gz",
+    "official_md5_url": "https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/005/845/GCF_000005845.2_ASM584v2/md5checksums.txt",
+    "official_md5": "c13d459b5caa702ff7e1f26fe44b8ad7",
+    "sha256": "a96d3cfa58c88d477013c768f90a11d2386d42a70d566abfb6d9013dcbd24255"
+  },
+  "genome": [
+    {
+      "k": 31,
+      "genomic_starts": 4641652,
+      "valid_starts": 4641652,
+      "unique_starts": 4524025,
+      "unique_fraction": 0.9746583759402903
+    },
+    {
+      "k": 51,
+      "genomic_starts": 4641652,
+      "valid_starts": 4641652,
+      "unique_starts": 4537587,
+      "unique_fraction": 0.9775801805046996
+    },
+    {
+      "k": 101,
+      "genomic_starts": 4641652,
+      "valid_starts": 4641652,
+      "unique_starts": 4553264,
+      "unique_fraction": 0.9809576418051159
+    }
+  ],
+  "candidates": [
+    {
+      "candidate_id": "A1",
+      "center_bp": 729600,
+      "k": 31,
+      "unique_fraction": 0.7100196463654224,
+      "independent_background_loci": 287,
+      "background_median_unique_fraction": 1.0,
+      "descriptive_lower_tail_fraction_with_ties": 0.013937282229965157
+    },
+    {
+      "candidate_id": "A2",
+      "center_bp": 1469440,
+      "k": 31,
+      "unique_fraction": 0.5096267190569744,
+      "independent_background_loci": 287,
+      "background_median_unique_fraction": 1.0,
+      "descriptive_lower_tail_fraction_with_ties": 0.006968641114982578
+    },
+    {
+      "candidate_id": "A3",
+      "center_bp": 3130880,
+      "k": 31,
+      "unique_fraction": 0.768958742632613,
+      "independent_background_loci": 287,
+      "background_median_unique_fraction": 1.0,
+      "descriptive_lower_tail_fraction_with_ties": 0.020905923344947737
+    },
+    {
+      "candidate_id": "A4",
+      "center_bp": 1571840,
+      "k": 31,
+      "unique_fraction": 0.794106090373281,
+      "independent_background_loci": 287,
+      "background_median_unique_fraction": 1.0,
+      "descriptive_lower_tail_fraction_with_ties": 0.020905923344947737
+    },
+    {
+      "candidate_id": "A1",
+      "center_bp": 729600,
+      "k": 51,
+      "unique_fraction": 0.7925049309664695,
+      "independent_background_loci": 287,
+      "background_median_unique_fraction": 1.0,
+      "descriptive_lower_tail_fraction_with_ties": 0.020905923344947737
+    },
+    {
+      "candidate_id": "A2",
+      "center_bp": 1469440,
+      "k": 51,
+      "unique_fraction": 0.5155818540433925,
+      "independent_background_loci": 287,
+      "background_median_unique_fraction": 1.0,
+      "descriptive_lower_tail_fraction_with_ties": 0.006968641114982578
+    },
+    {
+      "candidate_id": "A3",
+      "center_bp": 3130880,
+      "k": 51,
+      "unique_fraction": 0.7719921104536489,
+      "independent_background_loci": 287,
+      "background_median_unique_fraction": 1.0,
+      "descriptive_lower_tail_fraction_with_ties": 0.020905923344947737
+    },
+    {
+      "candidate_id": "A4",
+      "center_bp": 1571840,
+      "k": 51,
+      "unique_fraction": 0.8130177514792899,
+      "independent_background_loci": 287,
+      "background_median_unique_fraction": 1.0,
+      "descriptive_lower_tail_fraction_with_ties": 0.020905923344947737
+    },
+    {
+      "candidate_id": "A1",
+      "center_bp": 729600,
+      "k": 101,
+      "unique_fraction": 0.8866533864541832,
+      "independent_background_loci": 287,
+      "background_median_unique_fraction": 1.0,
+      "descriptive_lower_tail_fraction_with_ties": 0.03484320557491289
+    },
+    {
+      "candidate_id": "A2",
+      "center_bp": 1469440,
+      "k": 101,
+      "unique_fraction": 0.5306772908366534,
+      "independent_background_loci": 287,
+      "background_median_unique_fraction": 1.0,
+      "descriptive_lower_tail_fraction_with_ties": 0.006968641114982578
+    },
+    {
+      "candidate_id": "A3",
+      "center_bp": 3130880,
+      "k": 101,
+      "unique_fraction": 0.7796812749003984,
+      "independent_background_loci": 287,
+      "background_median_unique_fraction": 1.0,
+      "descriptive_lower_tail_fraction_with_ties": 0.020905923344947737
+    },
+    {
+      "candidate_id": "A4",
+      "center_bp": 1571840,
+      "k": 101,
+      "unique_fraction": 0.8458167330677291,
+      "independent_background_loci": 287,
+      "background_median_unique_fraction": 1.0,
+      "descriptive_lower_tail_fraction_with_ties": 0.020905923344947737
+    }
+  ],
+  "caution": "Exact reference uniqueness is not aligner/paired-read mappability, experimental fragment coverage, or a significance test",
+  "outcomes_do_not_reselect_candidates": true
+}

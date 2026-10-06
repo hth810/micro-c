@@ -45,7 +45,7 @@ ROOT = Path(__file__).resolve().parents[1]
 SOURCE = ROOT / "REPORT.md"
 DEFAULT_OUTPUT = ROOT / "output" / "pdf" / "microc_experiment_report.pdf"
 FONT_FILE = Path(r"C:\Windows\Fonts\simhei.ttf")
-REPO_BASE = "https://github.com/hth810/micro-c/blob/feature/complete-microc-tasks/"
+REPO_BASE = "https://github.com/hth810/micro-c/blob/feature/microc-experiments-20261006/"
 INK = colors.HexColor("#182638")
 BLUE = colors.HexColor("#165A88")
 PALE = colors.HexColor("#EAF3F7")
@@ -74,8 +74,8 @@ FIGURES = {
         "图 5. 4 倍降分辨率任务的重建指标；像素质量改善不代表热点定位改善。",
     ),
     "任务六": (
-        ("task6_circular_20261006_chromosome_circular_3d.png",),
-        "图 6. 当前环形目标、固定首种子的三维坐标与近似宏区标签；颜色不是成像真值。",
+        ("task6_controlled_followup_20261006_comparison.png",),
+        "图 6. 同一环形rep2目标：固定排序项、随机流严格对照提高匹配AUC，但正接触相关有小幅代价。",
     ),
 }
 
@@ -330,12 +330,12 @@ def cover(text_styles: dict[str, ParagraphStyle]) -> list[Flowable]:
     story.append(Spacer(1, 8 * mm))
     story.append(para("结果总览", text_styles["h1"]))
     overview = [
-        ("任务一", "当前 CNN＋ROI＋边界描述符：同折准确率0.924、宏F1 0.839、CHID 0.696/0.615；消融及OOF归因齐备，仍属回顾性。"),
-        ("任务二", "计数守恒面积聚合；4个rep1冻结异常位点，3/4在rep2延续，一致新类型为0；扩大全基因组背景，保留失败结果。"),
+        ("任务一", "CNN＋ROI＋边界描述符同折准确率0.924、宏F1 0.839；单重复训练跨重复准确率0.916/0.907，CHID均找回17/26。"),
+        ("任务二", "计数守恒面积聚合；4个异常位点默认3/4重复延续，但重复序列风险、覆盖匹配无支持、严截断敏感；新类型确认0。"),
         ("任务三", "覆盖全基因组的 465 张 10 kb 多轨道图，附原始图像清单与哈希。"),
         ("任务四", "44℃/利福平/H-NS 三种子交集分别为 17/98/82 条注释；均是探索性候选，H-NS 有平台混杂。"),
         ("任务五", "4 倍模拟超分辨 PSNR 提升约 2 dB；独立峰排序 top5 命中率跨重复提高，top1 仍不稳健。"),
-        ("任务六", "环状距离/循环链/末bin坐标已修正；同新目标rep2相关0.697–0.701，匹配AUC仍未胜MDS；无三维真值。"),
+        ("任务六", "固定排序项经严格随机流对照：匹配AUC0.799–0.805超过MDS0.781；正接触相关0.688–0.696略降，无三维真值。"),
     ]
     table = Table(
         [[para(a, text_styles["cover_label"]), para(b, text_styles["cover_table"])] for a, b in overview],

@@ -1,0 +1,20 @@
+{
+  "base_evidence_index": {
+    "artifact": "results/task2_followup_20261006_evidence_index.json",
+    "sha256": "90a6ab5fe27770f94a82d6c4ea550be080013ec2ed7398dcd3127d5658b394f9"
+  },
+  "artifacts": [
+    {
+      "artifact": "results/task2_followup_20261006_empty_control_manifest_schema.csv",
+      "sha256": "984036c53a8d1e5950825674e59dce39ed649fe558d66c65137d963cf8fa93ff"
+    },
+    {
+      "artifact": "results/task2_followup_20261006_caliper_factor_diagnostic.csv",
+      "sha256": "41d2378ad8a9a18a37af9d2a46ec54b198540728342be1d494cca912bc4d740f"
+    },
+    {
+      "artifact": "results/task2_followup_20261006_execution_environment_receipt.json",
+      "sha256": "66eb2bb68461e53e1adde2c6bd17d70f53def8059619c23de12588c19fbdb8bc"
+    }
+  ]
+}

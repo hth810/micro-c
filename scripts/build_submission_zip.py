@@ -136,7 +136,9 @@ def select_files(root: Path) -> list[Path]:
                  path.name in RESULT_HTMLS or
                  path.name in RESULT_MODELS or path.name == "README.md" or
                  path.name.startswith(("task1_improve_20261006_", "task2_improve_20261006_",
-                                       "task6_circular_20261006_")))):
+                                       "task6_circular_20261006_", "task1_followup_20261006_",
+                                       "task2_followup_20261006_", "task2_reference_followup_20261006_",
+                                       "task6_followup_20261006_", "task6_controlled_followup_20261006_")))):
             paths.add(path)
 
     for path in paths:

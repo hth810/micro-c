@@ -10,7 +10,30 @@ python scripts/reproduce_submission.py --download --workers 4
 
 首行仅供全新环境安装依赖；当前环境若已装好，无须重复安装。复现脚本自身不会安装软件。
 
-## 2026-10-06 改良实验补充
+## 本轮追加核查（不覆盖上轮冻结结果）
+
+以下命令使用独立新输出路径。需要上轮任务一窗口包及任务二面积发现包、两个原始WT矩阵；参考FASTA不存在时，唯一性脚本从官方NCBI下载并验证MD5。当前环境无需重新安装依赖。新检出中的小结果可直接核查，不必下载原始COOL：
+
+```powershell
+python -m scripts.verify_improvements_20261006
+python -m scripts.verify_followups_20261006
+python -m pytest -q tests
+```
+
+从数据重跑（应使用尚不存在的输出目录，不覆盖本机冻结文件）：
+
+```powershell
+python -m task1.evaluate_roi_transfer_followup --out outputs/replay_task1_transfer
+python -m scripts.task2_reference_uniqueness_followup --download --out outputs/replay_reference --results outputs/replay_reference_published
+python -m scripts.task2_candidate_artifact_followup --out outputs/replay_task2_artifact --results outputs/replay_task2_published
+python -m scripts.task2_artifact_addendum_followup --results outputs/replay_task2_published
+python -m scripts.task6_zero_residual_followup --out outputs/replay_task6_ranking
+python -m scripts.task6_zero_residual_controlled_followup --out outputs/replay_task6_controlled
+```
+
+上面重跑命令不向已带冻结结果的 `results/` 覆盖发布：任务一/六不传 `--publish`，任务二用独立 `--results`，补充图再读取该新目录。`replay_*` 目录也须尚不存在；再次重跑应换新名称。任务六最后一项隔离排序项随机流，使正接触minibatch与旧训练严格一致；参数不因第一次追加实验的rep2结果改变。两个追加实验都保留，历史rep2已被查看，不冒称新盲测。大型排序配对表只在本地outputs保存并记录哈希；可由固定rep1和种子重新生成。任务二默认[-5,5]与额外截断敏感性分开，参考唯一性和原生接触覆盖仅为风险诊断，不能补足原始reads或新实验。
+
+## 上轮改良实验
 
 上面的37步是历史核心流水线，不自动运行本节新实验。新实验全部只属于 `hth810/micro-c`，不使用GvpA/ESM-2数据。冻结协议拒绝覆盖，以下输出目录在本机已存在；从零复现应在新检出仓库运行，或为每个命令显式指定新的 `--out` 并同步后续输入路径，**不要删除或覆盖现有冻结文件**。
 

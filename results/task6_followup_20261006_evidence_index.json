@@ -1,0 +1,33 @@
+{
+  "published_at_utc": "2026-10-06T09:11:14.416427+00:00",
+  "output_directory": "outputs\\task6_followup_20261006",
+  "source_sha256": {
+    "scripts/task6_zero_residual_followup.py": "0454e4d31b403ed307fdfe5efe31e91a0bfb2d032c5e00be79ebdc33396b320c",
+    "tests/test_task6_zero_residual_followup.py": "bbd23b73dd1762628841d02c16b8b691a0a55f27bdaed20b35cde9916983bf4b",
+    "scripts/task6_circular_sensitivity.py": "f9418aa7e38399360916bd2d40b4c3c357c75041dabd255c3115ae55d860db05",
+    "microc/circular.py": "fc7ff8719b119b3d9d626693ef25e3ea0f8a6e87bb9569029c280b7b7d4f19cc",
+    "microc/deep.py": "31f3b08f4c13dd52538e1cf9985f09773265d0bc6fe1a50e6e73a6ec1e1dca7c",
+    "microc/data.py": "423de5ef6d6bca94a3021db2d40df98b93414116890bad15af237459db0968c5",
+    "scripts/annotate_3d_domains.py": "277e68e0cba12d0277532fd488f244d04c0ead6c1776d94d04a16061a41f176e"
+  },
+  "input_sha256": {
+    "rep1": "0256e10da36abfe0238bf16952bc43bc78365f43c201e6e3ba0c49bd243549a8",
+    "rep2": "ede9b4f7c0c6b40c8f098e43cdd0abbc0a8987f05e8b37051a5e3cbf143ad106",
+    "published_coordinates": "97ec1cfadc2b3cc6d757b8b52ee650dd895dc7cd8fd8028a2e06de9207b1d257",
+    "published_protocol": "45b9dc7fc4622fb676cc93bd6db1894d873bd083f730b18475b89aa61af33abe"
+  },
+  "files": {
+    "task6_followup_20261006_protocol.json": "dabfcd282f880f94d15044f86acf626cbb02302c1d5ae478c618f0b7bd51b3e1",
+    "task6_followup_20261006_summary.json": "a85c50e23fb28811fa4484e7baa974b6b0bc0572d523dabf9f9b9f83a0fa3381",
+    "task6_followup_20261006_coordinate_freeze.json": "6b907da80440311a09b5b52d5783702113c620e05da1d258525e10efd8573d57",
+    "task6_followup_20261006_ranking_pair_receipt.json": "08235a8c821b311c274fc33c379ec6b5a9ba0985fa0368e67ff4cb382de2089b",
+    "task6_followup_20261006_coordinate_models.npz": "62280885072f14427c2cb5bee8165c92fe88278f78eaab6f5c14a54375d9a9a1",
+    "task6_followup_20261006_coordinates.csv": "2a0c0a9491095a62034ffb6a983965fdfa9c24d7ba19e84ff19876e0b23bcd93",
+    "task6_followup_20261006_first_seed.pt": "b899acf4e8f7555a5a4b32be87aa58a3bce90f385cc6dd3c17926b9b460d2f58",
+    "task6_followup_20261006_training_history.json": "7ee563adc70eb800f6296d26a8f2d91df97639c4485c58f10fd415895c20aa78",
+    "task6_followup_20261006_comparison.csv": "4697f565f9b5bbd62e44a8f039c9879d978257d02ae995e476d85e0267814446",
+    "task6_followup_20261006_comparison.png": "0be15a4b3a55a132a97fffb185363cc3a2dfb18d44c4fdf99586d93ef1fc79ff"
+  },
+  "command": "python -m scripts.task6_zero_residual_followup --publish",
+  "local_ranking_pairs_sha256": "2ac40033ee8d3409ff319418a8647c53dd8f4e3020a862805d521cfa522b8a22"
+}

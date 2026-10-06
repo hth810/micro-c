@@ -1,0 +1,20 @@
+{
+  "experiment": "task2-reference-uniqueness-followup",
+  "frozen_utc": "2026-10-06T09:09:25.422660+00:00",
+  "run_parent_sha": "a26f5217186305077807f8bebac95a1f8a491caa",
+  "source_sha256": "b5517c310784369175859f17a772a8a79836932add450a4300387943a51e69b7",
+  "k": [
+    31,
+    51,
+    101
+  ],
+  "topology": "circular",
+  "canonical_both_strands": true,
+  "sequence_encoding": "exact packed two-bit code, no hashed collisions",
+  "window": "same 5120bp native 10bp-aligned window as contact extraction; fully contained read starts",
+  "candidate_manifest_sha256": "1dcf75b74bddcdbefbcc58622f4c50c48ab622f9c3842842ca9fd8f442f8fbcb",
+  "background_manifest_sha256": "7fd8beff656b99de15d394cf7d675110819ce5feb0c5c2c48d992a8816ea601b",
+  "annotations_sha256": "d9a5f0f380ff2c919e8edabc7aa8d612eedb29b67825118377b43e98b8ed7cdf",
+  "selection": "All four previously frozen candidates; no replacement or ranking rule",
+  "caution": "Exact reference uniqueness is not aligner/paired-read mappability, experimental fragment coverage, or a significance test"
+}

@@ -11,7 +11,10 @@ def test_submission_archive_is_compact_and_verifiable(tmp_path: Path):
     actual = verify(output)
     assert actual["files"] == expected["files"]
     assert actual["payload_file_count"] > 100
-    assert output.stat().st_size < 15_000_000
+    # The additive follow-up includes 75 more pinned files, including frozen
+    # sensitivity models and both objective-control checkpoints. Keep these
+    # auditable artifacts instead of discarding evidence to meet an old cap.
+    assert output.stat().st_size < 16_000_000
     with zipfile.ZipFile(output) as archive:
         names = set(archive.namelist())
     assert "MANIFEST.json" in names and "SHA256SUMS.txt" in names
@@ -27,8 +30,15 @@ def test_submission_archive_is_compact_and_verifiable(tmp_path: Path):
     assert not any(name.startswith(("data/raw/", "outputs/", ".git/")) for name in names)
     assert not any(name.endswith((".cool", ".cool.gz", ".pdf", ".zip")) for name in names)
     assert {name for name in names if name.endswith(".npz")} == {
-        "results/task6_circular_20261006_coordinate_models.npz"}
+        "results/task6_circular_20261006_coordinate_models.npz",
+        "results/task2_followup_20261006_rep1_sensitivity_models.npz",
+        "results/task6_followup_20261006_coordinate_models.npz",
+        "results/task6_controlled_followup_20261006_coordinate_models.npz"}
     import json
     with zipfile.ZipFile(output) as archive:
         receipt = json.loads(archive.read("results/improvements_20261006_integrity.json"))
     assert set(receipt["sha256"]).issubset(names)
+    with zipfile.ZipFile(output) as archive:
+        followup = json.loads(archive.read("results/followups_20261006_integrity.json"))
+    assert set(followup["sha256"]).issubset(names)
+    assert "results/task2_reference_followup_20261006_reference_uniqueness.png" in names
