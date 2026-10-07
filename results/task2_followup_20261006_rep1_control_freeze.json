@@ -1,0 +1,191 @@
+{
+  "frozen_at_utc": "2026-10-06T09:14:42.314585+00:00",
+  "diagnostic_plan_sha256": "9d7230e55a1955764a06eba95b07d93972c8c8d7010bb508dc7b2c05db817dc2",
+  "rep2_opened_in_control_selection_or_model_fitting": false,
+  "matching": {
+    "A1": {
+      "permitted_controls": 287,
+      "caliper_controls": 0,
+      "selected_controls": 0,
+      "supported_covariates": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "evaluable": false,
+      "iqr_scale": [
+        0.2574416289084329,
+        0.25707521826246804,
+        1e-08,
+        0.05392688967710371,
+        0.018923085815327395,
+        0.04813027509966866,
+        1.3105600520807545
+      ],
+      "control_q10": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "control_q90": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    },
+    "A2": {
+      "permitted_controls": 287,
+      "caliper_controls": 0,
+      "selected_controls": 0,
+      "supported_covariates": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "evaluable": false,
+      "iqr_scale": [
+        0.2574416289084329,
+        0.25707521826246804,
+        1e-08,
+        0.05392688967710371,
+        0.018923085815327395,
+        0.04813027509966866,
+        1.3105600520807545
+      ],
+      "control_q10": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "control_q90": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    },
+    "A3": {
+      "permitted_controls": 287,
+      "caliper_controls": 0,
+      "selected_controls": 0,
+      "supported_covariates": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "evaluable": false,
+      "iqr_scale": [
+        0.2574416289084329,
+        0.25707521826246804,
+        1e-08,
+        0.05392688967710371,
+        0.018923085815327395,
+        0.04813027509966866,
+        1.3105600520807545
+      ],
+      "control_q10": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "control_q90": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    },
+    "A4": {
+      "permitted_controls": 287,
+      "caliper_controls": 0,
+      "selected_controls": 0,
+      "supported_covariates": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "evaluable": false,
+      "iqr_scale": [
+        0.2574416289084329,
+        0.25707521826246804,
+        1e-08,
+        0.05392688967710371,
+        0.018923085815327395,
+        0.04813027509966866,
+        1.3105600520807545
+      ],
+      "control_q10": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "control_q90": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    }
+  },
+  "rep1_only_alternative_cutoffs": {
+    "unclipped": {
+      "highpass": 27.884756088256836,
+      "rowcol": 27.293201446533203
+    },
+    "explicit_clip_2_4": {
+      "highpass": 30.681732177734375,
+      "rowcol": 28.803434371948242
+    }
+  },
+  "frozen_file_sha256": {
+    "rep1_native_qc.csv": "44885b754b22fc8abfa4d9cfe97cb0b48f9f6dd95dde0ee92c019eceabf4615e",
+    "rep1_covariate_support.csv": "074dac501f975b7d08f64cba23049356a5ff1921cac089c66a85fb53f295e242",
+    "rep1_selected_control_ids.csv": "7eb70257593da06f682a3ddda54a9d260d4fc514f645237f5ca74b08f8da61a6",
+    "rep1_sensitivity_models.npz": "ea79efe932599fd3449847795777a1b14cfa79efb16a6dd27aeb387175bd22a4"
+  }
+}

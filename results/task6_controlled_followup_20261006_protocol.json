@@ -1,0 +1,75 @@
+{
+  "experiment": "task6-zero-residual-rng-controlled-20261006",
+  "frozen_at_utc": "2026-10-06T09:14:02.905527+00:00",
+  "code_head": "a26f5217186305077807f8bebac95a1f8a491caa",
+  "source_sha256": {
+    "scripts/task6_zero_residual_followup.py": "0454e4d31b403ed307fdfe5efe31e91a0bfb2d032c5e00be79ebdc33396b320c",
+    "tests/test_task6_zero_residual_followup.py": "bbd23b73dd1762628841d02c16b8b691a0a55f27bdaed20b35cde9916983bf4b",
+    "scripts/task6_circular_sensitivity.py": "f9418aa7e38399360916bd2d40b4c3c357c75041dabd255c3115ae55d860db05",
+    "microc/circular.py": "fc7ff8719b119b3d9d626693ef25e3ea0f8a6e87bb9569029c280b7b7d4f19cc",
+    "microc/deep.py": "31f3b08f4c13dd52538e1cf9985f09773265d0bc6fe1a50e6e73a6ec1e1dca7c",
+    "microc/data.py": "423de5ef6d6bca94a3021db2d40df98b93414116890bad15af237459db0968c5",
+    "scripts/annotate_3d_domains.py": "277e68e0cba12d0277532fd488f244d04c0ead6c1776d94d04a16061a41f176e",
+    "scripts/task6_zero_residual_controlled_followup.py": "c2cd0f18b1b55cc21d06e9c78635b18fd9dc7ad01d57e9243d06ad9919827d88",
+    "tests/test_task6_zero_residual_controlled_followup.py": "5f5fed3bc43606fddbc1a3fb8e68d17fa0ddb0a5cf5109847670221104fc00c4"
+  },
+  "input_sha256": {
+    "rep1": "0256e10da36abfe0238bf16952bc43bc78365f43c201e6e3ba0c49bd243549a8",
+    "rep2": "ede9b4f7c0c6b40c8f098e43cdd0abbc0a8987f05e8b37051a5e3cbf143ad106",
+    "published_coordinates": "97ec1cfadc2b3cc6d757b8b52ee650dd895dc7cd8fd8028a2e06de9207b1d257",
+    "published_protocol": "45b9dc7fc4622fb676cc93bd6db1894d873bd083f730b18475b89aa61af33abe"
+  },
+  "input_paths": {
+    "rep1": "data\\raw\\GSE272159_37C_rep1.mapq_30.10.cool",
+    "rep2": "data\\raw\\GSE272159_37C_rep2.mapq_30.10.cool",
+    "published": "results\\task6_circular_20261006_coordinate_models.npz",
+    "published_protocol": "results\\task6_circular_20261006_protocol.json"
+  },
+  "environment": {
+    "torch": "2.14.0",
+    "numpy": "2.4.4",
+    "pandas": "3.0.3",
+    "scipy": "1.17.1",
+    "scikit-learn": "1.8.0",
+    "matplotlib": "3.10.8"
+  },
+  "device": "cpu",
+  "torch_threads": 2,
+  "model": "GenomeMLP, full rep1 circular contact target as input, no MDS prior",
+  "seeds": [
+    20261006,
+    20261007,
+    20261008
+  ],
+  "epochs": 200,
+  "pairs_per_term_per_epoch": 20000,
+  "optimizer": {
+    "name": "Adam",
+    "learning_rate": 0.001
+  },
+  "objective": "positive inverse-distance smooth-L1 + 0.1 cyclic-chain length variance + 0.1 softplus(0.2+d_positive-d_zero)",
+  "alpha": 0.1,
+  "margin": 0.2,
+  "ranking_pair_seed": 20261006,
+  "ranking_pairs": "rep1-only exact ring offset >=2, positive/clipped-zero balanced without replacement within offsets; fixed list sampled per epoch",
+  "selection": "None. One predeclared alpha/margin; report all three seeds, export first seed not best; no architecture, epoch, seed, or coefficient selection using rep2",
+  "coordinate_freeze": "Hash all coordinate models and first-seed checkpoint before opening rep2 as a cooler",
+  "evaluation": "Rep2 same circular target: exact-offset-matched AUC plus all-positive, top20, weaker-positive and origin-crossing 2-to-20 Spearman",
+  "comparators": "Published circular MLP seeds, circular MDS, same-chain linear-target MLP and legacy MLP evaluated on the same current circular target",
+  "caution": "Retrospective objective-alignment sensitivity. Rep2 was historically inspected. Full contact matrix input means no independent pair holdout. Clipped-zero residuals are not physical noncontacts. No external 3-D truth. Final partial bin uses index-offset approximation. Corrective RNG ablation after first ranking sensitivity; not a new blind validation.",
+  "rng_control": "Historical default torch RNG for initialization and positive minibatches; separate CPU torch.Generator for ranking draws, seed +7919. GenomeMLP has no stochastic layers. NumPy matching uses its independent fixed generator. Evaluation is deterministic with fixed matched-AUC seed.",
+  "ranking_generator_seed_offset": 7919,
+  "unchanged_after_first_ranking_sensitivity": {
+    "alpha": 0.1,
+    "margin": 0.2,
+    "epochs": 200,
+    "pairs_per_term_per_epoch": 20000,
+    "seeds": [
+      20261006,
+      20261007,
+      20261008
+    ]
+  },
+  "correction_context": "The preceding sensitivity has already read rep2. This isolates minibatch RNG, does not tune any model parameter or offer new independent validation.",
+  "original_ranking_protocol_sha256": "dabfcd282f880f94d15044f86acf626cbb02302c1d5ae478c618f0b7bd51b3e1"
+}

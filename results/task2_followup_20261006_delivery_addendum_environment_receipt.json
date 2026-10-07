@@ -1,0 +1,31 @@
+{
+  "addendum_created_at_utc": "2026-10-06T09:18:16.195298+00:00",
+  "record_kind": "Post-run delivery/provenance clarification; not a new experiment",
+  "original_device": "CPU, NumPy/SciPy/scikit-learn; no GPU path",
+  "original_requested_numerical_threads": 2,
+  "original_dependency_versions": {
+    "numpy": "2.4.4",
+    "pandas": "3.0.3",
+    "scipy": "1.17.1",
+    "scikit-learn": "1.8.0",
+    "cooler": "0.10.4",
+    "threadpoolctl": "3.6.0"
+  },
+  "source_sha256": {
+    "scripts/task2_artifact_addendum_followup.py": "08a21fc7f6e766c92c1a61b4ed10158ac53a5e7bf24f85cc1bd5d452f228badb",
+    "tests/test_task2_artifact_addendum_followup.py": "7ec8a3051c0f56c099883b4c7730c38801e3bec41327e690e18168ec4604ce92",
+    "scripts/task2_candidate_artifact_followup.py": "916f2d0a10af440829cab3b8beb41b59ab9493add7273545e1a1bde02d89be22",
+    "scripts/task2_residual_motif_screen_20261006.py": "b3bbb641d07933da3bb1a080ad3d999c272f0870bbe406f2f849622b53ace908"
+  },
+  "original_evidence_index_sha256": "90a6ab5fe27770f94a82d6c4ea550be080013ec2ed7398dcd3127d5658b394f9",
+  "original_freeze_or_source_files_modified": false,
+  "scientific_values_or_matching_rules_changed": false,
+  "empty_manifest": "Original newline-only CSV remains frozen. New header-only manifest has zero rows and is readable by pandas.",
+  "factor_diagnostics": "Post-hoc marginal count abs(pool-target)<=2*max(IQR,1e-8); excludes all four candidate neighborhoods, uses rep1 native-QC CSV only, and independently reproduces zero joint controls. This does not relax matching or constitute significance.",
+  "limitations": [
+    "Coverage proxies are not actual fragment coverage or aligner mappability.",
+    "All four comparisons remain not evaluable; percentile fields remain empty.",
+    "Alternative calibration used rep1 knowns only; original candidate set and failed A3 remain unchanged."
+  ],
+  "reproduce": "python -m scripts.task2_artifact_addendum_followup"
+}

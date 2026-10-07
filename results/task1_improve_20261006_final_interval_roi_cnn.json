@@ -1,0 +1,18 @@
+{
+  "checkpoint_sha256": "999b0d86bf81ae656fce7c392b98997fe08d9ae7b5abe484c7d45af142623353",
+  "classes": [
+    "CHIN",
+    "OPCID",
+    "CHID"
+  ],
+  "epochs": 24,
+  "initializations": 2,
+  "source_cnn_protocol_sha256": "bceec0f2ba71386f1c465395ef1d6be68ea294562e96e808d8df3d8c44c27c89",
+  "input_sha256": {
+    "windows": "c5cdbb6193b92207b1519cd45a92014a7d880937e5419bea4aafbcdbd7ba817a",
+    "annotations": "d9a5f0f380ff2c919e8edabc7aa8d612eedb29b67825118377b43e98b8ed7cdf"
+  },
+  "evaluation": "Inference checkpoint trained on all 344 annotations; only OOF performance is reported",
+  "requires_annotated_interval": true,
+  "not_for_unannotated_genome_scanning": true
+}

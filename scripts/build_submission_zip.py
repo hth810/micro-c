@@ -14,11 +14,12 @@ import json
 import subprocess
 import zipfile
 from datetime import datetime, timezone
-from pathlib import Path
+from pathlib import Path, PurePosixPath, PureWindowsPath
 
 
 ROOT = Path(__file__).resolve().parents[1]
 ROOT_FILES = (
+    ".gitattributes",
     "README.md",
     "REPORT.md",
     "METHODS.md",
@@ -44,6 +45,8 @@ RESULT_PNGS = {
     "task2_novel_cluster_N1_4241920_rep2.png",
     "task3_example_005.png",
     "task3_example_250.png",
+    "task3_example_000.png",
+    "task3_example_450.png",
     "task4_CHIN_94_wt.png",
     "task4_CHIN_94_heat_44c.png",
     "task5_metric_comparison.png",
@@ -125,15 +128,23 @@ def select_files(root: Path) -> list[Path]:
     results = root / "results"
     if not results.is_dir():
         raise FileNotFoundError(f"Missing result directory: {results}")
+    tracked = _git_value(root, "ls-files", "-z", "--", "results")
+    tracked_results = set(tracked.split("\0")) if tracked else None
     for name in REQUIRED_RESULTS | RESULT_PNGS | RESULT_MODELS | RESULT_HTMLS:
         path = results / name
         if not path.is_file() or path.is_symlink():
             raise FileNotFoundError(f"Required result artifact missing: {path}")
     for path in results.iterdir():
+        if tracked_results is not None and path.relative_to(root).as_posix() not in tracked_results:
+            continue
         if (path.is_file() and not path.is_symlink() and
                 (path.suffix in RESULT_SUFFIXES or path.name in RESULT_PNGS or
                  path.name in RESULT_HTMLS or
-                 path.name in RESULT_MODELS or path.name == "README.md")):
+                 path.name in RESULT_MODELS or path.name == "README.md" or
+                 path.name.startswith(("task1_improve_20261006_", "task2_improve_20261006_",
+                                       "task6_circular_20261006_", "task1_followup_20261006_",
+                                       "task2_followup_20261006_", "task2_reference_followup_20261006_",
+                                       "task6_followup_20261006_", "task6_controlled_followup_20261006_")))):
             paths.add(path)
 
     for path in paths:
@@ -203,6 +214,12 @@ def verify(path: Path) -> dict:
             raise ValueError("ZIP lacks manifest or checksum list")
         manifest = json.loads(archive.read(MANIFEST_NAME))
         records = manifest["files"]
+        for record in records:
+            name = record["path"]
+            if (not name or PurePosixPath(name).is_absolute() or
+                    PureWindowsPath(name).drive or ".." in PurePosixPath(name).parts or
+                    "\\" in name or ":" in name):
+                raise ValueError(f"Unsafe ZIP path: {name}")
         expected = {record["path"] for record in records}
         if len(expected) != len(records) or set(names) != expected | {MANIFEST_NAME, CHECKSUM_NAME}:
             raise ValueError("Manifest and ZIP entries disagree")
@@ -213,8 +230,6 @@ def verify(path: Path) -> dict:
         checksum_lines = []
         for record in records:
             name = record["path"]
-            if Path(name).is_absolute() or ".." in Path(name).parts or "\\" in name:
-                raise ValueError(f"Unsafe ZIP path: {name}")
             data = archive.read(name)
             if len(data) != record["bytes"] or hashlib.sha256(data).hexdigest() != record["sha256"]:
                 raise ValueError(f"Payload checksum mismatch: {name}")

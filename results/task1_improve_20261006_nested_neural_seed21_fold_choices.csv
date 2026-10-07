@@ -1,0 +1,6 @@
+outer_fold,class_weight_power,epochs,train_structures,test_structures,test_chid
+0,1.0,160,274,70,5
+1,1.0,240,276,68,6
+2,0.5,80,272,72,5
+3,1.0,80,279,65,5
+4,1.0,160,275,69,5

@@ -1,0 +1,24 @@
+{
+  "frozen_at_utc": "2026-10-06T08:22:01.486200+00:00",
+  "caution": "Retrospective follow-up, these annotation labels and historical baseline scores were inspected; this is not independent confirmation",
+  "model": "Fixed equal arithmetic mean of compact interval CNN and HGB class probabilities",
+  "cnn_weight": 0.5,
+  "hgb_weight": 0.5,
+  "threshold": "3-class argmax",
+  "hgb": "max_iter100/max_leaf_nodes7/l2=1; inverse class frequencies from fold training only",
+  "source_sha256": {
+    "task1/evaluate_hybrid_20261006.py": "1e51362f66a81aed8e79ce207e001a02dc22b2916908c0b01e1020e5205eb8ce",
+    "task1/evaluate_roi_cnn_20261006.py": "dd0c68d1c2ab8c6efc5fc40ff3b34820c470a287d18dacb21f597b11e85da3db",
+    "task1/evaluate_nested_neural_20261006.py": "41cfce437ce0b7eb5e5b4545995e242ca8a855b0cba56a12752e628a896ff8db",
+    "task1/evaluate_nested_threshold.py": "ad4ea364871edc7a5a548a570b74c1e7066fd73d41e6ff59ec526d7f24a16c95"
+  },
+  "input_sha256": {
+    "annotations": "d9a5f0f380ff2c919e8edabc7aa8d612eedb29b67825118377b43e98b8ed7cdf",
+    "windows": "c5cdbb6193b92207b1519cd45a92014a7d880937e5419bea4aafbcdbd7ba817a"
+  },
+  "outer_seed": 20260921,
+  "spatial_gap_bp": 40000,
+  "selection": "Equal weights chosen without inspecting this CNN experiment's outer scores; no search over fusion weights",
+  "cnn_run": "roi_cnn_seed21",
+  "comparison": "same folds and labels; bootstrap samples spatial components, not biological repeats as independent samples"
+}

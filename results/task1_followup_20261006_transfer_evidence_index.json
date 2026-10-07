@@ -1,0 +1,34 @@
+{
+  "published_at_utc": "2026-10-06T09:10:51.565872+00:00",
+  "output_directory": "outputs\\task1_followup_20261006_transfer",
+  "protocol_sha256": "0ea55765fe67da7b4d1e016553f1395a35db9bd9e3985a83705d8065c4d02484",
+  "files": {
+    "task1_followup_20261006_transfer_protocol.json": "0ea55765fe67da7b4d1e016553f1395a35db9bd9e3985a83705d8065c4d02484",
+    "task1_followup_20261006_transfer_summary.json": "09648403ebd9075f88aa38d04457643a53501cf827fd0859ed78ac446ab4c8e0",
+    "task1_followup_20261006_transfer_outer_predictions.csv": "09a29655aec3027159f20b7b58abac2df688481eb58adaec64b0be49f6c3d6a5",
+    "task1_followup_20261006_transfer_fit_receipts.json": "91140a423325a71a7ec007de0ad593759b1b7ca689cd38178304ef106f4416cc",
+    "task1_followup_20261006_transfer_score_table.csv": "7b436e51ecf4206cc2696f2b6d1e95ca956a75bc6b2a53d2de97d600e6f3916c",
+    "task1_followup_20261006_transfer_transfer_confusions.png": "1b1bff861c078a9ce9ab7c71b7311b82d78b0598cc7dd744705bf1d55b3099f8"
+  },
+  "source_sha256": {
+    "task1/evaluate_roi_transfer_followup.py": "3022ea8f4da49b8a6f96a46441856ec90cd0ebcb4f95dd63c662a4f20ac39e6d",
+    "task1/evaluate_roi_cnn_20261006.py": "dd0c68d1c2ab8c6efc5fc40ff3b34820c470a287d18dacb21f597b11e85da3db",
+    "task1/evaluate_nested_neural_20261006.py": "41cfce437ce0b7eb5e5b4545995e242ca8a855b0cba56a12752e628a896ff8db",
+    "task1/evaluate_interval_conditioned_cnn.py": "3077288f211a551c9b68a9df6b19ae64067a0ae9514aca2a90641c4bf9911fe5",
+    "task1/evaluate_interval_boundaries.py": "ed4c5f6ecded7680afb184b6ae3236e784f7b1ab7e6945763ad0bc61ff7d3e2c",
+    "task1/evaluate_chid_overlap.py": "92f59dc9ddd77056fbcf9d5d3f69a6402fe1532a4a616b6d7ed20c8258b53de8",
+    "task1/evaluate_pairwise.py": "05b2de695a19f90508a5ba75931cd474ac9ce3edf2bfa21ecf5ceefdbc24ecd9",
+    "task1/audit_interval_conditioned_cnn.py": "20ed6fb7a10828a836c908a2c36f487684a44648ca9c95e7feca2ad9ca577a6b",
+    "task1/run_task1.py": "c5b7ca6b067487b14c173c46dc6e37544eb4af4d2ca8f10d2a211a4f63f169a9",
+    "scripts/validate_discovery.py": "abd4f19bfc63fd21be8a036ebdb4ab1bba9472915919cf0c75c81ac4a43a1fd2",
+    "microc/analysis.py": "0a0cb0beadc1bcb42d1c02962191d1fcddaceca847e1a047dc6ff576d354229d",
+    "task1/evaluate_nested_threshold.py": "ad4ea364871edc7a5a548a570b74c1e7066fd73d41e6ff59ec526d7f24a16c95",
+    "tests/test_roi_transfer_followup.py": "3abc5517f743ae74b70529fd664defe02bba700db9725e93db0a4fee92ac42ca"
+  },
+  "input_sha256": {
+    "windows": "c5cdbb6193b92207b1519cd45a92014a7d880937e5419bea4aafbcdbd7ba817a",
+    "annotations": "d9a5f0f380ff2c919e8edabc7aa8d612eedb29b67825118377b43e98b8ed7cdf",
+    "published_joint_oof": "0a6a80965ef4aa2d5afe4ab78474fbe889d53067681ffe4f91cb6b26f0233387"
+  },
+  "command": "python -m task1.evaluate_roi_transfer_followup --out outputs/task1_followup_20261006_transfer --publish"
+}

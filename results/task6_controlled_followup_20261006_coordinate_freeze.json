@@ -1,0 +1,14 @@
+{
+  "frozen_at_utc": "2026-10-06T09:14:51.078284+00:00",
+  "rep2_cooler_opened_before_freeze": false,
+  "historical_and_first_ranking_rep2_inspection": true,
+  "output_sha256": {
+    "protocol.json": "f5cb2b1a501ba321714897d8faec07817b6686d2753ce5af045247efa31ae673",
+    "ranking_pairs.csv": "2ac40033ee8d3409ff319418a8647c53dd8f4e3020a862805d521cfa522b8a22",
+    "ranking_pair_receipt.json": "08235a8c821b311c274fc33c379ec6b5a9ba0985fa0368e67ff4cb382de2089b",
+    "coordinate_models.npz": "27964152e8c33ae437d08c05e2e694ae417766d835738e24f16ffc7c8b8fc0cb",
+    "coordinates.csv": "3f88aa41a175b15a60bc4e63825000fe35aa731d6b92cad7c76400f33baffee1",
+    "first_seed.pt": "c56e014f0b30596c44427f1f2304941fa65a548503dc6c4dad7009fa799a8121",
+    "training_history.json": "76544096ff4031f9cec49102db60175a60316d3c6e2e47d052b9791b08245f60"
+  }
+}

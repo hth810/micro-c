@@ -1,0 +1,138 @@
+{
+  "analysis": "Paired count-preserving measurement ablation; descriptive retrospective rep2 evaluation",
+  "evaluation_started_at_utc": "2026-10-06T08:28:20.152225+00:00",
+  "run_code_sha": "a78ed13d8d4954746873c4c2652d753c10cbc16a",
+  "script_sha256": "76c9281f26d0620659ab0e29de84322a13cc58259cb047e9a87499e4ecda3140",
+  "data_api_sha256": "423de5ef6d6bca94a3021db2d40df98b93414116890bad15af237459db0968c5",
+  "residual_implementation_sha256": "b3bbb641d07933da3bb1a080ad3d999c272f0870bbe406f2f849622b53ace908",
+  "rep2_sha256": "ede9b4f7c0c6b40c8f098e43cdd0abbc0a8987f05e8b37051a5e3cbf143ad106",
+  "legacy_discovery_receipt_sha256": "6eeb0688a8f25fdd15ecab55a05d85c03090730b7f237d72e5f9a3012f62c461",
+  "area_discovery_receipt_sha256": "afe0df9c67a91aabbc88bfcafe09990fdb2817679e17c1be1c1f97d5dad25faf",
+  "candidate_selection_or_thresholds_changed_using_rep2": false,
+  "n_annotated_loci": 344,
+  "n_independent_unannotated_loci": 291,
+  "source_counts_conserved_max_absolute_error": 0.0,
+  "legacy_total_count_ratio_median": 0.015638518504199766,
+  "reports": [
+    {
+      "cohort": "annotated",
+      "metric": "highpass",
+      "n_loci": 344,
+      "legacy_median_r": 0.37621529400348663,
+      "area_median_r": 0.6306703388690948,
+      "legacy_mean_r": 0.39031053449265485,
+      "area_mean_r": 0.6250611710427112,
+      "mean_paired_difference_area_minus_legacy": 0.23475063655005637,
+      "fraction_loci_improved": 0.9505813953488372,
+      "genomic_blocks": 46,
+      "block_size_bp": 100000,
+      "bootstrap_repeats": 2000,
+      "seed": 20261006,
+      "mean_difference_ci95": [
+        0.21233914368085147,
+        0.25687768695638635
+      ]
+    },
+    {
+      "cohort": "annotated",
+      "metric": "rowcol",
+      "n_loci": 344,
+      "legacy_median_r": 0.5501401126384735,
+      "area_median_r": 0.7915874421596527,
+      "legacy_mean_r": 0.5429248102875643,
+      "area_mean_r": 0.7390151791447817,
+      "mean_paired_difference_area_minus_legacy": 0.1960903688572174,
+      "fraction_loci_improved": 0.8488372093023255,
+      "genomic_blocks": 46,
+      "block_size_bp": 100000,
+      "bootstrap_repeats": 2000,
+      "seed": 20261006,
+      "mean_difference_ci95": [
+        0.16781715915834072,
+        0.22290150018833668
+      ]
+    },
+    {
+      "cohort": "annotated",
+      "metric": "upper",
+      "n_loci": 344,
+      "legacy_median_r": 0.347332701086998,
+      "area_median_r": 0.5092542469501495,
+      "legacy_mean_r": 0.36972085577110914,
+      "area_mean_r": 0.527026625783291,
+      "mean_paired_difference_area_minus_legacy": 0.15730577001218185,
+      "fraction_loci_improved": 0.7965116279069767,
+      "genomic_blocks": 46,
+      "block_size_bp": 100000,
+      "bootstrap_repeats": 2000,
+      "seed": 20261006,
+      "mean_difference_ci95": [
+        0.12997895203484033,
+        0.18341442055226823
+      ]
+    },
+    {
+      "cohort": "unannotated_independent",
+      "metric": "highpass",
+      "n_loci": 291,
+      "legacy_median_r": 0.3431929349899292,
+      "area_median_r": 0.4097761809825897,
+      "legacy_mean_r": 0.35243942166112135,
+      "area_mean_r": 0.42075380423711134,
+      "mean_paired_difference_area_minus_legacy": 0.06831438257599,
+      "fraction_loci_improved": 0.6357388316151202,
+      "genomic_blocks": 47,
+      "block_size_bp": 100000,
+      "bootstrap_repeats": 2000,
+      "seed": 20261006,
+      "mean_difference_ci95": [
+        0.046824932128059896,
+        0.0896644189499733
+      ]
+    },
+    {
+      "cohort": "unannotated_independent",
+      "metric": "rowcol",
+      "n_loci": 291,
+      "legacy_median_r": 0.5013284087181091,
+      "area_median_r": 0.40407437086105347,
+      "legacy_mean_r": 0.5190226899594376,
+      "area_mean_r": 0.4506433747766405,
+      "mean_paired_difference_area_minus_legacy": -0.06837931518279708,
+      "fraction_loci_improved": 0.38831615120274915,
+      "genomic_blocks": 47,
+      "block_size_bp": 100000,
+      "bootstrap_repeats": 2000,
+      "seed": 20261006,
+      "mean_difference_ci95": [
+        -0.10266877336224303,
+        -0.032477003560274206
+      ]
+    },
+    {
+      "cohort": "unannotated_independent",
+      "metric": "upper",
+      "n_loci": 291,
+      "legacy_median_r": 0.34323665499687195,
+      "area_median_r": 0.30764371156692505,
+      "legacy_mean_r": 0.36168581237088365,
+      "area_mean_r": 0.353083525710704,
+      "mean_paired_difference_area_minus_legacy": -0.00860228666017965,
+      "fraction_loci_improved": 0.44673539518900346,
+      "genomic_blocks": 47,
+      "block_size_bp": 100000,
+      "bootstrap_repeats": 2000,
+      "seed": 20261006,
+      "mean_difference_ci95": [
+        -0.03310930304615053,
+        0.015919394422436717
+      ]
+    }
+  ],
+  "caution": "Higher reproducibility supports a better measurement, not a new structure type. Annotated references are not a classifier holdout set. Block-bootstrap intervals concern paired measurement agreement and do not adjust the history of novelty screens.",
+  "output_sha256": {
+    "count_conservation.csv": "7eee862e3a1327ed9c7ba35c619e7d1eb6e47be9cd3d5c65044b7262ed3bb0da",
+    "paired_reproducibility.csv": "1316d751fc2f9b344f45dfb56326042d2a97f7fbbe497b9951c2cbe3bcec5d59",
+    "resampling_reproducibility.png": "7fb4c55d819014cfc193b36eff48ae44cc229d2203558bbaa640a08f867d04eb"
+  }
+}

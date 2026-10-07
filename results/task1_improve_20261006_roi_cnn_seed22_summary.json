@@ -1,0 +1,154 @@
+{
+  "protocol_sha256": "adecf783b6655ba79af34edf7b15025f1ef80f3452663925962640f645519b15",
+  "frozen_at_utc": "2026-10-06T08:21:16.741573+00:00",
+  "evaluation": "Fixed five 40 kb spatial-group folds, two biological replicates stay together",
+  "caution": "Retrospective reuse of previously inspected annotations; no independent confirmation",
+  "seed": 20260922,
+  "scores": {
+    "contact64": {
+      "accuracy": 0.8575581395348837,
+      "macro_f1": 0.638262942241181,
+      "chid_precision": 0.42857142857142855,
+      "chid_recall": 0.11538461538461539,
+      "confusion_matrix": [
+        [
+          236,
+          11,
+          3
+        ],
+        [
+          11,
+          56,
+          1
+        ],
+        [
+          22,
+          1,
+          3
+        ]
+      ],
+      "classification_report": {
+        "CHIN": {
+          "precision": 0.8773234200743495,
+          "recall": 0.944,
+          "f1-score": 0.9094412331406551,
+          "support": 250.0
+        },
+        "OPCID": {
+          "precision": 0.8235294117647058,
+          "recall": 0.8235294117647058,
+          "f1-score": 0.8235294117647058,
+          "support": 68.0
+        },
+        "CHID": {
+          "precision": 0.42857142857142855,
+          "recall": 0.11538461538461539,
+          "f1-score": 0.18181818181818182,
+          "support": 26.0
+        },
+        "accuracy": 0.8575581395348837,
+        "macro avg": {
+          "precision": 0.7098080868034945,
+          "recall": 0.6276380090497737,
+          "f1-score": 0.638262942241181,
+          "support": 344.0
+        },
+        "weighted avg": {
+          "precision": 0.8327724190739667,
+          "recall": 0.8575581395348837,
+          "f1-score": 0.8374638982919667,
+          "support": 344.0
+        }
+      }
+    },
+    "interval_roi64": {
+      "accuracy": 0.9302325581395349,
+      "macro_f1": 0.8589472209551242,
+      "chid_precision": 0.72,
+      "chid_recall": 0.6923076923076923,
+      "confusion_matrix": [
+        [
+          239,
+          5,
+          6
+        ],
+        [
+          4,
+          63,
+          1
+        ],
+        [
+          6,
+          2,
+          18
+        ]
+      ],
+      "classification_report": {
+        "CHIN": {
+          "precision": 0.9598393574297188,
+          "recall": 0.956,
+          "f1-score": 0.9579158316633266,
+          "support": 250.0
+        },
+        "OPCID": {
+          "precision": 0.9,
+          "recall": 0.9264705882352942,
+          "f1-score": 0.9130434782608695,
+          "support": 68.0
+        },
+        "CHID": {
+          "precision": 0.72,
+          "recall": 0.6923076923076923,
+          "f1-score": 0.7058823529411765,
+          "support": 26.0
+        },
+        "accuracy": 0.9302325581395349,
+        "macro avg": {
+          "precision": 0.8599464524765729,
+          "recall": 0.8582594268476621,
+          "f1-score": 0.8589472209551242,
+          "support": 344.0
+        },
+        "weighted avg": {
+          "precision": 0.9298832539460165,
+          "recall": 0.9302325581395349,
+          "f1-score": 0.9299966732966319,
+          "support": 344.0
+        }
+      }
+    }
+  },
+  "paired_spatial_uncertainty": {
+    "interval_roi64_minus_contact64": {
+      "point_difference": {
+        "accuracy": 0.07267441860465118,
+        "macro_f1": 0.22068427871394325,
+        "chid_precision": 0.2914285714285714,
+        "chid_recall": 0.5769230769230769
+      },
+      "paired_spatial_bootstrap_95ci": {
+        "accuracy": [
+          0.0337055046737797,
+          0.11730574307701394
+        ],
+        "macro_f1": [
+          0.15023426553408845,
+          0.30030545505491674
+        ],
+        "chid_precision": [
+          -0.13028530377668307,
+          0.7777777777777778
+        ],
+        "chid_recall": [
+          0.39130434782608703,
+          0.7727272727272728
+        ]
+      }
+    }
+  },
+  "wall_seconds": 57.56214920000639,
+  "output_sha256": {
+    "outer_predictions.csv": "941856b9721c0724580eac53f0ffe2559475ed349475c591b9e2a637845fefe6"
+  },
+  "completed_at_utc": "2026-10-06T08:22:12.809586+00:00"
+}

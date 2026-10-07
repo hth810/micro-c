@@ -1,0 +1,88 @@
+{
+  "analysis": "rep1-only retrospective residual morphology discovery",
+  "protocol": {
+    "window_bp": 5120,
+    "independence_bp": 10240,
+    "smoothing_sigma_bins": 1.0,
+    "highpass_sigma_bins": 4.0,
+    "upper_triangle_min_separation_bins": 8,
+    "known_reference_pca_dimensions": 20,
+    "novelty_cutoff_known_independent_nearest_quantile": 0.9,
+    "edge_cutoff_all_independent_unannotated_pairs_quantile": 0.99,
+    "minimum_edge_correlation": 0.2,
+    "minimum_independent_motif_loci": 3,
+    "maximum_disjoint_triads": 10,
+    "control_two_iqr_caliper": 2.0,
+    "maximum_controls_per_edge": 200,
+    "minimum_controls_per_edge": 20,
+    "required_control_q10_q90_balance_all_covariates": true,
+    "rep2_edge_control_percentile": 0.99,
+    "rep2_required_each_locus_frozen_novelty": true,
+    "rep2_pair_exceeds_member_best_independent_known_similarity": true,
+    "seed": 20261006,
+    "caution": "Retrospective exploratory screen. Previous rep2 inspection and multiple historical screens preclude prospective blindness, genomic FDR, or proof of a new biological type.",
+    "resampling": "legacy",
+    "resampling_definition": "historical scipy zoom(order=1) linear interpolation",
+    "selection_priority": "Historical rep1 AE/shape score controls representative priority only; thresholds and control rules are identical between resampling arms."
+  },
+  "rep2_used_in_selection": false,
+  "genome_windows": 1812,
+  "known_references": 344,
+  "full_window_unannotated_background_loci": 1103,
+  "background_independent_pairs": 605213,
+  "independent_unannotated_representatives": 291,
+  "representatives_passing_both_novelty_gates": 0,
+  "novelty_thresholds": {
+    "highpass": 26.55849266052246,
+    "rowcol": 28.663145065307617
+  },
+  "edge_thresholds": {
+    "highpass": 0.2816175384200612,
+    "rowcol": 0.4207775085342411
+  },
+  "eligible_three_locus_motifs": 0,
+  "frozen_disjoint_motifs": 0,
+  "frozen_historical_diagnostics": 1,
+  "known_rep1_recovery": {
+    "highpass": {
+      "nearest_independent_same_type_fraction": 0.7034883720930233,
+      "macro_same_type_fraction": 0.4815867269984917,
+      "majority_type_fraction": 0.7267441860465116,
+      "per_type_same_type_fraction": {
+        "CHID": 0.2692307692307692,
+        "CHIN": 0.852,
+        "OPCID": 0.3235294117647059
+      },
+      "per_type_n": {
+        "CHID": 26,
+        "CHIN": 250,
+        "OPCID": 68
+      }
+    },
+    "rowcol": {
+      "nearest_independent_same_type_fraction": 0.7616279069767442,
+      "macro_same_type_fraction": 0.4650920060331825,
+      "majority_type_fraction": 0.7267441860465116,
+      "per_type_same_type_fraction": {
+        "CHID": 0.07692307692307693,
+        "CHIN": 0.936,
+        "OPCID": 0.38235294117647056
+      },
+      "per_type_n": {
+        "CHID": 26,
+        "CHIN": 250,
+        "OPCID": 68
+      }
+    }
+  },
+  "selection_used_scan_fields": [
+    "chrom",
+    "center",
+    "shape_score",
+    "density_score",
+    "reconstruction_error",
+    "is_known",
+    "known_distance_bp"
+  ],
+  "covariate_matching": "Seven rep1 factors: both locus coverages, log separation, minimum/maximum joint novelty ratio, highpass and rowcol edge correlation. Candidate proximity excluded. No rep2 matching."
+}

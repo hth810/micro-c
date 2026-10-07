@@ -270,6 +270,7 @@ def reconstruct3d(args) -> None:
     out = Path(args.out); out.mkdir(parents=True, exist_ok=True)
     with open_cool(args.cool) as c:
         chrom = args.chrom or c.chromnames[0]
+        genome_bp = int(c.chromsizes[chrom])
         raw = _coarsen(c, chrom, args.bin_bp)
     contact = _contact_target(raw)
     n = len(contact)
@@ -321,6 +322,9 @@ def reconstruct3d(args) -> None:
         return float(spearmanr(contact[all_i, all_j][mask], -distances[mask]).statistic)
 
     summary = {"chrom": chrom, "bins": n, "bin_bp": args.bin_bp,
+               "genome_bp": genome_bp,
+               "last_bin_bp": genome_bp - (n - 1) * args.bin_bp,
+               "target_topology": "legacy linear-offset normalization",
                "mlp_contact_distance_spearman": _consistency(coords, contact),
                "mds_contact_distance_spearman": _consistency(mds, contact),
                "contact_quantile_used_for_training": contact_quantile,
@@ -336,7 +340,7 @@ def reconstruct3d(args) -> None:
                "pretrain_epochs": args.pretrain_epochs, "anchor_weight": args.anchor_weight,
                "note": "Coordinates are determined only up to rotation, reflection, and scale; no external geometry truth is supplied."}
     pd.DataFrame({"chrom": chrom, "start": np.arange(n) * args.bin_bp,
-                  "end": (np.arange(n) + 1) * args.bin_bp,
+                  "end": np.minimum((np.arange(n) + 1) * args.bin_bp, genome_bp),
                   "x": coords[:, 0], "y": coords[:, 1], "z": coords[:, 2]}).to_csv(out / "coordinates.csv", index=False)
     from scipy.spatial.distance import pdist, squareform
     distance_map = squareform(pdist(coords))

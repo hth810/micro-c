@@ -11,7 +11,9 @@ def test_submission_archive_is_compact_and_verifiable(tmp_path: Path):
     actual = verify(output)
     assert actual["files"] == expected["files"]
     assert actual["payload_file_count"] > 100
-    assert output.stat().st_size < 15_000_000
+    # Four Task 3 samples and the source/metadata audit are required evidence.
+    # Keep a 16 MiB guard against accidentally including large raw inputs.
+    assert output.stat().st_size < 16 * 1024 * 1024
     with zipfile.ZipFile(output) as archive:
         names = set(archive.namelist())
     assert "MANIFEST.json" in names and "SHA256SUMS.txt" in names
@@ -25,4 +27,19 @@ def test_submission_archive_is_compact_and_verifiable(tmp_path: Path):
     assert "results/task1_boundary_final.joblib" in names
     assert "results/task6_genome_3d.pt" in names
     assert not any(name.startswith(("data/raw/", "outputs/", ".git/")) for name in names)
-    assert not any(name.endswith((".cool", ".cool.gz", ".npz", ".pdf", ".zip")) for name in names)
+    assert not any(name.endswith((".cool", ".cool.gz", ".pdf", ".zip")) for name in names)
+    assert {name for name in names if name.endswith(".npz")} == {
+        "results/task6_circular_20261006_coordinate_models.npz",
+        "results/task2_followup_20261006_rep1_sensitivity_models.npz",
+        "results/task6_followup_20261006_coordinate_models.npz",
+        "results/task6_controlled_followup_20261006_coordinate_models.npz"}
+    import json
+    with zipfile.ZipFile(output) as archive:
+        receipt = json.loads(archive.read("results/improvements_20261006_integrity.json"))
+    assert set(receipt["sha256"]).issubset(names)
+    with zipfile.ZipFile(output) as archive:
+        followup = json.loads(archive.read("results/followups_20261006_integrity.json"))
+    assert set(followup["sha256"]).issubset(names)
+    assert "results/task2_reference_followup_20261006_reference_uniqueness.png" in names
+    assert {f"results/task3_example_{i:03d}.png" for i in (0, 5, 250, 450)} <= names
+    assert "results/quality_audit_local.json" not in names

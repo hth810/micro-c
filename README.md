@@ -2,13 +2,15 @@
 
 本仓库实现课程方案中的任务一至六。任务一使用有监督 CNN 和显著性图；任务二进行全基因组候选发现、形态表征、聚类和跨重复核验；任务三绘制全基因组多条件轨道；任务四定位条件变化；任务五进行接触矩阵超分辨重建；任务六输出三维坐标并与 MDS 比较。方法和验收边界见 [方法说明](METHODS.md)。
 
-逐项交付核查、失败对照及课程正式提交尚缺的材料见 [六任务核查表](AUDIT.md)。从原始数据按依赖顺序运行的命令与断点续跑说明见 [一键复现指南](REPRODUCE.md)。当前最强的已知区间分类器是手工特征加梯度提升，不能称为纯深度学习；N1 只是 WT 下的形态候选对，原经验 p 因背景不匹配已降级，尚未证实新结构类型；超分辨局部融合在平均热点误差上略有改善，但区间跨 0，不能称稳定恢复。
+逐项交付核查、失败对照及课程正式提交尚缺的材料见 [六任务核查表](AUDIT.md)。从原始数据按依赖顺序运行的命令与断点续跑说明见 [一键复现指南](REPRODUCE.md)。2026-10-06 的已知区间 CNN＋ROI＋边界描述符在相同 40 kb 空间五折上达到准确率 **0.924**、宏 F1 **0.839**、CHID 精确率/召回率 **0.696/0.615**；这是回顾性交叉预测，不是独立外验。它需要已知起止坐标，不能用于未知区域扫描。N1 仍只是 WT 下的形态候选对，旧经验 p 因背景不匹配已降级，尚未证实新结构类型；超分辨热点定位也不能称稳定恢复。
 
 课程加分项的[离线辅助标注页](results/task2_annotation_review.html)展示 7 个候选位点的双重复热图、已知类 CNN 形态提示和人工复核导出。它不会自动把候选判定为新结构；模型对未注释区域属于分布外应用。报告 PDF 可用 `python scripts/build_report_pdf.py` 从 [Markdown 报告](REPORT.md)重建（另需 `reportlab>=4,<6` 及本机中文字体）；[已生成 PDF](output/pdf/microc_experiment_report.pdf)随分支保存。讲解视频的[分镜口播稿](submission/PRESENTATION_OUTLINE.md)供组员制作，不能代替录制完成的视频。
 
 按课程要求，代码 ZIP、报告 PDF、PPT 讲解视频要分别提交；运行 `python scripts/build_submission_zip.py` 生成本地 `submission/micro-c-code.zip`，用 `python scripts/build_submission_zip.py --verify submission/micro-c-code.zip` 校验。ZIP 故意不上传 Git，避免与分支源码重复；提交时须按课程的“组号-姓名-学号”命名要求重命名三个文件。[组员贡献模板](submission/GROUP_CONTRIBUTIONS_TEMPLATE.md)尚待填写真实身份与百分比，录屏视频也须由小组完成，不能把模板或口播稿当作正式完成的提交物。
 
 ## 数据
+
+本轮追加实验已实际运行：固定CNN的单重复→另一重复测试准确率 **0.9157/0.9070**；三维正/零残差排序在严格随机流对照下匹配AUC **0.7995–0.8048**，超过同目标MDS **0.7813**，但正接触相关稍降。任务二四位点参考序列重复丰富、覆盖协变量无可比控制，严截断下部分失效，故仍是待排查异常线索，不能称新结构确认。新结果与旧失败证据并列，[报告](REPORT.md)、[追加哈希核查](results/followups_20261006_integrity.json)与[复现命令](REPRODUCE.md)均已更新。
 
 原始矩阵来自 [NCBI GEO GSE272159](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE272159)。`data/structures.csv` 是从课程提供的 `标注数据.xlsx` 的 Supplementary Table 4/5/6 导出的 344 条标注，来源工作簿不进入 Git。下载脚本获取六个主分析矩阵：两个 37℃ 重复、两个 44℃ 重复、两个 rifampicin 25 重复；H-NS 独立条件检查另取两个缺失突变体重复；任务二另取一个 WT 37℃ 培养/37℃ 固定的异制样文库作敏感性检查。另获取一个基因注释 GFF 文件。
 

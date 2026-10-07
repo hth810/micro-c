@@ -102,14 +102,16 @@ def main() -> None:
     assert manifest.end_bp.iloc[-1] == 4_641_652
     if starts:
         for row in manifest.itertuples():
-            image = required(generated / "task3_labeled" / row.filename)
+            image = generated / "task3_labeled" / row.filename
             assert image.stat().st_size == row.bytes
-            assert hashlib.sha256(image.read_bytes()).hexdigest() == row.sha256
+            with image.open("rb") as handle:
+                assert hashlib.file_digest(handle, "sha256").hexdigest() == row.sha256
     for index in (0, 5, 250, 450):
         row = manifest.iloc[index]
         example = required(bundle / f"task3_example_{index:03d}.png")
         assert example.stat().st_size == row.bytes
-        assert hashlib.sha256(example.read_bytes()).hexdigest() == row.sha256
+        with example.open("rb") as handle:
+            assert hashlib.file_digest(handle, "sha256").hexdigest() == row.sha256
 
     # Task 4: paired-repeat table and a heatmap for every selected annotation.
     changes = pd.read_csv(required(bundle / "task4_reproducible_changes.csv"))
@@ -203,6 +205,14 @@ def main() -> None:
               "task4_stable_annotations": len(stable),
               "task5_test_patches": sr["test_patches"], "task6_bins": len(coords),
               "caution": "Completeness/integrity checks only; not proof of biological novelty or physical 3D truth."}
+    improvement_receipt = root / "results/improvements_20261006_integrity.json"
+    if improvement_receipt.exists():
+        from scripts.verify_improvements_20261006 import verify
+        report["improvements_20261006"] = verify(root, read_json(improvement_receipt))
+    followup_receipt = root / "results/followups_20261006_integrity.json"
+    if followup_receipt.exists():
+        from scripts.verify_followups_20261006 import verify as verify_followups
+        report["followups_20261006"] = verify_followups(root, read_json(followup_receipt))
     if args.out:
         args.out.parent.mkdir(parents=True, exist_ok=True)
         args.out.write_text(json.dumps(report, indent=2), encoding="utf-8")

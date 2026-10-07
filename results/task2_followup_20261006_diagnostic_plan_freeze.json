@@ -1,0 +1,63 @@
+{
+  "frozen_at_utc": "2026-10-06T09:14:18.437828+00:00",
+  "run_parent_git_sha": "a26f5217186305077807f8bebac95a1f8a491caa",
+  "dependency_versions": {
+    "numpy": "2.4.4",
+    "pandas": "3.0.3",
+    "scipy": "1.17.1",
+    "scikit-learn": "1.8.0",
+    "cooler": "0.10.4",
+    "threadpoolctl": "3.6.0"
+  },
+  "threads": 2,
+  "source_sha256": {
+    "scripts/task2_candidate_artifact_followup.py": "916f2d0a10af440829cab3b8beb41b59ab9493add7273545e1a1bde02d89be22",
+    "microc/data.py": "423de5ef6d6bca94a3021db2d40df98b93414116890bad15af237459db0968c5",
+    "scripts/task2_residual_motif_screen_20261006.py": "b3bbb641d07933da3bb1a080ad3d999c272f0870bbe406f2f849622b53ace908",
+    "scripts/task2_rep1_locked_discovery.py": "36dd0b46869801ed8cecc37c7b8d783cb971594b53ce267a7feef9af4fe1d2de",
+    "tests/test_task2_candidate_artifact_followup.py": "5405c30ac92d6aa4e4f50f5492337ff76a78d8a7ed2a817fc0ecb99d5fb81948"
+  },
+  "input_sha256": {
+    "rep1": "0256e10da36abfe0238bf16952bc43bc78365f43c201e6e3ba0c49bd243549a8",
+    "rep2": "ede9b4f7c0c6b40c8f098e43cdd0abbc0a8987f05e8b37051a5e3cbf143ad106",
+    "original_discovery_receipt": "afe0df9c67a91aabbc88bfcafe09990fdb2817679e17c1be1c1f97d5dad25faf",
+    "original_models": "6391ff52f7a8e7038790d4fc1bc23441cd1647338380553101d9a19539c2a499",
+    "original_independent_manifest": "7fd8beff656b99de15d394cf7d675110819ce5feb0c5c2c48d992a8816ea601b"
+  },
+  "fixed_locus_manifest_sha256": "3a569e948698f7bc1f7ded82e2ba17f231fc6595fc8ea7d514c8413026085705",
+  "fixed_candidates_sha256": "14af606cd1b2b082588133e148ace2c948a38bbaa440605e88d527c39e975f91",
+  "candidate_selection": "All four original rep1-frozen dual-novelty loci; no reselection",
+  "native_input": "512 x 512, 10-bp counts, 5120-bp window; area sums into 64 x 64",
+  "covariates": [
+    "log_native_symmetric_total",
+    "log_native_upper_offdiag_total",
+    "native_zero_offdiag_row_fraction",
+    "native_upper_nonzero_fraction",
+    "native_top_1pct_mass_fraction",
+    "native_offdiag_row_cv",
+    "log_known_interval_distance"
+  ],
+  "matching_rep1_only": true,
+  "matching": {
+    "max_iqr_caliper_all_factors": 2,
+    "max_controls": 80,
+    "min_controls": 20,
+    "required_q10_q90_support_all_factors": true,
+    "min_spacing_from_all_four_candidates_and_between_controls_bp": 10240,
+    "novelty_or_candidate_score_used_in_matching": false,
+    "pool_caveat": "Original 291 representatives were rep1 score-prioritized, not an unbiased genomic null"
+  },
+  "normalization_sensitivities": [
+    "default_clip_5",
+    "unclipped",
+    "explicit_clip_2_4"
+  ],
+  "frozen_model_policy": "Default: original rep1 scaler/PCA/p90 cutoff. Alternatives: two separately labelled regimes: unchanged original model input stress, and same 20-D PCA/p90 independent-known rule recalibrated on rep1 known references only. No rep2 fitting or selection.",
+  "comparison": "Strict empirical fraction controls < candidate, only with all-factor support; descriptive only",
+  "historical_rep2_inspection": true,
+  "limits": [
+    "COOL has no read/fragment-level coverage or alignability evidence.",
+    "Window symmetric contact mass and row sparsity are coverage proxies only.",
+    "No p-values, FDR, new class declaration, threshold lowering, or prospective blindness."
+  ]
+}

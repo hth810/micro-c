@@ -1,0 +1,408 @@
+{
+  "record_type": "raw-read availability metadata receipt, NOT experiment/candidate freeze",
+  "completed_at_utc": "2026-10-06T09:26:12.079037+00:00",
+  "query_plan_sha256": "d13c4e8a1a609d49f7a3f9ffb34498dd6b721841d03f545f561c64758478ccf5",
+  "runs": [
+    {
+      "run_accession": "SRR29808782",
+      "experiment_accession": "SRX25308045",
+      "study_accession": "PRJNA1135229",
+      "platform": "NextSeq 2000",
+      "library_layout": "PAIRED",
+      "ena_read_count_field": 49501958,
+      "base_count": 9997393975,
+      "fastq_files": [
+        {
+          "filename": "SRR29808782.fastq.gz",
+          "role": "unpaired",
+          "https_url": "https://ftp.sra.ebi.ac.uk/vol1/fastq/SRR298/082/SRR29808782/SRR29808782.fastq.gz",
+          "ftp_url": "ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR298/082/SRR29808782/SRR29808782.fastq.gz",
+          "bytes": 224116,
+          "md5": "bf7517ac3658effbdda8a835149c98a9"
+        },
+        {
+          "filename": "SRR29808782_1.fastq.gz",
+          "role": "R1",
+          "https_url": "https://ftp.sra.ebi.ac.uk/vol1/fastq/SRR298/082/SRR29808782/SRR29808782_1.fastq.gz",
+          "ftp_url": "ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR298/082/SRR29808782/SRR29808782_1.fastq.gz",
+          "bytes": 2520863018,
+          "md5": "6ffc8842a6b075290c04b0e12d068e0c"
+        },
+        {
+          "filename": "SRR29808782_2.fastq.gz",
+          "role": "R2",
+          "https_url": "https://ftp.sra.ebi.ac.uk/vol1/fastq/SRR298/082/SRR29808782/SRR29808782_2.fastq.gz",
+          "ftp_url": "ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR298/082/SRR29808782/SRR29808782_2.fastq.gz",
+          "bytes": 2595419112,
+          "md5": "7bbd5ab4cdbd4050b3ce036f56559995"
+        }
+      ],
+      "paired_fastq_gzip_bytes": 5116282130,
+      "geo_sample": "GSM8394770",
+      "geo_title": "WT_MicroC_t1_biol_rep1",
+      "geo_characteristics": [
+        "cell line: MG1655",
+        "cell type: bacteria",
+        "genotype: WT",
+        "treatment: none"
+      ],
+      "geo_growth_protocol": [
+        "E. coli K-12 MG1655 strain was grown in Luria-Bertani broth at 37 °C and 200 rpm until reaching an OD600 of ~ 0.6."
+      ],
+      "t_label_from_original_title": "t1",
+      "biological_replicate_label": 1,
+      "sra_spots": 49501958,
+      "sra_archive_bytes": 3122707450,
+      "sra_public": true,
+      "geo_url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSM8394770&targ=self&form=text&view=full",
+      "ena_metadata_url": "https://www.ebi.ac.uk/ena/portal/api/filereport?accession=SRR29808782&result=read_run&fields=run_accession%2Cexperiment_accession%2Cstudy_accession%2Cinstrument_model%2Clibrary_layout%2Cread_count%2Cbase_count%2Cfastq_ftp%2Cfastq_bytes%2Cfastq_md5&format=tsv",
+      "sra_metadata_url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=sra&id=SRR29808782&rettype=full&retmode=xml",
+      "sra_original_fastq_files": [
+        {
+          "filename": "37C_rep1_t1_R1.fastq.gz",
+          "bytes": 5269460215,
+          "md5": "2f1f1348a1213da1590b2aa5c06ab664"
+        },
+        {
+          "filename": "37C_rep1_t1_R2.fastq.gz",
+          "bytes": 5419211035,
+          "md5": "2e85c8f39a7c6484432f4f3b3bcff879"
+        }
+      ],
+      "prefix_checks": [
+        {
+          "https_url": "https://ftp.sra.ebi.ac.uk/vol1/fastq/SRR298/082/SRR29808782/SRR29808782_1.fastq.gz",
+          "head_http_status": 200,
+          "head_bytes": 2520863018,
+          "range_http_status": 206,
+          "content_range": "bytes 0-65535/2520863018",
+          "compressed_bytes_read_into_memory": 65536,
+          "prefix_sha256": "3073bacc27681d3a8fb4733a213912ac49bb79ca98021c5af93c998d0250a1f7",
+          "records_checked": 100,
+          "observed_prefix_read_lengths_bp": [
+            101
+          ],
+          "checked_at_utc": "2026-10-06T09:25:21.250048+00:00",
+          "limit": "Only first 100 complete records; not proof of full-run read-length distribution or full-file MD5 verification"
+        },
+        {
+          "https_url": "https://ftp.sra.ebi.ac.uk/vol1/fastq/SRR298/082/SRR29808782/SRR29808782_2.fastq.gz",
+          "head_http_status": 200,
+          "head_bytes": 2595419112,
+          "range_http_status": 206,
+          "content_range": "bytes 0-65535/2595419112",
+          "compressed_bytes_read_into_memory": 65536,
+          "prefix_sha256": "b617fe453e1db83108c3395d76742e74a4ec0f993d08d752b5f8b0ddecea1af8",
+          "records_checked": 100,
+          "observed_prefix_read_lengths_bp": [
+            101
+          ],
+          "checked_at_utc": "2026-10-06T09:25:29.709387+00:00",
+          "limit": "Only first 100 complete records; not proof of full-run read-length distribution or full-file MD5 verification"
+        }
+      ]
+    },
+    {
+      "run_accession": "SRR29808780",
+      "experiment_accession": "SRX25308047",
+      "study_accession": "PRJNA1135229",
+      "platform": "NextSeq 2000",
+      "library_layout": "PAIRED",
+      "ena_read_count_field": 54489154,
+      "base_count": 11005017264,
+      "fastq_files": [
+        {
+          "filename": "SRR29808780.fastq.gz",
+          "role": "unpaired",
+          "https_url": "https://ftp.sra.ebi.ac.uk/vol1/fastq/SRR298/080/SRR29808780/SRR29808780.fastq.gz",
+          "ftp_url": "ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR298/080/SRR29808780/SRR29808780.fastq.gz",
+          "bytes": 158101,
+          "md5": "a6e663e6243f76aee0834603e1935b9d"
+        },
+        {
+          "filename": "SRR29808780_1.fastq.gz",
+          "role": "R1",
+          "https_url": "https://ftp.sra.ebi.ac.uk/vol1/fastq/SRR298/080/SRR29808780/SRR29808780_1.fastq.gz",
+          "ftp_url": "ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR298/080/SRR29808780/SRR29808780_1.fastq.gz",
+          "bytes": 2765623171,
+          "md5": "ad71bf87fb2e382eadf84f105cbc092c"
+        },
+        {
+          "filename": "SRR29808780_2.fastq.gz",
+          "role": "R2",
+          "https_url": "https://ftp.sra.ebi.ac.uk/vol1/fastq/SRR298/080/SRR29808780/SRR29808780_2.fastq.gz",
+          "ftp_url": "ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR298/080/SRR29808780/SRR29808780_2.fastq.gz",
+          "bytes": 2874846596,
+          "md5": "485a0a4f60f67108962033fbecb93466"
+        }
+      ],
+      "paired_fastq_gzip_bytes": 5640469767,
+      "geo_sample": "GSM8394772",
+      "geo_title": "WT_MicroC_t1_biol_rep2",
+      "geo_characteristics": [
+        "cell line: MG1655",
+        "cell type: bacteria",
+        "genotype: WT",
+        "treatment: none"
+      ],
+      "geo_growth_protocol": [
+        "E. coli K-12 MG1655 strain was grown in Luria-Bertani broth at 37 °C and 200 rpm until reaching an OD600 of ~ 0.6."
+      ],
+      "t_label_from_original_title": "t1",
+      "biological_replicate_label": 2,
+      "sra_spots": 54489154,
+      "sra_archive_bytes": 3450700760,
+      "sra_public": true,
+      "geo_url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSM8394772&targ=self&form=text&view=full",
+      "ena_metadata_url": "https://www.ebi.ac.uk/ena/portal/api/filereport?accession=SRR29808780&result=read_run&fields=run_accession%2Cexperiment_accession%2Cstudy_accession%2Cinstrument_model%2Clibrary_layout%2Cread_count%2Cbase_count%2Cfastq_ftp%2Cfastq_bytes%2Cfastq_md5&format=tsv",
+      "sra_metadata_url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=sra&id=SRR29808780&rettype=full&retmode=xml",
+      "sra_original_fastq_files": [
+        {
+          "filename": "37C_rep2_t1_R1.fastq.gz",
+          "bytes": 5778911382,
+          "md5": "df3d6a7ed1cbb75a6981f4c2e5043c9b"
+        },
+        {
+          "filename": "37C_rep2_t1_R2.fastq.gz",
+          "bytes": 5999320833,
+          "md5": "cc98f5f66ad56f5279f67ea58a480824"
+        }
+      ],
+      "prefix_checks": [
+        {
+          "https_url": "https://ftp.sra.ebi.ac.uk/vol1/fastq/SRR298/080/SRR29808780/SRR29808780_1.fastq.gz",
+          "head_http_status": 200,
+          "head_bytes": 2765623171,
+          "range_http_status": 206,
+          "content_range": "bytes 0-65535/2765623171",
+          "compressed_bytes_read_into_memory": 65536,
+          "prefix_sha256": "b9248c1f0797a212735f807b2c790c1df312dfce9f96f9faaf4678bea1765e03",
+          "records_checked": 100,
+          "observed_prefix_read_lengths_bp": [
+            101
+          ],
+          "checked_at_utc": "2026-10-06T09:25:39.014834+00:00",
+          "limit": "Only first 100 complete records; not proof of full-run read-length distribution or full-file MD5 verification"
+        },
+        {
+          "https_url": "https://ftp.sra.ebi.ac.uk/vol1/fastq/SRR298/080/SRR29808780/SRR29808780_2.fastq.gz",
+          "head_http_status": 200,
+          "head_bytes": 2874846596,
+          "range_http_status": 206,
+          "content_range": "bytes 0-65535/2874846596",
+          "compressed_bytes_read_into_memory": 65536,
+          "prefix_sha256": "c71534c55b607a2562f253c1cef3818308d8ba8537dfdf4d1ce7f27cd0222473",
+          "records_checked": 100,
+          "observed_prefix_read_lengths_bp": [
+            101
+          ],
+          "checked_at_utc": "2026-10-06T09:25:43.440282+00:00",
+          "limit": "Only first 100 complete records; not proof of full-run read-length distribution or full-file MD5 verification"
+        }
+      ]
+    },
+    {
+      "run_accession": "SRR29808778",
+      "experiment_accession": "SRX25308049",
+      "study_accession": "PRJNA1135229",
+      "platform": "DNBSEQ-T7",
+      "library_layout": "PAIRED",
+      "ena_read_count_field": 609022183,
+      "base_count": 121804436600,
+      "fastq_files": [
+        {
+          "filename": "SRR29808778_1.fastq.gz",
+          "role": "R1",
+          "https_url": "https://ftp.sra.ebi.ac.uk/vol1/fastq/SRR298/078/SRR29808778/SRR29808778_1.fastq.gz",
+          "ftp_url": "ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR298/078/SRR29808778/SRR29808778_1.fastq.gz",
+          "bytes": 49278779977,
+          "md5": "8e25ba51aef220b5cb8d53dcafb4ab4e"
+        },
+        {
+          "filename": "SRR29808778_2.fastq.gz",
+          "role": "R2",
+          "https_url": "https://ftp.sra.ebi.ac.uk/vol1/fastq/SRR298/078/SRR29808778/SRR29808778_2.fastq.gz",
+          "ftp_url": "ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR298/078/SRR29808778/SRR29808778_2.fastq.gz",
+          "bytes": 46037792879,
+          "md5": "0e773b06293fa2b745341a2fec87bf9d"
+        }
+      ],
+      "paired_fastq_gzip_bytes": 95316572856,
+      "geo_sample": "GSM8394774",
+      "geo_title": "WT_MicroC_t2_biol_rep1",
+      "geo_characteristics": [
+        "cell line: MG1655",
+        "cell type: bacteria",
+        "genotype: WT",
+        "treatment: none"
+      ],
+      "geo_growth_protocol": [
+        "E. coli K-12 MG1655 strain was grown in Luria-Bertani broth at 37 °C and 200 rpm until reaching an OD600 of ~ 0.6."
+      ],
+      "t_label_from_original_title": "t2",
+      "biological_replicate_label": 1,
+      "sra_spots": 609022183,
+      "sra_archive_bytes": 73215654316,
+      "sra_public": true,
+      "geo_url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSM8394774&targ=self&form=text&view=full",
+      "ena_metadata_url": "https://www.ebi.ac.uk/ena/portal/api/filereport?accession=SRR29808778&result=read_run&fields=run_accession%2Cexperiment_accession%2Cstudy_accession%2Cinstrument_model%2Clibrary_layout%2Cread_count%2Cbase_count%2Cfastq_ftp%2Cfastq_bytes%2Cfastq_md5&format=tsv",
+      "sra_metadata_url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=sra&id=SRR29808778&rettype=full&retmode=xml",
+      "sra_original_fastq_files": [
+        {
+          "filename": "37C_rep1_t2_R1.fastq.gz",
+          "bytes": 50454857721,
+          "md5": "93dde7d36b75219bd75ab8e6615820bc"
+        },
+        {
+          "filename": "37C_rep1_t2_R2.fastq.gz",
+          "bytes": 47468426680,
+          "md5": "17a9dac121dcc260fad653f7b8886bc7"
+        }
+      ],
+      "prefix_checks": [
+        {
+          "https_url": "https://ftp.sra.ebi.ac.uk/vol1/fastq/SRR298/078/SRR29808778/SRR29808778_1.fastq.gz",
+          "head_http_status": 200,
+          "head_bytes": 49278779977,
+          "range_http_status": 206,
+          "content_range": "bytes 0-65535/49278779977",
+          "compressed_bytes_read_into_memory": 65536,
+          "prefix_sha256": "af01e8405dd986145b7bbab3446bfbe34d72a9d198a6ec55faf13afd614bfd91",
+          "records_checked": 100,
+          "observed_prefix_read_lengths_bp": [
+            100
+          ],
+          "checked_at_utc": "2026-10-06T09:25:54.366125+00:00",
+          "limit": "Only first 100 complete records; not proof of full-run read-length distribution or full-file MD5 verification"
+        },
+        {
+          "https_url": "https://ftp.sra.ebi.ac.uk/vol1/fastq/SRR298/078/SRR29808778/SRR29808778_2.fastq.gz",
+          "head_http_status": 200,
+          "head_bytes": 46037792879,
+          "range_http_status": 206,
+          "content_range": "bytes 0-65535/46037792879",
+          "compressed_bytes_read_into_memory": 65536,
+          "prefix_sha256": "f7db67b0c3fd99f588acb8d4cf5d321cb8ff76fbc6a0d0a625caff1ec642345d",
+          "records_checked": 100,
+          "observed_prefix_read_lengths_bp": [
+            100
+          ],
+          "checked_at_utc": "2026-10-06T09:25:58.618000+00:00",
+          "limit": "Only first 100 complete records; not proof of full-run read-length distribution or full-file MD5 verification"
+        }
+      ]
+    },
+    {
+      "run_accession": "SRR29808776",
+      "experiment_accession": "SRX25308051",
+      "study_accession": "PRJNA1135229",
+      "platform": "DNBSEQ-T7",
+      "library_layout": "PAIRED",
+      "ena_read_count_field": 595064245,
+      "base_count": 119012849000,
+      "fastq_files": [
+        {
+          "filename": "SRR29808776_1.fastq.gz",
+          "role": "R1",
+          "https_url": "https://ftp.sra.ebi.ac.uk/vol1/fastq/SRR298/076/SRR29808776/SRR29808776_1.fastq.gz",
+          "ftp_url": "ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR298/076/SRR29808776/SRR29808776_1.fastq.gz",
+          "bytes": 47699557501,
+          "md5": "ca9201979b387f79fb892c492c33dcbd"
+        },
+        {
+          "filename": "SRR29808776_2.fastq.gz",
+          "role": "R2",
+          "https_url": "https://ftp.sra.ebi.ac.uk/vol1/fastq/SRR298/076/SRR29808776/SRR29808776_2.fastq.gz",
+          "ftp_url": "ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR298/076/SRR29808776/SRR29808776_2.fastq.gz",
+          "bytes": 44309445252,
+          "md5": "68fe60c3aae226eaa02b00dce318c2df"
+        }
+      ],
+      "paired_fastq_gzip_bytes": 92009002753,
+      "geo_sample": "GSM8394776",
+      "geo_title": "WT_MicroC_t2_biol_rep2",
+      "geo_characteristics": [
+        "cell line: MG1655",
+        "cell type: bacteria",
+        "genotype: WT",
+        "treatment: none"
+      ],
+      "geo_growth_protocol": [
+        "E. coli K-12 MG1655 strain was grown in Luria-Bertani broth at 37 °C and 200 rpm until reaching an OD600 of ~ 0.6."
+      ],
+      "t_label_from_original_title": "t2",
+      "biological_replicate_label": 2,
+      "sra_spots": 595064245,
+      "sra_archive_bytes": 70585896549,
+      "sra_public": true,
+      "geo_url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSM8394776&targ=self&form=text&view=full",
+      "ena_metadata_url": "https://www.ebi.ac.uk/ena/portal/api/filereport?accession=SRR29808776&result=read_run&fields=run_accession%2Cexperiment_accession%2Cstudy_accession%2Cinstrument_model%2Clibrary_layout%2Cread_count%2Cbase_count%2Cfastq_ftp%2Cfastq_bytes%2Cfastq_md5&format=tsv",
+      "sra_metadata_url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=sra&id=SRR29808776&rettype=full&retmode=xml",
+      "sra_original_fastq_files": [
+        {
+          "filename": "37C_rep2_t2_R1.fastq.gz",
+          "bytes": 48899784999,
+          "md5": "d0e6fd7183090894909f8a953740b619"
+        },
+        {
+          "filename": "37C_rep2_t2_R2.fastq.gz",
+          "bytes": 45753477518,
+          "md5": "a45a547eb3e2675af69fccdbb010deea"
+        }
+      ],
+      "prefix_checks": [
+        {
+          "https_url": "https://ftp.sra.ebi.ac.uk/vol1/fastq/SRR298/076/SRR29808776/SRR29808776_1.fastq.gz",
+          "head_http_status": 200,
+          "head_bytes": 47699557501,
+          "range_http_status": 206,
+          "content_range": "bytes 0-65535/47699557501",
+          "compressed_bytes_read_into_memory": 65536,
+          "prefix_sha256": "3838e7b85f1f850b46f93b2ea845ec8415d86efe5b6c69b01c9338d4d4eafd9c",
+          "records_checked": 100,
+          "observed_prefix_read_lengths_bp": [
+            100
+          ],
+          "checked_at_utc": "2026-10-06T09:26:07.615335+00:00",
+          "limit": "Only first 100 complete records; not proof of full-run read-length distribution or full-file MD5 verification"
+        },
+        {
+          "https_url": "https://ftp.sra.ebi.ac.uk/vol1/fastq/SRR298/076/SRR29808776/SRR29808776_2.fastq.gz",
+          "head_http_status": 200,
+          "head_bytes": 44309445252,
+          "range_http_status": 206,
+          "content_range": "bytes 0-65535/44309445252",
+          "compressed_bytes_read_into_memory": 65536,
+          "prefix_sha256": "29548075d4695e6fd4cc2d88749ba1ccf8fcbac055c963b29df6d6ce496de680",
+          "records_checked": 100,
+          "observed_prefix_read_lengths_bp": [
+            100
+          ],
+          "checked_at_utc": "2026-10-06T09:26:11.424290+00:00",
+          "limit": "Only first 100 complete records; not proof of full-run read-length distribution or full-file MD5 verification"
+        }
+      ]
+    }
+  ],
+  "local_processed_cool_headers": [
+    {
+      "path": "data/raw/GSE272159_37C_rep1.mapq_30.10.cool",
+      "header_metadata": {},
+      "upper_triangle_count_sum": 368695972,
+      "binsize_bp": 10,
+      "check": "Header only; no run mapping manifest present and no processed-file hash generated by this metadata audit"
+    },
+    {
+      "path": "data/raw/GSE272159_37C_rep2.mapq_30.10.cool",
+      "header_metadata": {},
+      "upper_triangle_count_sum": 358452621,
+      "binsize_bp": 10,
+      "check": "Header only; no run mapping manifest present and no processed-file hash generated by this metadata audit"
+    }
+  ],
+  "t1_paired_gzip_total_bytes": 10756751897,
+  "t2_paired_gzip_total_bytes": 187325575609,
+  "source_boundary": "Exact WT37 C t1/t2 run/sample links are verified. Series-level processed COOL metadata are empty and count sums exceed t1-only spots; cannot prove these t1 runs are sole raw inputs or reconstruct t1/t2 merging from filenames. Obtain original processing manifest or rebuild before claiming raw-to-current-COOL identity. Do not treat t2 as an additional independent blind biological replicate.",
+  "next_step": "Public reads can support remapping/unique-mapping/MAPQ and coverage-gap QC after handling paired and unpaired reads and obtaining source manifests; no installation or large download performed here.",
+  "scientific_limit": "Read-level artifact QC is feasible but does not independently establish a new biological structural type, remove historical label reuse, or replace orthogonal biological validation."
+}

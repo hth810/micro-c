@@ -1,0 +1,2 @@
+candidate_id,candidate_role,centers_bp,all_loci_novel_in_both_frozen_views_rep2,all_edges_replicate_with_supported_controls,passes_exploratory_replication_rule
+HISTORICAL,historical_diagnostic,"2042880,3307520,4241920",False,False,False

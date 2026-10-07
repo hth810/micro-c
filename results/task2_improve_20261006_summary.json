@@ -1,0 +1,283 @@
+{
+  "analysis": "Count-preserving measurement, expanded background and frozen residual novelty audit",
+  "arms": {
+    "legacy": {
+      "frozen_at_utc": "2026-10-06T08:26:34.344371+00:00",
+      "genome_windows": 1812,
+      "full_window_unannotated_background_loci": 1103,
+      "independent_background_pairs": 605213,
+      "independent_unannotated_representatives": 291,
+      "rep1_frozen_individual_outlying_loci": 0,
+      "individual_loci_passing_both_frozen_rep2_novelty_gates": 0,
+      "rep1_frozen_three_locus_motifs": 0,
+      "motifs_passing_exploratory_replication_rule": 0,
+      "known_rep2_reference_agreement": {
+        "highpass": {
+          "nearest_independent_same_type_fraction": 0.7151162790697675,
+          "macro_same_type_fraction": 0.4595957767722474,
+          "majority_type_fraction": 0.7267441860465116,
+          "per_type_same_type_fraction": {
+            "CHID": 0.15384615384615385,
+            "CHIN": 0.872,
+            "OPCID": 0.35294117647058826
+          },
+          "per_type_n": {
+            "CHID": 26,
+            "CHIN": 250,
+            "OPCID": 68
+          }
+        },
+        "rowcol": {
+          "nearest_independent_same_type_fraction": 0.7877906976744186,
+          "macro_same_type_fraction": 0.4949351432880844,
+          "majority_type_fraction": 0.7267441860465116,
+          "per_type_same_type_fraction": {
+            "CHID": 0.07692307692307693,
+            "CHIN": 0.952,
+            "OPCID": 0.45588235294117646
+          },
+          "per_type_n": {
+            "CHID": 26,
+            "CHIN": 250,
+            "OPCID": 68
+          }
+        }
+      },
+      "historical_edge_controls_minimum": 200,
+      "historical_edges_with_full_covariate_support": 1,
+      "historical_total_edges": 3,
+      "historical_edge_min_rep2_matched_percentile": 0.285,
+      "historical_edge_max_rep2_matched_percentile": 0.97,
+      "historical_diagnostic_passes": 0,
+      "genome_wide_context": {
+        "unannotated_windows": 1103,
+        "rep1_both_novelty_pass": 0,
+        "rep2_both_novelty_pass": 1,
+        "pass_in_both_replicates": 0
+      }
+    },
+    "area": {
+      "frozen_at_utc": "2026-10-06T08:26:48.434562+00:00",
+      "genome_windows": 1812,
+      "full_window_unannotated_background_loci": 1103,
+      "independent_background_pairs": 605213,
+      "independent_unannotated_representatives": 291,
+      "rep1_frozen_individual_outlying_loci": 4,
+      "individual_loci_passing_both_frozen_rep2_novelty_gates": 3,
+      "rep1_frozen_three_locus_motifs": 0,
+      "motifs_passing_exploratory_replication_rule": 0,
+      "known_rep2_reference_agreement": {
+        "highpass": {
+          "nearest_independent_same_type_fraction": 0.7819767441860465,
+          "macro_same_type_fraction": 0.5652036199095023,
+          "majority_type_fraction": 0.7267441860465116,
+          "per_type_same_type_fraction": {
+            "CHID": 0.15384615384615385,
+            "CHIN": 0.88,
+            "OPCID": 0.6617647058823529
+          },
+          "per_type_n": {
+            "CHID": 26,
+            "CHIN": 250,
+            "OPCID": 68
+          }
+        },
+        "rowcol": {
+          "nearest_independent_same_type_fraction": 0.8313953488372093,
+          "macro_same_type_fraction": 0.5855263951734541,
+          "majority_type_fraction": 0.7267441860465116,
+          "per_type_same_type_fraction": {
+            "CHID": 0.038461538461538464,
+            "CHIN": 0.924,
+            "OPCID": 0.7941176470588235
+          },
+          "per_type_n": {
+            "CHID": 26,
+            "CHIN": 250,
+            "OPCID": 68
+          }
+        }
+      },
+      "historical_edge_controls_minimum": 200,
+      "historical_edges_with_full_covariate_support": 2,
+      "historical_total_edges": 3,
+      "historical_edge_min_rep2_matched_percentile": 0.455,
+      "historical_edge_max_rep2_matched_percentile": 0.925,
+      "historical_diagnostic_passes": 0,
+      "genome_wide_context": {
+        "unannotated_windows": 1103,
+        "rep1_both_novelty_pass": 13,
+        "rep2_both_novelty_pass": 11,
+        "pass_in_both_replicates": 9
+      }
+    }
+  },
+  "paired_measurement_ablation": [
+    {
+      "cohort": "annotated",
+      "metric": "highpass",
+      "n_loci": 344,
+      "legacy_median_r": 0.37621529400348663,
+      "area_median_r": 0.6306703388690948,
+      "legacy_mean_r": 0.39031053449265485,
+      "area_mean_r": 0.6250611710427112,
+      "mean_paired_difference_area_minus_legacy": 0.23475063655005637,
+      "fraction_loci_improved": 0.9505813953488372,
+      "genomic_blocks": 46,
+      "block_size_bp": 100000,
+      "bootstrap_repeats": 2000,
+      "seed": 20261006,
+      "mean_difference_ci95": [
+        0.21233914368085147,
+        0.25687768695638635
+      ]
+    },
+    {
+      "cohort": "annotated",
+      "metric": "rowcol",
+      "n_loci": 344,
+      "legacy_median_r": 0.5501401126384735,
+      "area_median_r": 0.7915874421596527,
+      "legacy_mean_r": 0.5429248102875643,
+      "area_mean_r": 0.7390151791447817,
+      "mean_paired_difference_area_minus_legacy": 0.1960903688572174,
+      "fraction_loci_improved": 0.8488372093023255,
+      "genomic_blocks": 46,
+      "block_size_bp": 100000,
+      "bootstrap_repeats": 2000,
+      "seed": 20261006,
+      "mean_difference_ci95": [
+        0.16781715915834072,
+        0.22290150018833668
+      ]
+    },
+    {
+      "cohort": "annotated",
+      "metric": "upper",
+      "n_loci": 344,
+      "legacy_median_r": 0.347332701086998,
+      "area_median_r": 0.5092542469501495,
+      "legacy_mean_r": 0.36972085577110914,
+      "area_mean_r": 0.527026625783291,
+      "mean_paired_difference_area_minus_legacy": 0.15730577001218185,
+      "fraction_loci_improved": 0.7965116279069767,
+      "genomic_blocks": 46,
+      "block_size_bp": 100000,
+      "bootstrap_repeats": 2000,
+      "seed": 20261006,
+      "mean_difference_ci95": [
+        0.12997895203484033,
+        0.18341442055226823
+      ]
+    },
+    {
+      "cohort": "unannotated_independent",
+      "metric": "highpass",
+      "n_loci": 291,
+      "legacy_median_r": 0.3431929349899292,
+      "area_median_r": 0.4097761809825897,
+      "legacy_mean_r": 0.35243942166112135,
+      "area_mean_r": 0.42075380423711134,
+      "mean_paired_difference_area_minus_legacy": 0.06831438257599,
+      "fraction_loci_improved": 0.6357388316151202,
+      "genomic_blocks": 47,
+      "block_size_bp": 100000,
+      "bootstrap_repeats": 2000,
+      "seed": 20261006,
+      "mean_difference_ci95": [
+        0.046824932128059896,
+        0.0896644189499733
+      ]
+    },
+    {
+      "cohort": "unannotated_independent",
+      "metric": "rowcol",
+      "n_loci": 291,
+      "legacy_median_r": 0.5013284087181091,
+      "area_median_r": 0.40407437086105347,
+      "legacy_mean_r": 0.5190226899594376,
+      "area_mean_r": 0.4506433747766405,
+      "mean_paired_difference_area_minus_legacy": -0.06837931518279708,
+      "fraction_loci_improved": 0.38831615120274915,
+      "genomic_blocks": 47,
+      "block_size_bp": 100000,
+      "bootstrap_repeats": 2000,
+      "seed": 20261006,
+      "mean_difference_ci95": [
+        -0.10266877336224303,
+        -0.032477003560274206
+      ]
+    },
+    {
+      "cohort": "unannotated_independent",
+      "metric": "upper",
+      "n_loci": 291,
+      "legacy_median_r": 0.34323665499687195,
+      "area_median_r": 0.30764371156692505,
+      "legacy_mean_r": 0.36168581237088365,
+      "area_mean_r": 0.353083525710704,
+      "mean_paired_difference_area_minus_legacy": -0.00860228666017965,
+      "fraction_loci_improved": 0.44673539518900346,
+      "genomic_blocks": 47,
+      "block_size_bp": 100000,
+      "bootstrap_repeats": 2000,
+      "seed": 20261006,
+      "mean_difference_ci95": [
+        -0.03310930304615053,
+        0.015919394422436717
+      ]
+    }
+  ],
+  "count_conservation_max_absolute_error": 0.0,
+  "individual_area_candidates": [
+    {
+      "candidate_id": "A1",
+      "center": 729600,
+      "start_bp": 727040,
+      "end_bp": 732160,
+      "rep2_passes_both_frozen_novelty_gates": true
+    },
+    {
+      "candidate_id": "A2",
+      "center": 1469440,
+      "start_bp": 1466880,
+      "end_bp": 1472000,
+      "rep2_passes_both_frozen_novelty_gates": true
+    },
+    {
+      "candidate_id": "A3",
+      "center": 3130880,
+      "start_bp": 3128320,
+      "end_bp": 3133440,
+      "rep2_passes_both_frozen_novelty_gates": false
+    },
+    {
+      "candidate_id": "A4",
+      "center": 1571840,
+      "start_bp": 1569280,
+      "end_bp": 1574400,
+      "rep2_passes_both_frozen_novelty_gates": true
+    }
+  ],
+  "validated_new_biological_types": 0,
+  "historical_rep2_inspection": true,
+  "rep2_used_in_current_candidate_or_threshold_selection": false,
+  "improvement": "All source contact counts enter area pooling, known-reference shape agreement improves and three rep1-frozen independent loci retain residual shape novelty in rep2. Broader genome controls now expose the old clique's failure instead of relying on an empty comparator set.",
+  "limits": [
+    "Three residual-novel loci do not form the required coherent three-locus class.",
+    "Individual locus novelty is not adjusted for mappability, fragment coverage or normalization clipping; the seven-factor matched-control audit applies to the historical clique, not a significance test for the four individual loci.",
+    "Area pooling does not improve every metric in unannotated windows; row/column-residual reproducibility declines there.",
+    "Nearest annotated-type agreement is a descriptive morphology check, not classifier holdout accuracy; CHID agreement remains low.",
+    "Part of the old clique's control sets still lack full covariate support. No p-value or FDR is claimed.",
+    "Rep1 pooling ablation and thresholds were frozen before this run's rep2 reads, but past project analyses already inspected rep2; no prospective blindness is claimed."
+  ],
+  "reproduce": [
+    "python -m scripts.task2_residual_motif_screen_20261006 discover --rep1 data/raw/GSE272159_37C_rep1.mapq_30.10.cool --resampling legacy --out outputs/task2_improve_20261006/legacy",
+    "python -m scripts.task2_residual_motif_screen_20261006 discover --rep1 data/raw/GSE272159_37C_rep1.mapq_30.10.cool --resampling area --out outputs/task2_improve_20261006/area",
+    "python -m scripts.task2_residual_motif_screen_20261006 validate --rep2 data/raw/GSE272159_37C_rep2.mapq_30.10.cool --discovery outputs/task2_improve_20261006/legacy --out outputs/task2_improve_20261006/legacy/validation",
+    "python -m scripts.task2_residual_motif_screen_20261006 validate --rep2 data/raw/GSE272159_37C_rep2.mapq_30.10.cool --discovery outputs/task2_improve_20261006/area --out outputs/task2_improve_20261006/area/validation",
+    "python -m scripts.task2_resampling_comparison_20261006 --rep2 data/raw/GSE272159_37C_rep2.mapq_30.10.cool",
+    "python -m scripts.task2_publish_improvement_20261006 --rep2 data/raw/GSE272159_37C_rep2.mapq_30.10.cool"
+  ],
+  "publish_script_sha256": "5282421a8c0b72513891998391d4f8065f03288866bde04698c32fa3e7a1a8ed"
+}

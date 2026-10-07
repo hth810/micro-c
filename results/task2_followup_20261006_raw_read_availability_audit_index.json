@@ -1,0 +1,15 @@
+{
+  "schema": "small_metadata_audit_index_v1",
+  "created_at_utc": "2026-10-06T09:26:12.082282+00:00",
+  "files": {
+    "task2_followup_20261006_raw_read_availability_query_plan.json": "d13c4e8a1a609d49f7a3f9ffb34498dd6b721841d03f545f561c64758478ccf5",
+    "task2_followup_20261006_raw_read_availability_metadata_responses.json": "4d91438212eb98b3b6473e9b11aba569c7fe7d055522a70eab4990389be866d8",
+    "task2_followup_20261006_raw_read_availability_receipt.json": "8cae1febd285d58f797e4418eca6dbabbc5fad83cc6632ffc54dd6a1f42c71e6"
+  },
+  "source_sha256": {
+    "scripts/audit_raw_read_availability_followup.py": "16407037dc2140312a9da411304106807233802450eeff9be4d114ce1bf84709",
+    "tests/test_raw_read_availability_followup.py": "c2940d20580733db6d9ed6510b4ea712223af1cc587d8d2bbc474a167eb9de84"
+  },
+  "scope": "Separate metadata package; does not alter existing experiment integrity receipts",
+  "reproduce": "python -m scripts.audit_raw_read_availability_followup --out outputs/task2_followup_20261006_raw_read_availability --sample-fastq-prefix --publish"
+}

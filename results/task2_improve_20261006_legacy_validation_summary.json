@@ -1,0 +1,85 @@
+{
+  "analysis": "retrospective fixed-rule rep2 residual motif replication",
+  "frozen_at_utc": "2026-10-06T08:26:34.344371+00:00",
+  "validation_started_after_hash_verification": true,
+  "freeze_receipt_sha256": "6eeb0688a8f25fdd15ecab55a05d85c03090730b7f237d72e5f9a3012f62c461",
+  "rep2_sha256": "ede9b4f7c0c6b40c8f098e43cdd0abbc0a8987f05e8b37051a5e3cbf143ad106",
+  "rep2_used_for_candidate_selection_or_matching": false,
+  "frozen_disjoint_motifs": 0,
+  "historical_diagnostic_motifs": 1,
+  "motifs_passing_rule": 0,
+  "historical_diagnostics_passing_rule": 0,
+  "known_rep2_recovery": {
+    "highpass": {
+      "nearest_independent_same_type_fraction": 0.7151162790697675,
+      "macro_same_type_fraction": 0.4595957767722474,
+      "majority_type_fraction": 0.7267441860465116,
+      "per_type_same_type_fraction": {
+        "CHID": 0.15384615384615385,
+        "CHIN": 0.872,
+        "OPCID": 0.35294117647058826
+      },
+      "per_type_n": {
+        "CHID": 26,
+        "CHIN": 250,
+        "OPCID": 68
+      }
+    },
+    "rowcol": {
+      "nearest_independent_same_type_fraction": 0.7877906976744186,
+      "macro_same_type_fraction": 0.4949351432880844,
+      "majority_type_fraction": 0.7267441860465116,
+      "per_type_same_type_fraction": {
+        "CHID": 0.07692307692307693,
+        "CHIN": 0.952,
+        "OPCID": 0.45588235294117646
+      },
+      "per_type_n": {
+        "CHID": 26,
+        "CHIN": 250,
+        "OPCID": 68
+      }
+    }
+  },
+  "genome_wide_novelty_context": {
+    "unannotated_windows": 1103,
+    "rep1_both_novelty_pass": 0,
+    "rep2_both_novelty_pass": 1,
+    "pass_in_both_replicates": 0
+  },
+  "minimum_control_count": 200,
+  "all_edge_control_sets_balanced": false,
+  "protocol": {
+    "window_bp": 5120,
+    "independence_bp": 10240,
+    "smoothing_sigma_bins": 1.0,
+    "highpass_sigma_bins": 4.0,
+    "upper_triangle_min_separation_bins": 8,
+    "known_reference_pca_dimensions": 20,
+    "novelty_cutoff_known_independent_nearest_quantile": 0.9,
+    "edge_cutoff_all_independent_unannotated_pairs_quantile": 0.99,
+    "minimum_edge_correlation": 0.2,
+    "minimum_independent_motif_loci": 3,
+    "maximum_disjoint_triads": 10,
+    "control_two_iqr_caliper": 2.0,
+    "maximum_controls_per_edge": 200,
+    "minimum_controls_per_edge": 20,
+    "required_control_q10_q90_balance_all_covariates": true,
+    "rep2_edge_control_percentile": 0.99,
+    "rep2_required_each_locus_frozen_novelty": true,
+    "rep2_pair_exceeds_member_best_independent_known_similarity": true,
+    "seed": 20261006,
+    "caution": "Retrospective exploratory screen. Previous rep2 inspection and multiple historical screens preclude prospective blindness, genomic FDR, or proof of a new biological type.",
+    "resampling": "legacy",
+    "resampling_definition": "historical scipy zoom(order=1) linear interpolation",
+    "selection_priority": "Historical rep1 AE/shape score controls representative priority only; thresholds and control rules are identical between resampling arms."
+  },
+  "claim": "No validated new biological structure type. Passing this exploratory rule would still require independent samples and biological interpretation.",
+  "output_sha256": {
+    "candidate_edge_validation.csv": "7bfbf0dc4f462e9c5a365dc1ecff0eac49916a51a0de5d87d19e431bf4dc2d6a",
+    "candidate_replication.csv": "1f8cbb8ee41b661fe15d69e03efcd75ff1959b7502d4d419fd99e189e2ce26ec",
+    "genome_window_replication.csv": "1653c17bf0b0d7bfd9f9c45ca2f34d91fc853be8669bf00b04cf6cadf5da2dd8",
+    "rep1_selected_controls.csv": "20baec6e290d1d5abf522f841b5375c126c61827622f433240d3ac7c2cb65151",
+    "residual_screen.png": "08b4da9a86734114740abf07bb44e31816709381b6d64ccf315477ba709742a7"
+  }
+}
