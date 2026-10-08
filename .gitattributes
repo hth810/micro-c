@@ -39,3 +39,6 @@ tests/*_followup.py -text
 tests/test_followup_integrity.py -text
 results/*followup_20261006_* -text
 results/followups_20261006_integrity.json -text
+
+# The 2026-10-07 local trial protocols pin the runner's physical source bytes.
+scripts/run_improvement_trials.py -text
