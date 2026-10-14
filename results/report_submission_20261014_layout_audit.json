@@ -1,0 +1,36 @@
+{
+  "scope": "hth810/micro-c report layout and editorial revision",
+  "docx": "output/report/MicroC_实验报告_排版定稿_20261014.docx",
+  "docx_sha256": "a7a986080d7944cb8e609846fa415e54e306fd73ef264b7065c478efd541dcc1",
+  "pdf": "output/pdf/MicroC_实验报告_排版定稿_20261014.pdf",
+  "pdf_sha256": "71bbfb92784c7e216fb45faf76afb86eeaa70697d0a341e1f7ccf5e2d02e639d",
+  "page_count": 28,
+  "render": "native_06 native Word export and Poppler rasterization",
+  "all_pages_visually_reviewed": true,
+  "primary_review_pages": [1, 14],
+  "independent_review_pages": [15, 28],
+  "black_square_paragraph_flags_enabled": 0,
+  "native_word_paragraphs_checked": 1015,
+  "inline_images_preserved": 15,
+  "tables_preserved": 30,
+  "figure_captions_centered": true,
+  "body_and_image_indent_pt": 11,
+  "numbered_heading_hierarchy": true,
+  "first_person_removed": true,
+  "measurement_changes": 0,
+  "word_saved_layout_review": {
+    "text_paragraphs_compared": 835,
+    "text_differences": 0,
+    "referenced_image_content_differences": 0,
+    "unused_media_removed_by_Word": 5,
+    "table_and_caption_centering_preserved": true
+  },
+  "old_report_files_removed_from_active_directories": 8,
+  "recoverable_archive": "submission/archive/report_versions_20261014",
+  "historical_integrity_relocations": {
+    "output/report/MicroC_实验报告_最终版_20261014.docx": "submission/archive/report_versions_20261014/MicroC_实验报告_最终版_20261014.docx",
+    "output/pdf/MicroC_实验报告_最终版_20261014.pdf": "submission/archive/report_versions_20261014/MicroC_实验报告_最终版_20261014.pdf",
+    "output/pdf/microc_experiment_report.pdf": "submission/archive/report_versions_20261014/microc_experiment_report.pdf"
+  },
+  "historical_metadata_revision": "README.md report link and archive notice only; experimental files unchanged"
+}

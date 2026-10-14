@@ -4,7 +4,7 @@
 
 完整实验方法与最终结果见 [实验报告](REPORT.md)，从数据到结果的命令见 [复现指南](REPRODUCE.md)。分类在同一空间五折下取得准确率 0.924、宏 F1 0.839。任务二完成三个未注释形态异常候选的跨重复及质量验证，尚未建立共同新类型。最终全窗超分辨 CNN 在两个重复的 68 个完整结构上均提高 PSNR、SSIM 和主要非近对角形态一致性；三维模型补齐最新三个种子的宏域几何与文献位点验证。课程成功判断与更强的生物学主张分开记录，见 [最终验收](results/final_verification_20261014_assessment.json)。
 
-课程加分项包括双重复候选热图、[离线辅助标注页](results/task2_annotation_review.html)及 LLM 辅助证据整理、覆盖混杂检查和结果解读。正式报告采用[最终 Word 版](output/report/MicroC_实验报告_最终版_20261014.docx)，只介绍最终方法与实际结果；原始输入、最终图表与代码均有源记录。旧版报告和实验产物作为历史证据保留，新完整区间模型采用独立指标。讲解视频的[分镜口播稿](submission/PRESENTATION_OUTLINE.md)供组员制作，录制由小组完成。
+课程加分项包括双重复候选热图、[离线辅助标注页](results/task2_annotation_review.html)及 LLM 辅助证据整理、覆盖混杂检查和结果解读。正式报告采用[排版定稿 Word 版](output/report/MicroC_实验报告_排版定稿_20261014.docx)，只介绍最终方法与实际结果；原始输入、最终图表与代码均有源记录。报告目录仅保留当前版本，旧稿已移至 `submission/archive/report_versions_20261014`，实验产物和历史记录保留。讲解视频的[分镜口播稿](submission/PRESENTATION_OUTLINE.md)供组员制作，录制由小组完成。
 
 按课程要求，代码 ZIP、报告 PDF、PPT 讲解视频要分别提交；运行 `python scripts/build_submission_zip.py` 生成本地 `submission/micro-c-code.zip`，用 `python scripts/build_submission_zip.py --verify submission/micro-c-code.zip` 校验。ZIP 故意不上传 Git，避免与分支源码重复；提交时须按课程的“组号-姓名-学号”命名要求重命名三个文件。[组员贡献模板](submission/GROUP_CONTRIBUTIONS_TEMPLATE.md)尚待填写真实身份与百分比，录屏视频也须由小组完成，不能把模板或口播稿当作正式完成的提交物。
 
