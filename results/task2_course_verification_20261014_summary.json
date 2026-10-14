@@ -1,0 +1,750 @@
+{
+  "analysis": "Retrospective fixed-candidate course evidence verification",
+  "completed_at_utc": "2026-10-14T06:19:23.930407+00:00",
+  "protocol_sha256": "ee574e9e83a4aa23df48106520270cf7d8410014ebd0ce027eba84563791879c",
+  "rep1_control_and_depth_freeze_sha256": "84c6a21dc5153024fff69c2510a323106dcfd558a69db17566f3576e78fb310b",
+  "protocol_frozen_before_rep1_extraction": true,
+  "rep1_control_freeze_before_new_rep2_extraction": true,
+  "prospectively_blind": false,
+  "full_score_free_unannotated_windows": 1103,
+  "score_free_independent_background_count": 333,
+  "fixed_candidate_count": 4,
+  "known_reference_count": 344,
+  "target_expected_upper_offdiagonal_counts": 34548,
+  "matching": {
+    "A1": {
+      "legacy": {
+        "permitted": 1087,
+        "caliper_controls": 0,
+        "independent_controls": 0,
+        "scale": [
+          0.25896622844253514,
+          0.25888280004472897,
+          1e-08,
+          0.04296110567514677,
+          0.01975775251845821,
+          0.04457616929451236,
+          1.1585205838456663
+        ],
+        "iqr": [
+          0.25896622844253514,
+          0.25888280004472897,
+          0.0,
+          0.04296110567514677,
+          0.01975775251845821,
+          0.04457616929451236,
+          1.1585205838456663
+        ],
+        "quantile_span": [
+          0.19374138668725857,
+          0.19362153326623485,
+          0.0,
+          0.03693076831746066,
+          0.014779538124720194,
+          0.060059878614322354,
+          0.810584922614782
+        ],
+        "physical_floor": [
+          0.05,
+          0.05,
+          0.001953125,
+          7.644324853228962e-06,
+          0.005,
+          0.05,
+          0.05
+        ],
+        "within_factor_caliper_counts": [
+          424,
+          424,
+          0,
+          491,
+          25,
+          30,
+          1018
+        ],
+        "support": [
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false
+        ],
+        "q10": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "q90": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "evaluable": false,
+        "reason": "insufficient_common_support"
+      },
+      "robust": {
+        "permitted": 1087,
+        "caliper_controls": 0,
+        "independent_controls": 0,
+        "scale": [
+          0.25896622844253514,
+          0.25888280004472897,
+          0.001953125,
+          0.04296110567514677,
+          0.01975775251845821,
+          0.060059878614322354,
+          1.1585205838456663
+        ],
+        "iqr": [
+          0.25896622844253514,
+          0.25888280004472897,
+          0.0,
+          0.04296110567514677,
+          0.01975775251845821,
+          0.04457616929451236,
+          1.1585205838456663
+        ],
+        "quantile_span": [
+          0.19374138668725857,
+          0.19362153326623485,
+          0.0,
+          0.03693076831746066,
+          0.014779538124720194,
+          0.060059878614322354,
+          0.810584922614782
+        ],
+        "physical_floor": [
+          0.05,
+          0.05,
+          0.001953125,
+          7.644324853228962e-06,
+          0.005,
+          0.05,
+          0.05
+        ],
+        "within_factor_caliper_counts": [
+          424,
+          424,
+          0,
+          491,
+          25,
+          39,
+          1018
+        ],
+        "support": [
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false
+        ],
+        "q10": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "q90": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "evaluable": false,
+        "reason": "insufficient_common_support"
+      }
+    },
+    "A2": {
+      "legacy": {
+        "permitted": 1087,
+        "caliper_controls": 0,
+        "independent_controls": 0,
+        "scale": [
+          0.25896622844253514,
+          0.25888280004472897,
+          1e-08,
+          0.04296110567514677,
+          0.01975775251845821,
+          0.04457616929451236,
+          1.1585205838456663
+        ],
+        "iqr": [
+          0.25896622844253514,
+          0.25888280004472897,
+          0.0,
+          0.04296110567514677,
+          0.01975775251845821,
+          0.04457616929451236,
+          1.1585205838456663
+        ],
+        "quantile_span": [
+          0.19374138668725857,
+          0.19362153326623485,
+          0.0,
+          0.03693076831746066,
+          0.014779538124720194,
+          0.060059878614322354,
+          0.810584922614782
+        ],
+        "physical_floor": [
+          0.05,
+          0.05,
+          0.001953125,
+          7.644324853228962e-06,
+          0.005,
+          0.05,
+          0.05
+        ],
+        "within_factor_caliper_counts": [
+          11,
+          11,
+          0,
+          60,
+          4,
+          2,
+          1080
+        ],
+        "support": [
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false
+        ],
+        "q10": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "q90": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "evaluable": false,
+        "reason": "insufficient_common_support"
+      },
+      "robust": {
+        "permitted": 1087,
+        "caliper_controls": 0,
+        "independent_controls": 0,
+        "scale": [
+          0.25896622844253514,
+          0.25888280004472897,
+          0.001953125,
+          0.04296110567514677,
+          0.01975775251845821,
+          0.060059878614322354,
+          1.1585205838456663
+        ],
+        "iqr": [
+          0.25896622844253514,
+          0.25888280004472897,
+          0.0,
+          0.04296110567514677,
+          0.01975775251845821,
+          0.04457616929451236,
+          1.1585205838456663
+        ],
+        "quantile_span": [
+          0.19374138668725857,
+          0.19362153326623485,
+          0.0,
+          0.03693076831746066,
+          0.014779538124720194,
+          0.060059878614322354,
+          0.810584922614782
+        ],
+        "physical_floor": [
+          0.05,
+          0.05,
+          0.001953125,
+          7.644324853228962e-06,
+          0.005,
+          0.05,
+          0.05
+        ],
+        "within_factor_caliper_counts": [
+          11,
+          11,
+          0,
+          60,
+          4,
+          3,
+          1080
+        ],
+        "support": [
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false
+        ],
+        "q10": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "q90": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "evaluable": false,
+        "reason": "insufficient_common_support"
+      }
+    },
+    "A3": {
+      "legacy": {
+        "permitted": 1087,
+        "caliper_controls": 2,
+        "independent_controls": 2,
+        "scale": [
+          0.25896622844253514,
+          0.25888280004472897,
+          1e-08,
+          0.04296110567514677,
+          0.01975775251845821,
+          0.04457616929451236,
+          1.1585205838456663
+        ],
+        "iqr": [
+          0.25896622844253514,
+          0.25888280004472897,
+          0.0,
+          0.04296110567514677,
+          0.01975775251845821,
+          0.04457616929451236,
+          1.1585205838456663
+        ],
+        "quantile_span": [
+          0.19374138668725857,
+          0.19362153326623485,
+          0.0,
+          0.03693076831746066,
+          0.014779538124720194,
+          0.060059878614322354,
+          0.810584922614782
+        ],
+        "physical_floor": [
+          0.05,
+          0.05,
+          0.001953125,
+          7.644324853228962e-06,
+          0.005,
+          0.05,
+          0.05
+        ],
+        "within_factor_caliper_counts": [
+          835,
+          835,
+          3,
+          735,
+          265,
+          41,
+          832
+        ],
+        "support": [
+          false,
+          false,
+          true,
+          false,
+          false,
+          false,
+          false
+        ],
+        "q10": [
+          12.022345144819957,
+          11.328592181487561,
+          0.19921875,
+          0.1309128852739726,
+          0.19749052248924495,
+          0.6004993736588888,
+          9.074860901907273
+        ],
+        "q90": [
+          12.025157942092068,
+          11.331272379725613,
+          0.19921875,
+          0.13656968566536204,
+          0.1981419357650049,
+          0.6206484654203828,
+          9.423081587965005
+        ],
+        "evaluable": false,
+        "reason": "insufficient_common_support"
+      },
+      "robust": {
+        "permitted": 1087,
+        "caliper_controls": 6,
+        "independent_controls": 4,
+        "scale": [
+          0.25896622844253514,
+          0.25888280004472897,
+          0.001953125,
+          0.04296110567514677,
+          0.01975775251845821,
+          0.060059878614322354,
+          1.1585205838456663
+        ],
+        "iqr": [
+          0.25896622844253514,
+          0.25888280004472897,
+          0.0,
+          0.04296110567514677,
+          0.01975775251845821,
+          0.04457616929451236,
+          1.1585205838456663
+        ],
+        "quantile_span": [
+          0.19374138668725857,
+          0.19362153326623485,
+          0.0,
+          0.03693076831746066,
+          0.014779538124720194,
+          0.060059878614322354,
+          0.810584922614782
+        ],
+        "physical_floor": [
+          0.05,
+          0.05,
+          0.001953125,
+          7.644324853228962e-06,
+          0.005,
+          0.05,
+          0.05
+        ],
+        "within_factor_caliper_counts": [
+          835,
+          835,
+          7,
+          735,
+          265,
+          50,
+          832
+        ],
+        "support": [
+          true,
+          true,
+          true,
+          false,
+          true,
+          false,
+          false
+        ],
+        "q10": [
+          11.927822795226811,
+          11.233978828612539,
+          0.1978515625,
+          0.12736974070450097,
+          0.17461371333359507,
+          0.6032163022198442,
+          9.060379431601511
+        ],
+        "q90": [
+          12.298683491057224,
+          11.604520431920823,
+          0.2005859375,
+          0.18677378913894327,
+          0.20892545273444396,
+          0.6257343040480604,
+          9.988717681333075
+        ],
+        "evaluable": false,
+        "reason": "insufficient_common_support"
+      }
+    },
+    "A4": {
+      "legacy": {
+        "permitted": 1087,
+        "caliper_controls": 0,
+        "independent_controls": 0,
+        "scale": [
+          0.25896622844253514,
+          0.25888280004472897,
+          1e-08,
+          0.04296110567514677,
+          0.01975775251845821,
+          0.04457616929451236,
+          1.1585205838456663
+        ],
+        "iqr": [
+          0.25896622844253514,
+          0.25888280004472897,
+          0.0,
+          0.04296110567514677,
+          0.01975775251845821,
+          0.04457616929451236,
+          1.1585205838456663
+        ],
+        "quantile_span": [
+          0.19374138668725857,
+          0.19362153326623485,
+          0.0,
+          0.03693076831746066,
+          0.014779538124720194,
+          0.060059878614322354,
+          0.810584922614782
+        ],
+        "physical_floor": [
+          0.05,
+          0.05,
+          0.001953125,
+          7.644324853228962e-06,
+          0.005,
+          0.05,
+          0.05
+        ],
+        "within_factor_caliper_counts": [
+          126,
+          125,
+          0,
+          595,
+          35,
+          42,
+          1011
+        ],
+        "support": [
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false
+        ],
+        "q10": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "q90": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "evaluable": false,
+        "reason": "insufficient_common_support"
+      },
+      "robust": {
+        "permitted": 1087,
+        "caliper_controls": 0,
+        "independent_controls": 0,
+        "scale": [
+          0.25896622844253514,
+          0.25888280004472897,
+          0.001953125,
+          0.04296110567514677,
+          0.01975775251845821,
+          0.060059878614322354,
+          1.1585205838456663
+        ],
+        "iqr": [
+          0.25896622844253514,
+          0.25888280004472897,
+          0.0,
+          0.04296110567514677,
+          0.01975775251845821,
+          0.04457616929451236,
+          1.1585205838456663
+        ],
+        "quantile_span": [
+          0.19374138668725857,
+          0.19362153326623485,
+          0.0,
+          0.03693076831746066,
+          0.014779538124720194,
+          0.060059878614322354,
+          0.810584922614782
+        ],
+        "physical_floor": [
+          0.05,
+          0.05,
+          0.001953125,
+          7.644324853228962e-06,
+          0.005,
+          0.05,
+          0.05
+        ],
+        "within_factor_caliper_counts": [
+          126,
+          125,
+          0,
+          595,
+          35,
+          50,
+          1011
+        ],
+        "support": [
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false
+        ],
+        "q10": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "q90": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "evaluable": false,
+        "reason": "insufficient_common_support"
+      }
+    }
+  },
+  "candidate_evidence": [
+    {
+      "candidate_id": "A1",
+      "center_bp": 729600,
+      "historical_default_dual_novelty_replication": true,
+      "minimum_shape_repeat_r_over_scales_shifts": 0.6283052810056166,
+      "maximum_shape_repeat_r_over_scales_shifts": 0.8014770163394672,
+      "equal_depth_highpass_repeat_r_mean": 0.5685217409183763,
+      "equal_depth_highpass_repeat_r_min": 0.5187785859401417,
+      "interpretable_feature_rep2_beyond_known_q90": true,
+      "matched_artifact_comparison_evaluable": false,
+      "level": "reproducible_unannotated_shape_outlier_QC_unresolved",
+      "confirmed_new_shape_type": false,
+      "biological_confirmation": false
+    },
+    {
+      "candidate_id": "A2",
+      "center_bp": 1469440,
+      "historical_default_dual_novelty_replication": true,
+      "minimum_shape_repeat_r_over_scales_shifts": 0.5820217234410445,
+      "maximum_shape_repeat_r_over_scales_shifts": 0.7735536086766786,
+      "equal_depth_highpass_repeat_r_mean": 0.6847382689665978,
+      "equal_depth_highpass_repeat_r_min": 0.6847382689665978,
+      "interpretable_feature_rep2_beyond_known_q90": true,
+      "matched_artifact_comparison_evaluable": false,
+      "level": "reproducible_unannotated_shape_outlier_QC_unresolved",
+      "confirmed_new_shape_type": false,
+      "biological_confirmation": false
+    },
+    {
+      "candidate_id": "A3",
+      "center_bp": 3130880,
+      "historical_default_dual_novelty_replication": false,
+      "minimum_shape_repeat_r_over_scales_shifts": 0.6054671973501302,
+      "maximum_shape_repeat_r_over_scales_shifts": 0.7740419882380506,
+      "equal_depth_highpass_repeat_r_mean": 0.48613758328643336,
+      "equal_depth_highpass_repeat_r_min": 0.45599910015794476,
+      "interpretable_feature_rep2_beyond_known_q90": false,
+      "matched_artifact_comparison_evaluable": false,
+      "level": "reproducible_unannotated_region_default_novelty_not_replicated",
+      "confirmed_new_shape_type": false,
+      "biological_confirmation": false
+    },
+    {
+      "candidate_id": "A4",
+      "center_bp": 1571840,
+      "historical_default_dual_novelty_replication": true,
+      "minimum_shape_repeat_r_over_scales_shifts": 0.6259507711462379,
+      "maximum_shape_repeat_r_over_scales_shifts": 0.6760800157390927,
+      "equal_depth_highpass_repeat_r_mean": 0.5341609014172367,
+      "equal_depth_highpass_repeat_r_min": 0.4781028969830456,
+      "interpretable_feature_rep2_beyond_known_q90": true,
+      "matched_artifact_comparison_evaluable": false,
+      "level": "reproducible_unannotated_shape_outlier_QC_unresolved",
+      "confirmed_new_shape_type": false,
+      "biological_confirmation": false
+    }
+  ],
+  "confirmed_new_shape_types": 0,
+  "p_values_or_fdr_claimed": false,
+  "limitations": [
+    "No raw-read MAPQ or fragment coverage; contact-row sparsity is a proxy.",
+    "No new untouched biological sample; repeated inspection precludes blindness.",
+    "No p-values/FDR from overlapping or unsupported controls.",
+    "Missing annotation alone is not evidence of a new shape type.",
+    "Reference uniqueness does not establish actual alignment quality.",
+    "Fixed-depth thinning compares equal expected, not equal realized totals; known references below target remain under-depth and are reported.",
+    "Rep1-derived interpretable features are an additional descriptive view, not replacement of historical frozen novelty results."
+  ],
+  "source_table_binding": {
+    "candidate_evidence.png": [
+      "shape_template_and_sensitivity.csv",
+      "matching_support_audit.csv"
+    ]
+  },
+  "output_sha256": {
+    "base_maps_counts.npz": "0db1727c8eb66e8e7cf9521728b427e10c31947d8d80008ef1820db20e7875ce",
+    "candidate_common_morphology.csv": "98203ca0866444925cd7f3132bea0b5f5bd3639461e37ca8f0a99a40a4740a6b",
+    "candidate_evidence.png": "e3a110a1f63247de96dd7dabad0cca568214e88bfd918ce42193c882d64b6d30",
+    "candidate_evidence_levels.csv": "f1e7c62c995fe4ded01997d4872003c47d172ff9c7f3276fe267deb5920ab756",
+    "equal_expected_depth_sensitivity.csv": "03751d3caa0b17454fa6da85095a6b60571b045229ffea8a063debfbe9754a76",
+    "fixed_candidates.csv": "1dcf75b74bddcdbefbcc58622f4c50c48ab622f9c3842842ca9fd8f442f8fbcb",
+    "interpretable_shape_features.csv": "5bb592641718e986908627c07090bfa0a0f4da50d14ed5b0b124e739215bbf61",
+    "known_template_recovery.csv": "171031a3f2594b28c35af165ea556b428194a1052a31a984c777bdbcd40dd1f5",
+    "matched_repeat_comparison.csv": "88d846e85ff431ef355f7423432b0a0e1d954c14e67da16f117507718f8e4fd8",
+    "matching_support_audit.csv": "87cda20f783080d6b37fe4c4c6280c7ce9d89a730e2e6af53551e03d3b6c372b",
+    "protocol_freeze.json": "ee574e9e83a4aa23df48106520270cf7d8410014ebd0ce027eba84563791879c",
+    "rep1_complete_background_qc.csv": "e2a3c1201057739f4a70f04fe57cdcd6f3d5ee1e9fb85c61c841693ce919f116",
+    "rep1_control_and_depth_freeze.json": "84c6a21dc5153024fff69c2510a323106dcfd558a69db17566f3576e78fb310b",
+    "rep2_complete_background_qc.csv": "87752b5a11433fb3eca0683dd903dacbf6f7cf1c4bb97caafbe070d385f4a8e0",
+    "score_free_full_background.csv": "bf5b0293d92daf6ceaf462fb28363526320e0e8e30a5876e51ca1e769d3ade2b",
+    "score_free_independent_background.csv": "40cc0ddbec38426318a03beb1335958b19e14497d3db072fc27305680a785248",
+    "shape_template_and_sensitivity.csv": "35f09cbc8274496904060970570a197c6a0a8f1ebcb534a25f2e33d3154c3f5e"
+  }
+}

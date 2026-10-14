@@ -1,0 +1,701 @@
+{
+  "audited_at_utc": "2026-10-14T06:37:27.899456+00:00",
+  "purpose": "Byte integrity and publication-copy receipt, not independent biological validation",
+  "groups": [
+    {
+      "output": "outputs/task2_course_verification_20261014",
+      "results_prefix": "task2_course_verification_20261014_"
+    },
+    {
+      "output": "outputs/task2_course_verification_20261014_qc_counterfactual_v2",
+      "results_prefix": "task2_course_verification_20261014_qc_"
+    },
+    {
+      "output": "outputs/task2_course_verification_20261014_classifier_context",
+      "results_prefix": "task2_course_verification_20261014_classifier_"
+    }
+  ],
+  "source_sha256": {
+    "scripts/task2_course_verification_20261014.py": "62bbb25f6095ec33144f53fd2c83e67b4c5fede2bb033d6201004fa7c218c258",
+    "scripts/task2_course_qc_counterfactual_20261014.py": "02ab6389ec9a859ac854e856e017c184d396caa1f7af8f031bc3880138ee805b",
+    "scripts/task2_course_classifier_context_20261014.py": "1bd571d2c8f188f7da52c65f1033bce20a84f5ed6ee21477d59c8a9a15591b60",
+    "scripts/audit_task2_course_verification_20261014.py": "3f3b67dd772dc7da58d172e511c9ee4f0c875c6867d5c9e58c48bc2625c70b5b",
+    "tests/test_task2_course_verification_20261014.py": "9f7143b6d89aa1d43ac0f6976891eab5e0a2e7e0bfecaa9a1d88a44df1e34110",
+    "tests/test_task2_course_verification_counterfactual_20261014.py": "fc64473c3524f40d25864d3f6e659a8bb6313fe6ae2f2f9b2cfc8bdfbd51be61",
+    "tests/test_task2_course_verification_classifier_20261014.py": "b6aa438239c99846948783989b1c70d573bcf81cf30f13382a0d724f6977a8ca"
+  },
+  "checks": [
+    {
+      "kind": "output",
+      "path": "outputs/task2_course_verification_20261014/base_maps_counts.npz",
+      "expected_sha256": "0db1727c8eb66e8e7cf9521728b427e10c31947d8d80008ef1820db20e7875ce",
+      "actual_sha256": "0db1727c8eb66e8e7cf9521728b427e10c31947d8d80008ef1820db20e7875ce",
+      "passed": true
+    },
+    {
+      "kind": "output",
+      "path": "outputs/task2_course_verification_20261014/candidate_common_morphology.csv",
+      "expected_sha256": "98203ca0866444925cd7f3132bea0b5f5bd3639461e37ca8f0a99a40a4740a6b",
+      "actual_sha256": "98203ca0866444925cd7f3132bea0b5f5bd3639461e37ca8f0a99a40a4740a6b",
+      "passed": true
+    },
+    {
+      "kind": "published_copy",
+      "path": "results/task2_course_verification_20261014_candidate_common_morphology.csv",
+      "expected_sha256": "98203ca0866444925cd7f3132bea0b5f5bd3639461e37ca8f0a99a40a4740a6b",
+      "actual_sha256": "98203ca0866444925cd7f3132bea0b5f5bd3639461e37ca8f0a99a40a4740a6b",
+      "passed": true
+    },
+    {
+      "kind": "output",
+      "path": "outputs/task2_course_verification_20261014/candidate_evidence.png",
+      "expected_sha256": "e3a110a1f63247de96dd7dabad0cca568214e88bfd918ce42193c882d64b6d30",
+      "actual_sha256": "e3a110a1f63247de96dd7dabad0cca568214e88bfd918ce42193c882d64b6d30",
+      "passed": true
+    },
+    {
+      "kind": "published_copy",
+      "path": "results/task2_course_verification_20261014_candidate_evidence.png",
+      "expected_sha256": "e3a110a1f63247de96dd7dabad0cca568214e88bfd918ce42193c882d64b6d30",
+      "actual_sha256": "e3a110a1f63247de96dd7dabad0cca568214e88bfd918ce42193c882d64b6d30",
+      "passed": true
+    },
+    {
+      "kind": "output",
+      "path": "outputs/task2_course_verification_20261014/candidate_evidence_levels.csv",
+      "expected_sha256": "f1e7c62c995fe4ded01997d4872003c47d172ff9c7f3276fe267deb5920ab756",
+      "actual_sha256": "f1e7c62c995fe4ded01997d4872003c47d172ff9c7f3276fe267deb5920ab756",
+      "passed": true
+    },
+    {
+      "kind": "published_copy",
+      "path": "results/task2_course_verification_20261014_candidate_evidence_levels.csv",
+      "expected_sha256": "f1e7c62c995fe4ded01997d4872003c47d172ff9c7f3276fe267deb5920ab756",
+      "actual_sha256": "f1e7c62c995fe4ded01997d4872003c47d172ff9c7f3276fe267deb5920ab756",
+      "passed": true
+    },
+    {
+      "kind": "output",
+      "path": "outputs/task2_course_verification_20261014/equal_expected_depth_sensitivity.csv",
+      "expected_sha256": "03751d3caa0b17454fa6da85095a6b60571b045229ffea8a063debfbe9754a76",
+      "actual_sha256": "03751d3caa0b17454fa6da85095a6b60571b045229ffea8a063debfbe9754a76",
+      "passed": true
+    },
+    {
+      "kind": "published_copy",
+      "path": "results/task2_course_verification_20261014_equal_expected_depth_sensitivity.csv",
+      "expected_sha256": "03751d3caa0b17454fa6da85095a6b60571b045229ffea8a063debfbe9754a76",
+      "actual_sha256": "03751d3caa0b17454fa6da85095a6b60571b045229ffea8a063debfbe9754a76",
+      "passed": true
+    },
+    {
+      "kind": "output",
+      "path": "outputs/task2_course_verification_20261014/fixed_candidates.csv",
+      "expected_sha256": "1dcf75b74bddcdbefbcc58622f4c50c48ab622f9c3842842ca9fd8f442f8fbcb",
+      "actual_sha256": "1dcf75b74bddcdbefbcc58622f4c50c48ab622f9c3842842ca9fd8f442f8fbcb",
+      "passed": true
+    },
+    {
+      "kind": "output",
+      "path": "outputs/task2_course_verification_20261014/interpretable_shape_features.csv",
+      "expected_sha256": "5bb592641718e986908627c07090bfa0a0f4da50d14ed5b0b124e739215bbf61",
+      "actual_sha256": "5bb592641718e986908627c07090bfa0a0f4da50d14ed5b0b124e739215bbf61",
+      "passed": true
+    },
+    {
+      "kind": "published_copy",
+      "path": "results/task2_course_verification_20261014_interpretable_shape_features.csv",
+      "expected_sha256": "5bb592641718e986908627c07090bfa0a0f4da50d14ed5b0b124e739215bbf61",
+      "actual_sha256": "5bb592641718e986908627c07090bfa0a0f4da50d14ed5b0b124e739215bbf61",
+      "passed": true
+    },
+    {
+      "kind": "output",
+      "path": "outputs/task2_course_verification_20261014/known_template_recovery.csv",
+      "expected_sha256": "171031a3f2594b28c35af165ea556b428194a1052a31a984c777bdbcd40dd1f5",
+      "actual_sha256": "171031a3f2594b28c35af165ea556b428194a1052a31a984c777bdbcd40dd1f5",
+      "passed": true
+    },
+    {
+      "kind": "published_copy",
+      "path": "results/task2_course_verification_20261014_known_template_recovery.csv",
+      "expected_sha256": "171031a3f2594b28c35af165ea556b428194a1052a31a984c777bdbcd40dd1f5",
+      "actual_sha256": "171031a3f2594b28c35af165ea556b428194a1052a31a984c777bdbcd40dd1f5",
+      "passed": true
+    },
+    {
+      "kind": "output",
+      "path": "outputs/task2_course_verification_20261014/matched_repeat_comparison.csv",
+      "expected_sha256": "88d846e85ff431ef355f7423432b0a0e1d954c14e67da16f117507718f8e4fd8",
+      "actual_sha256": "88d846e85ff431ef355f7423432b0a0e1d954c14e67da16f117507718f8e4fd8",
+      "passed": true
+    },
+    {
+      "kind": "published_copy",
+      "path": "results/task2_course_verification_20261014_matched_repeat_comparison.csv",
+      "expected_sha256": "88d846e85ff431ef355f7423432b0a0e1d954c14e67da16f117507718f8e4fd8",
+      "actual_sha256": "88d846e85ff431ef355f7423432b0a0e1d954c14e67da16f117507718f8e4fd8",
+      "passed": true
+    },
+    {
+      "kind": "output",
+      "path": "outputs/task2_course_verification_20261014/matching_support_audit.csv",
+      "expected_sha256": "87cda20f783080d6b37fe4c4c6280c7ce9d89a730e2e6af53551e03d3b6c372b",
+      "actual_sha256": "87cda20f783080d6b37fe4c4c6280c7ce9d89a730e2e6af53551e03d3b6c372b",
+      "passed": true
+    },
+    {
+      "kind": "published_copy",
+      "path": "results/task2_course_verification_20261014_matching_support_audit.csv",
+      "expected_sha256": "87cda20f783080d6b37fe4c4c6280c7ce9d89a730e2e6af53551e03d3b6c372b",
+      "actual_sha256": "87cda20f783080d6b37fe4c4c6280c7ce9d89a730e2e6af53551e03d3b6c372b",
+      "passed": true
+    },
+    {
+      "kind": "output",
+      "path": "outputs/task2_course_verification_20261014/protocol_freeze.json",
+      "expected_sha256": "ee574e9e83a4aa23df48106520270cf7d8410014ebd0ce027eba84563791879c",
+      "actual_sha256": "ee574e9e83a4aa23df48106520270cf7d8410014ebd0ce027eba84563791879c",
+      "passed": true
+    },
+    {
+      "kind": "published_copy",
+      "path": "results/task2_course_verification_20261014_protocol_freeze.json",
+      "expected_sha256": "ee574e9e83a4aa23df48106520270cf7d8410014ebd0ce027eba84563791879c",
+      "actual_sha256": "ee574e9e83a4aa23df48106520270cf7d8410014ebd0ce027eba84563791879c",
+      "passed": true
+    },
+    {
+      "kind": "output",
+      "path": "outputs/task2_course_verification_20261014/rep1_complete_background_qc.csv",
+      "expected_sha256": "e2a3c1201057739f4a70f04fe57cdcd6f3d5ee1e9fb85c61c841693ce919f116",
+      "actual_sha256": "e2a3c1201057739f4a70f04fe57cdcd6f3d5ee1e9fb85c61c841693ce919f116",
+      "passed": true
+    },
+    {
+      "kind": "published_copy",
+      "path": "results/task2_course_verification_20261014_rep1_complete_background_qc.csv",
+      "expected_sha256": "e2a3c1201057739f4a70f04fe57cdcd6f3d5ee1e9fb85c61c841693ce919f116",
+      "actual_sha256": "e2a3c1201057739f4a70f04fe57cdcd6f3d5ee1e9fb85c61c841693ce919f116",
+      "passed": true
+    },
+    {
+      "kind": "output",
+      "path": "outputs/task2_course_verification_20261014/rep1_control_and_depth_freeze.json",
+      "expected_sha256": "84c6a21dc5153024fff69c2510a323106dcfd558a69db17566f3576e78fb310b",
+      "actual_sha256": "84c6a21dc5153024fff69c2510a323106dcfd558a69db17566f3576e78fb310b",
+      "passed": true
+    },
+    {
+      "kind": "published_copy",
+      "path": "results/task2_course_verification_20261014_rep1_control_and_depth_freeze.json",
+      "expected_sha256": "84c6a21dc5153024fff69c2510a323106dcfd558a69db17566f3576e78fb310b",
+      "actual_sha256": "84c6a21dc5153024fff69c2510a323106dcfd558a69db17566f3576e78fb310b",
+      "passed": true
+    },
+    {
+      "kind": "output",
+      "path": "outputs/task2_course_verification_20261014/rep2_complete_background_qc.csv",
+      "expected_sha256": "87752b5a11433fb3eca0683dd903dacbf6f7cf1c4bb97caafbe070d385f4a8e0",
+      "actual_sha256": "87752b5a11433fb3eca0683dd903dacbf6f7cf1c4bb97caafbe070d385f4a8e0",
+      "passed": true
+    },
+    {
+      "kind": "published_copy",
+      "path": "results/task2_course_verification_20261014_rep2_complete_background_qc.csv",
+      "expected_sha256": "87752b5a11433fb3eca0683dd903dacbf6f7cf1c4bb97caafbe070d385f4a8e0",
+      "actual_sha256": "87752b5a11433fb3eca0683dd903dacbf6f7cf1c4bb97caafbe070d385f4a8e0",
+      "passed": true
+    },
+    {
+      "kind": "output",
+      "path": "outputs/task2_course_verification_20261014/score_free_full_background.csv",
+      "expected_sha256": "bf5b0293d92daf6ceaf462fb28363526320e0e8e30a5876e51ca1e769d3ade2b",
+      "actual_sha256": "bf5b0293d92daf6ceaf462fb28363526320e0e8e30a5876e51ca1e769d3ade2b",
+      "passed": true
+    },
+    {
+      "kind": "published_copy",
+      "path": "results/task2_course_verification_20261014_score_free_full_background.csv",
+      "expected_sha256": "bf5b0293d92daf6ceaf462fb28363526320e0e8e30a5876e51ca1e769d3ade2b",
+      "actual_sha256": "bf5b0293d92daf6ceaf462fb28363526320e0e8e30a5876e51ca1e769d3ade2b",
+      "passed": true
+    },
+    {
+      "kind": "output",
+      "path": "outputs/task2_course_verification_20261014/score_free_independent_background.csv",
+      "expected_sha256": "40cc0ddbec38426318a03beb1335958b19e14497d3db072fc27305680a785248",
+      "actual_sha256": "40cc0ddbec38426318a03beb1335958b19e14497d3db072fc27305680a785248",
+      "passed": true
+    },
+    {
+      "kind": "published_copy",
+      "path": "results/task2_course_verification_20261014_score_free_independent_background.csv",
+      "expected_sha256": "40cc0ddbec38426318a03beb1335958b19e14497d3db072fc27305680a785248",
+      "actual_sha256": "40cc0ddbec38426318a03beb1335958b19e14497d3db072fc27305680a785248",
+      "passed": true
+    },
+    {
+      "kind": "output",
+      "path": "outputs/task2_course_verification_20261014/shape_template_and_sensitivity.csv",
+      "expected_sha256": "35f09cbc8274496904060970570a197c6a0a8f1ebcb534a25f2e33d3154c3f5e",
+      "actual_sha256": "35f09cbc8274496904060970570a197c6a0a8f1ebcb534a25f2e33d3154c3f5e",
+      "passed": true
+    },
+    {
+      "kind": "published_copy",
+      "path": "results/task2_course_verification_20261014_shape_template_and_sensitivity.csv",
+      "expected_sha256": "35f09cbc8274496904060970570a197c6a0a8f1ebcb534a25f2e33d3154c3f5e",
+      "actual_sha256": "35f09cbc8274496904060970570a197c6a0a8f1ebcb534a25f2e33d3154c3f5e",
+      "passed": true
+    },
+    {
+      "kind": "frozen_source",
+      "path": "E:/\u673a\u5668\u5b66\u4e60\u5927\u4f5c\u4e1a/micro-c/scripts/task2_course_verification_20261014.py",
+      "expected_sha256": "62bbb25f6095ec33144f53fd2c83e67b4c5fede2bb033d6201004fa7c218c258",
+      "actual_sha256": "62bbb25f6095ec33144f53fd2c83e67b4c5fede2bb033d6201004fa7c218c258",
+      "passed": true
+    },
+    {
+      "kind": "frozen_source",
+      "path": "tests/test_task2_course_verification_20261014.py",
+      "expected_sha256": "9f7143b6d89aa1d43ac0f6976891eab5e0a2e7e0bfecaa9a1d88a44df1e34110",
+      "actual_sha256": "9f7143b6d89aa1d43ac0f6976891eab5e0a2e7e0bfecaa9a1d88a44df1e34110",
+      "passed": true
+    },
+    {
+      "kind": "frozen_source",
+      "path": "microc/data.py",
+      "expected_sha256": "423de5ef6d6bca94a3021db2d40df98b93414116890bad15af237459db0968c5",
+      "actual_sha256": "423de5ef6d6bca94a3021db2d40df98b93414116890bad15af237459db0968c5",
+      "passed": true
+    },
+    {
+      "kind": "frozen_source",
+      "path": "scripts/task2_candidate_artifact_followup.py",
+      "expected_sha256": "916f2d0a10af440829cab3b8beb41b59ab9493add7273545e1a1bde02d89be22",
+      "actual_sha256": "916f2d0a10af440829cab3b8beb41b59ab9493add7273545e1a1bde02d89be22",
+      "passed": true
+    },
+    {
+      "kind": "frozen_source",
+      "path": "scripts/task2_residual_motif_screen_20261006.py",
+      "expected_sha256": "b3bbb641d07933da3bb1a080ad3d999c272f0870bbe406f2f849622b53ace908",
+      "actual_sha256": "b3bbb641d07933da3bb1a080ad3d999c272f0870bbe406f2f849622b53ace908",
+      "passed": true
+    },
+    {
+      "kind": "summary_copy",
+      "path": "task2_course_verification_20261014_summary.json",
+      "expected_sha256": "de4380c042b74af62e6ef124d33c5faf86ef07a34bf5debfd954a860a63a8600",
+      "actual_sha256": "de4380c042b74af62e6ef124d33c5faf86ef07a34bf5debfd954a860a63a8600",
+      "passed": true
+    },
+    {
+      "kind": "output",
+      "path": "outputs/task2_course_verification_20261014_qc_counterfactual_v2/complete_common_depth_sensitivity.csv",
+      "expected_sha256": "d1f0912ca5aed7a193fab1b03695568781562a045ba737b92d3160fdc3aff9c0",
+      "actual_sha256": "d1f0912ca5aed7a193fab1b03695568781562a045ba737b92d3160fdc3aff9c0",
+      "passed": true
+    },
+    {
+      "kind": "published_copy",
+      "path": "results/task2_course_verification_20261014_qc_complete_common_depth_sensitivity.csv",
+      "expected_sha256": "d1f0912ca5aed7a193fab1b03695568781562a045ba737b92d3160fdc3aff9c0",
+      "actual_sha256": "d1f0912ca5aed7a193fab1b03695568781562a045ba737b92d3160fdc3aff9c0",
+      "passed": true
+    },
+    {
+      "kind": "output",
+      "path": "outputs/task2_course_verification_20261014_qc_counterfactual_v2/complete_common_depth_summary.csv",
+      "expected_sha256": "3d04910d3001645bfe9212504cfe7a3e52212c43b6a1b026cbd12060883c4502",
+      "actual_sha256": "3d04910d3001645bfe9212504cfe7a3e52212c43b6a1b026cbd12060883c4502",
+      "passed": true
+    },
+    {
+      "kind": "published_copy",
+      "path": "results/task2_course_verification_20261014_qc_complete_common_depth_summary.csv",
+      "expected_sha256": "3d04910d3001645bfe9212504cfe7a3e52212c43b6a1b026cbd12060883c4502",
+      "actual_sha256": "3d04910d3001645bfe9212504cfe7a3e52212c43b6a1b026cbd12060883c4502",
+      "passed": true
+    },
+    {
+      "kind": "output",
+      "path": "outputs/task2_course_verification_20261014_qc_counterfactual_v2/counterfactual_and_depth.png",
+      "expected_sha256": "b20c3cd4d4b5494410a632ddb0de985b51e461efcf3eab9ada00b5352ab28cd8",
+      "actual_sha256": "b20c3cd4d4b5494410a632ddb0de985b51e461efcf3eab9ada00b5352ab28cd8",
+      "passed": true
+    },
+    {
+      "kind": "published_copy",
+      "path": "results/task2_course_verification_20261014_qc_counterfactual_and_depth.png",
+      "expected_sha256": "b20c3cd4d4b5494410a632ddb0de985b51e461efcf3eab9ada00b5352ab28cd8",
+      "actual_sha256": "b20c3cd4d4b5494410a632ddb0de985b51e461efcf3eab9ada00b5352ab28cd8",
+      "passed": true
+    },
+    {
+      "kind": "output",
+      "path": "outputs/task2_course_verification_20261014_qc_counterfactual_v2/counterfactual_summary.csv",
+      "expected_sha256": "741d5dae15024c06ca6a05ab4f86f72f5a0160297176927b6202308699104213",
+      "actual_sha256": "741d5dae15024c06ca6a05ab4f86f72f5a0160297176927b6202308699104213",
+      "passed": true
+    },
+    {
+      "kind": "published_copy",
+      "path": "results/task2_course_verification_20261014_qc_counterfactual_summary.csv",
+      "expected_sha256": "741d5dae15024c06ca6a05ab4f86f72f5a0160297176927b6202308699104213",
+      "actual_sha256": "741d5dae15024c06ca6a05ab4f86f72f5a0160297176927b6202308699104213",
+      "passed": true
+    },
+    {
+      "kind": "output",
+      "path": "outputs/task2_course_verification_20261014_qc_counterfactual_v2/known_coverage_counterfactual.csv",
+      "expected_sha256": "eae184940382e1aaa56796d37f3d5f752ef0486ac25c26800d88cc3154d6e972",
+      "actual_sha256": "eae184940382e1aaa56796d37f3d5f752ef0486ac25c26800d88cc3154d6e972",
+      "passed": true
+    },
+    {
+      "kind": "published_copy",
+      "path": "results/task2_course_verification_20261014_qc_known_coverage_counterfactual.csv",
+      "expected_sha256": "eae184940382e1aaa56796d37f3d5f752ef0486ac25c26800d88cc3154d6e972",
+      "actual_sha256": "eae184940382e1aaa56796d37f3d5f752ef0486ac25c26800d88cc3154d6e972",
+      "passed": true
+    },
+    {
+      "kind": "output",
+      "path": "outputs/task2_course_verification_20261014_qc_counterfactual_v2/mask_freeze.json",
+      "expected_sha256": "c9e38210ea2667cfed3a7a85180343ba19ef281b686828c626b4ddc35b62779a",
+      "actual_sha256": "c9e38210ea2667cfed3a7a85180343ba19ef281b686828c626b4ddc35b62779a",
+      "passed": true
+    },
+    {
+      "kind": "published_copy",
+      "path": "results/task2_course_verification_20261014_qc_mask_freeze.json",
+      "expected_sha256": "c9e38210ea2667cfed3a7a85180343ba19ef281b686828c626b4ddc35b62779a",
+      "actual_sha256": "c9e38210ea2667cfed3a7a85180343ba19ef281b686828c626b4ddc35b62779a",
+      "passed": true
+    },
+    {
+      "kind": "output",
+      "path": "outputs/task2_course_verification_20261014_qc_counterfactual_v2/mask_manifest.csv",
+      "expected_sha256": "1fbcb393db3d2d2c4171b7d1ab6ad778b021924151e01f78d39c9427baa43c34",
+      "actual_sha256": "1fbcb393db3d2d2c4171b7d1ab6ad778b021924151e01f78d39c9427baa43c34",
+      "passed": true
+    },
+    {
+      "kind": "published_copy",
+      "path": "results/task2_course_verification_20261014_qc_mask_manifest.csv",
+      "expected_sha256": "1fbcb393db3d2d2c4171b7d1ab6ad778b021924151e01f78d39c9427baa43c34",
+      "actual_sha256": "1fbcb393db3d2d2c4171b7d1ab6ad778b021924151e01f78d39c9427baa43c34",
+      "passed": true
+    },
+    {
+      "kind": "output",
+      "path": "outputs/task2_course_verification_20261014_qc_counterfactual_v2/protocol_freeze.json",
+      "expected_sha256": "a392417c12882dc4fcdef32fa6d0bb857980eb11bc55e9cf50bd4ffcd271d13c",
+      "actual_sha256": "a392417c12882dc4fcdef32fa6d0bb857980eb11bc55e9cf50bd4ffcd271d13c",
+      "passed": true
+    },
+    {
+      "kind": "published_copy",
+      "path": "results/task2_course_verification_20261014_qc_protocol_freeze.json",
+      "expected_sha256": "a392417c12882dc4fcdef32fa6d0bb857980eb11bc55e9cf50bd4ffcd271d13c",
+      "actual_sha256": "a392417c12882dc4fcdef32fa6d0bb857980eb11bc55e9cf50bd4ffcd271d13c",
+      "passed": true
+    },
+    {
+      "kind": "output",
+      "path": "outputs/task2_course_verification_20261014_qc_counterfactual_v2/rep1_fixed_masks.npz",
+      "expected_sha256": "2da753945fa3c6614b7afb183669e22b76c82d52d8c86da42287efe9515700a1",
+      "actual_sha256": "2da753945fa3c6614b7afb183669e22b76c82d52d8c86da42287efe9515700a1",
+      "passed": true
+    },
+    {
+      "kind": "frozen_source",
+      "path": "E:/\u673a\u5668\u5b66\u4e60\u5927\u4f5c\u4e1a/micro-c/scripts/task2_course_qc_counterfactual_20261014.py",
+      "expected_sha256": "02ab6389ec9a859ac854e856e017c184d396caa1f7af8f031bc3880138ee805b",
+      "actual_sha256": "02ab6389ec9a859ac854e856e017c184d396caa1f7af8f031bc3880138ee805b",
+      "passed": true
+    },
+    {
+      "kind": "frozen_source",
+      "path": "scripts/task2_course_verification_20261014.py",
+      "expected_sha256": "62bbb25f6095ec33144f53fd2c83e67b4c5fede2bb033d6201004fa7c218c258",
+      "actual_sha256": "62bbb25f6095ec33144f53fd2c83e67b4c5fede2bb033d6201004fa7c218c258",
+      "passed": true
+    },
+    {
+      "kind": "frozen_source",
+      "path": "tests/test_task2_course_verification_counterfactual_20261014.py",
+      "expected_sha256": "fc64473c3524f40d25864d3f6e659a8bb6313fe6ae2f2f9b2cfc8bdfbd51be61",
+      "actual_sha256": "fc64473c3524f40d25864d3f6e659a8bb6313fe6ae2f2f9b2cfc8bdfbd51be61",
+      "passed": true
+    },
+    {
+      "kind": "frozen_source",
+      "path": "microc/data.py",
+      "expected_sha256": "423de5ef6d6bca94a3021db2d40df98b93414116890bad15af237459db0968c5",
+      "actual_sha256": "423de5ef6d6bca94a3021db2d40df98b93414116890bad15af237459db0968c5",
+      "passed": true
+    },
+    {
+      "kind": "frozen_source",
+      "path": "scripts/task2_residual_motif_screen_20261006.py",
+      "expected_sha256": "b3bbb641d07933da3bb1a080ad3d999c272f0870bbe406f2f849622b53ace908",
+      "actual_sha256": "b3bbb641d07933da3bb1a080ad3d999c272f0870bbe406f2f849622b53ace908",
+      "passed": true
+    },
+    {
+      "kind": "summary_copy",
+      "path": "task2_course_verification_20261014_qc_summary.json",
+      "expected_sha256": "708b0dadcedeadedeff9d3224e27a2fc18491bc4ca45955039690aa625be4f3a",
+      "actual_sha256": "708b0dadcedeadedeff9d3224e27a2fc18491bc4ca45955039690aa625be4f3a",
+      "passed": true
+    },
+    {
+      "kind": "output",
+      "path": "outputs/task2_course_verification_20261014_classifier_context/candidate_classifier_context.csv",
+      "expected_sha256": "7c04d435c232cfbc3a6a1b9e7dd192db22cc4bb35d48594e052c2d12894065bb",
+      "actual_sha256": "7c04d435c232cfbc3a6a1b9e7dd192db22cc4bb35d48594e052c2d12894065bb",
+      "passed": true
+    },
+    {
+      "kind": "published_copy",
+      "path": "results/task2_course_verification_20261014_classifier_candidate_classifier_context.csv",
+      "expected_sha256": "7c04d435c232cfbc3a6a1b9e7dd192db22cc4bb35d48594e052c2d12894065bb",
+      "actual_sha256": "7c04d435c232cfbc3a6a1b9e7dd192db22cc4bb35d48594e052c2d12894065bb",
+      "passed": true
+    },
+    {
+      "kind": "output",
+      "path": "outputs/task2_course_verification_20261014_classifier_context/candidate_task1_contact_inputs.npz",
+      "expected_sha256": "06226bb99f0512e95fd97f0abc0ee471aa8c07867576e90d9fdd0a7bc5f044d3",
+      "actual_sha256": "06226bb99f0512e95fd97f0abc0ee471aa8c07867576e90d9fdd0a7bc5f044d3",
+      "passed": true
+    },
+    {
+      "kind": "output",
+      "path": "outputs/task2_course_verification_20261014_classifier_context/fixed_candidate_provisional_rois.csv",
+      "expected_sha256": "1f24531b7a9214b7ed8b7728ada3979270f859ef973e6f0e53c160586b7311f4",
+      "actual_sha256": "1f24531b7a9214b7ed8b7728ada3979270f859ef973e6f0e53c160586b7311f4",
+      "passed": true
+    },
+    {
+      "kind": "output",
+      "path": "outputs/task2_course_verification_20261014_classifier_context/fixed_classifier_context.csv",
+      "expected_sha256": "7a69c93b1e400df918ceb72f5cc8586a103adb5f0f369d0453e5daf735bb055f",
+      "actual_sha256": "7a69c93b1e400df918ceb72f5cc8586a103adb5f0f369d0453e5daf735bb055f",
+      "passed": true
+    },
+    {
+      "kind": "published_copy",
+      "path": "results/task2_course_verification_20261014_classifier_fixed_classifier_context.csv",
+      "expected_sha256": "7a69c93b1e400df918ceb72f5cc8586a103adb5f0f369d0453e5daf735bb055f",
+      "actual_sha256": "7a69c93b1e400df918ceb72f5cc8586a103adb5f0f369d0453e5daf735bb055f",
+      "passed": true
+    },
+    {
+      "kind": "output",
+      "path": "outputs/task2_course_verification_20261014_classifier_context/known_roi_context_summary.csv",
+      "expected_sha256": "ba243cc2dd88ed1ef4510fbd5a9de5d45d985f589070c443366d00708a95a23e",
+      "actual_sha256": "ba243cc2dd88ed1ef4510fbd5a9de5d45d985f589070c443366d00708a95a23e",
+      "passed": true
+    },
+    {
+      "kind": "published_copy",
+      "path": "results/task2_course_verification_20261014_classifier_known_roi_context_summary.csv",
+      "expected_sha256": "ba243cc2dd88ed1ef4510fbd5a9de5d45d985f589070c443366d00708a95a23e",
+      "actual_sha256": "ba243cc2dd88ed1ef4510fbd5a9de5d45d985f589070c443366d00708a95a23e",
+      "passed": true
+    },
+    {
+      "kind": "output",
+      "path": "outputs/task2_course_verification_20261014_classifier_context/known_same_width_provisional_rois.csv",
+      "expected_sha256": "53919215f02b87e4e1147f87d7bb14e10c7fcb6b44c6a5d1f8e31edd9520f913",
+      "actual_sha256": "53919215f02b87e4e1147f87d7bb14e10c7fcb6b44c6a5d1f8e31edd9520f913",
+      "passed": true
+    },
+    {
+      "kind": "output",
+      "path": "outputs/task2_course_verification_20261014_classifier_context/protocol_freeze.json",
+      "expected_sha256": "d94b5d46bdf47bfb61de3578f159d474a8180548c2e4baaef4b7c31e7d3f4f12",
+      "actual_sha256": "d94b5d46bdf47bfb61de3578f159d474a8180548c2e4baaef4b7c31e7d3f4f12",
+      "passed": true
+    },
+    {
+      "kind": "published_copy",
+      "path": "results/task2_course_verification_20261014_classifier_protocol_freeze.json",
+      "expected_sha256": "d94b5d46bdf47bfb61de3578f159d474a8180548c2e4baaef4b7c31e7d3f4f12",
+      "actual_sha256": "d94b5d46bdf47bfb61de3578f159d474a8180548c2e4baaef4b7c31e7d3f4f12",
+      "passed": true
+    },
+    {
+      "kind": "frozen_source",
+      "path": "E:/\u673a\u5668\u5b66\u4e60\u5927\u4f5c\u4e1a/micro-c/scripts/task2_course_classifier_context_20261014.py",
+      "expected_sha256": "1bd571d2c8f188f7da52c65f1033bce20a84f5ed6ee21477d59c8a9a15591b60",
+      "actual_sha256": "1bd571d2c8f188f7da52c65f1033bce20a84f5ed6ee21477d59c8a9a15591b60",
+      "passed": true
+    },
+    {
+      "kind": "frozen_source",
+      "path": "tests/test_task2_course_verification_classifier_20261014.py",
+      "expected_sha256": "b6aa438239c99846948783989b1c70d573bcf81cf30f13382a0d724f6977a8ca",
+      "actual_sha256": "b6aa438239c99846948783989b1c70d573bcf81cf30f13382a0d724f6977a8ca",
+      "passed": true
+    },
+    {
+      "kind": "frozen_source",
+      "path": "task1/predict_roi_cnn_20261006.py",
+      "expected_sha256": "7316e6a32cd4142f67b6dc9360a8a025d9fd3d230adbbcec0ae5ee98eefe2356",
+      "actual_sha256": "7316e6a32cd4142f67b6dc9360a8a025d9fd3d230adbbcec0ae5ee98eefe2356",
+      "passed": true
+    },
+    {
+      "kind": "frozen_source",
+      "path": "task1/evaluate_roi_cnn_20261006.py",
+      "expected_sha256": "dd0c68d1c2ab8c6efc5fc40ff3b34820c470a287d18dacb21f597b11e85da3db",
+      "actual_sha256": "dd0c68d1c2ab8c6efc5fc40ff3b34820c470a287d18dacb21f597b11e85da3db",
+      "passed": true
+    },
+    {
+      "kind": "frozen_source",
+      "path": "task1/evaluate_interval_conditioned_cnn.py",
+      "expected_sha256": "3077288f211a551c9b68a9df6b19ae64067a0ae9514aca2a90641c4bf9911fe5",
+      "actual_sha256": "3077288f211a551c9b68a9df6b19ae64067a0ae9514aca2a90641c4bf9911fe5",
+      "passed": true
+    },
+    {
+      "kind": "frozen_source",
+      "path": "task1/audit_roi_cnn_20261006.py",
+      "expected_sha256": "40c8028edf0b6ae7fb45db977e240b28a5e54bf879158f40beb5134ae0d94b5a",
+      "actual_sha256": "40c8028edf0b6ae7fb45db977e240b28a5e54bf879158f40beb5134ae0d94b5a",
+      "passed": true
+    },
+    {
+      "kind": "frozen_source",
+      "path": "task1/run_task1.py",
+      "expected_sha256": "c5b7ca6b067487b14c173c46dc6e37544eb4af4d2ca8f10d2a211a4f63f169a9",
+      "actual_sha256": "c5b7ca6b067487b14c173c46dc6e37544eb4af4d2ca8f10d2a211a4f63f169a9",
+      "passed": true
+    },
+    {
+      "kind": "summary_copy",
+      "path": "task2_course_verification_20261014_classifier_summary.json",
+      "expected_sha256": "d71b0d629de9e3227513098a13edff51520b90941f27289672c9883b5015fbe1",
+      "actual_sha256": "d71b0d629de9e3227513098a13edff51520b90941f27289672c9883b5015fbe1",
+      "passed": true
+    },
+    {
+      "kind": "frozen_input",
+      "path": "data\\raw\\GSE272159_37C_rep1.mapq_30.10.cool",
+      "expected_sha256": "0256e10da36abfe0238bf16952bc43bc78365f43c201e6e3ba0c49bd243549a8",
+      "actual_sha256": "0256e10da36abfe0238bf16952bc43bc78365f43c201e6e3ba0c49bd243549a8",
+      "passed": true
+    },
+    {
+      "kind": "frozen_input",
+      "path": "data\\raw\\GSE272159_37C_rep2.mapq_30.10.cool",
+      "expected_sha256": "ede9b4f7c0c6b40c8f098e43cdd0abbc0a8987f05e8b37051a5e3cbf143ad106",
+      "actual_sha256": "ede9b4f7c0c6b40c8f098e43cdd0abbc0a8987f05e8b37051a5e3cbf143ad106",
+      "passed": true
+    },
+    {
+      "kind": "frozen_input",
+      "path": "results\\task2_improve_20261006_individual_candidate_validation.csv",
+      "expected_sha256": "1dcf75b74bddcdbefbcc58622f4c50c48ab622f9c3842842ca9fd8f442f8fbcb",
+      "actual_sha256": "1dcf75b74bddcdbefbcc58622f4c50c48ab622f9c3842842ca9fd8f442f8fbcb",
+      "passed": true
+    },
+    {
+      "kind": "frozen_input",
+      "path": "data\\raw\\\u6807\u6ce8\u6570\u636e.xlsx",
+      "expected_sha256": "a1fa9c0d359509a9eb319442c19e300cb5da85546eeb567368a390d22205167a",
+      "actual_sha256": "a1fa9c0d359509a9eb319442c19e300cb5da85546eeb567368a390d22205167a",
+      "passed": true
+    },
+    {
+      "kind": "frozen_input",
+      "path": "outputs\\task2_improve_20261006\\area\\rep1_all_windows.csv",
+      "expected_sha256": "969272fecf7c8405195346c9434814efed58c10b5a706a6c0a16f03c0294dd67",
+      "actual_sha256": "969272fecf7c8405195346c9434814efed58c10b5a706a6c0a16f03c0294dd67",
+      "passed": true
+    },
+    {
+      "kind": "frozen_input",
+      "path": "outputs\\task2_improve_20261006\\area\\freeze_receipt.json",
+      "expected_sha256": "afe0df9c67a91aabbc88bfcafe09990fdb2817679e17c1be1c1f97d5dad25faf",
+      "actual_sha256": "afe0df9c67a91aabbc88bfcafe09990fdb2817679e17c1be1c1f97d5dad25faf",
+      "passed": true
+    },
+    {
+      "kind": "frozen_input",
+      "path": "data\\structures.csv",
+      "expected_sha256": "d9a5f0f380ff2c919e8edabc7aa8d612eedb29b67825118377b43e98b8ed7cdf",
+      "actual_sha256": "d9a5f0f380ff2c919e8edabc7aa8d612eedb29b67825118377b43e98b8ed7cdf",
+      "passed": true
+    },
+    {
+      "kind": "frozen_input",
+      "path": "outputs\\task2_course_verification_20261014\\summary.json",
+      "expected_sha256": "de4380c042b74af62e6ef124d33c5faf86ef07a34bf5debfd954a860a63a8600",
+      "actual_sha256": "de4380c042b74af62e6ef124d33c5faf86ef07a34bf5debfd954a860a63a8600",
+      "passed": true
+    },
+    {
+      "kind": "frozen_input",
+      "path": "outputs\\task2_course_verification_20261014\\base_maps_counts.npz",
+      "expected_sha256": "0db1727c8eb66e8e7cf9521728b427e10c31947d8d80008ef1820db20e7875ce",
+      "actual_sha256": "0db1727c8eb66e8e7cf9521728b427e10c31947d8d80008ef1820db20e7875ce",
+      "passed": true
+    },
+    {
+      "kind": "frozen_input",
+      "path": "outputs\\task2_improve_20261006\\area\\rep1_maps_models.npz",
+      "expected_sha256": "6391ff52f7a8e7038790d4fc1bc23441cd1647338380553101d9a19539c2a499",
+      "actual_sha256": "6391ff52f7a8e7038790d4fc1bc23441cd1647338380553101d9a19539c2a499",
+      "passed": true
+    },
+    {
+      "kind": "frozen_input",
+      "path": "outputs\\task1_multiscale\\windows.npz",
+      "expected_sha256": "c5cdbb6193b92207b1519cd45a92014a7d880937e5419bea4aafbcdbd7ba817a",
+      "actual_sha256": "c5cdbb6193b92207b1519cd45a92014a7d880937e5419bea4aafbcdbd7ba817a",
+      "passed": true
+    },
+    {
+      "kind": "frozen_input",
+      "path": "results\\task1_improve_20261006_final_interval_roi_cnn.pt",
+      "expected_sha256": "999b0d86bf81ae656fce7c392b98997fe08d9ae7b5abe484c7d45af142623353",
+      "actual_sha256": "999b0d86bf81ae656fce7c392b98997fe08d9ae7b5abe484c7d45af142623353",
+      "passed": true
+    },
+    {
+      "kind": "frozen_input",
+      "path": "results\\task1_improve_20261006_final_interval_roi_cnn.json",
+      "expected_sha256": "fc0347be76eb15de7cda844ea2d58d5e9aa294404be9d05910a84b235652d02c",
+      "actual_sha256": "fc0347be76eb15de7cda844ea2d58d5e9aa294404be9d05910a84b235652d02c",
+      "passed": true
+    }
+  ],
+  "checks_passed": 93,
+  "failures": [],
+  "scientific_scope": {
+    "fixed_candidates": [
+      "A1",
+      "A2",
+      "A3",
+      "A4"
+    ],
+    "historical_default_shape_outlier_candidates_replicated": [
+      "A1",
+      "A2",
+      "A4"
+    ],
+    "confirmed_new_shape_types": 0,
+    "p_or_fdr_claimed": false,
+    "provisional_roi_classifier_is_ood_test": false,
+    "artificial_coverage_masks_are_genomic_null": false
+  },
+  "interrupted_partial_run": "outputs/task2_course_verification_20261014_qc_counterfactual/interruption_receipt.json",
+  "authoritative_common_depth_output": "outputs/task2_course_verification_20261014_qc_counterfactual_v2"
+}

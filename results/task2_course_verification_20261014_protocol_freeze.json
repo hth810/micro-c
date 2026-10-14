@@ -1,0 +1,84 @@
+{
+  "frozen_at_utc": "2026-10-14T06:16:59.672208+00:00",
+  "parent_git_sha": "2c237f078fd9960eede868f1ff6596474ddcbfda",
+  "source_sha256": {
+    "E:\\\u673a\u5668\u5b66\u4e60\u5927\u4f5c\u4e1a\\micro-c\\scripts\\task2_course_verification_20261014.py": "62bbb25f6095ec33144f53fd2c83e67b4c5fede2bb033d6201004fa7c218c258",
+    "tests\\test_task2_course_verification_20261014.py": "9f7143b6d89aa1d43ac0f6976891eab5e0a2e7e0bfecaa9a1d88a44df1e34110",
+    "microc\\data.py": "423de5ef6d6bca94a3021db2d40df98b93414116890bad15af237459db0968c5",
+    "scripts\\task2_candidate_artifact_followup.py": "916f2d0a10af440829cab3b8beb41b59ab9493add7273545e1a1bde02d89be22",
+    "scripts\\task2_residual_motif_screen_20261006.py": "b3bbb641d07933da3bb1a080ad3d999c272f0870bbe406f2f849622b53ace908"
+  },
+  "input_sha256": {
+    "data\\raw\\GSE272159_37C_rep1.mapq_30.10.cool": "0256e10da36abfe0238bf16952bc43bc78365f43c201e6e3ba0c49bd243549a8",
+    "data\\raw\\GSE272159_37C_rep2.mapq_30.10.cool": "ede9b4f7c0c6b40c8f098e43cdd0abbc0a8987f05e8b37051a5e3cbf143ad106",
+    "results\\task2_improve_20261006_individual_candidate_validation.csv": "1dcf75b74bddcdbefbcc58622f4c50c48ab622f9c3842842ca9fd8f442f8fbcb",
+    "data\\raw\\\u6807\u6ce8\u6570\u636e.xlsx": "a1fa9c0d359509a9eb319442c19e300cb5da85546eeb567368a390d22205167a",
+    "outputs\\task2_improve_20261006\\area\\rep1_all_windows.csv": "969272fecf7c8405195346c9434814efed58c10b5a706a6c0a16f03c0294dd67",
+    "outputs\\task2_improve_20261006\\area\\freeze_receipt.json": "afe0df9c67a91aabbc88bfcafe09990fdb2817679e17c1be1c1f97d5dad25faf"
+  },
+  "dependency_versions": {
+    "numpy": "2.4.4",
+    "pandas": "3.0.3",
+    "scipy": "1.17.1",
+    "cooler": "0.10.4",
+    "scikit-learn": "1.8.0"
+  },
+  "seed": 20261014,
+  "candidate_selection": "All four historical area candidates; no reselection",
+  "previous_rep2_inspection": true,
+  "design": "retrospective diagnostic follow-up, not prospective validation",
+  "background": "All 1103 unannotated full-window scan loci, no score filtering; overlapping windows are dependent. Coordinate-order thinning is outcome-free, not a random genomic sample.",
+  "independent_spacing_bp": 10240,
+  "matching_rep1_only": true,
+  "covariates": [
+    "log_native_symmetric_total",
+    "log_native_upper_offdiag_total",
+    "native_zero_offdiag_row_fraction",
+    "native_upper_nonzero_fraction",
+    "native_top_1pct_mass_fraction",
+    "native_offdiag_row_cv",
+    "log_known_interval_distance"
+  ],
+  "matching": "All seven factors; <=2 scale caliper, <=80 independent controls, >=20 and every target inside control q10-q90. Compare legacy IQR floor 1e-8 with max(IQR, q90-q10 span/2.563, physical one-bin/pair floors). No favorable outcome filtering.",
+  "scale_bp": [
+    3840,
+    5120,
+    7680
+  ],
+  "center_shifts_bp": [
+    -320,
+    -160,
+    0,
+    160,
+    320
+  ],
+  "shape_features": [
+    "near_diagonal_positive_mass",
+    "midrange_positive_mass",
+    "far_positive_mass",
+    "positive_pixel_fraction",
+    "top_one_percent_positive_mass",
+    "positive_mass_centroid_x",
+    "positive_mass_centroid_y",
+    "positive_mass_spread",
+    "row_contact_cv",
+    "row_high_contact_fraction"
+  ],
+  "template_calibration": "Known references only, >=10240bp same-replicate exclusion; feature scaling floor .02. All-known q90 nearest-independent distance is descriptive, not type confirmation.",
+  "depth_target": "Min(rep1 known q10 pooled upper-offdiagonal total, four rep1 candidate totals); freeze after rep1 before opening rep2. Independent binomial thinning of each unique pair, diagonal zero. Equal expected, not exact realized depth.",
+  "depth_seeds": [
+    2026101401,
+    2026101402,
+    2026101403,
+    2026101404,
+    2026101405
+  ],
+  "new_type_rule": "No automatic new-type declaration; compute candidate-pair common morphology and known-template comparisons. Course rules are not publication-level confirmation.",
+  "limits": [
+    "No raw-read MAPQ or fragment coverage; contact-row sparsity is a proxy.",
+    "No new untouched biological sample; repeated inspection precludes blindness.",
+    "No p-values/FDR from overlapping or unsupported controls.",
+    "Missing annotation alone is not evidence of a new shape type.",
+    "Reference uniqueness does not establish actual alignment quality."
+  ]
+}

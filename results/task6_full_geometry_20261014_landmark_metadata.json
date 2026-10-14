@@ -1,0 +1,35 @@
+{
+  "loci": {
+    "Ori4": {
+      "bp": 9900,
+      "bin": 1
+    },
+    "NSR5": {
+      "bp": 515000,
+      "bin": 103
+    },
+    "Right2": {
+      "bp": 738000,
+      "bin": 147
+    },
+    "dif_approx": {
+      "bp": 1604000,
+      "bin": 320
+    },
+    "oriC": {
+      "bp": 3925859,
+      "bin": 785
+    }
+  },
+  "oriC_reference": {
+    "name": "oriC",
+    "start_0based": 3925743,
+    "end_exclusive": 3925975,
+    "bp": 3925859,
+    "source": "NC_000913.3 RefSeq origin_of_replication feature; converted from 1-based inclusive GFF"
+  },
+  "dif_is_approximate": true,
+  "literature_source": "https://doi.org/10.1371/journal.pgen.1006758",
+  "published_order": "Ori4 (9.9kb) is closer to NSR5 (515kb) than Right2 (738kb); no microscope-distance calibration",
+  "coarse_macroregion_labels_are_not_used_to_assign_these_three_loci": true
+}

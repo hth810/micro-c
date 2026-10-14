@@ -9,3 +9,8 @@ torch>=2.4
 openpyxl>=3.1
 requests>=2.31
 pytest>=8
+
+# Report rebuild and final document checks
+python-docx>=1.2
+pillow>=10
+pypdf>=5

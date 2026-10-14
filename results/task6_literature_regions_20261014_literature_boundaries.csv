@@ -1,0 +1,7 @@
+region,start_bp,end_exclusive_bp,wraps_zero
+Ori,3760000,50000,True
+NSR,50000,600000,False
+Right,600000,1210000,False
+Ter,1210000,2180000,False
+Left,2180000,2880000,False
+NSL,2880000,3760000,False

@@ -1,0 +1,531 @@
+{
+  "record_type": "evidence_bound_llm_candidate_review",
+  "review_stage": "2026-10-14 报告阶段",
+  "review_scope": "本轮实际 LLM 结果解读；只依据列出的 5 张现有源表，为 A1–A4 提供人工后续复核队列建议。不是新统计实验，不改变冻结候选、模型、阈值或既有验证结论。",
+  "model_provenance": {
+    "reviewer": "当前会话 LLM 助手",
+    "exact_api_model_snapshot": null,
+    "snapshot_disclosed": false,
+    "note": "当前会话未公开具体 API 模型快照，不编造模型版本或独立 API 调用记录。"
+  },
+  "human_expert_validation": {
+    "completed": false,
+    "note": "尚无人类领域专家对本轮队列建议或候选生物学性质进行验证。"
+  },
+  "source_tables": {
+    "candidate_validation": {
+      "path": "results/task2_improve_20261006_individual_candidate_validation.csv",
+      "rows": 4,
+      "sha256": "1dcf75b74bddcdbefbcc58622f4c50c48ab622f9c3842842ca9fd8f442f8fbcb"
+    },
+    "native_qc": {
+      "path": "results/task2_followup_20261006_candidate_native_qc.csv",
+      "rows": 8,
+      "sha256": "e080a574abd2b2867ccc25be6d0c86f8236e03a4d9c305c031b7c7646de66961"
+    },
+    "reference_uniqueness": {
+      "path": "results/task2_reference_followup_20261006_candidate_reference_diagnostics.csv",
+      "rows": 12,
+      "sha256": "3cc0ddc0eb44703e9ce79c6030490eba2268d4b3e328962b0d255d8f6d1850d4"
+    },
+    "normalization_sensitivity": {
+      "path": "results/task2_followup_20261006_candidate_normalization_sensitivity.csv",
+      "rows": 96,
+      "sha256": "ac1c9cd9207cb7923402cdc4be4c2998abcdff77b47bb9aaf8c636cc5d5c528e"
+    },
+    "matched_controls": {
+      "path": "results/task2_followup_20261006_candidate_matched_descriptive_comparison.csv",
+      "rows": 48,
+      "sha256": "4c6bf9a5b81385d4a94bb4383731a1a3b2356d0f19b445b845ee7288c76c3fe5"
+    }
+  },
+  "coordinate_convention": "NC_000913.3，bp；区间为 0-based 左闭右开。",
+  "priority_interpretation": "类别仅组织待执行的人工诊断工作，不是统计排序、真实结构概率、功能标签或新的候选筛选规则。其中“稳健”只表示在这些已实施敏感性诊断中的相对表现，不能表示全面稳健性已获确证。",
+  "common_limits": [
+    "四个候选所有匹配比较均 controls=0、evaluable=false，不能估计有效匹配背景百分位或据此声称异常显著。",
+    "参考 k-mer 唯一性是序列重复风险代理，不是实际 read/fragment MAPQ 或 paired-read 可比对性测量。",
+    "原生接触计数、非零比例与零行比例是覆盖代理，不是实验片段覆盖及比对质量的充分证据。",
+    "当前表内复现和截断稳定性不能确证新结构类型、功能、调控机制或因果关系。",
+    "本轮没有执行建议的后续检验，没有获得新的独立验证数据。"
+  ],
+  "records": [
+    {
+      "candidate_id": "A1",
+      "coordinates": {
+        "chrom": "NC_000913.3",
+        "center_bp": 729600,
+        "start_bp": 727040,
+        "end_bp": 732160
+      },
+      "replication_status": {
+        "default_rep2_dual_gate_pass": true,
+        "unclipped_rep2_dual_gate_pass": true,
+        "tight_clip_frozen_model_rep2_dual_gate_pass": false,
+        "tight_clip_rep1_recalibrated_rep2_dual_gate_pass": false,
+        "interpretation": "默认及无截断条件下复现；严格 [-2,4] 条件下因 rep2 行列残差新颖性不足而失败。"
+      },
+      "manual_followup_category": "A1 截断敏感待查",
+      "supporting_evidence": [
+        {
+          "source": "candidate_validation",
+          "selector": "candidate_id=A1",
+          "fields": {
+            "rep2_passes_both_frozen_novelty_gates": true,
+            "rep2_highpass_novelty": 32.854513605386074,
+            "frozen_highpass_novelty_threshold": 30.452289581298828,
+            "rep2_rowcol_novelty": 32.74244826793563,
+            "frozen_rowcol_novelty_threshold": 28.498506546020508,
+            "paired_rep1_rep2_highpass_r": 0.6906386017799377,
+            "paired_rep1_rep2_rowcol_r": 0.7790940403938293
+          }
+        },
+        {
+          "source": "normalization_sensitivity",
+          "selector": "candidate_id=A1, variant=explicit_clip_2_4, replicate=rep2, metric=rowcol",
+          "fields_by_model_regime": {
+            "frozen_input_stress": {
+              "novelty_ratio": 0.8152841290314048,
+              "passes_rep1_frozen_cutoff": false
+            },
+            "rep1_recalibrated_sensitivity": {
+              "novelty_ratio": 0.8988674888223458,
+              "passes_rep1_frozen_cutoff": false
+            }
+          }
+        },
+        {
+          "source": "native_qc",
+          "selector": "candidate_id=A1",
+          "fields_by_replicate": {
+            "rep1": {
+              "native_zero_offdiag_row_fraction": 0.15234375,
+              "native_upper_nonzero_fraction": 0.10487249266144814,
+              "normalization_mad": 0.0,
+              "normalization_scale_with_floor": 0.1,
+              "default_highpass_region_clipped_high_fraction": 0.30889724310776945
+            },
+            "rep2": {
+              "native_zero_offdiag_row_fraction": 0.154296875,
+              "native_upper_nonzero_fraction": 0.10461258561643835,
+              "normalization_mad": 0.2703099250793457,
+              "normalization_scale_with_floor": 0.2703099250793457,
+              "default_highpass_region_clipped_high_fraction": 0.05263157894736842
+            }
+          }
+        },
+        {
+          "source": "reference_uniqueness",
+          "selector": "candidate_id=A1",
+          "unique_fraction_by_k": {
+            "31": 0.7100196463654224,
+            "51": 0.7925049309664695,
+            "101": 0.8866533864541832
+          },
+          "background_median_unique_fraction": 1.0
+        },
+        {
+          "source": "matched_controls",
+          "selector": "candidate_id=A1, all variants/model_regimes/metrics",
+          "fields": {
+            "controls": 0,
+            "evaluable": false,
+            "status": "not_evaluable_no_percentile"
+          }
+        }
+      ],
+      "risks": [
+        "严格截断使 rep2 行列残差落到门槛以下，默认复现不能概括为对所有归一化设置稳健。",
+        "两重复覆盖代理相近，但归一化 MAD、是否触发尺度下限及高端截断比例明显不同；这是需检查的数值敏感性线索，不能直接定为伪影。",
+        "参考唯一性低于表内背景中位数，实际 read-level 比对风险未排除。",
+        "零匹配控制使异常程度无法进行所要求的匹配比较。"
+      ],
+      "prohibited_conclusions": [
+        "不得宣称已经验证新的结构类型。",
+        "不得宣称严格规则复现或归一化无关。",
+        "不得把截断敏感性确定解释为技术伪影或生物机制。",
+        "不得声称通过匹配背景显著性、p 值或 FDR 检验。"
+      ],
+      "recommended_next_check": {
+        "action": "在冻结区间上，由人工核对两个重复的原生计数与未截断/默认/严格截断视图，并逐项复核 MAD 为零、尺度下限及截断像素分布的来源；保留固定模型与 rep1 重校准两条诊断体制。",
+        "boundary": "不降低阈值、不改候选名单、不把新的诊断体制换成主验证规则；若继续 read-level QC，应先确认原始处理来源清单。"
+      }
+    },
+    {
+      "candidate_id": "A2",
+      "coordinates": {
+        "chrom": "NC_000913.3",
+        "center_bp": 1469440,
+        "start_bp": 1466880,
+        "end_bp": 1472000
+      },
+      "replication_status": {
+        "default_rep2_dual_gate_pass": true,
+        "unclipped_rep2_dual_gate_pass": true,
+        "tight_clip_frozen_model_rep2_dual_gate_pass": false,
+        "tight_clip_rep1_recalibrated_rep2_dual_gate_pass": true,
+        "interpretation": "默认及无截断复现；严格截断固定原模型失败，而仅用 rep1 重校准后的 rep2 通过，结果依赖诊断体制。"
+      },
+      "manual_followup_category": "A2 高重复风险优先 QC",
+      "supporting_evidence": [
+        {
+          "source": "candidate_validation",
+          "selector": "candidate_id=A2",
+          "fields": {
+            "rep2_passes_both_frozen_novelty_gates": true,
+            "rep2_highpass_novelty": 34.95933795904395,
+            "frozen_highpass_novelty_threshold": 30.452289581298828,
+            "rep2_rowcol_novelty": 58.08137981317145,
+            "frozen_rowcol_novelty_threshold": 28.498506546020508,
+            "paired_rep1_rep2_highpass_r": 0.6844441890716553,
+            "paired_rep1_rep2_rowcol_r": 0.8528493642807007
+          }
+        },
+        {
+          "source": "normalization_sensitivity",
+          "selector": "candidate_id=A2, variant=explicit_clip_2_4, metric=highpass",
+          "fields_by_model_regime_and_replicate": {
+            "frozen_input_stress_rep2": {
+              "novelty_ratio": 0.9394775221459546,
+              "passes_rep1_frozen_cutoff": false
+            },
+            "rep1_recalibrated_sensitivity_rep2": {
+              "novelty_ratio": 1.011935249238657,
+              "passes_rep1_frozen_cutoff": true
+            },
+            "rep1_recalibrated_sensitivity_rep1": {
+              "novelty_ratio": 0.9577402833481607,
+              "passes_rep1_frozen_cutoff": false
+            }
+          }
+        },
+        {
+          "source": "native_qc",
+          "selector": "candidate_id=A2",
+          "fields_by_replicate": {
+            "rep1": {
+              "native_zero_offdiag_rows": 218,
+              "native_zero_offdiag_row_fraction": 0.42578125,
+              "native_upper_nonzero_fraction": 0.06903589774951076,
+              "normalization_mad": 0.0,
+              "normalization_scale_with_floor": 0.1
+            },
+            "rep2": {
+              "native_zero_offdiag_rows": 218,
+              "native_zero_offdiag_row_fraction": 0.42578125,
+              "native_upper_nonzero_fraction": 0.06580999266144814,
+              "normalization_mad": 0.0,
+              "normalization_scale_with_floor": 0.1
+            }
+          }
+        },
+        {
+          "source": "reference_uniqueness",
+          "selector": "candidate_id=A2",
+          "unique_fraction_by_k": {
+            "31": 0.5096267190569744,
+            "51": 0.5155818540433925,
+            "101": 0.5306772908366534
+          },
+          "background_median_unique_fraction": 1.0
+        },
+        {
+          "source": "matched_controls",
+          "selector": "candidate_id=A2, all variants/model_regimes/metrics",
+          "fields": {
+            "controls": 0,
+            "evaluable": false,
+            "status": "not_evaluable_no_percentile"
+          }
+        }
+      ],
+      "risks": [
+        "31/51/101-mer 唯一比例均约 0.51–0.53，支持将重复序列相关比对风险列为优先诊断项，但不能证明实际 reads 发生错配。",
+        "两个重复都有 218/512 非对角零行，且 MAD 为零触发尺度下限；相似稀疏图样可能稳定复现，并不自动意味着新形态真实。",
+        "严格重校准的 rep2 高通 ratio 仅 1.011935，接近门槛；同体制 rep1 高通未通过，不能宣称严格条件下两个重复均为双门槛异常。",
+        "固定原模型与重校准模型结论不同，不能只保留有利体制。",
+        "匹配控制不足，无法分离重复/覆盖与形态新颖性。"
+      ],
+      "prohibited_conclusions": [
+        "不得把高重复风险写成已证实错配伪影。",
+        "不得宣称已排除实际比对质量或覆盖缺口的影响。",
+        "不得仅凭重校准后通过宣称严格验证成功。",
+        "不得宣称新的结构类型、共享调控机制、p 值或 FDR。"
+      ],
+      "recommended_next_check": {
+        "action": "优先取得原始处理来源清单，再在冻结 A2 区间检验 paired-read 唯一比对、MAPQ 分布与零行覆盖缺口，并并列展示原始与明确 QC 后的接触计数。",
+        "boundary": "该项是待执行 QC，不是已获得证据；保持默认冻结规则为主分析，不以 QC 或严格重校准结果事后重新提名候选。"
+      }
+    },
+    {
+      "candidate_id": "A3",
+      "coordinates": {
+        "chrom": "NC_000913.3",
+        "center_bp": 3130880,
+        "start_bp": 3128320,
+        "end_bp": 3133440
+      },
+      "replication_status": {
+        "default_rep2_dual_gate_pass": false,
+        "unclipped_rep2_dual_gate_pass": false,
+        "tight_clip_frozen_model_rep2_dual_gate_pass": false,
+        "tight_clip_rep1_recalibrated_rep2_dual_gate_pass": false,
+        "interpretation": "rep1 提名后，rep2 未通过冻结的默认双门槛；所有列出的归一化敏感性体制均未恢复双门槛通过。"
+      },
+      "manual_followup_category": "A3 验证失败保留负对照",
+      "supporting_evidence": [
+        {
+          "source": "candidate_validation",
+          "selector": "candidate_id=A3",
+          "fields": {
+            "rep1_highpass_novelty": 40.056650310698,
+            "rep2_highpass_novelty": 27.42530140073667,
+            "frozen_highpass_novelty_threshold": 30.452289581298828,
+            "rep1_rowcol_novelty": 54.394386899787065,
+            "rep2_rowcol_novelty": 27.996222695680054,
+            "frozen_rowcol_novelty_threshold": 28.498506546020508,
+            "rep2_passes_both_frozen_novelty_gates": false,
+            "paired_rep1_rep2_highpass_r": 0.6158806085586548,
+            "paired_rep1_rep2_rowcol_r": 0.7892954349517822
+          }
+        },
+        {
+          "source": "normalization_sensitivity",
+          "selector": "candidate_id=A3, replicate=rep2",
+          "fields_by_variant_and_model_regime": {
+            "default_clip_5_frozen_input_stress": {
+              "highpass_novelty_ratio": 0.9005989952748554,
+              "rowcol_novelty_ratio": 0.9823750816721099
+            },
+            "unclipped_frozen_input_stress": {
+              "highpass_novelty_ratio": 0.9948833983682654,
+              "rowcol_novelty_ratio": 1.4076209746821176
+            },
+            "unclipped_rep1_recalibrated_sensitivity": {
+              "highpass_novelty_ratio": 0.9189160739980555,
+              "rowcol_novelty_ratio": 1.2943969578451238
+            },
+            "explicit_clip_2_4_frozen_input_stress": {
+              "highpass_novelty_ratio": 0.9293221568045978,
+              "rowcol_novelty_ratio": 0.935067791198623
+            },
+            "explicit_clip_2_4_rep1_recalibrated_sensitivity": {
+              "highpass_novelty_ratio": 0.9628976526720895,
+              "rowcol_novelty_ratio": 1.0125359718428537
+            }
+          }
+        },
+        {
+          "source": "native_qc",
+          "selector": "candidate_id=A3",
+          "fields_by_replicate": {
+            "rep1": {
+              "native_zero_offdiag_row_fraction": 0.19921875,
+              "native_upper_nonzero_fraction": 0.12384570694716243,
+              "normalization_mad": 0.04983988404273987,
+              "normalization_scale_with_floor": 0.1
+            },
+            "rep2": {
+              "native_zero_offdiag_row_fraction": 0.19921875,
+              "native_upper_nonzero_fraction": 0.12240092954990216,
+              "normalization_mad": 0.43151772022247314,
+              "normalization_scale_with_floor": 0.43151772022247314
+            }
+          }
+        },
+        {
+          "source": "reference_uniqueness",
+          "selector": "candidate_id=A3",
+          "unique_fraction_by_k": {
+            "31": 0.768958742632613,
+            "51": 0.7719921104536489,
+            "101": 0.7796812749003984
+          },
+          "background_median_unique_fraction": 1.0
+        },
+        {
+          "source": "matched_controls",
+          "selector": "candidate_id=A3, all variants/model_regimes/metrics",
+          "fields": {
+            "controls": 0,
+            "evaluable": false,
+            "status": "not_evaluable_no_percentile"
+          }
+        }
+      ],
+      "risks": [
+        "跨重复相关为正不等于通过新颖性门槛；默认高通与行列残差门槛均失败。",
+        "无截断的高通 ratio 0.994883 接近门槛，但仍未通过；不能为了挽救候选降低阈值或把单指标通过改写为双门槛通过。",
+        "相近覆盖代理与不同归一化尺度提示需复核测量差异，但不足以确定失败原因。",
+        "验证失败不证明该区域不存在任何生物学结构；它只否定当前候选在当前规则下的复现声明。"
+      ],
+      "prohibited_conclusions": [
+        "不得从正相关或某个单指标通过恢复新颖性验证成功结论。",
+        "不得删去 A3 以提高候选复现率。",
+        "不得把验证失败解释为生物学不存在或确定技术伪影。",
+        "不得编造机制、基因功能、p 值或 FDR。"
+      ],
+      "recommended_next_check": {
+        "action": "保留 A3 的冻结 ID 和失败状态，由人工对照原生计数与归一化图复核两个重复的高通形态和尺度差异，形成不修改阈值的失败案例说明。",
+        "boundary": "任何未来独立数据上的再检验须单独登记；不能追溯性覆盖本轮验证失败，也不能把 A3 当作生物学无结构的真阴性标签。"
+      }
+    },
+    {
+      "candidate_id": "A4",
+      "coordinates": {
+        "chrom": "NC_000913.3",
+        "center_bp": 1571840,
+        "start_bp": 1569280,
+        "end_bp": 1574400
+      },
+      "replication_status": {
+        "default_rep2_dual_gate_pass": true,
+        "unclipped_rep2_dual_gate_pass": true,
+        "tight_clip_frozen_model_rep2_dual_gate_pass": true,
+        "tight_clip_rep1_recalibrated_rep2_dual_gate_pass": true,
+        "interpretation": "所有表内归一化诊断体制的 rep2 均通过双门槛，适合作为相对稳健的异常复核对象；固定原模型严格截断下 rep1 行列残差未通过，且 rep2 同指标仅略高于阈值。"
+      },
+      "manual_followup_category": "A4 稳健异常待查",
+      "supporting_evidence": [
+        {
+          "source": "candidate_validation",
+          "selector": "candidate_id=A4",
+          "fields": {
+            "rep2_passes_both_frozen_novelty_gates": true,
+            "rep2_highpass_novelty": 43.10404166800584,
+            "frozen_highpass_novelty_threshold": 30.452289581298828,
+            "rep2_rowcol_novelty": 41.84605138294583,
+            "frozen_rowcol_novelty_threshold": 28.498506546020508,
+            "paired_rep1_rep2_highpass_r": 0.676080048084259,
+            "paired_rep1_rep2_rowcol_r": 0.7458301186561584
+          }
+        },
+        {
+          "source": "normalization_sensitivity",
+          "selector": "candidate_id=A4, variant=explicit_clip_2_4",
+          "fields_by_model_regime_and_replicate": {
+            "frozen_input_stress_rep2": {
+              "highpass_novelty_ratio": 1.0908060014984888,
+              "rowcol_novelty_ratio": 1.0027876773661386,
+              "rowcol_passes_rep1_frozen_cutoff": true
+            },
+            "frozen_input_stress_rep1": {
+              "rowcol_novelty_ratio": 0.9602875514245721,
+              "rowcol_passes_rep1_frozen_cutoff": false
+            },
+            "rep1_recalibrated_sensitivity_rep2": {
+              "highpass_novelty_ratio": 1.1491600173051837,
+              "rowcol_novelty_ratio": 1.1358225491288356
+            }
+          }
+        },
+        {
+          "source": "native_qc",
+          "selector": "candidate_id=A4",
+          "fields_by_replicate": {
+            "rep1": {
+              "native_zero_offdiag_row_fraction": 0.18359375,
+              "native_upper_nonzero_fraction": 0.11244037426614481,
+              "normalization_mad": 0.10162461549043655,
+              "normalization_scale_with_floor": 0.10162461549043655,
+              "default_highpass_region_clipped_high_fraction": 0.31641604010025065
+            },
+            "rep2": {
+              "native_zero_offdiag_row_fraction": 0.1796875,
+              "native_upper_nonzero_fraction": 0.10817484099804306,
+              "normalization_mad": 0.051556382328271866,
+              "normalization_scale_with_floor": 0.1,
+              "default_highpass_region_clipped_high_fraction": 0.31954887218045114
+            }
+          }
+        },
+        {
+          "source": "reference_uniqueness",
+          "selector": "candidate_id=A4",
+          "unique_fraction_by_k": {
+            "31": 0.794106090373281,
+            "51": 0.8130177514792899,
+            "101": 0.8458167330677291
+          },
+          "background_median_unique_fraction": 1.0
+        },
+        {
+          "source": "matched_controls",
+          "selector": "candidate_id=A4, all variants/model_regimes/metrics",
+          "fields": {
+            "controls": 0,
+            "evaluable": false,
+            "status": "not_evaluable_no_percentile"
+          }
+        }
+      ],
+      "risks": [
+        "固定原模型严格截断下 rep2 行列残差 ratio 仅 1.0027877，过阈值幅度很小；rep1 同指标 ratio 0.9602876 未通过。",
+        "默认高端截断比例在两重复均约 0.32，截断稳定性不能排除共同测量或数值模式。",
+        "参考唯一性仍低于背景中位数，实际 reads 比对质量与片段覆盖风险未排除。",
+        "零匹配控制意味着不能认定 A4 比可比较背景显著异常，也不能据此给出真实新结构概率。"
+      ],
+      "prohibited_conclusions": [
+        "不得宣称两个重复在全部严格体制中都通过双门槛。",
+        "不得把“稳健异常待查”写成“稳健新结构已验证”。",
+        "不得宣称已排除重复、稀疏覆盖、归一化或比对伪影。",
+        "不得宣称具体生物机制、p 值或 FDR。"
+      ],
+      "recommended_next_check": {
+        "action": "在冻结 A4 区间上优先组织人工原生热图与 QC 对照审阅，并在取得处理来源清单后检查真实 read-level 唯一比对及覆盖缺口；如安排独立数据复核，预先锁定原有区间和评价规则。",
+        "boundary": "这是待执行诊断；不重新定义新类别，不改候选名单和门槛，不把人工队列优先级当作验证结果。"
+      }
+    }
+  ],
+  "validation_checklist": [
+    {
+      "check": "仅使用指定现有证据",
+      "passed": true,
+      "detail": "支持性数值均来自列出的 5 个 CSV；未检索基因、机制、文献或引入外部证据。"
+    },
+    {
+      "check": "源文件版本可追溯",
+      "passed": true,
+      "detail": "实际读取并核对 4/8/12/96/48 行及 SHA-256；源文件未修改。"
+    },
+    {
+      "check": "四候选完整保留",
+      "passed": true,
+      "detail": "A1–A4 全部输出；A3 失败未删除，区间和候选名单未变。"
+    },
+    {
+      "check": "固定原模型与 rep1 重校准分开",
+      "passed": true,
+      "detail": "严格 [-2,4] 固定原模型 rep2 仅 A4 双门槛通过；rep1 重校准体制 rep2 为 A2/A4，未相互替代。"
+    },
+    {
+      "check": "rep2 通过不误写为两重复全部通过",
+      "passed": true,
+      "detail": "保留 A4 严格固定模型 rep1 rowcol 失败，以及 A2 严格重校准 rep1 highpass 失败的边界。"
+    },
+    {
+      "check": "近门槛数值与单指标失败如实保留",
+      "passed": true,
+      "detail": "明确 A4 ratio=1.0027877、A2 ratio=1.0119352 的接近门槛风险；A3 无截断 highpass ratio=0.9948834 仍视为失败。"
+    },
+    {
+      "check": "零控制不转成显著性",
+      "passed": true,
+      "detail": "所有候选 controls=0、evaluable=false；未生成 p、FDR、有效匹配百分位或发现概率。"
+    },
+    {
+      "check": "风险代理不冒充实际比对质量",
+      "passed": true,
+      "detail": "k-mer 唯一性与原生覆盖字段仅用于诊断风险队列，未断言实际 MAPQ、fragment coverage 或错配伪影已被测量。"
+    },
+    {
+      "check": "LLM 解读与统计实验分开",
+      "passed": true,
+      "detail": "本轮只生成报告阶段的结构化复核建议；没有新统计、新模型训练、新原始 reads 实验或冻结规则修改。"
+    },
+    {
+      "check": "未伪造领域专家验收或模型快照",
+      "passed": true,
+      "detail": "人类专家验证明确为未完成；具体 API 模型快照为 null。"
+    }
+  ]
+}

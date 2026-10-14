@@ -1,0 +1,3471 @@
+{
+  "selected": {
+    "epoch": 6,
+    "fraction": 1.0,
+    "method": "adapted_cnn_fraction_1",
+    "feasible": true,
+    "psnr_gain": 0.4977695886891733,
+    "ssim_gain": 0.0358310224181783,
+    "shape_gain": 0.04480077004009385,
+    "profile_gain": 0.02849814321816332
+  },
+  "selected_method": "adapted_cnn_fraction_1",
+  "selection_freeze_sha256": "2d739ea0004d76fda900f0e97c915b9596e05889bdcab2f0c1c439466bd68949",
+  "replicates": {
+    "rep1_test": {
+      "selected": {
+        "all": {
+          "n": 68,
+          "overlap_components": 41,
+          "psnr": {
+            "bilinear_mean": 12.615101107735086,
+            "model_mean": 13.046470470356809,
+            "model_median": 12.839473882209608,
+            "mean_gain": 0.43136936262172226,
+            "paired_component_95ci_gain": [
+              0.38433708390798665,
+              0.47474074077895423
+            ],
+            "improved_fraction": 1.0
+          },
+          "ssim": {
+            "bilinear_mean": 0.026376667941300436,
+            "model_mean": 0.07509418570402944,
+            "model_median": 0.07344464010163723,
+            "mean_gain": 0.04871751776272901,
+            "paired_component_95ci_gain": [
+              0.04200191659913053,
+              0.05393582948854074
+            ],
+            "improved_fraction": 1.0
+          },
+          "shape_r": {
+            "bilinear_mean": 0.83976391037086,
+            "model_mean": 0.8955740737375891,
+            "model_median": 0.9102692558317,
+            "mean_gain": 0.05581016336672908,
+            "paired_component_95ci_gain": [
+              0.04969356851165797,
+              0.061718831049495874
+            ],
+            "improved_fraction": 1.0
+          },
+          "profile_r": {
+            "bilinear_mean": 0.9416552285733562,
+            "model_mean": 0.9610952702131494,
+            "model_median": 0.9688704884977972,
+            "mean_gain": 0.019440041639793328,
+            "paired_component_95ci_gain": [
+              0.011474142689395578,
+              0.027242814349448533
+            ],
+            "improved_fraction": 0.75
+          },
+          "peak_error_bp": {
+            "bilinear_mean": 468.0621527249603,
+            "model_mean": 490.5131656777371,
+            "model_median": 45.6155281280883,
+            "mean_gain": -22.451012952776576,
+            "paired_component_95ci_gain": [
+              -104.5072706189709,
+              19.429992009968213
+            ],
+            "improved_fraction": 0.17647058823529413
+          },
+          "top5_f1": {
+            "bilinear_mean": 0.4764705882352941,
+            "model_mean": 0.47941176470588237,
+            "model_median": 0.4,
+            "mean_gain": 0.0029411764705882387,
+            "paired_component_95ci_gain": [
+              -0.027999999999999994,
+              0.04074074074074074
+            ],
+            "improved_fraction": 0.14705882352941177
+          },
+          "shape_r_at_least_0_5_fraction": 1.0
+        },
+        "CHIN": {
+          "n": 52,
+          "overlap_components": 34,
+          "psnr": {
+            "bilinear_mean": 12.246344318409305,
+            "model_mean": 12.657576466348493,
+            "model_median": 12.513301001243825,
+            "mean_gain": 0.41123214793919377,
+            "paired_component_95ci_gain": [
+              0.349098043737363,
+              0.4618699938292525
+            ],
+            "improved_fraction": 1.0
+          },
+          "ssim": {
+            "bilinear_mean": 0.02690976769689152,
+            "model_mean": 0.07019243914094883,
+            "model_median": 0.06972776339610814,
+            "mean_gain": 0.04328267144405733,
+            "paired_component_95ci_gain": [
+              0.03431693252672312,
+              0.04951993988263117
+            ],
+            "improved_fraction": 1.0
+          },
+          "shape_r": {
+            "bilinear_mean": 0.8554298700809725,
+            "model_mean": 0.904237298812128,
+            "model_median": 0.9169076147615176,
+            "mean_gain": 0.048807428731155504,
+            "paired_component_95ci_gain": [
+              0.042370253690918555,
+              0.05332052009078564
+            ],
+            "improved_fraction": 1.0
+          },
+          "profile_r": {
+            "bilinear_mean": 0.9490573773372469,
+            "model_mean": 0.9618849424237604,
+            "model_median": 0.9674749029095728,
+            "mean_gain": 0.012827565086513322,
+            "paired_component_95ci_gain": [
+              0.0026291627501386595,
+              0.020695042693825248
+            ],
+            "improved_fraction": 0.7115384615384616
+          },
+          "peak_error_bp": {
+            "bilinear_mean": 455.61891274188594,
+            "model_mean": 483.94436784630483,
+            "model_median": 45.6155281280883,
+            "mean_gain": -28.325455104418843,
+            "paired_component_95ci_gain": [
+              -132.6942480187283,
+              27.741544546730054
+            ],
+            "improved_fraction": 0.21153846153846154
+          },
+          "top5_f1": {
+            "bilinear_mean": 0.48846153846153845,
+            "model_mean": 0.4769230769230769,
+            "model_median": 0.4,
+            "mean_gain": -0.011538461538461536,
+            "paired_component_95ci_gain": [
+              -0.04681476846057572,
+              0.026666666666666665
+            ],
+            "improved_fraction": 0.15384615384615385
+          },
+          "shape_r_at_least_0_5_fraction": 1.0
+        },
+        "OPCID": {
+          "n": 10,
+          "overlap_components": 10,
+          "psnr": {
+            "bilinear_mean": 13.73547552613716,
+            "model_mean": 14.246107495426816,
+            "model_median": 14.24188775948495,
+            "mean_gain": 0.5106319692896575,
+            "paired_component_95ci_gain": [
+              0.4635350117364567,
+              0.5585807227934404
+            ],
+            "improved_fraction": 1.0
+          },
+          "ssim": {
+            "bilinear_mean": 0.019624598174887764,
+            "model_mean": 0.08426168422554037,
+            "model_median": 0.08549364097253812,
+            "mean_gain": 0.0646370860506526,
+            "paired_component_95ci_gain": [
+              0.053818339384172555,
+              0.07455699216235148
+            ],
+            "improved_fraction": 1.0
+          },
+          "shape_r": {
+            "bilinear_mean": 0.7578391167019166,
+            "model_mean": 0.841074422928633,
+            "model_median": 0.8519217296042074,
+            "mean_gain": 0.08323530622671628,
+            "paired_component_95ci_gain": [
+              0.06987275511569244,
+              0.09720675253170102
+            ],
+            "improved_fraction": 1.0
+          },
+          "profile_r": {
+            "bilinear_mean": 0.9113592577899665,
+            "model_mean": 0.9489531371455442,
+            "model_median": 0.9540965945257808,
+            "mean_gain": 0.03759387935557747,
+            "paired_component_95ci_gain": [
+              0.011103019295431215,
+              0.07047673153985413
+            ],
+            "improved_fraction": 0.8
+          },
+          "peak_error_bp": {
+            "bilinear_mean": 484.8437592762966,
+            "model_mean": 489.6324943745725,
+            "model_median": 140.37373691556832,
+            "mean_gain": -4.788735098275853,
+            "paired_component_95ci_gain": [
+              -8.583725157679888,
+              -1.408887014113094
+            ],
+            "improved_fraction": 0.0
+          },
+          "top5_f1": {
+            "bilinear_mean": 0.44000000000000006,
+            "model_mean": 0.5199999999999999,
+            "model_median": 0.6,
+            "mean_gain": 0.08,
+            "paired_component_95ci_gain": [
+              0.0,
+              0.2
+            ],
+            "improved_fraction": 0.2
+          },
+          "shape_r_at_least_0_5_fraction": 1.0
+        },
+        "CHID": {
+          "n": 6,
+          "overlap_components": 6,
+          "psnr": {
+            "bilinear_mean": 13.943702584555082,
+            "model_mean": 14.417490129978825,
+            "model_median": 13.87044740994694,
+            "mean_gain": 0.473787545423745,
+            "paired_component_95ci_gain": [
+              0.4176813881959305,
+              0.5350655460838528
+            ],
+            "improved_fraction": 1.0
+          },
+          "ssim": {
+            "bilinear_mean": 0.033009919670198874,
+            "model_mean": 0.10229682504820982,
+            "model_median": 0.08869645014711389,
+            "mean_gain": 0.06928690537801095,
+            "paired_component_95ci_gain": [
+              0.05943494803426889,
+              0.08255359588093243
+            ],
+            "improved_fraction": 1.0
+          },
+          "shape_r": {
+            "bilinear_mean": 0.8405335823314567,
+            "model_mean": 0.9113255411065113,
+            "model_median": 0.9108258049868372,
+            "mean_gain": 0.07079195877505466,
+            "paired_component_95ci_gain": [
+              0.0464317386390144,
+              0.10495544027643199
+            ],
+            "improved_fraction": 1.0
+          },
+          "profile_r": {
+            "bilinear_mean": 0.9279965572586196,
+            "model_mean": 0.9744883328338659,
+            "model_median": 0.9753558642309177,
+            "mean_gain": 0.04649177557524651,
+            "paired_component_95ci_gain": [
+              0.023892989872331964,
+              0.08492654224053313
+            ],
+            "improved_fraction": 1.0
+          },
+          "peak_error_bp": {
+            "bilinear_mean": 547.9342216593791,
+            "model_mean": 548.9105323887572,
+            "model_median": 28.027756377319946,
+            "mean_gain": -0.9763107293781749,
+            "paired_component_95ci_gain": [
+              -5.0,
+              2.0710678118654755
+            ],
+            "improved_fraction": 0.16666666666666666
+          },
+          "top5_f1": {
+            "bilinear_mean": 0.43333333333333335,
+            "model_mean": 0.43333333333333335,
+            "model_median": 0.4,
+            "mean_gain": 0.0,
+            "paired_component_95ci_gain": [
+              0.0,
+              0.0
+            ],
+            "improved_fraction": 0.0
+          },
+          "shape_r_at_least_0_5_fraction": 1.0
+        }
+      },
+      "success": {
+        "image_gain_supported": true,
+        "complete_morphology_supported": true,
+        "operational_course_success": true,
+        "interpretation": "Fixed full-window shape/profile criteria for CHIN and OPCID; all classes and actual image peak metrics are retained. Original 640-bp results and this evaluation are different scales. No physical/function/real-HiC or blind-validation claim."
+      },
+      "controls": {
+        "bilinear": {
+          "all": {
+            "n": 68,
+            "overlap_components": 41,
+            "psnr": {
+              "bilinear_mean": 12.615101107735086,
+              "model_mean": 12.615101107735086,
+              "model_median": 12.431406281362591,
+              "mean_gain": 0.0,
+              "paired_component_95ci_gain": [
+                0.0,
+                0.0
+              ],
+              "improved_fraction": 0.0
+            },
+            "ssim": {
+              "bilinear_mean": 0.026376667941300436,
+              "model_mean": 0.026376667941300436,
+              "model_median": 0.02523691517295451,
+              "mean_gain": 0.0,
+              "paired_component_95ci_gain": [
+                0.0,
+                0.0
+              ],
+              "improved_fraction": 0.0
+            },
+            "shape_r": {
+              "bilinear_mean": 0.83976391037086,
+              "model_mean": 0.83976391037086,
+              "model_median": 0.8473531238340035,
+              "mean_gain": 0.0,
+              "paired_component_95ci_gain": [
+                0.0,
+                0.0
+              ],
+              "improved_fraction": 0.0
+            },
+            "profile_r": {
+              "bilinear_mean": 0.9416552285733562,
+              "model_mean": 0.9416552285733562,
+              "model_median": 0.9485957813801427,
+              "mean_gain": 0.0,
+              "paired_component_95ci_gain": [
+                0.0,
+                0.0
+              ],
+              "improved_fraction": 0.0
+            },
+            "peak_error_bp": {
+              "bilinear_mean": 468.0621527249603,
+              "model_mean": 468.0621527249603,
+              "model_median": 42.976207903086205,
+              "mean_gain": 0.0,
+              "paired_component_95ci_gain": [
+                0.0,
+                0.0
+              ],
+              "improved_fraction": 0.0
+            },
+            "top5_f1": {
+              "bilinear_mean": 0.4764705882352941,
+              "model_mean": 0.4764705882352941,
+              "model_median": 0.4,
+              "mean_gain": 0.0,
+              "paired_component_95ci_gain": [
+                0.0,
+                0.0
+              ],
+              "improved_fraction": 0.0
+            },
+            "shape_r_at_least_0_5_fraction": 1.0
+          },
+          "CHIN": {
+            "n": 52,
+            "overlap_components": 34,
+            "psnr": {
+              "bilinear_mean": 12.246344318409305,
+              "model_mean": 12.246344318409305,
+              "model_median": 12.114890254224704,
+              "mean_gain": 0.0,
+              "paired_component_95ci_gain": [
+                0.0,
+                0.0
+              ],
+              "improved_fraction": 0.0
+            },
+            "ssim": {
+              "bilinear_mean": 0.02690976769689152,
+              "model_mean": 0.02690976769689152,
+              "model_median": 0.026559951217178794,
+              "mean_gain": 0.0,
+              "paired_component_95ci_gain": [
+                0.0,
+                0.0
+              ],
+              "improved_fraction": 0.0
+            },
+            "shape_r": {
+              "bilinear_mean": 0.8554298700809725,
+              "model_mean": 0.8554298700809725,
+              "model_median": 0.8757746324204947,
+              "mean_gain": 0.0,
+              "paired_component_95ci_gain": [
+                0.0,
+                0.0
+              ],
+              "improved_fraction": 0.0
+            },
+            "profile_r": {
+              "bilinear_mean": 0.9490573773372469,
+              "model_mean": 0.9490573773372469,
+              "model_median": 0.9542579034840892,
+              "mean_gain": 0.0,
+              "paired_component_95ci_gain": [
+                0.0,
+                0.0
+              ],
+              "improved_fraction": 0.0
+            },
+            "peak_error_bp": {
+              "bilinear_mean": 455.61891274188594,
+              "model_mean": 455.61891274188594,
+              "model_median": 42.976207903086205,
+              "mean_gain": 0.0,
+              "paired_component_95ci_gain": [
+                0.0,
+                0.0
+              ],
+              "improved_fraction": 0.0
+            },
+            "top5_f1": {
+              "bilinear_mean": 0.48846153846153845,
+              "model_mean": 0.48846153846153845,
+              "model_median": 0.4,
+              "mean_gain": 0.0,
+              "paired_component_95ci_gain": [
+                0.0,
+                0.0
+              ],
+              "improved_fraction": 0.0
+            },
+            "shape_r_at_least_0_5_fraction": 1.0
+          },
+          "OPCID": {
+            "n": 10,
+            "overlap_components": 10,
+            "psnr": {
+              "bilinear_mean": 13.73547552613716,
+              "model_mean": 13.73547552613716,
+              "model_median": 13.754427445319145,
+              "mean_gain": 0.0,
+              "paired_component_95ci_gain": [
+                0.0,
+                0.0
+              ],
+              "improved_fraction": 0.0
+            },
+            "ssim": {
+              "bilinear_mean": 0.019624598174887764,
+              "model_mean": 0.019624598174887764,
+              "model_median": 0.018035779264646886,
+              "mean_gain": 0.0,
+              "paired_component_95ci_gain": [
+                0.0,
+                0.0
+              ],
+              "improved_fraction": 0.0
+            },
+            "shape_r": {
+              "bilinear_mean": 0.7578391167019166,
+              "model_mean": 0.7578391167019166,
+              "model_median": 0.7650001723581706,
+              "mean_gain": 0.0,
+              "paired_component_95ci_gain": [
+                0.0,
+                0.0
+              ],
+              "improved_fraction": 0.0
+            },
+            "profile_r": {
+              "bilinear_mean": 0.9113592577899665,
+              "model_mean": 0.9113592577899665,
+              "model_median": 0.9404781401747752,
+              "mean_gain": 0.0,
+              "paired_component_95ci_gain": [
+                0.0,
+                0.0
+              ],
+              "improved_fraction": 0.0
+            },
+            "peak_error_bp": {
+              "bilinear_mean": 484.8437592762966,
+              "model_mean": 484.8437592762966,
+              "model_median": 128.351874864671,
+              "mean_gain": 0.0,
+              "paired_component_95ci_gain": [
+                0.0,
+                0.0
+              ],
+              "improved_fraction": 0.0
+            },
+            "top5_f1": {
+              "bilinear_mean": 0.44000000000000006,
+              "model_mean": 0.44000000000000006,
+              "model_median": 0.6,
+              "mean_gain": 0.0,
+              "paired_component_95ci_gain": [
+                0.0,
+                0.0
+              ],
+              "improved_fraction": 0.0
+            },
+            "shape_r_at_least_0_5_fraction": 1.0
+          },
+          "CHID": {
+            "n": 6,
+            "overlap_components": 6,
+            "psnr": {
+              "bilinear_mean": 13.943702584555082,
+              "model_mean": 13.943702584555082,
+              "model_median": 13.411137284747788,
+              "mean_gain": 0.0,
+              "paired_component_95ci_gain": [
+                0.0,
+                0.0
+              ],
+              "improved_fraction": 0.0
+            },
+            "ssim": {
+              "bilinear_mean": 0.033009919670198874,
+              "model_mean": 0.033009919670198874,
+              "model_median": 0.021347599276161602,
+              "mean_gain": 0.0,
+              "paired_component_95ci_gain": [
+                0.0,
+                0.0
+              ],
+              "improved_fraction": 0.0
+            },
+            "shape_r": {
+              "bilinear_mean": 0.8405335823314567,
+              "model_mean": 0.8405335823314567,
+              "model_median": 0.840156036830981,
+              "mean_gain": 0.0,
+              "paired_component_95ci_gain": [
+                0.0,
+                0.0
+              ],
+              "improved_fraction": 0.0
+            },
+            "profile_r": {
+              "bilinear_mean": 0.9279965572586196,
+              "model_mean": 0.9279965572586196,
+              "model_median": 0.9411447038381582,
+              "mean_gain": 0.0,
+              "paired_component_95ci_gain": [
+                0.0,
+                0.0
+              ],
+              "improved_fraction": 0.0
+            },
+            "peak_error_bp": {
+              "bilinear_mean": 547.9342216593791,
+              "model_mean": 547.9342216593791,
+              "model_median": 25.09882418918542,
+              "mean_gain": 0.0,
+              "paired_component_95ci_gain": [
+                0.0,
+                0.0
+              ],
+              "improved_fraction": 0.0
+            },
+            "top5_f1": {
+              "bilinear_mean": 0.43333333333333335,
+              "model_mean": 0.43333333333333335,
+              "model_median": 0.4,
+              "mean_gain": 0.0,
+              "paired_component_95ci_gain": [
+                0.0,
+                0.0
+              ],
+              "improved_fraction": 0.0
+            },
+            "shape_r_at_least_0_5_fraction": 1.0
+          }
+        },
+        "bicubic": {
+          "all": {
+            "n": 68,
+            "overlap_components": 41,
+            "psnr": {
+              "bilinear_mean": 12.615101107735086,
+              "model_mean": 12.538116162600742,
+              "model_median": 12.320058089440332,
+              "mean_gain": -0.07698494513434279,
+              "paired_component_95ci_gain": [
+                -0.09521938522302398,
+                -0.057108752962043076
+              ],
+              "improved_fraction": 0.1323529411764706
+            },
+            "ssim": {
+              "bilinear_mean": 0.026376667941300436,
+              "model_mean": 0.029191122670993448,
+              "model_median": 0.026748853196850775,
+              "mean_gain": 0.0028144547296930123,
+              "paired_component_95ci_gain": [
+                0.002207100232831227,
+                0.0036276367548311334
+              ],
+              "improved_fraction": 0.8529411764705882
+            },
+            "shape_r": {
+              "bilinear_mean": 0.83976391037086,
+              "model_mean": 0.8422142195410465,
+              "model_median": 0.8528146480827324,
+              "mean_gain": 0.002450309170186615,
+              "paired_component_95ci_gain": [
+                0.00029056617669978016,
+                0.005440303193462112
+              ],
+              "improved_fraction": 0.6176470588235294
+            },
+            "profile_r": {
+              "bilinear_mean": 0.9416552285733562,
+              "model_mean": 0.9417532071448013,
+              "model_median": 0.9507439445696599,
+              "mean_gain": 9.797857144488181e-05,
+              "paired_component_95ci_gain": [
+                -0.0006618181839093128,
+                0.0008414729499219527
+              ],
+              "improved_fraction": 0.39705882352941174
+            },
+            "peak_error_bp": {
+              "bilinear_mean": 468.0621527249603,
+              "model_mean": 490.1786944852571,
+              "model_median": 42.976207903086205,
+              "mean_gain": -22.11654176029665,
+              "paired_component_95ci_gain": [
+                -96.45487749223793,
+                21.59993137476399
+              ],
+              "improved_fraction": 0.14705882352941177
+            },
+            "top5_f1": {
+              "bilinear_mean": 0.4764705882352941,
+              "model_mean": 0.4852941176470587,
+              "model_median": 0.4,
+              "mean_gain": 0.008823529411764704,
+              "paired_component_95ci_gain": [
+                -0.05161471547662196,
+                0.08066293056314916
+              ],
+              "improved_fraction": 0.20588235294117646
+            },
+            "shape_r_at_least_0_5_fraction": 1.0
+          },
+          "CHIN": {
+            "n": 52,
+            "overlap_components": 34,
+            "psnr": {
+              "bilinear_mean": 12.246344318409305,
+              "model_mean": 12.187660261426903,
+              "model_median": 12.058160531897904,
+              "mean_gain": -0.058684056982400944,
+              "paired_component_95ci_gain": [
+                -0.07472840454187327,
+                -0.03806253606669239
+              ],
+              "improved_fraction": 0.11538461538461539
+            },
+            "ssim": {
+              "bilinear_mean": 0.02690976769689152,
+              "model_mean": 0.029190994011076013,
+              "model_median": 0.02817025529425929,
+              "mean_gain": 0.0022812263141844965,
+              "paired_component_95ci_gain": [
+                0.0016827527761425448,
+                0.0030269842344968954
+              ],
+              "improved_fraction": 0.8076923076923077
+            },
+            "shape_r": {
+              "bilinear_mean": 0.8554298700809725,
+              "model_mean": 0.8593377359537062,
+              "model_median": 0.8732197199942006,
+              "mean_gain": 0.003907865872733838,
+              "paired_component_95ci_gain": [
+                0.0014948713845424004,
+                0.007305136161072906
+              ],
+              "improved_fraction": 0.6730769230769231
+            },
+            "profile_r": {
+              "bilinear_mean": 0.9490573773372469,
+              "model_mean": 0.949240430264674,
+              "model_median": 0.9572944901038865,
+              "mean_gain": 0.00018305292742691284,
+              "paired_component_95ci_gain": [
+                -0.0005826719249238199,
+                0.0009108088599997882
+              ],
+              "improved_fraction": 0.38461538461538464
+            },
+            "peak_error_bp": {
+              "bilinear_mean": 455.61891274188594,
+              "model_mean": 483.03101156109517,
+              "model_median": 42.976207903086205,
+              "mean_gain": -27.412098819209202,
+              "paired_component_95ci_gain": [
+                -132.11321475127687,
+                29.52714949412749
+              ],
+              "improved_fraction": 0.17307692307692307
+            },
+            "top5_f1": {
+              "bilinear_mean": 0.48846153846153845,
+              "model_mean": 0.4884615384615384,
+              "model_median": 0.4,
+              "mean_gain": 0.0,
+              "paired_component_95ci_gain": [
+                -0.05294417767106844,
+                0.06001162790697668
+              ],
+              "improved_fraction": 0.15384615384615385
+            },
+            "shape_r_at_least_0_5_fraction": 1.0
+          },
+          "OPCID": {
+            "n": 10,
+            "overlap_components": 10,
+            "psnr": {
+              "bilinear_mean": 13.73547552613716,
+              "model_mean": 13.585908779169666,
+              "model_median": 13.564627247815213,
+              "mean_gain": -0.14956674696749364,
+              "paired_component_95ci_gain": [
+                -0.18921312032265664,
+                -0.0944471383087397
+              ],
+              "improved_fraction": 0.1
+            },
+            "ssim": {
+              "bilinear_mean": 0.019624598174887764,
+              "model_mean": 0.023508687895684298,
+              "model_median": 0.022543800186695544,
+              "mean_gain": 0.003884089720796529,
+              "paired_component_95ci_gain": [
+                0.0025571197347078814,
+                0.005024946082214517
+              ],
+              "improved_fraction": 1.0
+            },
+            "shape_r": {
+              "bilinear_mean": 0.7578391167019166,
+              "model_mean": 0.7541323681885,
+              "model_median": 0.7595476826484812,
+              "mean_gain": -0.0037067485134166687,
+              "paired_component_95ci_gain": [
+                -0.008167463775342268,
+                0.0006915169267096589
+              ],
+              "improved_fraction": 0.3
+            },
+            "profile_r": {
+              "bilinear_mean": 0.9113592577899665,
+              "model_mean": 0.9116521967737379,
+              "model_median": 0.9402325184649027,
+              "mean_gain": 0.0002929389837712848,
+              "paired_component_95ci_gain": [
+                -0.0004842192617661334,
+                0.0010974081661285532
+              ],
+              "improved_fraction": 0.5
+            },
+            "peak_error_bp": {
+              "bilinear_mean": 484.8437592762966,
+              "model_mean": 492.27911582405284,
+              "model_median": 147.19544457292886,
+              "mean_gain": -7.435356547756231,
+              "paired_component_95ci_gain": [
+                -15.048404404275848,
+                -1.5307084819740744
+              ],
+              "improved_fraction": 0.1
+            },
+            "top5_f1": {
+              "bilinear_mean": 0.44000000000000006,
+              "model_mean": 0.58,
+              "model_median": 0.6,
+              "mean_gain": 0.14000000000000004,
+              "paired_component_95ci_gain": [
+                0.04000000000000001,
+                0.24000000000000005
+              ],
+              "improved_fraction": 0.5
+            },
+            "shape_r_at_least_0_5_fraction": 1.0
+          },
+          "CHID": {
+            "n": 6,
+            "overlap_components": 6,
+            "psnr": {
+              "bilinear_mean": 13.943702584555082,
+              "model_mean": 13.829079611825827,
+              "model_median": 13.292530759097039,
+              "mean_gain": -0.11462297272925397,
+              "paired_component_95ci_gain": [
+                -0.18223038616030843,
+                -0.04282378067284961
+              ],
+              "improved_fraction": 0.3333333333333333
+            },
+            "ssim": {
+              "bilinear_mean": 0.033009919670198874,
+              "model_mean": 0.038662962349126494,
+              "model_median": 0.025031286547561225,
+              "mean_gain": 0.005653042678927617,
+              "paired_component_95ci_gain": [
+                0.0034677225631484523,
+                0.009501201296037485
+              ],
+              "improved_fraction": 1.0
+            },
+            "shape_r": {
+              "bilinear_mean": 0.8405335823314567,
+              "model_mean": 0.8406134962189061,
+              "model_median": 0.8448727507015517,
+              "mean_gain": 7.99138874494898e-05,
+              "paired_component_95ci_gain": [
+                -0.009692710627376125,
+                0.009033481698062062
+              ],
+              "improved_fraction": 0.6666666666666666
+            },
+            "profile_r": {
+              "bilinear_mean": 0.9279965572586196,
+              "model_mean": 0.9270322907243429,
+              "model_median": 0.9386591923857521,
+              "mean_gain": -0.0009642665342767254,
+              "paired_component_95ci_gain": [
+                -0.004925708058937106,
+                0.0026737353791613607
+              ],
+              "improved_fraction": 0.3333333333333333
+            },
+            "peak_error_bp": {
+              "bilinear_mean": 547.9342216593791,
+              "model_mean": 548.6245775966676,
+              "model_median": 25.09882418918542,
+              "mean_gain": -0.6903559372884919,
+              "paired_component_95ci_gain": [
+                -2.0710678118654755,
+                0.0
+              ],
+              "improved_fraction": 0.0
+            },
+            "top5_f1": {
+              "bilinear_mean": 0.43333333333333335,
+              "model_mean": 0.3,
+              "model_median": 0.30000000000000004,
+              "mean_gain": -0.1333333333333334,
+              "paired_component_95ci_gain": [
+                -0.4666666666666666,
+                0.13333333333333333
+              ],
+              "improved_fraction": 0.16666666666666666
+            },
+            "shape_r_at_least_0_5_fraction": 1.0
+          }
+        },
+        "train_calibrated_bilinear": {
+          "all": {
+            "n": 68,
+            "overlap_components": 41,
+            "psnr": {
+              "bilinear_mean": 12.615101107735086,
+              "model_mean": 12.968438255228095,
+              "model_median": 12.7602211954283,
+              "mean_gain": 0.35333714749300876,
+              "paired_component_95ci_gain": [
+                0.30308022336879614,
+                0.40336601865989796
+              ],
+              "improved_fraction": 1.0
+            },
+            "ssim": {
+              "bilinear_mean": 0.026376667941300436,
+              "model_mean": 0.056733406267329436,
+              "model_median": 0.05318548578189454,
+              "mean_gain": 0.030356738326029004,
+              "paired_component_95ci_gain": [
+                0.02484123026244264,
+                0.03470756829262824
+              ],
+              "improved_fraction": 0.9558823529411765
+            },
+            "shape_r": {
+              "bilinear_mean": 0.83976391037086,
+              "model_mean": 0.8397639099435523,
+              "model_median": 0.847353123351578,
+              "mean_gain": -4.2730764188474563e-10,
+              "paired_component_95ci_gain": [
+                -6.167928138778398e-10,
+                -2.4951359642757636e-10
+              ],
+              "improved_fraction": 0.14705882352941177
+            },
+            "profile_r": {
+              "bilinear_mean": 0.9416552285733562,
+              "model_mean": 0.9528033426292976,
+              "model_median": 0.9606078010676171,
+              "mean_gain": 0.011148114055941192,
+              "paired_component_95ci_gain": [
+                0.0051334624779745455,
+                0.018036591825818116
+              ],
+              "improved_fraction": 0.7058823529411765
+            },
+            "peak_error_bp": {
+              "bilinear_mean": 468.0621527249603,
+              "model_mean": 468.0621527249603,
+              "model_median": 42.976207903086205,
+              "mean_gain": 0.0,
+              "paired_component_95ci_gain": [
+                0.0,
+                0.0
+              ],
+              "improved_fraction": 0.0
+            },
+            "top5_f1": {
+              "bilinear_mean": 0.4764705882352941,
+              "model_mean": 0.4764705882352941,
+              "model_median": 0.4,
+              "mean_gain": 0.0,
+              "paired_component_95ci_gain": [
+                0.0,
+                0.0
+              ],
+              "improved_fraction": 0.0
+            },
+            "shape_r_at_least_0_5_fraction": 1.0
+          },
+          "CHIN": {
+            "n": 52,
+            "overlap_components": 34,
+            "psnr": {
+              "bilinear_mean": 12.246344318409305,
+              "model_mean": 12.57671808305373,
+              "model_median": 12.446996634359756,
+              "mean_gain": 0.3303737646444288,
+              "paired_component_95ci_gain": [
+                0.26373146650770946,
+                0.3880696788083774
+              ],
+              "improved_fraction": 1.0
+            },
+            "ssim": {
+              "bilinear_mean": 0.02690976769689152,
+              "model_mean": 0.052814746025336055,
+              "model_median": 0.0504322722640098,
+              "mean_gain": 0.025904978328444534,
+              "paired_component_95ci_gain": [
+                0.018231923285961543,
+                0.031517823856174805
+              ],
+              "improved_fraction": 0.9423076923076923
+            },
+            "shape_r": {
+              "bilinear_mean": 0.8554298700809725,
+              "model_mean": 0.8554298695849502,
+              "model_median": 0.8757746321281047,
+              "mean_gain": -4.96022368478267e-10,
+              "paired_component_95ci_gain": [
+                -6.582512153936618e-10,
+                -3.5600152340868145e-10
+              ],
+              "improved_fraction": 0.07692307692307693
+            },
+            "profile_r": {
+              "bilinear_mean": 0.9490573773372469,
+              "model_mean": 0.958031435017695,
+              "model_median": 0.964543657481751,
+              "mean_gain": 0.008974057680447976,
+              "paired_component_95ci_gain": [
+                0.002173963964618863,
+                0.01652575520622777
+              ],
+              "improved_fraction": 0.6730769230769231
+            },
+            "peak_error_bp": {
+              "bilinear_mean": 455.61891274188594,
+              "model_mean": 455.61891274188594,
+              "model_median": 42.976207903086205,
+              "mean_gain": 0.0,
+              "paired_component_95ci_gain": [
+                0.0,
+                0.0
+              ],
+              "improved_fraction": 0.0
+            },
+            "top5_f1": {
+              "bilinear_mean": 0.48846153846153845,
+              "model_mean": 0.48846153846153845,
+              "model_median": 0.4,
+              "mean_gain": 0.0,
+              "paired_component_95ci_gain": [
+                0.0,
+                0.0
+              ],
+              "improved_fraction": 0.0
+            },
+            "shape_r_at_least_0_5_fraction": 1.0
+          },
+          "OPCID": {
+            "n": 10,
+            "overlap_components": 10,
+            "psnr": {
+              "bilinear_mean": 13.73547552613716,
+              "model_mean": 14.182328199143692,
+              "model_median": 14.187382242558076,
+              "mean_gain": 0.4468526730065321,
+              "paired_component_95ci_gain": [
+                0.40366749870093144,
+                0.4889380918172421
+              ],
+              "improved_fraction": 1.0
+            },
+            "ssim": {
+              "bilinear_mean": 0.019624598174887764,
+              "model_mean": 0.06845294354064908,
+              "model_median": 0.07097167504081907,
+              "mean_gain": 0.04882834536576132,
+              "paired_component_95ci_gain": [
+                0.03806631334714682,
+                0.058771443399855156
+              ],
+              "improved_fraction": 1.0
+            },
+            "shape_r": {
+              "bilinear_mean": 0.7578391167019166,
+              "model_mean": 0.7578391166235625,
+              "model_median": 0.765000172560709,
+              "mean_gain": -7.835413429191363e-11,
+              "paired_component_95ci_gain": [
+                -3.1711658160515913e-10,
+                1.9187270328124794e-10
+              ],
+              "improved_fraction": 0.4
+            },
+            "profile_r": {
+              "bilinear_mean": 0.9113592577899665,
+              "model_mean": 0.9227595286406217,
+              "model_median": 0.9485406827547674,
+              "mean_gain": 0.011400270850655059,
+              "paired_component_95ci_gain": [
+                -0.0029390512705493566,
+                0.024431248401092995
+              ],
+              "improved_fraction": 0.7
+            },
+            "peak_error_bp": {
+              "bilinear_mean": 484.8437592762966,
+              "model_mean": 484.8437592762966,
+              "model_median": 128.351874864671,
+              "mean_gain": 0.0,
+              "paired_component_95ci_gain": [
+                0.0,
+                0.0
+              ],
+              "improved_fraction": 0.0
+            },
+            "top5_f1": {
+              "bilinear_mean": 0.44000000000000006,
+              "model_mean": 0.44000000000000006,
+              "model_median": 0.6,
+              "mean_gain": 0.0,
+              "paired_component_95ci_gain": [
+                0.0,
+                0.0
+              ],
+              "improved_fraction": 0.0
+            },
+            "shape_r_at_least_0_5_fraction": 1.0
+          },
+          "CHID": {
+            "n": 6,
+            "overlap_components": 6,
+            "psnr": {
+              "bilinear_mean": 13.943702584555082,
+              "model_mean": 14.340196507546578,
+              "model_median": 13.805891735216676,
+              "mean_gain": 0.3964939229914967,
+              "paired_component_95ci_gain": [
+                0.3214238143904134,
+                0.4728905093483607
+              ],
+              "improved_fraction": 1.0
+            },
+            "ssim": {
+              "bilinear_mean": 0.033009919670198874,
+              "model_mean": 0.07116256624240609,
+              "model_median": 0.07098747622845658,
+              "mean_gain": 0.03815264657220722,
+              "paired_component_95ci_gain": [
+                0.021764502606079223,
+                0.05064295737046114
+              ],
+              "improved_fraction": 1.0
+            },
+            "shape_r": {
+              "bilinear_mean": 0.8405335823314567,
+              "model_mean": 0.8405335819180874,
+              "model_median": 0.840156036703626,
+              "mean_gain": -4.133691907289479e-10,
+              "paired_component_95ci_gain": [
+                -1.2608841748473765e-09,
+                3.6909138708314987e-10
+              ],
+              "improved_fraction": 0.3333333333333333
+            },
+            "profile_r": {
+              "bilinear_mean": 0.9279965572586196,
+              "model_mean": 0.9575662319109788,
+              "model_median": 0.9490978561075059,
+              "mean_gain": 0.029569674652359268,
+              "paired_component_95ci_gain": [
+                0.010617738119079975,
+                0.057504608095632403
+              ],
+              "improved_fraction": 1.0
+            },
+            "peak_error_bp": {
+              "bilinear_mean": 547.9342216593791,
+              "model_mean": 547.9342216593791,
+              "model_median": 25.09882418918542,
+              "mean_gain": 0.0,
+              "paired_component_95ci_gain": [
+                0.0,
+                0.0
+              ],
+              "improved_fraction": 0.0
+            },
+            "top5_f1": {
+              "bilinear_mean": 0.43333333333333335,
+              "model_mean": 0.43333333333333335,
+              "model_median": 0.4,
+              "mean_gain": 0.0,
+              "paired_component_95ci_gain": [
+                0.0,
+                0.0
+              ],
+              "improved_fraction": 0.0
+            },
+            "shape_r_at_least_0_5_fraction": 1.0
+          }
+        },
+        "train_calibrated_bicubic": {
+          "all": {
+            "n": 68,
+            "overlap_components": 41,
+            "psnr": {
+              "bilinear_mean": 12.615101107735086,
+              "model_mean": 12.934819995087306,
+              "model_median": 12.741225811971727,
+              "mean_gain": 0.31971888735222176,
+              "paired_component_95ci_gain": [
+                0.26820696961635515,
+                0.37078120684979265
+              ],
+              "improved_fraction": 1.0
+            },
+            "ssim": {
+              "bilinear_mean": 0.026376667941300436,
+              "model_mean": 0.06064037788577065,
+              "model_median": 0.055823111173512116,
+              "mean_gain": 0.034263709944470214,
+              "paired_component_95ci_gain": [
+                0.02804456765233041,
+                0.039108203256753925
+              ],
+              "improved_fraction": 0.9705882352941176
+            },
+            "shape_r": {
+              "bilinear_mean": 0.83976391037086,
+              "model_mean": 0.8422142202742812,
+              "model_median": 0.8528146491524251,
+              "mean_gain": 0.002450309903421168,
+              "paired_component_95ci_gain": [
+                0.00029056691012132376,
+                0.005440303970134094
+              ],
+              "improved_fraction": 0.6176470588235294
+            },
+            "profile_r": {
+              "bilinear_mean": 0.9416552285733562,
+              "model_mean": 0.9513343697232515,
+              "model_median": 0.9589559127662006,
+              "mean_gain": 0.009679141149895244,
+              "paired_component_95ci_gain": [
+                0.0028722198907396032,
+                0.017313893962993085
+              ],
+              "improved_fraction": 0.6617647058823529
+            },
+            "peak_error_bp": {
+              "bilinear_mean": 468.0621527249603,
+              "model_mean": 490.1786944852571,
+              "model_median": 42.976207903086205,
+              "mean_gain": -22.11654176029665,
+              "paired_component_95ci_gain": [
+                -96.45487749223793,
+                21.59993137476399
+              ],
+              "improved_fraction": 0.14705882352941177
+            },
+            "top5_f1": {
+              "bilinear_mean": 0.4764705882352941,
+              "model_mean": 0.4852941176470587,
+              "model_median": 0.4,
+              "mean_gain": 0.008823529411764704,
+              "paired_component_95ci_gain": [
+                -0.05161471547662196,
+                0.08066293056314916
+              ],
+              "improved_fraction": 0.20588235294117646
+            },
+            "shape_r_at_least_0_5_fraction": 1.0
+          },
+          "CHIN": {
+            "n": 52,
+            "overlap_components": 34,
+            "psnr": {
+              "bilinear_mean": 12.246344318409305,
+              "model_mean": 12.544144144105527,
+              "model_median": 12.410980948033872,
+              "mean_gain": 0.29779982569622226,
+              "paired_component_95ci_gain": [
+                0.2289616118323331,
+                0.3559271089510344
+              ],
+              "improved_fraction": 1.0
+            },
+            "ssim": {
+              "bilinear_mean": 0.02690976769689152,
+              "model_mean": 0.056313195393188804,
+              "model_median": 0.05443313301436109,
+              "mean_gain": 0.029403427696297287,
+              "paired_component_95ci_gain": [
+                0.020603119651760437,
+                0.03571222914792336
+              ],
+              "improved_fraction": 0.9615384615384616
+            },
+            "shape_r": {
+              "bilinear_mean": 0.8554298700809725,
+              "model_mean": 0.8593377369367747,
+              "model_median": 0.8732197209533322,
+              "mean_gain": 0.003907866855802313,
+              "paired_component_95ci_gain": [
+                0.0014948723159495978,
+                0.007305137111772296
+              ],
+              "improved_fraction": 0.6730769230769231
+            },
+            "profile_r": {
+              "bilinear_mean": 0.9490573773372469,
+              "model_mean": 0.9565911687026808,
+              "model_median": 0.9627638397194411,
+              "mean_gain": 0.007533791365433621,
+              "paired_component_95ci_gain": [
+                -0.00010160443082177565,
+                0.016077702724207957
+              ],
+              "improved_fraction": 0.6346153846153846
+            },
+            "peak_error_bp": {
+              "bilinear_mean": 455.61891274188594,
+              "model_mean": 483.03101156109517,
+              "model_median": 42.976207903086205,
+              "mean_gain": -27.412098819209202,
+              "paired_component_95ci_gain": [
+                -132.11321475127687,
+                29.52714949412749
+              ],
+              "improved_fraction": 0.17307692307692307
+            },
+            "top5_f1": {
+              "bilinear_mean": 0.48846153846153845,
+              "model_mean": 0.4884615384615384,
+              "model_median": 0.4,
+              "mean_gain": 0.0,
+              "paired_component_95ci_gain": [
+                -0.05294417767106844,
+                0.06001162790697668
+              ],
+              "improved_fraction": 0.15384615384615385
+            },
+            "shape_r_at_least_0_5_fraction": 1.0
+          },
+          "OPCID": {
+            "n": 10,
+            "overlap_components": 10,
+            "psnr": {
+              "bilinear_mean": 13.73547552613716,
+              "model_mean": 14.142934443566201,
+              "model_median": 14.144424254072995,
+              "mean_gain": 0.4074589174290436,
+              "paired_component_95ci_gain": [
+                0.36162512292096366,
+                0.4543652314275635
+              ],
+              "improved_fraction": 1.0
+            },
+            "ssim": {
+              "bilinear_mean": 0.019624598174887764,
+              "model_mean": 0.07274990420206837,
+              "model_median": 0.07569583022130573,
+              "mean_gain": 0.053125306027180595,
+              "paired_component_95ci_gain": [
+                0.04174896770808703,
+                0.06343145521764422
+              ],
+              "improved_fraction": 1.0
+            },
+            "shape_r": {
+              "bilinear_mean": 0.7578391167019166,
+              "model_mean": 0.7541323681198271,
+              "model_median": 0.7595476819245441,
+              "mean_gain": -0.003706748582089503,
+              "paired_component_95ci_gain": [
+                -0.008167464910943497,
+                0.000691517308826549
+              ],
+              "improved_fraction": 0.3
+            },
+            "profile_r": {
+              "bilinear_mean": 0.9113592577899665,
+              "model_mean": 0.9212852807977174,
+              "model_median": 0.9458243031937472,
+              "mean_gain": 0.009926023007750907,
+              "paired_component_95ci_gain": [
+                -0.004481070735228298,
+                0.022734132898650544
+              ],
+              "improved_fraction": 0.7
+            },
+            "peak_error_bp": {
+              "bilinear_mean": 484.8437592762966,
+              "model_mean": 492.27911582405284,
+              "model_median": 147.19544457292886,
+              "mean_gain": -7.435356547756231,
+              "paired_component_95ci_gain": [
+                -15.048404404275848,
+                -1.5307084819740744
+              ],
+              "improved_fraction": 0.1
+            },
+            "top5_f1": {
+              "bilinear_mean": 0.44000000000000006,
+              "model_mean": 0.58,
+              "model_median": 0.6,
+              "mean_gain": 0.14000000000000004,
+              "paired_component_95ci_gain": [
+                0.04000000000000001,
+                0.24000000000000005
+              ],
+              "improved_fraction": 0.5
+            },
+            "shape_r_at_least_0_5_fraction": 1.0
+          },
+          "CHID": {
+            "n": 6,
+            "overlap_components": 6,
+            "psnr": {
+              "bilinear_mean": 13.943702584555082,
+              "model_mean": 14.307153289464596,
+              "model_median": 13.767788589839377,
+              "mean_gain": 0.36345070490951414,
+              "paired_component_95ci_gain": [
+                0.28170984099754376,
+                0.4420600140321846
+              ],
+              "improved_fraction": 1.0
+            },
+            "ssim": {
+              "bilinear_mean": 0.033009919670198874,
+              "model_mean": 0.07796008229431721,
+              "model_median": 0.07943828801398968,
+              "mean_gain": 0.04495016262411833,
+              "paired_component_95ci_gain": [
+                0.026620202091807824,
+                0.05749207839330984
+              ],
+              "improved_fraction": 1.0
+            },
+            "shape_r": {
+              "bilinear_mean": 0.8405335823314567,
+              "model_mean": 0.8406134961234256,
+              "model_median": 0.8448727514762606,
+              "mean_gain": 7.991379196903292e-05,
+              "paired_component_95ci_gain": [
+                -0.009692711529513343,
+                0.009033482295335996
+              ],
+              "improved_fraction": 0.6666666666666666
+            },
+            "profile_r": {
+              "bilinear_mean": 0.9279965572586196,
+              "model_mean": 0.955857260110756,
+              "model_median": 0.9443194962738097,
+              "mean_gain": 0.027860702852136543,
+              "paired_component_95ci_gain": [
+                0.005936103869734828,
+                0.0600754835836941
+              ],
+              "improved_fraction": 0.8333333333333334
+            },
+            "peak_error_bp": {
+              "bilinear_mean": 547.9342216593791,
+              "model_mean": 548.6245775966676,
+              "model_median": 25.09882418918542,
+              "mean_gain": -0.6903559372884919,
+              "paired_component_95ci_gain": [
+                -2.0710678118654755,
+                0.0
+              ],
+              "improved_fraction": 0.0
+            },
+            "top5_f1": {
+              "bilinear_mean": 0.43333333333333335,
+              "model_mean": 0.3,
+              "model_median": 0.30000000000000004,
+              "mean_gain": -0.1333333333333334,
+              "paired_component_95ci_gain": [
+                -0.4666666666666666,
+                0.13333333333333333
+              ],
+              "improved_fraction": 0.16666666666666666
+            },
+            "shape_r_at_least_0_5_fraction": 1.0
+          }
+        },
+        "frozen_main_whole": {
+          "all": {
+            "n": 68,
+            "overlap_components": 41,
+            "psnr": {
+              "bilinear_mean": 12.615101107735086,
+              "model_mean": 12.6708436257724,
+              "model_median": 12.47315286227865,
+              "mean_gain": 0.05574251803731423,
+              "paired_component_95ci_gain": [
+                0.020003181127959367,
+                0.08370471730354313
+              ],
+              "improved_fraction": 0.7647058823529411
+            },
+            "ssim": {
+              "bilinear_mean": 0.026376667941300436,
+              "model_mean": 0.009132869758514345,
+              "model_median": 0.0071769623650183864,
+              "mean_gain": -0.017243798182786093,
+              "paired_component_95ci_gain": [
+                -0.01943873556294718,
+                -0.015671087318603037
+              ],
+              "improved_fraction": 0.014705882352941176
+            },
+            "shape_r": {
+              "bilinear_mean": 0.83976391037086,
+              "model_mean": 0.8442280038362173,
+              "model_median": 0.8554052073031081,
+              "mean_gain": 0.004464093465357438,
+              "paired_component_95ci_gain": [
+                0.001057549308174816,
+                0.007268048048086572
+              ],
+              "improved_fraction": 0.6764705882352942
+            },
+            "profile_r": {
+              "bilinear_mean": 0.9416552285733562,
+              "model_mean": 0.9297117261442875,
+              "model_median": 0.9348608016713775,
+              "mean_gain": -0.011943502429068872,
+              "paired_component_95ci_gain": [
+                -0.0189890444419847,
+                -0.005057735443638526
+              ],
+              "improved_fraction": 0.2647058823529412
+            },
+            "peak_error_bp": {
+              "bilinear_mean": 468.0621527249603,
+              "model_mean": 378.0336948902738,
+              "model_median": 50.495097567963924,
+              "mean_gain": 90.02845783468656,
+              "paired_component_95ci_gain": [
+                -172.01740762949316,
+                353.9534177189645
+              ],
+              "improved_fraction": 0.35294117647058826
+            },
+            "top5_f1": {
+              "bilinear_mean": 0.4764705882352941,
+              "model_mean": 0.47058823529411764,
+              "model_median": 0.4,
+              "mean_gain": -0.0058823529411764705,
+              "paired_component_95ci_gain": [
+                -0.05218535469107551,
+                0.0320064516129032
+              ],
+              "improved_fraction": 0.20588235294117646
+            },
+            "shape_r_at_least_0_5_fraction": 1.0
+          },
+          "CHIN": {
+            "n": 52,
+            "overlap_components": 34,
+            "psnr": {
+              "bilinear_mean": 12.246344318409305,
+              "model_mean": 12.297059736993226,
+              "model_median": 12.228774420561699,
+              "mean_gain": 0.05071541858392582,
+              "paired_component_95ci_gain": [
+                0.009264253857152948,
+                0.08152007433635636
+              ],
+              "improved_fraction": 0.7307692307692307
+            },
+            "ssim": {
+              "bilinear_mean": 0.02690976769689152,
+              "model_mean": 0.008158647576830158,
+              "model_median": 0.00804763342834304,
+              "mean_gain": -0.01875112012006136,
+              "paired_component_95ci_gain": [
+                -0.020999719697890124,
+                -0.017235268490959185
+              ],
+              "improved_fraction": 0.0
+            },
+            "shape_r": {
+              "bilinear_mean": 0.8554298700809725,
+              "model_mean": 0.8619499056109698,
+              "model_median": 0.8782761290742385,
+              "mean_gain": 0.006520035529997468,
+              "paired_component_95ci_gain": [
+                0.0037096867695313902,
+                0.009547241165418835
+              ],
+              "improved_fraction": 0.7307692307692307
+            },
+            "profile_r": {
+              "bilinear_mean": 0.9490573773372469,
+              "model_mean": 0.9395252657793027,
+              "model_median": 0.9437176940506724,
+              "mean_gain": -0.009532111557944296,
+              "paired_component_95ci_gain": [
+                -0.015547139767449064,
+                -0.0023835571492041878
+              ],
+              "improved_fraction": 0.3076923076923077
+            },
+            "peak_error_bp": {
+              "bilinear_mean": 455.61891274188594,
+              "model_mean": 368.1913568320776,
+              "model_median": 50.495097567963924,
+              "mean_gain": 87.42755590980829,
+              "paired_component_95ci_gain": [
+                -164.54539218045937,
+                303.28610107061314
+              ],
+              "improved_fraction": 0.38461538461538464
+            },
+            "top5_f1": {
+              "bilinear_mean": 0.48846153846153845,
+              "model_mean": 0.4692307692307693,
+              "model_median": 0.4,
+              "mean_gain": -0.019230769230769225,
+              "paired_component_95ci_gain": [
+                -0.08292682926829269,
+                0.024615384615384605
+              ],
+              "improved_fraction": 0.21153846153846154
+            },
+            "shape_r_at_least_0_5_fraction": 1.0
+          },
+          "OPCID": {
+            "n": 10,
+            "overlap_components": 10,
+            "psnr": {
+              "bilinear_mean": 13.73547552613716,
+              "model_mean": 13.81603075376447,
+              "model_median": 13.842778372123885,
+              "mean_gain": 0.08055522762731453,
+              "paired_component_95ci_gain": [
+                0.05017155377262809,
+                0.10652841527481853
+              ],
+              "improved_fraction": 0.9
+            },
+            "ssim": {
+              "bilinear_mean": 0.019624598174887764,
+              "model_mean": 0.0069828786141658715,
+              "model_median": 0.0032708393163489932,
+              "mean_gain": -0.012641719560721895,
+              "paired_component_95ci_gain": [
+                -0.014264020013117818,
+                -0.010982166115606196
+              ],
+              "improved_fraction": 0.0
+            },
+            "shape_r": {
+              "bilinear_mean": 0.7578391167019166,
+              "model_mean": 0.7558330711381785,
+              "model_median": 0.7683905457603626,
+              "mean_gain": -0.00200604556373809,
+              "paired_component_95ci_gain": [
+                -0.015151047965241226,
+                0.010298034656944297
+              ],
+              "improved_fraction": 0.5
+            },
+            "profile_r": {
+              "bilinear_mean": 0.9113592577899665,
+              "model_mean": 0.9002822002330954,
+              "model_median": 0.9299057318961885,
+              "mean_gain": -0.011077057556871217,
+              "paired_component_95ci_gain": [
+                -0.018026003290454153,
+                -0.00323847426450858
+              ],
+              "improved_fraction": 0.2
+            },
+            "peak_error_bp": {
+              "bilinear_mean": 484.8437592762966,
+              "model_mean": 487.37660263878126,
+              "model_median": 131.64348108610298,
+              "mean_gain": -2.5328433624846887,
+              "paired_component_95ci_gain": [
+                -6.020004129785104,
+                0.8843760804893502
+              ],
+              "improved_fraction": 0.3
+            },
+            "top5_f1": {
+              "bilinear_mean": 0.44000000000000006,
+              "model_mean": 0.5,
+              "model_median": 0.6,
+              "mean_gain": 0.06000000000000001,
+              "paired_component_95ci_gain": [
+                -0.02,
+                0.16000000000000003
+              ],
+              "improved_fraction": 0.3
+            },
+            "shape_r_at_least_0_5_fraction": 1.0
+          },
+          "CHID": {
+            "n": 6,
+            "overlap_components": 6,
+            "psnr": {
+              "bilinear_mean": 13.943702584555082,
+              "model_mean": 14.001658781871761,
+              "model_median": 13.529979954440076,
+              "mean_gain": 0.057956197316679926,
+              "paired_component_95ci_gain": [
+                -0.03699014229966983,
+                0.11841620291821436
+              ],
+              "improved_fraction": 0.8333333333333334
+            },
+            "ssim": {
+              "bilinear_mean": 0.033009919670198874,
+              "model_mean": 0.021159447240358082,
+              "model_median": 0.005826797786866163,
+              "mean_gain": -0.011850472429840796,
+              "paired_component_95ci_gain": [
+                -0.0210708979649398,
+                0.00037403061022748163
+              ],
+              "improved_fraction": 0.16666666666666666
+            },
+            "shape_r": {
+              "bilinear_mean": 0.8405335823314567,
+              "model_mean": 0.837963076285093,
+              "model_median": 0.845320809550606,
+              "mean_gain": -0.0025705060463636076,
+              "paired_component_95ci_gain": [
+                -0.012336358679200484,
+                0.005667210432670988
+              ],
+              "improved_fraction": 0.5
+            },
+            "profile_r": {
+              "bilinear_mean": 0.9279965572586196,
+              "model_mean": 0.8937102591594749,
+              "model_median": 0.9234294642528063,
+              "mean_gain": -0.03428629809914461,
+              "paired_component_95ci_gain": [
+                -0.06629726689490628,
+                -0.014386007489898914
+              ],
+              "improved_fraction": 0.0
+            },
+            "peak_error_bp": {
+              "bilinear_mean": 547.9342216593791,
+              "model_mean": 281.095778480462,
+              "model_median": 36.4269164289302,
+              "mean_gain": 266.8384431789171,
+              "paired_component_95ci_gain": [
+                -746.1544671011216,
+                1549.0853337423403
+              ],
+              "improved_fraction": 0.16666666666666666
+            },
+            "top5_f1": {
+              "bilinear_mean": 0.43333333333333335,
+              "model_mean": 0.43333333333333335,
+              "model_median": 0.4,
+              "mean_gain": 0.0,
+              "paired_component_95ci_gain": [
+                0.0,
+                0.0
+              ],
+              "improved_fraction": 0.0
+            },
+            "shape_r_at_least_0_5_fraction": 1.0
+          }
+        }
+      }
+    },
+    "rep2_fixed_test": {
+      "selected": {
+        "all": {
+          "n": 68,
+          "overlap_components": 41,
+          "psnr": {
+            "bilinear_mean": 12.56765407263561,
+            "model_mean": 13.006219964281074,
+            "model_median": 12.683095359401754,
+            "mean_gain": 0.438565891645464,
+            "paired_component_95ci_gain": [
+              0.39590759205900655,
+              0.47717230272114536
+            ],
+            "improved_fraction": 1.0
+          },
+          "ssim": {
+            "bilinear_mean": 0.025260992392177092,
+            "model_mean": 0.07839239748398909,
+            "model_median": 0.07653839117944118,
+            "mean_gain": 0.05313140509181199,
+            "paired_component_95ci_gain": [
+              0.04581802175060198,
+              0.05867009139593081
+            ],
+            "improved_fraction": 1.0
+          },
+          "shape_r": {
+            "bilinear_mean": 0.8446539959132725,
+            "model_mean": 0.8989103348948054,
+            "model_median": 0.9078558577959117,
+            "mean_gain": 0.054256338981532884,
+            "paired_component_95ci_gain": [
+              0.048700921062398324,
+              0.05987212264168822
+            ],
+            "improved_fraction": 1.0
+          },
+          "profile_r": {
+            "bilinear_mean": 0.9414581848106586,
+            "model_mean": 0.959058758771536,
+            "model_median": 0.9696237654889318,
+            "mean_gain": 0.017600573960877598,
+            "paired_component_95ci_gain": [
+              0.008233313305014504,
+              0.026848884444606674
+            ],
+            "improved_fraction": 0.75
+          },
+          "peak_error_bp": {
+            "bilinear_mean": 408.3697386882691,
+            "model_mean": 193.56919364701915,
+            "model_median": 45.6155281280883,
+            "mean_gain": 214.80054504124988,
+            "paired_component_95ci_gain": [
+              -16.128112393976412,
+              644.178650410549
+            ],
+            "improved_fraction": 0.2647058823529412
+          },
+          "top5_f1": {
+            "bilinear_mean": 0.4411764705882353,
+            "model_mean": 0.45588235294117646,
+            "model_median": 0.4,
+            "mean_gain": 0.014705882352941173,
+            "paired_component_95ci_gain": [
+              -0.017073170731707322,
+              0.050909090909090904
+            ],
+            "improved_fraction": 0.14705882352941177
+          },
+          "shape_r_at_least_0_5_fraction": 1.0
+        },
+        "CHIN": {
+          "n": 52,
+          "overlap_components": 34,
+          "psnr": {
+            "bilinear_mean": 12.222479212075068,
+            "model_mean": 12.634985973653823,
+            "model_median": 12.535366792986146,
+            "mean_gain": 0.41250676157875465,
+            "paired_component_95ci_gain": [
+              0.3567071768980772,
+              0.45934868057573935
+            ],
+            "improved_fraction": 1.0
+          },
+          "ssim": {
+            "bilinear_mean": 0.025275275619030455,
+            "model_mean": 0.0742606075876424,
+            "model_median": 0.07392041695513865,
+            "mean_gain": 0.04898533196861195,
+            "paired_component_95ci_gain": [
+              0.03999218881486515,
+              0.05555139860703702
+            ],
+            "improved_fraction": 1.0
+          },
+          "shape_r": {
+            "bilinear_mean": 0.862804453616384,
+            "model_mean": 0.9104096323423272,
+            "model_median": 0.9137442427998634,
+            "mean_gain": 0.04760517872594304,
+            "paired_component_95ci_gain": [
+              0.04136234595989007,
+              0.052069230486580964
+            ],
+            "improved_fraction": 1.0
+          },
+          "profile_r": {
+            "bilinear_mean": 0.9503387233627477,
+            "model_mean": 0.9595194475955278,
+            "model_median": 0.9701756003504687,
+            "mean_gain": 0.009180724232780104,
+            "paired_component_95ci_gain": [
+              -0.0024612717222842256,
+              0.018889250601187475
+            ],
+            "improved_fraction": 0.7115384615384616
+          },
+          "peak_error_bp": {
+            "bilinear_mean": 181.40224266754996,
+            "model_mean": 156.11886937940616,
+            "model_median": 38.643284505408246,
+            "mean_gain": 25.283373288143796,
+            "paired_component_95ci_gain": [
+              -38.54541637672035,
+              132.22950599744527
+            ],
+            "improved_fraction": 0.25
+          },
+          "top5_f1": {
+            "bilinear_mean": 0.4576923076923076,
+            "model_mean": 0.4846153846153846,
+            "model_median": 0.6,
+            "mean_gain": 0.02692307692307692,
+            "paired_component_95ci_gain": [
+              -0.007501179245283025,
+              0.07234042553191489
+            ],
+            "improved_fraction": 0.15384615384615385
+          },
+          "shape_r_at_least_0_5_fraction": 1.0
+        },
+        "OPCID": {
+          "n": 10,
+          "overlap_components": 10,
+          "psnr": {
+            "bilinear_mean": 13.470167110194575,
+            "model_mean": 14.024580383530287,
+            "model_median": 14.050698699958907,
+            "mean_gain": 0.5544132733357122,
+            "paired_component_95ci_gain": [
+              0.5121863075660279,
+              0.5978867403522414
+            ],
+            "improved_fraction": 1.0
+          },
+          "ssim": {
+            "bilinear_mean": 0.01809946860861741,
+            "model_mean": 0.08107406691325779,
+            "model_median": 0.08265390531451423,
+            "mean_gain": 0.06297459830464038,
+            "paired_component_95ci_gain": [
+              0.05286640506244559,
+              0.07242925287237502
+            ],
+            "improved_fraction": 1.0
+          },
+          "shape_r": {
+            "bilinear_mean": 0.7523026576584637,
+            "model_mean": 0.8306739603974205,
+            "model_median": 0.8396720906180439,
+            "mean_gain": 0.07837130273895668,
+            "paired_component_95ci_gain": [
+              0.06567743224877391,
+              0.09096771543136899
+            ],
+            "improved_fraction": 1.0
+          },
+          "profile_r": {
+            "bilinear_mean": 0.9024055405097302,
+            "model_mean": 0.9491432416403185,
+            "model_median": 0.9537191264845146,
+            "mean_gain": 0.04673770113058838,
+            "paired_component_95ci_gain": [
+              0.01879571611601745,
+              0.08127457793393635
+            ],
+            "improved_fraction": 0.8
+          },
+          "peak_error_bp": {
+            "bilinear_mean": 171.52734125289317,
+            "model_mean": 169.74110076174128,
+            "model_median": 70.31128874149275,
+            "mean_gain": 1.7862404911518617,
+            "paired_component_95ci_gain": [
+              -1.3925387117703694,
+              4.866025397257702
+            ],
+            "improved_fraction": 0.4
+          },
+          "top5_f1": {
+            "bilinear_mean": 0.42000000000000004,
+            "model_mean": 0.3400000000000001,
+            "model_median": 0.4,
+            "mean_gain": -0.08,
+            "paired_component_95ci_gain": [
+              -0.16049999999999998,
+              -0.019500000000002727
+            ],
+            "improved_fraction": 0.0
+          },
+          "shape_r_at_least_0_5_fraction": 1.0
+        },
+        "CHID": {
+          "n": 6,
+          "overlap_components": 6,
+          "psnr": {
+            "bilinear_mean": 14.054981134895362,
+            "model_mean": 14.526313850968558,
+            "model_median": 13.922444214640684,
+            "mean_gain": 0.4713327160731981,
+            "paired_component_95ci_gain": [
+              0.4184647992345442,
+              0.5275198015311183
+            ],
+            "improved_fraction": 1.0
+          },
+          "ssim": {
+            "bilinear_mean": 0.03707307739871409,
+            "model_mean": 0.10973179420354597,
+            "model_median": 0.09542049263311139,
+            "mean_gain": 0.0726587168048319,
+            "paired_component_95ci_gain": [
+              0.06331883922323274,
+              0.08352198192917724
+            ],
+            "improved_fraction": 1.0
+          },
+          "shape_r": {
+            "bilinear_mean": 0.8412689262443201,
+            "model_mean": 0.9129770478452589,
+            "model_median": 0.9155638839466693,
+            "mean_gain": 0.07170812160093866,
+            "paired_component_95ci_gain": [
+              0.04662752723049008,
+              0.10803773594809853
+            ],
+            "improved_fraction": 1.0
+          },
+          "profile_r": {
+            "bilinear_mean": 0.9295812578607663,
+            "model_mean": 0.9715919841823042,
+            "model_median": 0.9743377317519863,
+            "mean_gain": 0.04201072632153787,
+            "paired_component_95ci_gain": [
+              0.0230139604812382,
+              0.07533212029996715
+            ],
+            "improved_fraction": 1.0
+          },
+          "peak_error_bp": {
+            "bilinear_mean": 2770.1586999267947,
+            "model_mean": 557.8521587751284,
+            "model_median": 415.4674904686932,
+            "mean_gain": 2212.3065411516664,
+            "paired_component_95ci_gain": [
+              -11.07811265087588,
+              6653.65480317994
+            ],
+            "improved_fraction": 0.16666666666666666
+          },
+          "top5_f1": {
+            "bilinear_mean": 0.3333333333333333,
+            "model_mean": 0.4000000000000001,
+            "model_median": 0.5,
+            "mean_gain": 0.06666666666666665,
+            "paired_component_95ci_gain": [
+              0.0,
+              0.1333333333333333
+            ],
+            "improved_fraction": 0.3333333333333333
+          },
+          "shape_r_at_least_0_5_fraction": 1.0
+        }
+      },
+      "success": {
+        "image_gain_supported": true,
+        "complete_morphology_supported": true,
+        "operational_course_success": true,
+        "interpretation": "Fixed full-window shape/profile criteria for CHIN and OPCID; all classes and actual image peak metrics are retained. Original 640-bp results and this evaluation are different scales. No physical/function/real-HiC or blind-validation claim."
+      },
+      "controls": {
+        "bilinear": {
+          "all": {
+            "n": 68,
+            "overlap_components": 41,
+            "psnr": {
+              "bilinear_mean": 12.56765407263561,
+              "model_mean": 12.56765407263561,
+              "model_median": 12.326227620404321,
+              "mean_gain": 0.0,
+              "paired_component_95ci_gain": [
+                0.0,
+                0.0
+              ],
+              "improved_fraction": 0.0
+            },
+            "ssim": {
+              "bilinear_mean": 0.025260992392177092,
+              "model_mean": 0.025260992392177092,
+              "model_median": 0.02400281410362369,
+              "mean_gain": 0.0,
+              "paired_component_95ci_gain": [
+                0.0,
+                0.0
+              ],
+              "improved_fraction": 0.0
+            },
+            "shape_r": {
+              "bilinear_mean": 0.8446539959132725,
+              "model_mean": 0.8446539959132725,
+              "model_median": 0.8567217080067475,
+              "mean_gain": 0.0,
+              "paired_component_95ci_gain": [
+                0.0,
+                0.0
+              ],
+              "improved_fraction": 0.0
+            },
+            "profile_r": {
+              "bilinear_mean": 0.9414581848106586,
+              "model_mean": 0.9414581848106586,
+              "model_median": 0.9482174423483305,
+              "mean_gain": 0.0,
+              "paired_component_95ci_gain": [
+                0.0,
+                0.0
+              ],
+              "improved_fraction": 0.0
+            },
+            "peak_error_bp": {
+              "bilinear_mean": 408.3697386882691,
+              "model_mean": 408.3697386882691,
+              "model_median": 53.779368815425826,
+              "mean_gain": 0.0,
+              "paired_component_95ci_gain": [
+                0.0,
+                0.0
+              ],
+              "improved_fraction": 0.0
+            },
+            "top5_f1": {
+              "bilinear_mean": 0.4411764705882353,
+              "model_mean": 0.4411764705882353,
+              "model_median": 0.4,
+              "mean_gain": 0.0,
+              "paired_component_95ci_gain": [
+                0.0,
+                0.0
+              ],
+              "improved_fraction": 0.0
+            },
+            "shape_r_at_least_0_5_fraction": 1.0
+          },
+          "CHIN": {
+            "n": 52,
+            "overlap_components": 34,
+            "psnr": {
+              "bilinear_mean": 12.222479212075068,
+              "model_mean": 12.222479212075068,
+              "model_median": 12.11135441484523,
+              "mean_gain": 0.0,
+              "paired_component_95ci_gain": [
+                0.0,
+                0.0
+              ],
+              "improved_fraction": 0.0
+            },
+            "ssim": {
+              "bilinear_mean": 0.025275275619030455,
+              "model_mean": 0.025275275619030455,
+              "model_median": 0.025309186975529578,
+              "mean_gain": 0.0,
+              "paired_component_95ci_gain": [
+                0.0,
+                0.0
+              ],
+              "improved_fraction": 0.0
+            },
+            "shape_r": {
+              "bilinear_mean": 0.862804453616384,
+              "model_mean": 0.862804453616384,
+              "model_median": 0.8657549224673574,
+              "mean_gain": 0.0,
+              "paired_component_95ci_gain": [
+                0.0,
+                0.0
+              ],
+              "improved_fraction": 0.0
+            },
+            "profile_r": {
+              "bilinear_mean": 0.9503387233627477,
+              "model_mean": 0.9503387233627477,
+              "model_median": 0.9514890028733833,
+              "mean_gain": 0.0,
+              "paired_component_95ci_gain": [
+                0.0,
+                0.0
+              ],
+              "improved_fraction": 0.0
+            },
+            "peak_error_bp": {
+              "bilinear_mean": 181.40224266754996,
+              "model_mean": 181.40224266754996,
+              "model_median": 45.6155281280883,
+              "mean_gain": 0.0,
+              "paired_component_95ci_gain": [
+                0.0,
+                0.0
+              ],
+              "improved_fraction": 0.0
+            },
+            "top5_f1": {
+              "bilinear_mean": 0.4576923076923076,
+              "model_mean": 0.4576923076923076,
+              "model_median": 0.4,
+              "mean_gain": 0.0,
+              "paired_component_95ci_gain": [
+                0.0,
+                0.0
+              ],
+              "improved_fraction": 0.0
+            },
+            "shape_r_at_least_0_5_fraction": 1.0
+          },
+          "OPCID": {
+            "n": 10,
+            "overlap_components": 10,
+            "psnr": {
+              "bilinear_mean": 13.470167110194575,
+              "model_mean": 13.470167110194575,
+              "model_median": 13.527277655281509,
+              "mean_gain": 0.0,
+              "paired_component_95ci_gain": [
+                0.0,
+                0.0
+              ],
+              "improved_fraction": 0.0
+            },
+            "ssim": {
+              "bilinear_mean": 0.01809946860861741,
+              "model_mean": 0.01809946860861741,
+              "model_median": 0.014930178059510834,
+              "mean_gain": 0.0,
+              "paired_component_95ci_gain": [
+                0.0,
+                0.0
+              ],
+              "improved_fraction": 0.0
+            },
+            "shape_r": {
+              "bilinear_mean": 0.7523026576584637,
+              "model_mean": 0.7523026576584637,
+              "model_median": 0.755714277095962,
+              "mean_gain": 0.0,
+              "paired_component_95ci_gain": [
+                0.0,
+                0.0
+              ],
+              "improved_fraction": 0.0
+            },
+            "profile_r": {
+              "bilinear_mean": 0.9024055405097302,
+              "model_mean": 0.9024055405097302,
+              "model_median": 0.9383907275428194,
+              "mean_gain": 0.0,
+              "paired_component_95ci_gain": [
+                0.0,
+                0.0
+              ],
+              "improved_fraction": 0.0
+            },
+            "peak_error_bp": {
+              "bilinear_mean": 171.52734125289317,
+              "model_mean": 171.52734125289317,
+              "model_median": 75.69073834217818,
+              "mean_gain": 0.0,
+              "paired_component_95ci_gain": [
+                0.0,
+                0.0
+              ],
+              "improved_fraction": 0.0
+            },
+            "top5_f1": {
+              "bilinear_mean": 0.42000000000000004,
+              "model_mean": 0.42000000000000004,
+              "model_median": 0.4,
+              "mean_gain": 0.0,
+              "paired_component_95ci_gain": [
+                0.0,
+                0.0
+              ],
+              "improved_fraction": 0.0
+            },
+            "shape_r_at_least_0_5_fraction": 1.0
+          },
+          "CHID": {
+            "n": 6,
+            "overlap_components": 6,
+            "psnr": {
+              "bilinear_mean": 14.054981134895362,
+              "model_mean": 14.054981134895362,
+              "model_median": 13.46293791868506,
+              "mean_gain": 0.0,
+              "paired_component_95ci_gain": [
+                0.0,
+                0.0
+              ],
+              "improved_fraction": 0.0
+            },
+            "ssim": {
+              "bilinear_mean": 0.03707307739871409,
+              "model_mean": 0.03707307739871409,
+              "model_median": 0.023733885992100624,
+              "mean_gain": 0.0,
+              "paired_component_95ci_gain": [
+                0.0,
+                0.0
+              ],
+              "improved_fraction": 0.0
+            },
+            "shape_r": {
+              "bilinear_mean": 0.8412689262443201,
+              "model_mean": 0.8412689262443201,
+              "model_median": 0.8450517879199358,
+              "mean_gain": 0.0,
+              "paired_component_95ci_gain": [
+                0.0,
+                0.0
+              ],
+              "improved_fraction": 0.0
+            },
+            "profile_r": {
+              "bilinear_mean": 0.9295812578607663,
+              "model_mean": 0.9295812578607663,
+              "model_median": 0.9463361431520942,
+              "mean_gain": 0.0,
+              "paired_component_95ci_gain": [
+                0.0,
+                0.0
+              ],
+              "improved_fraction": 0.0
+            },
+            "peak_error_bp": {
+              "bilinear_mean": 2770.1586999267947,
+              "model_mean": 2770.1586999267947,
+              "model_median": 828.6374537438843,
+              "mean_gain": 0.0,
+              "paired_component_95ci_gain": [
+                0.0,
+                0.0
+              ],
+              "improved_fraction": 0.0
+            },
+            "top5_f1": {
+              "bilinear_mean": 0.3333333333333333,
+              "model_mean": 0.3333333333333333,
+              "model_median": 0.4,
+              "mean_gain": 0.0,
+              "paired_component_95ci_gain": [
+                0.0,
+                0.0
+              ],
+              "improved_fraction": 0.0
+            },
+            "shape_r_at_least_0_5_fraction": 1.0
+          }
+        },
+        "bicubic": {
+          "all": {
+            "n": 68,
+            "overlap_components": 41,
+            "psnr": {
+              "bilinear_mean": 12.56765407263561,
+              "model_mean": 12.490276299928453,
+              "model_median": 12.241797835967072,
+              "mean_gain": -0.07737777270715662,
+              "paired_component_95ci_gain": [
+                -0.0962146103858434,
+                -0.05395079651982251
+              ],
+              "improved_fraction": 0.14705882352941177
+            },
+            "ssim": {
+              "bilinear_mean": 0.025260992392177092,
+              "model_mean": 0.027952141877800235,
+              "model_median": 0.0252602295311328,
+              "mean_gain": 0.002691149485623144,
+              "paired_component_95ci_gain": [
+                0.002029846047507588,
+                0.003383054620132325
+              ],
+              "improved_fraction": 0.9117647058823529
+            },
+            "shape_r": {
+              "bilinear_mean": 0.8446539959132725,
+              "model_mean": 0.8467996184929782,
+              "model_median": 0.8584534504579041,
+              "mean_gain": 0.002145622579705815,
+              "paired_component_95ci_gain": [
+                5.179842968942092e-05,
+                0.005027782945698327
+              ],
+              "improved_fraction": 0.6029411764705882
+            },
+            "profile_r": {
+              "bilinear_mean": 0.9414581848106586,
+              "model_mean": 0.9416397287739469,
+              "model_median": 0.9473433306108168,
+              "mean_gain": 0.0001815439632883981,
+              "paired_component_95ci_gain": [
+                -0.0006617292581989401,
+                0.0009112041317601104
+              ],
+              "improved_fraction": 0.47058823529411764
+            },
+            "peak_error_bp": {
+              "bilinear_mean": 408.3697386882691,
+              "model_mean": 224.13796162428616,
+              "model_median": 38.643284505408246,
+              "mean_gain": 184.23177706398286,
+              "paired_component_95ci_gain": [
+                -6.2967667913349095,
+                599.718219918161
+              ],
+              "improved_fraction": 0.20588235294117646
+            },
+            "top5_f1": {
+              "bilinear_mean": 0.4411764705882353,
+              "model_mean": 0.45588235294117646,
+              "model_median": 0.4,
+              "mean_gain": 0.014705882352941173,
+              "paired_component_95ci_gain": [
+                -0.020000000000000004,
+                0.051072948328267434
+              ],
+              "improved_fraction": 0.16176470588235295
+            },
+            "shape_r_at_least_0_5_fraction": 1.0
+          },
+          "CHIN": {
+            "n": 52,
+            "overlap_components": 34,
+            "psnr": {
+              "bilinear_mean": 12.222479212075068,
+              "model_mean": 12.163803996452735,
+              "model_median": 12.06594317752014,
+              "mean_gain": -0.05867521562233161,
+              "paired_component_95ci_gain": [
+                -0.07946620878343735,
+                -0.032696049657863775
+              ],
+              "improved_fraction": 0.15384615384615385
+            },
+            "ssim": {
+              "bilinear_mean": 0.025275275619030455,
+              "model_mean": 0.02744169967011092,
+              "model_median": 0.02627758956073702,
+              "mean_gain": 0.0021664240510804672,
+              "paired_component_95ci_gain": [
+                0.0014248158954949133,
+                0.0027515390745549745
+              ],
+              "improved_fraction": 0.8846153846153846
+            },
+            "shape_r": {
+              "bilinear_mean": 0.862804453616384,
+              "model_mean": 0.866240904739326,
+              "model_median": 0.8669964980531801,
+              "mean_gain": 0.0034364511229421444,
+              "paired_component_95ci_gain": [
+                0.0011728629535740775,
+                0.006785648011161463
+              ],
+              "improved_fraction": 0.6730769230769231
+            },
+            "profile_r": {
+              "bilinear_mean": 0.9503387233627477,
+              "model_mean": 0.9506394185695635,
+              "model_median": 0.9538375294460126,
+              "mean_gain": 0.0003006952068157679,
+              "paired_component_95ci_gain": [
+                -0.0006379814531647554,
+                0.0011405019182464937
+              ],
+              "improved_fraction": 0.46153846153846156
+            },
+            "peak_error_bp": {
+              "bilinear_mean": 181.40224266754996,
+              "model_mean": 194.56836239871598,
+              "model_median": 36.05551275463989,
+              "mean_gain": -13.16611973116605,
+              "paired_component_95ci_gain": [
+                -42.2792363519033,
+                2.963886131152007
+              ],
+              "improved_fraction": 0.19230769230769232
+            },
+            "top5_f1": {
+              "bilinear_mean": 0.4576923076923076,
+              "model_mean": 0.47692307692307695,
+              "model_median": 0.4,
+              "mean_gain": 0.019230769230769225,
+              "paired_component_95ci_gain": [
+                -0.019047619047619053,
+                0.05958510638297868
+              ],
+              "improved_fraction": 0.17307692307692307
+            },
+            "shape_r_at_least_0_5_fraction": 1.0
+          },
+          "OPCID": {
+            "n": 10,
+            "overlap_components": 10,
+            "psnr": {
+              "bilinear_mean": 13.470167110194575,
+              "model_mean": 13.319023769650283,
+              "model_median": 13.324837991710634,
+              "mean_gain": -0.15114334054429063,
+              "paired_component_95ci_gain": [
+                -0.19627358131166253,
+                -0.0906529099588488
+              ],
+              "improved_fraction": 0.1
+            },
+            "ssim": {
+              "bilinear_mean": 0.01809946860861741,
+              "model_mean": 0.021552232256091184,
+              "model_median": 0.018390446005528877,
+              "mean_gain": 0.0034527636474737723,
+              "paired_component_95ci_gain": [
+                0.002356966409970946,
+                0.004486886516360351
+              ],
+              "improved_fraction": 1.0
+            },
+            "shape_r": {
+              "bilinear_mean": 0.7523026576584637,
+              "model_mean": 0.7497215601696535,
+              "model_median": 0.7479779316777877,
+              "mean_gain": -0.0025810974888104245,
+              "paired_component_95ci_gain": [
+                -0.007445705385845979,
+                0.0032039092006867147
+              ],
+              "improved_fraction": 0.3
+            },
+            "profile_r": {
+              "bilinear_mean": 0.9024055405097302,
+              "model_mean": 0.9025674688597279,
+              "model_median": 0.9407386087604379,
+              "mean_gain": 0.00016192834999776418,
+              "paired_component_95ci_gain": [
+                -0.0016245640679995999,
+                0.0016229664125028463
+              ],
+              "improved_fraction": 0.6
+            },
+            "peak_error_bp": {
+              "bilinear_mean": 171.52734125289317,
+              "model_mean": 179.4959536764041,
+              "model_median": 75.27692569068708,
+              "mean_gain": -7.968612423510933,
+              "paired_component_95ci_gain": [
+                -26.7148907949179,
+                2.629591790205731
+              ],
+              "improved_fraction": 0.3
+            },
+            "top5_f1": {
+              "bilinear_mean": 0.42000000000000004,
+              "model_mean": 0.42000000000000004,
+              "model_median": 0.5,
+              "mean_gain": -1.6653345369377347e-17,
+              "paired_component_95ci_gain": [
+                -0.12000000000000002,
+                0.12
+              ],
+              "improved_fraction": 0.2
+            },
+            "shape_r_at_least_0_5_fraction": 1.0
+          },
+          "CHID": {
+            "n": 6,
+            "overlap_components": 6,
+            "psnr": {
+              "bilinear_mean": 14.054981134895362,
+              "model_mean": 13.938457147181614,
+              "model_median": 13.384883519588964,
+              "mean_gain": -0.11652398771375012,
+              "paired_component_95ci_gain": [
+                -0.18308530743709836,
+                -0.040127287383835565
+              ],
+              "improved_fraction": 0.16666666666666666
+            },
+            "ssim": {
+              "bilinear_mean": 0.03707307739871409,
+              "model_mean": 0.04304249038062272,
+              "model_median": 0.02761785701954836,
+              "mean_gain": 0.005969412981908624,
+              "paired_component_95ci_gain": [
+                0.0034111919893018284,
+                0.010022418269437207
+              ],
+              "improved_fraction": 1.0
+            },
+            "shape_r": {
+              "bilinear_mean": 0.8412689262443201,
+              "model_mean": 0.8401052348968383,
+              "model_median": 0.844154258449137,
+              "mean_gain": -0.0011636913474819728,
+              "paired_component_95ci_gain": [
+                -0.009526660523336951,
+                0.0067922557133561845
+              ],
+              "improved_fraction": 0.5
+            },
+            "profile_r": {
+              "bilinear_mean": 0.9295812578607663,
+              "model_mean": 0.9287628504023021,
+              "model_median": 0.9462870334309263,
+              "mean_gain": -0.0008184074584644171,
+              "paired_component_95ci_gain": [
+                -0.003612501863864822,
+                0.001724039824817407
+              ],
+              "improved_fraction": 0.3333333333333333
+            },
+            "peak_error_bp": {
+              "bilinear_mean": 2770.1586999267947,
+              "model_mean": 554.8111681590311,
+              "model_median": 415.4674904686932,
+              "mean_gain": 2215.3475317677635,
+              "paired_component_95ci_gain": [
+                -6.6564101602017445,
+                6654.355415623694
+              ],
+              "improved_fraction": 0.16666666666666666
+            },
+            "top5_f1": {
+              "bilinear_mean": 0.3333333333333333,
+              "model_mean": 0.3333333333333333,
+              "model_median": 0.4,
+              "mean_gain": 0.0,
+              "paired_component_95ci_gain": [
+                0.0,
+                0.0
+              ],
+              "improved_fraction": 0.0
+            },
+            "shape_r_at_least_0_5_fraction": 1.0
+          }
+        },
+        "train_calibrated_bilinear": {
+          "all": {
+            "n": 68,
+            "overlap_components": 41,
+            "psnr": {
+              "bilinear_mean": 12.56765407263561,
+              "model_mean": 12.933983215103277,
+              "model_median": 12.622691825175906,
+              "mean_gain": 0.36632914246766823,
+              "paired_component_95ci_gain": [
+                0.31917422798317735,
+                0.4087240311251215
+              ],
+              "improved_fraction": 1.0
+            },
+            "ssim": {
+              "bilinear_mean": 0.025260992392177092,
+              "model_mean": 0.05944285962162776,
+              "model_median": 0.059366470127162764,
+              "mean_gain": 0.03418186722945067,
+              "paired_component_95ci_gain": [
+                0.028136799411888992,
+                0.03909398024612266
+              ],
+              "improved_fraction": 0.9705882352941176
+            },
+            "shape_r": {
+              "bilinear_mean": 0.8446539959132725,
+              "model_mean": 0.8446539954823891,
+              "model_median": 0.8567217071034992,
+              "mean_gain": -4.3088354453063253e-10,
+              "paired_component_95ci_gain": [
+                -6.479065550653014e-10,
+                -2.648848937707544e-10
+              ],
+              "improved_fraction": 0.10294117647058823
+            },
+            "profile_r": {
+              "bilinear_mean": 0.9414581848106586,
+              "model_mean": 0.9512609501170994,
+              "model_median": 0.9557050312638036,
+              "mean_gain": 0.00980276530644085,
+              "paired_component_95ci_gain": [
+                0.0029133486901124156,
+                0.017137655292346697
+              ],
+              "improved_fraction": 0.7058823529411765
+            },
+            "peak_error_bp": {
+              "bilinear_mean": 408.3697386882691,
+              "model_mean": 408.3697386882691,
+              "model_median": 53.779368815425826,
+              "mean_gain": 0.0,
+              "paired_component_95ci_gain": [
+                0.0,
+                0.0
+              ],
+              "improved_fraction": 0.0
+            },
+            "top5_f1": {
+              "bilinear_mean": 0.4411764705882353,
+              "model_mean": 0.4411764705882353,
+              "model_median": 0.4,
+              "mean_gain": 0.0,
+              "paired_component_95ci_gain": [
+                0.0,
+                0.0
+              ],
+              "improved_fraction": 0.0
+            },
+            "shape_r_at_least_0_5_fraction": 1.0
+          },
+          "CHIN": {
+            "n": 52,
+            "overlap_components": 34,
+            "psnr": {
+              "bilinear_mean": 12.222479212075068,
+              "model_mean": 12.561336688449744,
+              "model_median": 12.47796409811302,
+              "mean_gain": 0.33885747637467445,
+              "paired_component_95ci_gain": [
+                0.27745614784592987,
+                0.3905275894044817
+              ],
+              "improved_fraction": 1.0
+            },
+            "ssim": {
+              "bilinear_mean": 0.025275275619030455,
+              "model_mean": 0.056595281317996377,
+              "model_median": 0.053121243896819936,
+              "mean_gain": 0.03132000569896592,
+              "paired_component_95ci_gain": [
+                0.0232133274774205,
+                0.037287208055873385
+              ],
+              "improved_fraction": 0.9807692307692307
+            },
+            "shape_r": {
+              "bilinear_mean": 0.862804453616384,
+              "model_mean": 0.862804453121237,
+              "model_median": 0.8657549221259706,
+              "mean_gain": -4.951470985362724e-10,
+              "paired_component_95ci_gain": [
+                -6.901272613020726e-10,
+                -3.6891358294329225e-10
+              ],
+              "improved_fraction": 0.038461538461538464
+            },
+            "profile_r": {
+              "bilinear_mean": 0.9503387233627477,
+              "model_mean": 0.9562786393732181,
+              "model_median": 0.9584269790702733,
+              "mean_gain": 0.005939916010470473,
+              "paired_component_95ci_gain": [
+                -0.002695625871864865,
+                0.01449946308971206
+              ],
+              "improved_fraction": 0.6923076923076923
+            },
+            "peak_error_bp": {
+              "bilinear_mean": 181.40224266754996,
+              "model_mean": 181.40224266754996,
+              "model_median": 45.6155281280883,
+              "mean_gain": 0.0,
+              "paired_component_95ci_gain": [
+                0.0,
+                0.0
+              ],
+              "improved_fraction": 0.0
+            },
+            "top5_f1": {
+              "bilinear_mean": 0.4576923076923076,
+              "model_mean": 0.4576923076923076,
+              "model_median": 0.4,
+              "mean_gain": 0.0,
+              "paired_component_95ci_gain": [
+                0.0,
+                0.0
+              ],
+              "improved_fraction": 0.0
+            },
+            "shape_r_at_least_0_5_fraction": 1.0
+          },
+          "OPCID": {
+            "n": 10,
+            "overlap_components": 10,
+            "psnr": {
+              "bilinear_mean": 13.470167110194575,
+              "model_mean": 13.9617245257582,
+              "model_median": 14.000841174739588,
+              "mean_gain": 0.49155741556362786,
+              "paired_component_95ci_gain": [
+                0.4514057396048657,
+                0.531316444598563
+              ],
+              "improved_fraction": 1.0
+            },
+            "ssim": {
+              "bilinear_mean": 0.01809946860861741,
+              "model_mean": 0.06485150887167826,
+              "model_median": 0.06647010207080532,
+              "mean_gain": 0.04675204026306085,
+              "paired_component_95ci_gain": [
+                0.036589763650209176,
+                0.05643257921125181
+              ],
+              "improved_fraction": 1.0
+            },
+            "shape_r": {
+              "bilinear_mean": 0.7523026576584637,
+              "model_mean": 0.7523026575061743,
+              "model_median": 0.75571427775318,
+              "mean_gain": -1.5228958094581914e-10,
+              "paired_component_95ci_gain": [
+                -4.762986396955604e-10,
+                1.9049208460630829e-10
+              ],
+              "improved_fraction": 0.3
+            },
+            "profile_r": {
+              "bilinear_mean": 0.9024055405097302,
+              "model_mean": 0.9222985129237709,
+              "model_median": 0.9434356341920684,
+              "mean_gain": 0.0198929724140406,
+              "paired_component_95ci_gain": [
+                0.0058588082501364195,
+                0.03667332255311901
+              ],
+              "improved_fraction": 0.7
+            },
+            "peak_error_bp": {
+              "bilinear_mean": 171.52734125289317,
+              "model_mean": 171.52734125289317,
+              "model_median": 75.69073834217818,
+              "mean_gain": 0.0,
+              "paired_component_95ci_gain": [
+                0.0,
+                0.0
+              ],
+              "improved_fraction": 0.0
+            },
+            "top5_f1": {
+              "bilinear_mean": 0.42000000000000004,
+              "model_mean": 0.42000000000000004,
+              "model_median": 0.4,
+              "mean_gain": 0.0,
+              "paired_component_95ci_gain": [
+                0.0,
+                0.0
+              ],
+              "improved_fraction": 0.0
+            },
+            "shape_r_at_least_0_5_fraction": 1.0
+          },
+          "CHID": {
+            "n": 6,
+            "overlap_components": 6,
+            "psnr": {
+              "bilinear_mean": 14.054981134895362,
+              "model_mean": 14.450684261675711,
+              "model_median": 13.866046108232029,
+              "mean_gain": 0.39570312678034725,
+              "paired_component_95ci_gain": [
+                0.3119327340848488,
+                0.4672655129672026
+              ],
+              "improved_fraction": 1.0
+            },
+            "ssim": {
+              "bilinear_mean": 0.03707307739871409,
+              "model_mean": 0.07510745616968224,
+              "model_median": 0.07803722362688484,
+              "mean_gain": 0.03803437877096815,
+              "paired_component_95ci_gain": [
+                0.014024368758534978,
+                0.054372975521997026
+              ],
+              "improved_fraction": 0.8333333333333334
+            },
+            "shape_r": {
+              "bilinear_mean": 0.8412689262443201,
+              "model_mean": 0.8412689259060642,
+              "model_median": 0.8450517874482545,
+              "mean_gain": -3.3825601578977665e-10,
+              "paired_component_95ci_gain": [
+                -1.2056974307839141e-09,
+                4.713066048545045e-10
+              ],
+              "improved_fraction": 0.3333333333333333
+            },
+            "profile_r": {
+              "bilinear_mean": 0.9295812578607663,
+              "model_mean": 0.9560450385529508,
+              "model_median": 0.9521637560941592,
+              "mean_gain": 0.026463780692184524,
+              "paired_component_95ci_gain": [
+                0.006390142598719654,
+                0.05560656173090948
+              ],
+              "improved_fraction": 0.8333333333333334
+            },
+            "peak_error_bp": {
+              "bilinear_mean": 2770.1586999267947,
+              "model_mean": 2770.1586999267947,
+              "model_median": 828.6374537438843,
+              "mean_gain": 0.0,
+              "paired_component_95ci_gain": [
+                0.0,
+                0.0
+              ],
+              "improved_fraction": 0.0
+            },
+            "top5_f1": {
+              "bilinear_mean": 0.3333333333333333,
+              "model_mean": 0.3333333333333333,
+              "model_median": 0.4,
+              "mean_gain": 0.0,
+              "paired_component_95ci_gain": [
+                0.0,
+                0.0
+              ],
+              "improved_fraction": 0.0
+            },
+            "shape_r_at_least_0_5_fraction": 1.0
+          }
+        },
+        "train_calibrated_bicubic": {
+          "all": {
+            "n": 68,
+            "overlap_components": 41,
+            "psnr": {
+              "bilinear_mean": 12.56765407263561,
+              "model_mean": 12.90078999139978,
+              "model_median": 12.60455019897553,
+              "mean_gain": 0.3331359187641705,
+              "paired_component_95ci_gain": [
+                0.2858272063156745,
+                0.37503778486348294
+              ],
+              "improved_fraction": 1.0
+            },
+            "ssim": {
+              "bilinear_mean": 0.025260992392177092,
+              "model_mean": 0.0636752991565309,
+              "model_median": 0.06386990239345967,
+              "mean_gain": 0.03841430676435379,
+              "paired_component_95ci_gain": [
+                0.031532079816341735,
+                0.043852691113439736
+              ],
+              "improved_fraction": 0.9852941176470589
+            },
+            "shape_r": {
+              "bilinear_mean": 0.8446539959132725,
+              "model_mean": 0.8467996192487215,
+              "model_median": 0.8584534518882376,
+              "mean_gain": 0.0021456233354488993,
+              "paired_component_95ci_gain": [
+                5.179921213193442e-05,
+                0.005027783930505335
+              ],
+              "improved_fraction": 0.6029411764705882
+            },
+            "profile_r": {
+              "bilinear_mean": 0.9414581848106586,
+              "model_mean": 0.9500083891692834,
+              "model_median": 0.95400011547657,
+              "mean_gain": 0.008550204358624913,
+              "paired_component_95ci_gain": [
+                0.0008349224025982499,
+                0.016660906903299307
+              ],
+              "improved_fraction": 0.7205882352941176
+            },
+            "peak_error_bp": {
+              "bilinear_mean": 408.3697386882691,
+              "model_mean": 224.13796162428616,
+              "model_median": 38.643284505408246,
+              "mean_gain": 184.23177706398286,
+              "paired_component_95ci_gain": [
+                -6.2967667913349095,
+                599.718219918161
+              ],
+              "improved_fraction": 0.20588235294117646
+            },
+            "top5_f1": {
+              "bilinear_mean": 0.4411764705882353,
+              "model_mean": 0.45588235294117646,
+              "model_median": 0.4,
+              "mean_gain": 0.014705882352941173,
+              "paired_component_95ci_gain": [
+                -0.020000000000000004,
+                0.051072948328267434
+              ],
+              "improved_fraction": 0.16176470588235295
+            },
+            "shape_r_at_least_0_5_fraction": 1.0
+          },
+          "CHIN": {
+            "n": 52,
+            "overlap_components": 34,
+            "psnr": {
+              "bilinear_mean": 12.222479212075068,
+              "model_mean": 12.529681432493236,
+              "model_median": 12.449636532415534,
+              "mean_gain": 0.30720222041816436,
+              "paired_component_95ci_gain": [
+                0.24544005818189935,
+                0.3582597126675638
+              ],
+              "improved_fraction": 1.0
+            },
+            "ssim": {
+              "bilinear_mean": 0.025275275619030455,
+              "model_mean": 0.06044337988492973,
+              "model_median": 0.05810327471888095,
+              "mean_gain": 0.03516810426589929,
+              "paired_component_95ci_gain": [
+                0.02602115098478551,
+                0.041855425812923605
+              ],
+              "improved_fraction": 1.0
+            },
+            "shape_r": {
+              "bilinear_mean": 0.862804453616384,
+              "model_mean": 0.8662409057828448,
+              "model_median": 0.866996499151574,
+              "mean_gain": 0.003436452166460809,
+              "paired_component_95ci_gain": [
+                0.0011728639931303348,
+                0.006785649087091785
+              ],
+              "improved_fraction": 0.6730769230769231
+            },
+            "profile_r": {
+              "bilinear_mean": 0.9503387233627477,
+              "model_mean": 0.9552037258331463,
+              "model_median": 0.9576025426232846,
+              "mean_gain": 0.004865002470398324,
+              "paired_component_95ci_gain": [
+                -0.004933984883118334,
+                0.014613712908821776
+              ],
+              "improved_fraction": 0.7115384615384616
+            },
+            "peak_error_bp": {
+              "bilinear_mean": 181.40224266754996,
+              "model_mean": 194.56836239871598,
+              "model_median": 36.05551275463989,
+              "mean_gain": -13.16611973116605,
+              "paired_component_95ci_gain": [
+                -42.2792363519033,
+                2.963886131152007
+              ],
+              "improved_fraction": 0.19230769230769232
+            },
+            "top5_f1": {
+              "bilinear_mean": 0.4576923076923076,
+              "model_mean": 0.47692307692307695,
+              "model_median": 0.4,
+              "mean_gain": 0.019230769230769225,
+              "paired_component_95ci_gain": [
+                -0.019047619047619053,
+                0.05958510638297868
+              ],
+              "improved_fraction": 0.17307692307692307
+            },
+            "shape_r_at_least_0_5_fraction": 1.0
+          },
+          "OPCID": {
+            "n": 10,
+            "overlap_components": 10,
+            "psnr": {
+              "bilinear_mean": 13.470167110194575,
+              "model_mean": 13.920708148866012,
+              "model_median": 13.952026109709433,
+              "mean_gain": 0.45054103867144113,
+              "paired_component_95ci_gain": [
+                0.404419820967554,
+                0.49725486371050365
+              ],
+              "improved_fraction": 1.0
+            },
+            "ssim": {
+              "bilinear_mean": 0.01809946860861741,
+              "model_mean": 0.0689683394690759,
+              "model_median": 0.07128675957280589,
+              "mean_gain": 0.05086887086045849,
+              "paired_component_95ci_gain": [
+                0.040346542722584144,
+                0.06079520507889983
+              ],
+              "improved_fraction": 1.0
+            },
+            "shape_r": {
+              "bilinear_mean": 0.7523026576584637,
+              "model_mean": 0.7497215600342637,
+              "model_median": 0.7479779295022805,
+              "mean_gain": -0.0025810976242001127,
+              "paired_component_95ci_gain": [
+                -0.0074457050687901285,
+                0.003203909142071132
+              ],
+              "improved_fraction": 0.3
+            },
+            "profile_r": {
+              "bilinear_mean": 0.9024055405097302,
+              "model_mean": 0.9203987918471059,
+              "model_median": 0.9413798272542511,
+              "mean_gain": 0.017993251337375636,
+              "paired_component_95ci_gain": [
+                0.004573667084342566,
+                0.03325557250033722
+              ],
+              "improved_fraction": 0.7
+            },
+            "peak_error_bp": {
+              "bilinear_mean": 171.52734125289317,
+              "model_mean": 179.4959536764041,
+              "model_median": 75.27692569068708,
+              "mean_gain": -7.968612423510933,
+              "paired_component_95ci_gain": [
+                -26.7148907949179,
+                2.629591790205731
+              ],
+              "improved_fraction": 0.3
+            },
+            "top5_f1": {
+              "bilinear_mean": 0.42000000000000004,
+              "model_mean": 0.42000000000000004,
+              "model_median": 0.5,
+              "mean_gain": -1.6653345369377347e-17,
+              "paired_component_95ci_gain": [
+                -0.12000000000000002,
+                0.12
+              ],
+              "improved_fraction": 0.2
+            },
+            "shape_r_at_least_0_5_fraction": 1.0
+          },
+          "CHID": {
+            "n": 6,
+            "overlap_components": 6,
+            "psnr": {
+              "bilinear_mean": 14.054981134895362,
+              "model_mean": 14.417200572812805,
+              "model_median": 13.844013139763094,
+              "mean_gain": 0.3622194379174397,
+              "paired_component_95ci_gain": [
+                0.269182395454268,
+                0.433626642690258
+              ],
+              "improved_fraction": 1.0
+            },
+            "ssim": {
+              "bilinear_mean": 0.03707307739871409,
+              "model_mean": 0.0828635323228324,
+              "model_median": 0.08454006534310862,
+              "mean_gain": 0.04579045492411832,
+              "paired_component_95ci_gain": [
+                0.019358469514251665,
+                0.062313713869254876
+              ],
+              "improved_fraction": 0.8333333333333334
+            },
+            "shape_r": {
+              "bilinear_mean": 0.8412689262443201,
+              "model_mean": 0.8401052346437478,
+              "model_median": 0.8441542584794537,
+              "mean_gain": -0.0011636916005726323,
+              "paired_component_95ci_gain": [
+                -0.00952666185010505,
+                0.006792255793813271
+              ],
+              "improved_fraction": 0.5
+            },
+            "profile_r": {
+              "bilinear_mean": 0.9295812578607663,
+              "model_mean": 0.9543314669527705,
+              "model_median": 0.9486053177231826,
+              "mean_gain": 0.02475020909200415,
+              "paired_component_95ci_gain": [
+                0.0022500310807017643,
+                0.0574418108438798
+              ],
+              "improved_fraction": 0.8333333333333334
+            },
+            "peak_error_bp": {
+              "bilinear_mean": 2770.1586999267947,
+              "model_mean": 554.8111681590311,
+              "model_median": 415.4674904686932,
+              "mean_gain": 2215.3475317677635,
+              "paired_component_95ci_gain": [
+                -6.6564101602017445,
+                6654.355415623694
+              ],
+              "improved_fraction": 0.16666666666666666
+            },
+            "top5_f1": {
+              "bilinear_mean": 0.3333333333333333,
+              "model_mean": 0.3333333333333333,
+              "model_median": 0.4,
+              "mean_gain": 0.0,
+              "paired_component_95ci_gain": [
+                0.0,
+                0.0
+              ],
+              "improved_fraction": 0.0
+            },
+            "shape_r_at_least_0_5_fraction": 1.0
+          }
+        },
+        "frozen_main_whole": {
+          "all": {
+            "n": 68,
+            "overlap_components": 41,
+            "psnr": {
+              "bilinear_mean": 12.56765407263561,
+              "model_mean": 12.651590142998964,
+              "model_median": 12.447615634109525,
+              "mean_gain": 0.08393607036335479,
+              "paired_component_95ci_gain": [
+                0.049852736197132964,
+                0.11111447933107155
+              ],
+              "improved_fraction": 0.8088235294117647
+            },
+            "ssim": {
+              "bilinear_mean": 0.025260992392177092,
+              "model_mean": 0.008777496750169268,
+              "model_median": 0.006665961089801033,
+              "mean_gain": -0.016483495642007823,
+              "paired_component_95ci_gain": [
+                -0.01839936486494203,
+                -0.014887429218660823
+              ],
+              "improved_fraction": 0.014705882352941176
+            },
+            "shape_r": {
+              "bilinear_mean": 0.8446539959132725,
+              "model_mean": 0.8488356738928348,
+              "model_median": 0.8571076551252059,
+              "mean_gain": 0.004181677979562352,
+              "paired_component_95ci_gain": [
+                0.0005798151144885695,
+                0.007635562027521771
+              ],
+              "improved_fraction": 0.6911764705882353
+            },
+            "profile_r": {
+              "bilinear_mean": 0.9414581848106586,
+              "model_mean": 0.9312083527287018,
+              "model_median": 0.9358988882193318,
+              "mean_gain": -0.010249832081956779,
+              "paired_component_95ci_gain": [
+                -0.01537324434931869,
+                -0.004078616697887098
+              ],
+              "improved_fraction": 0.25
+            },
+            "peak_error_bp": {
+              "bilinear_mean": 408.3697386882691,
+              "model_mean": 322.2366967032499,
+              "model_median": 56.92582403567252,
+              "mean_gain": 86.13304198501928,
+              "paired_component_95ci_gain": [
+                -196.38699739644562,
+                563.9912903492153
+              ],
+              "improved_fraction": 0.3235294117647059
+            },
+            "top5_f1": {
+              "bilinear_mean": 0.4411764705882353,
+              "model_mean": 0.4294117647058823,
+              "model_median": 0.4,
+              "mean_gain": -0.01176470588235294,
+              "paired_component_95ci_gain": [
+                -0.05925925925925925,
+                0.02170013386880849
+              ],
+              "improved_fraction": 0.17647058823529413
+            },
+            "shape_r_at_least_0_5_fraction": 1.0
+          },
+          "CHIN": {
+            "n": 52,
+            "overlap_components": 34,
+            "psnr": {
+              "bilinear_mean": 12.222479212075068,
+              "model_mean": 12.299767458951683,
+              "model_median": 12.252406887777248,
+              "mean_gain": 0.07728824687661198,
+              "paired_component_95ci_gain": [
+                0.03621554273816292,
+                0.10823919436663472
+              ],
+              "improved_fraction": 0.7884615384615384
+            },
+            "ssim": {
+              "bilinear_mean": 0.025275275619030455,
+              "model_mean": 0.007518897399098797,
+              "model_median": 0.006814872465572883,
+              "mean_gain": -0.017756378219931656,
+              "paired_component_95ci_gain": [
+                -0.019569540963609973,
+                -0.016431593685201556
+              ],
+              "improved_fraction": 0.0
+            },
+            "shape_r": {
+              "bilinear_mean": 0.862804453616384,
+              "model_mean": 0.8692386946703228,
+              "model_median": 0.8690357719257601,
+              "mean_gain": 0.006434241053938758,
+              "paired_component_95ci_gain": [
+                0.003377149323612065,
+                0.010082366991656329
+              ],
+              "improved_fraction": 0.75
+            },
+            "profile_r": {
+              "bilinear_mean": 0.9503387233627477,
+              "model_mean": 0.9429508590845228,
+              "model_median": 0.9465928041587905,
+              "mean_gain": -0.00738786427822501,
+              "paired_component_95ci_gain": [
+                -0.012687656287281161,
+                -5.063291605651928e-06
+              ],
+              "improved_fraction": 0.3076923076923077
+            },
+            "peak_error_bp": {
+              "bilinear_mean": 181.40224266754996,
+              "model_mean": 267.37894267872576,
+              "model_median": 50.495097567963924,
+              "mean_gain": -85.97670001117584,
+              "paired_component_95ci_gain": [
+                -149.87863694169587,
+                0.4744113970735304
+              ],
+              "improved_fraction": 0.36538461538461536
+            },
+            "top5_f1": {
+              "bilinear_mean": 0.4576923076923076,
+              "model_mean": 0.4538461538461539,
+              "model_median": 0.4,
+              "mean_gain": -0.0038461538461538455,
+              "paired_component_95ci_gain": [
+                -0.05106382978723404,
+                0.03571886446886444
+              ],
+              "improved_fraction": 0.17307692307692307
+            },
+            "shape_r_at_least_0_5_fraction": 1.0
+          },
+          "OPCID": {
+            "n": 10,
+            "overlap_components": 10,
+            "psnr": {
+              "bilinear_mean": 13.470167110194575,
+              "model_mean": 13.582301555052627,
+              "model_median": 13.649693856966671,
+              "mean_gain": 0.11213444485805332,
+              "paired_component_95ci_gain": [
+                0.07268308300938493,
+                0.14478592883242827
+              ],
+              "improved_fraction": 0.9
+            },
+            "ssim": {
+              "bilinear_mean": 0.01809946860861741,
+              "model_mean": 0.0051947586259143055,
+              "model_median": 0.0010470706138218018,
+              "mean_gain": -0.012904709982703108,
+              "paired_component_95ci_gain": [
+                -0.014085519438973558,
+                -0.011542229095890883
+              ],
+              "improved_fraction": 0.0
+            },
+            "shape_r": {
+              "bilinear_mean": 0.7523026576584637,
+              "model_mean": 0.748887509227268,
+              "model_median": 0.7553771490900237,
+              "mean_gain": -0.003415148431195769,
+              "paired_component_95ci_gain": [
+                -0.01691254962007577,
+                0.010121133647005792
+              ],
+              "improved_fraction": 0.5
+            },
+            "profile_r": {
+              "bilinear_mean": 0.9024055405097302,
+              "model_mean": 0.8908606349034413,
+              "model_median": 0.9253763564001174,
+              "mean_gain": -0.011544905606289058,
+              "paired_component_95ci_gain": [
+                -0.01825167028609448,
+                -0.0014395967085258548
+              ],
+              "improved_fraction": 0.1
+            },
+            "peak_error_bp": {
+              "bilinear_mean": 171.52734125289317,
+              "model_mean": 463.3703803836189,
+              "model_median": 106.41869107708685,
+              "mean_gain": -291.84303913072563,
+              "paired_component_95ci_gain": [
+                -863.0400738390075,
+                1.9698535766112861
+              ],
+              "improved_fraction": 0.2
+            },
+            "top5_f1": {
+              "bilinear_mean": 0.42000000000000004,
+              "model_mean": 0.32,
+              "model_median": 0.4,
+              "mean_gain": -0.1,
+              "paired_component_95ci_gain": [
+                -0.2,
+                -1.1102230246251566e-17
+              ],
+              "improved_fraction": 0.1
+            },
+            "shape_r_at_least_0_5_fraction": 1.0
+          },
+          "CHID": {
+            "n": 6,
+            "overlap_components": 6,
+            "psnr": {
+              "bilinear_mean": 14.054981134895362,
+              "model_mean": 14.14953438465266,
+              "model_median": 13.540028787913878,
+              "mean_gain": 0.09455324975729489,
+              "paired_component_95ci_gain": [
+                0.020935756694636137,
+                0.1497342176632639
+              ],
+              "improved_fraction": 0.8333333333333334
+            },
+            "ssim": {
+              "bilinear_mean": 0.03707307739871409,
+              "model_mean": 0.025656587999871625,
+              "model_median": 0.0065660335876840045,
+              "mean_gain": -0.011416489398842463,
+              "paired_component_95ci_gain": [
+                -0.02116911889556454,
+                0.002173546365584449
+              ],
+              "improved_fraction": 0.16666666666666666
+            },
+            "shape_r": {
+              "bilinear_mean": 0.8412689262443201,
+              "model_mean": 0.8385897682638839,
+              "model_median": 0.8474467143449028,
+              "mean_gain": -0.002679157980436294,
+              "paired_component_95ci_gain": [
+                -0.0157431277045824,
+                0.00887324153653336
+              ],
+              "improved_fraction": 0.5
+            },
+            "profile_r": {
+              "bilinear_mean": 0.9295812578607663,
+              "model_mean": 0.8966861606870213,
+              "model_median": 0.927230349697318,
+              "mean_gain": -0.03289509717374498,
+              "paired_component_95ci_gain": [
+                -0.0636200987346519,
+                -0.013680241662445821
+              ],
+              "improved_fraction": 0.0
+            },
+            "peak_error_bp": {
+              "bilinear_mean": 2770.1586999267947,
+              "model_mean": 562.4477587818433,
+              "model_median": 433.65054666757743,
+              "mean_gain": 2207.7109411449514,
+              "paired_component_95ci_gain": [
+                -12.154320037393196,
+                6642.355763936302
+              ],
+              "improved_fraction": 0.16666666666666666
+            },
+            "top5_f1": {
+              "bilinear_mean": 0.3333333333333333,
+              "model_mean": 0.39999999999999997,
+              "model_median": 0.4,
+              "mean_gain": 0.06666666666666667,
+              "paired_component_95ci_gain": [
+                0.0,
+                0.13333333333333333
+              ],
+              "improved_fraction": 0.3333333333333333
+            },
+            "shape_r_at_least_0_5_fraction": 1.0
+          }
+        }
+      }
+    }
+  },
+  "scope": "Full known intervals +160bp flanks, native10bp output,simulated40bp input",
+  "overall_operational_success": true,
+  "wall_seconds": 451.9104184000753
+}

@@ -1,5 +1,33 @@
 # 六项任务一键复现
 
+## 最终完整区间与几何验证
+
+最终补强只作用于本仓库 Micro-C，不使用 GvpA/ESM-2 数据。保留原六任务核心流水线，再执行以下独立扩展；当前已安装依赖，不需重复安装。
+
+```powershell
+python -m scripts.reproduce_final_verification_20261014 --out outputs/replay_final_20261014 --dry-run
+python -m scripts.reproduce_final_verification_20261014 --out outputs/replay_final_20261014
+python -m scripts.verify_final_package_20261014
+```
+
+`--out` 必须尚不存在。新输入后的结果发布到该目录内部的 `published_results`，不会覆盖仓库当前冻结结果。复跑依赖两个 WT COOL、已有面积发现包 `outputs/task2_improve_20261006/area`、任务一多尺度窗口及已发布的最终识别器/局部 SR 权重和三维坐标包；对应前置构建命令见下文。Task2 显式使用随仓库提供的 `data/structures.csv`，与原工作簿科学内容相同但文件哈希不同，记录实际输入版本。
+
+扩展依次执行完整无偏背景和尺度验证、覆盖缺口反事实/三个共同深度、固定识别器辅助推理、训练区全窗尺度拟合、完整区间 CNN 的验证选择及冻结测试、全部 136 预测重算和图库、最新三维坐标几何、整套文献区域版本及第一声明种子双视角。Task5 参数范围为 2/4/6 轮 × 四种融合比例，只用 validation 选择；Task6 不用宏域标签训练或挑选种子。历史 test/rep2 已被查看，不称新前瞻盲测。
+
+最终主结果分别位于 `task2_course_verification_20261014_*`、`task5_full_structure_20261014_final_*`、`task6_full_geometry_20261014_*` 和 `task6_literature_regions_20261014_*`。Task5 全部 136 个 10 bp 预测约 777 MB，在本地 `outputs/task5_full_structure_20261014/neural_adaptation/`，逐文件哈希见 `final_all_case_manifest.json`，小包不携带这些可重新生成的大数组。旧 640 bp 局部指标不用于评价新全窗模型。Task2 共同深度主证据使用 QC 的 10000/20000/30000 档；原首轮 34548 档对 A2 rep2 缺共同支持，不作为等深度主证据。
+
+上述检查分别记录产物完整性、课程目标和新类型证据。最终结果为三个跨重复形态异常候选、完整区间主要形态与轮廓的稳定重建，以及宏域相关的总体距离组织；共同新类型、精细像素恢复和各分域表现各有独立评价结果。
+
+## 最终报告复建
+
+报告源模板、最终内容配方、语言修订和加分项 LLM 证据均随代码小包提供。现有环境已具备依赖，复建使用新的输出文件，不覆盖已验收的 Word：
+
+```powershell
+python -m scripts.update_final_report_20261014 --source output/report/support_final_verification_20261014/report_reference.docx --patch output/report/support_final_verification_20261014/report_patch.json --out output/report/MicroC_report_rebuilt.docx --receipt output/report/rebuilt_receipt.json
+```
+
+Windows 上使用 `scripts/render_final_report_20261014.ps1` 导出独立副本并生成逐页 PNG；参数指定 `-Source`、新的 `-OutputDirectory` 和已有 Poppler 的 `-PopplerDirectory`。脚本使用独立最小化 Word 实例，仅关闭自身临时副本，保留用户其他文档。最终验收记录见 `results/final_report_20261014_layout_audit.json`，已交付 Word/PDF 与代码 ZIP 分开提交。
+
 在仓库根目录执行（Windows PowerShell、Linux/macOS 均可）：
 
 ```powershell

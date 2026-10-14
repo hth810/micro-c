@@ -32,7 +32,7 @@ ROOT_FILES = (
     "submission/GROUP_CONTRIBUTIONS_TEMPLATE.md",
 )
 SOURCE_DIRS = ("microc", "scripts", "task1", "tests")
-SOURCE_SUFFIXES = {".py", ".md", ".txt"}
+SOURCE_SUFFIXES = {".py", ".md", ".txt", ".ps1"}
 RESULT_SUFFIXES = {".csv", ".json"}
 RESULT_PNGS = {
     "task1_spatial_confusion_matrix.png",
@@ -138,8 +138,28 @@ def select_files(root: Path) -> list[Path]:
                  path.name.startswith(("task1_improve_20261006_", "task2_improve_20261006_",
                                        "task6_circular_20261006_", "task1_followup_20261006_",
                                        "task2_followup_20261006_", "task2_reference_followup_20261006_",
-                                       "task6_followup_20261006_", "task6_controlled_followup_20261006_")))):
+                                       "task6_followup_20261006_", "task6_controlled_followup_20261006_",
+                                       "task2_course_verification_20261014_", "task5_full_structure_20261014_",
+                                       "task6_full_geometry_20261014_", "task6_literature_regions_20261014_")))):
             paths.add(path)
+
+    # Compact source template/recipe only; the final Word/PDF is submitted
+    # separately. Never bundle the full 777 MB predictions or QA page renders.
+    report_sources = root / "output/report/support_final_verification_20261014"
+    if report_sources.is_dir():
+        for name in ("report_reference.docx", "report_reference_content.json", "report_patch.json", "report_language_edits.json", "final_source_index.json"):
+            path = report_sources / name
+            if path.is_file():
+                paths.add(path)
+        assets = report_sources / "assets"
+        if assets.is_dir():
+            paths.update(p for p in assets.iterdir() if p.is_file() and p.suffix == ".png")
+    llm_support = root / "output/report/support_20261014"
+    if llm_support.is_dir():
+        paths.update(p for p in llm_support.iterdir() if p.is_file() and p.suffix in {".json", ".txt", ".py"})
+    archive = root / "submission/archive/final_verification_20261014"
+    if archive.is_dir():
+        paths.update(archive.glob("*.md"))
 
     for path in paths:
         if not _inside_root(root, path):

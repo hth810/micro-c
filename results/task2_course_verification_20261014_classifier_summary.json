@@ -1,0 +1,161 @@
+{
+  "completed_at_utc": "2026-10-14T06:33:47.038353+00:00",
+  "protocol_sha256": "d94b5d46bdf47bfb61de3578f159d474a8180548c2e4baaef4b7c31e7d3f4f12",
+  "checkpoint_unchanged": true,
+  "trained_new_models": false,
+  "candidate_count": 4,
+  "known_cache_reproduction_max_abs_error": 0.0,
+  "candidate_closed_set_context": [
+    {
+      "id": "A1",
+      "role": "candidate_provisional_roi",
+      "roi_start_bp": 727040,
+      "roi_end_bp": 732160,
+      "roi_length_bp": 5120,
+      "known_truth": null,
+      "most_similar_closed_set_label": "CHIN",
+      "replicate_label_agreement": true,
+      "maximum_mean_softmax": 0.9657334089279175,
+      "softmax_is_ood_probability": false,
+      "mean_softmax_CHIN": 0.9657334089279175,
+      "rep1_softmax_CHIN": 0.9613053798675537,
+      "rep2_softmax_CHIN": 0.9701614379882812,
+      "mean_softmax_OPCID": 0.03344864025712013,
+      "rep1_softmax_OPCID": 0.03799295425415039,
+      "rep2_softmax_OPCID": 0.028904326260089874,
+      "mean_softmax_CHID": 0.0008179662982001901,
+      "rep1_softmax_CHID": 0.0007017237949185073,
+      "rep2_softmax_CHID": 0.0009342088596895337
+    },
+    {
+      "id": "A2",
+      "role": "candidate_provisional_roi",
+      "roi_start_bp": 1466880,
+      "roi_end_bp": 1472000,
+      "roi_length_bp": 5120,
+      "known_truth": null,
+      "most_similar_closed_set_label": "CHIN",
+      "replicate_label_agreement": true,
+      "maximum_mean_softmax": 0.989109218120575,
+      "softmax_is_ood_probability": false,
+      "mean_softmax_CHIN": 0.989109218120575,
+      "rep1_softmax_CHIN": 0.990246057510376,
+      "rep2_softmax_CHIN": 0.9879723787307739,
+      "mean_softmax_OPCID": 6.823977855674457e-06,
+      "rep1_softmax_OPCID": 6.458479674620321e-06,
+      "rep2_softmax_OPCID": 7.189475581981242e-06,
+      "mean_softmax_CHID": 0.010883964598178864,
+      "rep1_softmax_CHID": 0.009747465141117573,
+      "rep2_softmax_CHID": 0.01202046312391758
+    },
+    {
+      "id": "A3",
+      "role": "candidate_provisional_roi",
+      "roi_start_bp": 3128320,
+      "roi_end_bp": 3133440,
+      "roi_length_bp": 5120,
+      "known_truth": null,
+      "most_similar_closed_set_label": "CHIN",
+      "replicate_label_agreement": true,
+      "maximum_mean_softmax": 0.9999290704727173,
+      "softmax_is_ood_probability": false,
+      "mean_softmax_CHIN": 0.9999290704727173,
+      "rep1_softmax_CHIN": 0.9999034404754639,
+      "rep2_softmax_CHIN": 0.9999547600746155,
+      "mean_softmax_OPCID": 1.7005722838803194e-05,
+      "rep1_softmax_OPCID": 2.1538853616220877e-05,
+      "rep2_softmax_OPCID": 1.247259115189081e-05,
+      "mean_softmax_CHID": 5.389647412812337e-05,
+      "rep1_softmax_CHID": 7.503066444769502e-05,
+      "rep2_softmax_CHID": 3.276228380855173e-05
+    },
+    {
+      "id": "A4",
+      "role": "candidate_provisional_roi",
+      "roi_start_bp": 1569280,
+      "roi_end_bp": 1574400,
+      "roi_length_bp": 5120,
+      "known_truth": null,
+      "most_similar_closed_set_label": "CHIN",
+      "replicate_label_agreement": true,
+      "maximum_mean_softmax": 0.998449981212616,
+      "softmax_is_ood_probability": false,
+      "mean_softmax_CHIN": 0.998449981212616,
+      "rep1_softmax_CHIN": 0.9990485906600952,
+      "rep2_softmax_CHIN": 0.9978513717651367,
+      "mean_softmax_OPCID": 0.00019500093185342848,
+      "rep1_softmax_OPCID": 0.00011670020467136055,
+      "rep2_softmax_OPCID": 0.00027330167358741164,
+      "mean_softmax_CHID": 0.001354987733066082,
+      "rep1_softmax_CHID": 0.0008347005932591856,
+      "rep2_softmax_CHID": 0.0018752749310806394
+    }
+  ],
+  "known_roi_context": [
+    {
+      "role": "known_true_roi_model_fit_reference",
+      "known_truth": "CHIN",
+      "n": 250,
+      "same_label_fraction_descriptive_only": 1.0,
+      "median_maximum_mean_softmax": 0.999995619058609,
+      "not_held_out_performance": true
+    },
+    {
+      "role": "known_true_roi_model_fit_reference",
+      "known_truth": "OPCID",
+      "n": 68,
+      "same_label_fraction_descriptive_only": 1.0,
+      "median_maximum_mean_softmax": 0.9999589025974274,
+      "not_held_out_performance": true
+    },
+    {
+      "role": "known_true_roi_model_fit_reference",
+      "known_truth": "CHID",
+      "n": 26,
+      "same_label_fraction_descriptive_only": 1.0,
+      "median_maximum_mean_softmax": 0.9975307583808899,
+      "not_held_out_performance": true
+    },
+    {
+      "role": "known_same_width_provisional_roi",
+      "known_truth": "CHIN",
+      "n": 250,
+      "same_label_fraction_descriptive_only": 0.82,
+      "median_maximum_mean_softmax": 0.9935547113418579,
+      "not_held_out_performance": true
+    },
+    {
+      "role": "known_same_width_provisional_roi",
+      "known_truth": "OPCID",
+      "n": 68,
+      "same_label_fraction_descriptive_only": 0.9705882352941176,
+      "median_maximum_mean_softmax": 0.999935656785965,
+      "not_held_out_performance": true
+    },
+    {
+      "role": "known_same_width_provisional_roi",
+      "known_truth": "CHID",
+      "n": 26,
+      "same_label_fraction_descriptive_only": 0.38461538461538464,
+      "median_maximum_mean_softmax": 0.9854236543178558,
+      "not_held_out_performance": true
+    }
+  ],
+  "supports_new_type_proof": false,
+  "supports_ood_detection": false,
+  "limitations": [
+    "Known model-fit examples are not independent tests or new accuracy estimates.",
+    "Fixed-length provisional ROIs shift the model's boundary and length features away from annotated training inputs.",
+    "No classifier confidence threshold, novelty threshold, candidate selection, or biological label is changed.",
+    "This is not an annotation-free scan or validated unknown-type classifier."
+  ],
+  "output_sha256": {
+    "candidate_classifier_context.csv": "7c04d435c232cfbc3a6a1b9e7dd192db22cc4bb35d48594e052c2d12894065bb",
+    "candidate_task1_contact_inputs.npz": "06226bb99f0512e95fd97f0abc0ee471aa8c07867576e90d9fdd0a7bc5f044d3",
+    "fixed_candidate_provisional_rois.csv": "1f24531b7a9214b7ed8b7728ada3979270f859ef973e6f0e53c160586b7311f4",
+    "fixed_classifier_context.csv": "7a69c93b1e400df918ceb72f5cc8586a103adb5f0f369d0453e5daf735bb055f",
+    "known_roi_context_summary.csv": "ba243cc2dd88ed1ef4510fbd5a9de5d45d985f589070c443366d00708a95a23e",
+    "known_same_width_provisional_rois.csv": "53919215f02b87e4e1147f87d7bb14e10c7fcb6b44c6a5d1f8e31edd9520f913",
+    "protocol_freeze.json": "d94b5d46bdf47bfb61de3578f159d474a8180548c2e4baaef4b7c31e7d3f4f12"
+  }
+}

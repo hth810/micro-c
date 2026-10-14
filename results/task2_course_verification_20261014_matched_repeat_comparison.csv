@@ -1,0 +1,17 @@
+candidate_id,arm,metric,candidate_repeat_r,independent_controls,evaluable,control_median_repeat_r,fraction_controls_below_candidate,interpretation
+A1,legacy,highpass,0.6906384489926071,0,False,,,unsupported_comparator
+A1,robust,highpass,0.6906384489926071,0,False,,,unsupported_comparator
+A2,legacy,highpass,0.6844443368340869,0,False,,,unsupported_comparator
+A2,robust,highpass,0.6844443368340869,0,False,,,unsupported_comparator
+A3,legacy,highpass,0.6158800518290586,2,False,0.7692001503561751,,unsupported_comparator
+A3,robust,highpass,0.6158800518290586,4,False,0.7839903824366315,,unsupported_comparator
+A4,legacy,highpass,0.6760800157390927,0,False,,,unsupported_comparator
+A4,robust,highpass,0.6760800157390927,0,False,,,unsupported_comparator
+A1,legacy,rowcol,0.7790935241696743,0,False,,,unsupported_comparator
+A1,robust,rowcol,0.7790935241696743,0,False,,,unsupported_comparator
+A2,legacy,rowcol,0.8528477766324245,0,False,,,unsupported_comparator
+A2,robust,rowcol,0.8528477766324245,0,False,,,unsupported_comparator
+A3,legacy,rowcol,0.7892944283248272,2,False,0.9233018950668603,,unsupported_comparator
+A3,robust,rowcol,0.7892944283248272,4,False,0.9233018950668603,,unsupported_comparator
+A4,legacy,rowcol,0.745829232608782,0,False,,,unsupported_comparator
+A4,robust,rowcol,0.745829232608782,0,False,,,unsupported_comparator

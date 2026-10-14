@@ -1,0 +1,51 @@
+{
+  "scope": "hth810/micro-c",
+  "review_basis": "Final actual experiments and independent agent recalculation; qualitative coursework requirements are distinct from biological confirmation.",
+  "tasks": {
+    "2": {
+      "artifact_complete": true,
+      "course_success_supported": true,
+      "confirmed_new_types": 0,
+      "biological_confirmation": false,
+      "replicated_default_shape_outlier_candidates": ["A1", "A2", "A4"],
+      "conclusion": "Known-structure rediscovery and the complete candidate workflow are supported; three unannotated shape-outlier candidates are replicated under the original default rule. All candidates now have full-background, scale, common-depth, coverage-counterfactual and fixed-classifier checks. A2 has strong coverage-confounding evidence. A common new type is not established.",
+      "evidence_sources": [
+        "results/task2_improve_20261006_individual_candidate_validation.csv",
+        "results/task2_course_verification_20261014_summary.json",
+        "results/task2_course_verification_20261014_qc_summary.json",
+        "results/task2_course_verification_20261014_classifier_summary.json",
+        "results/task2_course_verification_20261014_final_receipt.json"
+      ]
+    },
+    "5": {
+      "artifact_complete": true,
+      "course_success_supported": true,
+      "fine_hotspot_localization_universally_improved": false,
+      "conclusion": "The final full-window neural model is chosen only on validation after train-only adaptation. Both repetitions support PSNR/SSIM improvement and recovery of the main non-near-diagonal CHIN/OPCID shapes and profiles over complete intervals; all 68 full structures per repetition are retained, with CHID supplementary results and matched learned interpolation controls. Fine near-diagonal OPCID details are not fully recovered and peak localization is not universally improved.",
+      "evidence_sources": [
+        "results/task5_full_structure_20261014_final_summary.json",
+        "results/task5_full_structure_20261014_final_protocol.json",
+        "results/task5_full_structure_20261014_final_selection_freeze.json",
+        "results/task5_full_structure_20261014_final_rep1_test.csv",
+        "results/task5_full_structure_20261014_final_rep2_fixed_test.csv",
+        "results/task5_full_structure_20261014_final_receipt.json"
+      ]
+    },
+    "6": {
+      "artifact_complete": true,
+      "course_success_supported": true,
+      "all_domains_fully_recovered": false,
+      "cyclic_shift_multiple_test_significance_supported": false,
+      "conclusion": "All three declared final models preserve their rep2 contact advantage over MDS. In the complete published circular region definition, all seeds have positive overall four-domain distance organization and higher overall AUC than MDS. Published three-locus ordering is reproduced. Individual-domain and boundary-version differences and non-significant adjusted cyclic-shift tests remain explicit.",
+      "evidence_sources": [
+        "results/task6_full_geometry_20261014_summary.json",
+        "results/task6_full_geometry_20261014_rep2_reverification.csv",
+        "results/task6_literature_regions_20261014_protocol.json",
+        "results/task6_literature_regions_20261014_summary.json",
+        "results/task6_literature_regions_20261014_macrogeometry.csv",
+        "results/task6_literature_regions_20261014_individual_domains.csv",
+        "results/task6_literature_regions_20261014_final_audit.json"
+      ]
+    }
+  }
+}

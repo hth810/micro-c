@@ -1,0 +1,36 @@
+{
+  "exporter_sha256": "5c11bad8a9aa6d29a1adfe052bcd7d1cb9d6ca2b6f72a758cce3b832c098d4eb",
+  "model_sha256": "e52b1ad52f07cf9556d297435ba7401ed784190c5a18133974cb7d4a560ab6e3",
+  "summary_sha256": "4b1fdb5a4f893f93ab2750dbb3ce1f5205774d53157215783fc619d908012f19",
+  "source_tables_sha256": {
+    "rep1_test": "1166947535a4fb04fda1556c38901a74d90241350fad19d31d61cadbe5d32d35",
+    "rep2_fixed_test": "01a33e0a2fbd8ed50e2c05365c890346a94ee4dad0d01c0a0ff1ead94a4eff75"
+  },
+  "verified_full_structures": 136,
+  "maximum_numeric_recomputation_error": 2.2737367544323206e-13,
+  "portable_calibration_sha256": "bda032f30cb76c8fb7e32f704be88b9a15e5b37cd5e87c7b5e05241357e5fd55",
+  "output_sha256": {
+    "all_case_manifest.json": "480d4003ce9f31708bcac3ff2957334463e57f53e28431479fb513139f11c46a",
+    "method_type_summary.csv": "ec912034e7f243cee5287b3215deb44ab2c0fa9da661bd2dcf4d3a5546193521",
+    "rep1_test_all_cases_01.png": "6535e78a836dee3cf85968e6804e24e3f226620e26a42049a110098dca17b902",
+    "rep1_test_all_cases_02.png": "ebffb226129323677f2475febb91b7b3b8034f0e11980714fd5bad904efe8850",
+    "rep1_test_all_cases_03.png": "c1f09f80289e1c75b7864452d86fb463b93bfc358cb240e7a3a43943c970dc8a",
+    "rep1_test_all_cases_04.png": "9b5b9982cba11bd568e607f730ec9b8f7df48781ec578711d18eadb479726e8c",
+    "rep1_test_all_cases_05.png": "2aa32ea372c9892fc08acef0ffa8e49949259d9faf89a355df4e0b54a8673711",
+    "rep1_test_all_cases_06.png": "dd97367aa0869c2ba5dc92b1b6a30461d396016d21638e78ccecb06d8f9739f6",
+    "rep1_test_CHID_morphology.png": "65068389621137720dd796edb46683a748e34e6db9288669851cd807e2782dda",
+    "rep1_test_CHIN_morphology.png": "a6ecb0321d880a82a8ba9a163536c044bf0a9a0c8a7d791f5da2ac17d9fcab7c",
+    "rep1_test_OPCID_morphology.png": "120cca0c9de3d4cd5934d4124cad1c42b4e61961746a97b4e87a87a0ad4a1f1a",
+    "rep2_fixed_test_all_cases_01.png": "4f987f1cae1fa7c8f30ee3296b1537cb9e4a55979a1b24d338a5998d0e4a5424",
+    "rep2_fixed_test_all_cases_02.png": "0c87c87fc98f044f5fa738e77c1f13bbb2b86645d992214b83d301ca9d9c35cd",
+    "rep2_fixed_test_all_cases_03.png": "f93a068a1263083bca3382faa45227bdd3bef0d88d54b78c9a8748acd6db9271",
+    "rep2_fixed_test_all_cases_04.png": "393d5e178645eb20eb4744c876ff1a787f5223ee379b7f1961fdff84f360a0df",
+    "rep2_fixed_test_all_cases_05.png": "70634688ba8c714ce40a9a7624e0d342c760f8830d03f711e9ce9a869740f26e",
+    "rep2_fixed_test_all_cases_06.png": "0021487f8d5f52fffdc58568f70a4d532d4e620580384de1469beb67f1ee3269",
+    "rep2_fixed_test_CHID_morphology.png": "d30baf67bf3b7b04d82bb34f18397b84a7513e3bd49af347d9f4b13c15b9b350",
+    "rep2_fixed_test_CHIN_morphology.png": "a815f4837273c97d9887878e9f1b3ed997ac496647f6a803381238caee2063a7",
+    "rep2_fixed_test_OPCID_morphology.png": "51732b71052707313d1671ef25aa99355d8d1c80533d8d0ab450814b54f8450c"
+  },
+  "no_models_refit": true,
+  "no_frozen_receipts_changed": true
+}

@@ -39,3 +39,20 @@ tests/*_followup.py -text
 tests/test_followup_integrity.py -text
 results/*followup_20261006_* -text
 results/followups_20261006_integrity.json -text
+
+# Final experiment/document receipts also hash the exact delivered bytes.
+.gitattributes -text
+README.md -text
+REPORT.md -text
+AUDIT.md -text
+METHODS.md -text
+REPRODUCE.md -text
+ENVIRONMENT.md -text
+requirements.txt -text
+scripts/*20261014* -text
+tests/*20261014* -text
+scripts/build_submission_zip.py -text
+tests/test_submission_zip.py -text
+results/*20261014* -text
+output/report/** -text
+submission/archive/final_verification_20261014/** -text

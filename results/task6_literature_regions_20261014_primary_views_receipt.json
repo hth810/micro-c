@@ -1,0 +1,50 @@
+{
+  "created_at_utc": "2026-10-14T06:41:52.940155+00:00",
+  "model": "rank_mlp_seed20261006",
+  "selection": "First originally declared seed, not best geometry seed",
+  "coordinate_version": "Zarei2013_SI_Table1",
+  "source_sha256": {
+    "scripts/task6_primary_views_20261014.py": "8a08b596f20656d126f63079d4b70e4cbda1b12a042ebf814c3d952490640b92",
+    "scripts/task6_literature_regions_20261014.py": "f95cefd62c1934cc973db8adb18427eea65bb35dfea4b6501b558e95863d2248"
+  },
+  "input_sha256": {
+    "bundle": "27964152e8c33ae437d08c05e2e694ae417766d835738e24f16ffc7c8b8fc0cb",
+    "coordinates": "3f88aa41a175b15a60bc4e63825000fe35aa731d6b92cad7c76400f33baffee1",
+    "geometry_protocol": "e6f64915882a8fab0434118377858353588eac853a2c0a0f3ed91f18bda360d2",
+    "gff": "afdf03dc1d06e423d874ee29d9e0df14f5d32baf893f4da9f93aa721eb5f495e"
+  },
+  "outputs_sha256": {
+    "primary_two_views.png": "aeaa9ff4c38911215aa34d49bb7a69f9fb16b5c0a35acb1a62fb810855e1afb5"
+  },
+  "bins": 929,
+  "label_counts": {
+    "Ter": 194,
+    "Ori": 187,
+    "NSL": 176,
+    "Left": 140,
+    "Right": 122,
+    "NSR": 110
+  },
+  "genome_bp": 4641652,
+  "oriC": {
+    "name": "oriC",
+    "start_0based": 3925743,
+    "end_exclusive": 3925975,
+    "bp": 3925859,
+    "source": "NC_000913.3 RefSeq origin_of_replication feature; converted from 1-based inclusive GFF"
+  },
+  "dif_approximate_bp": 1604000,
+  "views": [
+    {
+      "elevation": 25,
+      "azimuth": -55
+    },
+    {
+      "elevation": 25,
+      "azimuth": 125
+    }
+  ],
+  "equal_axis_and_view_scales": true,
+  "labels_do_not_enter_training": true,
+  "distance_units": "Relative model units, no cell or microscopy calibration"
+}

@@ -1,0 +1,76 @@
+{
+  "experiment": "task5-full-neural-adaptation-20261014",
+  "frozen_at_utc": "2026-10-14T06:32:43.554080+00:00",
+  "code_sha": "2c237f078fd9960eede868f1ff6596474ddcbfda",
+  "source_and_input_sha256": {
+    "script": "3d2d5fb25e1fc10a8d513e17255a9c6d34bfaf330a59586e7bb9066eb7c2c68b",
+    "evaluator": "5bbbfd3da1d81ffa5684ce054b19356d59c37e9078bb961cfaa7c482d5183655",
+    "scale_script": "61814f9c61a62e7ffbf8ae61b959b88662966451d9cfa0b453c5218d02e2b28b",
+    "deep": "31f3b08f4c13dd52538e1cf9985f09773265d0bc6fe1a50e6e73a6ec1e1dca7c",
+    "data": "423de5ef6d6bca94a3021db2d40df98b93414116890bad15af237459db0968c5",
+    "checkpoint": "f3454bac6fd65f80a2177e81ee197e3a5ad647fda64a2be383a11b733fa4e39e",
+    "annotations": "d9a5f0f380ff2c919e8edabc7aa8d612eedb29b67825118377b43e98b8ed7cdf",
+    "calibration": "bda032f30cb76c8fb7e32f704be88b9a15e5b37cd5e87c7b5e05241357e5fd55",
+    "rep1": "0256e10da36abfe0238bf16952bc43bc78365f43c201e6e3ba0c49bd243549a8",
+    "rep2": "ede9b4f7c0c6b40c8f098e43cdd0abbc0a8987f05e8b37051a5e3cbf143ad106"
+  },
+  "split": {
+    "validation_start_bp": 3248000,
+    "test_start_bp": 3709440,
+    "legacy_tile_counts": [
+      725,
+      103,
+      208
+    ],
+    "complete_intervals_only": true,
+    "flank_bp": 160,
+    "grid_alignment_bp": 40,
+    "counts": {
+      "test": {
+        "CHIN": 52,
+        "OPCID": 10,
+        "CHID": 6
+      },
+      "train": {
+        "CHIN": 178,
+        "OPCID": 52,
+        "CHID": 18
+      },
+      "validation": {
+        "CHIN": 20,
+        "OPCID": 6,
+        "CHID": 2
+      }
+    },
+    "dependence": "Whole overlapping windows form connected components for paired resampling. Rep2 has the same loci, not new independent annotations."
+  },
+  "device": "cpu",
+  "threads": 2,
+  "dependencies": {
+    "torch": "2.14.0",
+    "numpy": "2.4.4",
+    "pandas": "3.0.3",
+    "scipy": "1.17.1",
+    "scikit-image": "0.26.0",
+    "cooler": "0.10.4"
+  },
+  "architecture": "Original48-channel4-residual-block CNN + trainable positive affine output scale; no local transpose symmetrization on offdiagonal tiles",
+  "training": "TRAIN complete windows only; random96px context,64px core;800 patches per epoch,batch8,Adam1e-4; MSE+0.15gradient+0.5localSSIM;transpose/genomic-reversal augmentations;norm clip5",
+  "fixed_candidates": {
+    "epochs": [
+      2,
+      4,
+      6
+    ],
+    "cnn_fractions": [
+      0.25,
+      0.5,
+      0.75,
+      1.0
+    ]
+  },
+  "selection": "Validation complete windows only;PSNR/SSIM gains>0 and CHIN/OPCID shape/profile mean gains>=-.03; maximize SSIM thenPSNR; fallback finalepoch fraction1",
+  "controls": "Raw bilinear/bicubic and train-affine-calibrated bilinear/bicubic from identical training cohort; frozen original wholeCNN retained on test",
+  "success": "Prerecorded whole-window image/shape/profile operational criteria from first full verification; original-image peaks supplementary, not ranker output",
+  "caution": "Retrospective spatial cohort; initial global inference and scale-only validation failures preserved; current test/rep2 not used to tune"
+}

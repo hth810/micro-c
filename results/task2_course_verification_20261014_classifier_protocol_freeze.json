@@ -1,0 +1,37 @@
+{
+  "frozen_at_utc": "2026-10-14T06:33:42.852592+00:00",
+  "parent_git_sha": "2c237f078fd9960eede868f1ff6596474ddcbfda",
+  "source_sha256": {
+    "E:\\\u673a\u5668\u5b66\u4e60\u5927\u4f5c\u4e1a\\micro-c\\scripts\\task2_course_classifier_context_20261014.py": "1bd571d2c8f188f7da52c65f1033bce20a84f5ed6ee21477d59c8a9a15591b60",
+    "tests\\test_task2_course_verification_classifier_20261014.py": "b6aa438239c99846948783989b1c70d573bcf81cf30f13382a0d724f6977a8ca",
+    "task1\\predict_roi_cnn_20261006.py": "7316e6a32cd4142f67b6dc9360a8a025d9fd3d230adbbcec0ae5ee98eefe2356",
+    "task1\\evaluate_roi_cnn_20261006.py": "dd0c68d1c2ab8c6efc5fc40ff3b34820c470a287d18dacb21f597b11e85da3db",
+    "task1\\evaluate_interval_conditioned_cnn.py": "3077288f211a551c9b68a9df6b19ae64067a0ae9514aca2a90641c4bf9911fe5",
+    "task1\\audit_roi_cnn_20261006.py": "40c8028edf0b6ae7fb45db977e240b28a5e54bf879158f40beb5134ae0d94b5a",
+    "task1\\run_task1.py": "c5b7ca6b067487b14c173c46dc6e37544eb4af4d2ca8f10d2a211a4f63f169a9"
+  },
+  "input_sha256": {
+    "results\\task2_improve_20261006_individual_candidate_validation.csv": "1dcf75b74bddcdbefbcc58622f4c50c48ab622f9c3842842ca9fd8f442f8fbcb",
+    "data\\structures.csv": "d9a5f0f380ff2c919e8edabc7aa8d612eedb29b67825118377b43e98b8ed7cdf",
+    "outputs\\task1_multiscale\\windows.npz": "c5cdbb6193b92207b1519cd45a92014a7d880937e5419bea4aafbcdbd7ba817a",
+    "results\\task1_improve_20261006_final_interval_roi_cnn.pt": "999b0d86bf81ae656fce7c392b98997fe08d9ae7b5abe484c7d45af142623353",
+    "results\\task1_improve_20261006_final_interval_roi_cnn.json": "fc0347be76eb15de7cda844ea2d58d5e9aa294404be9d05910a84b235652d02c",
+    "data\\raw\\GSE272159_37C_rep1.mapq_30.10.cool": "0256e10da36abfe0238bf16952bc43bc78365f43c201e6e3ba0c49bd243549a8",
+    "data\\raw\\GSE272159_37C_rep2.mapq_30.10.cool": "ede9b4f7c0c6b40c8f098e43cdd0abbc0a8987f05e8b37051a5e3cbf143ad106"
+  },
+  "candidate_selection": "All four pre-existing fixed windows; no candidate/ROI/type threshold selection",
+  "previous_rep2_and_qc_results_observed": true,
+  "prospectively_blind": false,
+  "model": "Unchanged trusted final Task 1 two-initialization interval-ROI CNN ensemble; no fitting",
+  "model_requires_true_annotated_intervals": true,
+  "candidate_roi_policy": "Use original 5120bp Task 2 windows as provisional ROIs only. No claim these are biological boundaries.",
+  "known_controls": "All 344 known references: true supplied ROIs and matched-width center +/-2560bp provisional ROIs, same contact inputs",
+  "contact_inputs": "Exact Task 1 extract_window: 128 bins average-pooling 4/16 native 10bp bins into 5.12/20.48kb inputs, independently normalized. Known cache verified by hash and one real extraction per type/replicate.",
+  "interpretation": "Auxiliary known-class similarity context only. Closed-set softmax never rejects all known classes, is not calibrated OOD probability, and cannot prove a new structure.",
+  "limits": [
+    "Known model-fit examples are not independent tests or new accuracy estimates.",
+    "Fixed-length provisional ROIs shift the model's boundary and length features away from annotated training inputs.",
+    "No classifier confidence threshold, novelty threshold, candidate selection, or biological label is changed.",
+    "This is not an annotation-free scan or validated unknown-type classifier."
+  ]
+}

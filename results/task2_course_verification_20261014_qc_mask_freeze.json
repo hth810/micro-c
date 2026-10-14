@@ -1,0 +1,7 @@
+{
+  "frozen_at_utc": "2026-10-14T06:28:53.059745+00:00",
+  "protocol_sha256": "a392417c12882dc4fcdef32fa6d0bb857980eb11bc55e9cf50bd4ffcd271d13c",
+  "rep2_used_for_masks": false,
+  "mask_sha256": "2da753945fa3c6614b7afb183669e22b76c82d52d8c86da42287efe9515700a1",
+  "mask_manifest_sha256": "1fbcb393db3d2d2c4171b7d1ab6ad778b021924151e01f78d39c9427baa43c34"
+}

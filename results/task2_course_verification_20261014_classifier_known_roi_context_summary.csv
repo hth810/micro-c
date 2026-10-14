@@ -1,0 +1,7 @@
+role,known_truth,n,same_label_fraction_descriptive_only,median_maximum_mean_softmax,not_held_out_performance
+known_true_roi_model_fit_reference,CHIN,250,1.0,0.999995619058609,True
+known_true_roi_model_fit_reference,OPCID,68,1.0,0.9999589025974274,True
+known_true_roi_model_fit_reference,CHID,26,1.0,0.9975307583808899,True
+known_same_width_provisional_roi,CHIN,250,0.82,0.9935547113418579,True
+known_same_width_provisional_roi,OPCID,68,0.9705882352941176,0.999935656785965,True
+known_same_width_provisional_roi,CHID,26,0.38461538461538464,0.9854236543178558,True

@@ -1,0 +1,218 @@
+{
+  "completed_at_utc": "2026-10-14T06:29:32.758232+00:00",
+  "protocol_sha256": "a392417c12882dc4fcdef32fa6d0bb857980eb11bc55e9cf50bd4ffcd271d13c",
+  "mask_freeze_sha256": "c9e38210ea2667cfed3a7a85180343ba19ef281b686828c626b4ddc35b62779a",
+  "mask_frozen_before_known_reference_counterfactual_extraction": true,
+  "rep2_used_for_mask_selection": false,
+  "prospectively_blind": false,
+  "unmasked_count_reproduction_max_abs_error": {
+    "rep1": 0.0,
+    "rep2": 0.0
+  },
+  "counterfactual_all_known": [
+    {
+      "mask_from_candidate": "unmasked",
+      "known_type": "ALL",
+      "n": 344,
+      "rep1_dual_novelty_count": 16,
+      "rep2_dual_novelty_count": 12,
+      "both_replicates_dual_novelty_count": 12,
+      "both_replicates_dual_novelty_fraction": 0.03488372093023256,
+      "median_highpass_repeat_r": 0.6306703905105252,
+      "median_rowcol_repeat_r": 0.7915876262455155,
+      "interpretation": "artificial_counterfactual_not_genomic_null"
+    },
+    {
+      "mask_from_candidate": "A1",
+      "known_type": "ALL",
+      "n": 344,
+      "rep1_dual_novelty_count": 17,
+      "rep2_dual_novelty_count": 20,
+      "both_replicates_dual_novelty_count": 17,
+      "both_replicates_dual_novelty_fraction": 0.04941860465116279,
+      "median_highpass_repeat_r": 0.908670085521288,
+      "median_rowcol_repeat_r": 0.8614974551936865,
+      "interpretation": "artificial_counterfactual_not_genomic_null"
+    },
+    {
+      "mask_from_candidate": "A2",
+      "known_type": "ALL",
+      "n": 344,
+      "rep1_dual_novelty_count": 342,
+      "rep2_dual_novelty_count": 342,
+      "both_replicates_dual_novelty_count": 342,
+      "both_replicates_dual_novelty_fraction": 0.9941860465116279,
+      "median_highpass_repeat_r": 0.900546310021824,
+      "median_rowcol_repeat_r": 0.9289943166929271,
+      "interpretation": "artificial_counterfactual_not_genomic_null"
+    },
+    {
+      "mask_from_candidate": "A3",
+      "known_type": "ALL",
+      "n": 344,
+      "rep1_dual_novelty_count": 165,
+      "rep2_dual_novelty_count": 145,
+      "both_replicates_dual_novelty_count": 131,
+      "both_replicates_dual_novelty_fraction": 0.3808139534883721,
+      "median_highpass_repeat_r": 0.9191308360804674,
+      "median_rowcol_repeat_r": 0.9698827670557606,
+      "interpretation": "artificial_counterfactual_not_genomic_null"
+    },
+    {
+      "mask_from_candidate": "A4",
+      "known_type": "ALL",
+      "n": 344,
+      "rep1_dual_novelty_count": 33,
+      "rep2_dual_novelty_count": 32,
+      "both_replicates_dual_novelty_count": 30,
+      "both_replicates_dual_novelty_fraction": 0.0872093023255814,
+      "median_highpass_repeat_r": 0.8834855515017004,
+      "median_rowcol_repeat_r": 0.9068993635239264,
+      "interpretation": "artificial_counterfactual_not_genomic_null"
+    }
+  ],
+  "complete_common_depth_levels": [
+    10000,
+    20000,
+    30000
+  ],
+  "minimum_observed_known_candidate_upper_counts": 32044.0,
+  "all_reference_candidate_inputs_support_all_depth_levels": true,
+  "depth_summary": [
+    {
+      "candidate_id": "A1",
+      "target_expected_upper_count": 10000,
+      "highpass_repeat_r_mean": 0.5105272902207239,
+      "highpass_repeat_r_min": 0.43061000282519896,
+      "highpass_repeat_r_max": 0.5759872994786879,
+      "rowcol_repeat_r_mean": 0.7762164310949689,
+      "rep2_beyond_rep1_known_feature_q90_fraction": 1.0
+    },
+    {
+      "candidate_id": "A1",
+      "target_expected_upper_count": 20000,
+      "highpass_repeat_r_mean": 0.5097898435746325,
+      "highpass_repeat_r_min": 0.47695450304764025,
+      "highpass_repeat_r_max": 0.5330936080951568,
+      "rowcol_repeat_r_mean": 0.7266846795127795,
+      "rep2_beyond_rep1_known_feature_q90_fraction": 0.8
+    },
+    {
+      "candidate_id": "A1",
+      "target_expected_upper_count": 30000,
+      "highpass_repeat_r_mean": 0.5393038463631366,
+      "highpass_repeat_r_min": 0.4345929908981535,
+      "highpass_repeat_r_max": 0.6246770679088769,
+      "rowcol_repeat_r_mean": 0.7015476877159751,
+      "rep2_beyond_rep1_known_feature_q90_fraction": 0.0
+    },
+    {
+      "candidate_id": "A2",
+      "target_expected_upper_count": 10000,
+      "highpass_repeat_r_mean": 0.6104043752794555,
+      "highpass_repeat_r_min": 0.5735145167048026,
+      "highpass_repeat_r_max": 0.6505077837997596,
+      "rowcol_repeat_r_mean": 0.8710397371647055,
+      "rep2_beyond_rep1_known_feature_q90_fraction": 1.0
+    },
+    {
+      "candidate_id": "A2",
+      "target_expected_upper_count": 20000,
+      "highpass_repeat_r_mean": 0.6533865441326564,
+      "highpass_repeat_r_min": 0.6304212063406239,
+      "highpass_repeat_r_max": 0.66469778988125,
+      "rowcol_repeat_r_mean": 0.8501589676327346,
+      "rep2_beyond_rep1_known_feature_q90_fraction": 1.0
+    },
+    {
+      "candidate_id": "A2",
+      "target_expected_upper_count": 30000,
+      "highpass_repeat_r_mean": 0.6865026011808821,
+      "highpass_repeat_r_min": 0.6419851701930813,
+      "highpass_repeat_r_max": 0.7143229965933953,
+      "rowcol_repeat_r_mean": 0.8492983366785097,
+      "rep2_beyond_rep1_known_feature_q90_fraction": 1.0
+    },
+    {
+      "candidate_id": "A3",
+      "target_expected_upper_count": 10000,
+      "highpass_repeat_r_mean": 0.3719969370869672,
+      "highpass_repeat_r_min": 0.31626430006465284,
+      "highpass_repeat_r_max": 0.4415168087757092,
+      "rowcol_repeat_r_mean": 0.6602689458258341,
+      "rep2_beyond_rep1_known_feature_q90_fraction": 0.2
+    },
+    {
+      "candidate_id": "A3",
+      "target_expected_upper_count": 20000,
+      "highpass_repeat_r_mean": 0.4207770394115668,
+      "highpass_repeat_r_min": 0.3973140437451558,
+      "highpass_repeat_r_max": 0.45405480165382267,
+      "rowcol_repeat_r_mean": 0.6043210268714955,
+      "rep2_beyond_rep1_known_feature_q90_fraction": 0.8
+    },
+    {
+      "candidate_id": "A3",
+      "target_expected_upper_count": 30000,
+      "highpass_repeat_r_mean": 0.4731919050941936,
+      "highpass_repeat_r_min": 0.4480239031720686,
+      "highpass_repeat_r_max": 0.5030913182768162,
+      "rowcol_repeat_r_mean": 0.6171025169314059,
+      "rep2_beyond_rep1_known_feature_q90_fraction": 1.0
+    },
+    {
+      "candidate_id": "A4",
+      "target_expected_upper_count": 10000,
+      "highpass_repeat_r_mean": 0.4370798655063453,
+      "highpass_repeat_r_min": 0.3332798608780793,
+      "highpass_repeat_r_max": 0.503630823585609,
+      "rowcol_repeat_r_mean": 0.7004372672726926,
+      "rep2_beyond_rep1_known_feature_q90_fraction": 1.0
+    },
+    {
+      "candidate_id": "A4",
+      "target_expected_upper_count": 20000,
+      "highpass_repeat_r_mean": 0.5376552114088655,
+      "highpass_repeat_r_min": 0.5051749162072738,
+      "highpass_repeat_r_max": 0.5648624562767486,
+      "rowcol_repeat_r_mean": 0.7012805316156976,
+      "rep2_beyond_rep1_known_feature_q90_fraction": 0.4
+    },
+    {
+      "candidate_id": "A4",
+      "target_expected_upper_count": 30000,
+      "highpass_repeat_r_mean": 0.4814846493236945,
+      "highpass_repeat_r_min": 0.41543202482215363,
+      "highpass_repeat_r_max": 0.5368938325725653,
+      "rowcol_repeat_r_mean": 0.6151060826834913,
+      "rep2_beyond_rep1_known_feature_q90_fraction": 1.0
+    }
+  ],
+  "artificial_masks_are_null_or_validation": false,
+  "p_values_or_fdr_claimed": false,
+  "confirmed_new_structure_types": 0,
+  "limitations": [
+    "Masks are artificial counterfactual perturbations, not real background controls or new biological replicates.",
+    "No p-values, FDR or genuine genomic false-positive rate from artificial masks.",
+    "Count thinning controls observed depth only, not underlying map-quality or fragment coverage.",
+    "Known-reference independence mask is a calibration diagnostic, not a new candidate novelty threshold.",
+    "No blinded validation; historical repetition remains visible."
+  ],
+  "source_table_binding": {
+    "counterfactual_and_depth.png": [
+      "counterfactual_summary.csv",
+      "complete_common_depth_summary.csv"
+    ]
+  },
+  "output_sha256": {
+    "complete_common_depth_sensitivity.csv": "d1f0912ca5aed7a193fab1b03695568781562a045ba737b92d3160fdc3aff9c0",
+    "complete_common_depth_summary.csv": "3d04910d3001645bfe9212504cfe7a3e52212c43b6a1b026cbd12060883c4502",
+    "counterfactual_and_depth.png": "b20c3cd4d4b5494410a632ddb0de985b51e461efcf3eab9ada00b5352ab28cd8",
+    "counterfactual_summary.csv": "741d5dae15024c06ca6a05ab4f86f72f5a0160297176927b6202308699104213",
+    "known_coverage_counterfactual.csv": "eae184940382e1aaa56796d37f3d5f752ef0486ac25c26800d88cc3154d6e972",
+    "mask_freeze.json": "c9e38210ea2667cfed3a7a85180343ba19ef281b686828c626b4ddc35b62779a",
+    "mask_manifest.csv": "1fbcb393db3d2d2c4171b7d1ab6ad778b021924151e01f78d39c9427baa43c34",
+    "protocol_freeze.json": "a392417c12882dc4fcdef32fa6d0bb857980eb11bc55e9cf50bd4ffcd271d13c",
+    "rep1_fixed_masks.npz": "2da753945fa3c6614b7afb183669e22b76c82d52d8c86da42287efe9515700a1"
+  }
+}

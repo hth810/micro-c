@@ -1,0 +1,67 @@
+{
+  "completed_at_utc": "2026-10-14T07:00:22.758557+00:00",
+  "audit_script_sha256": "d2961b5975248461e853c7aa05baf9bd1b5f6b0ec1c10dca5390fc5a0d34eb99",
+  "frozen_artifact_hash_checks_before_and_after": 563,
+  "source_hash_checks": {
+    "script": "3d2d5fb25e1fc10a8d513e17255a9c6d34bfaf330a59586e7bb9066eb7c2c68b",
+    "evaluator": "5bbbfd3da1d81ffa5684ce054b19356d59c37e9078bb961cfaa7c482d5183655",
+    "scale_script": "61814f9c61a62e7ffbf8ae61b959b88662966451d9cfa0b453c5218d02e2b28b",
+    "deep": "31f3b08f4c13dd52538e1cf9985f09773265d0bc6fe1a50e6e73a6ec1e1dca7c",
+    "data": "423de5ef6d6bca94a3021db2d40df98b93414116890bad15af237459db0968c5"
+  },
+  "overwrite_guards": [
+    {
+      "name": "duplicate_select",
+      "command": [
+        "C:\\Users\\yanxi\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe",
+        "-m",
+        "scripts.task5_full_structure_train_20261014",
+        "--phase",
+        "select",
+        "--out",
+        "E:\\机器学习大作业\\micro-c\\outputs\\task5_full_structure_20261014\\neural_adaptation",
+        "--results-dir",
+        "E:\\机器学习大作业\\micro-c\\results"
+      ],
+      "returncode": 1,
+      "rejected_before_run": true,
+      "error": "FileExistsError: Select refuses to overwrite a frozen run; choose a fresh --out"
+    },
+    {
+      "name": "duplicate_test",
+      "command": [
+        "C:\\Users\\yanxi\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe",
+        "-m",
+        "scripts.task5_full_structure_train_20261014",
+        "--phase",
+        "test",
+        "--out",
+        "E:\\机器学习大作业\\micro-c\\outputs\\task5_full_structure_20261014\\neural_adaptation",
+        "--results-dir",
+        "E:\\机器学习大作业\\micro-c\\results"
+      ],
+      "returncode": 1,
+      "rejected_before_run": true,
+      "error": "FileExistsError: Test refuses to overwrite published/frozen final results; use fresh output/results directory"
+    },
+    {
+      "name": "duplicate_export",
+      "command": [
+        "C:\\Users\\yanxi\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe",
+        "-m",
+        "scripts.task5_full_structure_export_20261014",
+        "--run",
+        "E:\\机器学习大作业\\micro-c\\outputs\\task5_full_structure_20261014\\neural_adaptation",
+        "--results-dir",
+        "E:\\机器学习大作业\\micro-c\\results"
+      ],
+      "returncode": 1,
+      "rejected_before_run": true,
+      "error": "FileExistsError: Export refuses to overwrite an existing receipt"
+    }
+  ],
+  "all_frozen_artifacts_unchanged": true,
+  "full_map_verification_receipt_sha256": "ff2d2e15bf6dc81acebcdf4865c4f90d1835de21c9c3f08c8b685fcec92b7c6a",
+  "model_sha256": "e52b1ad52f07cf9556d297435ba7401ed784190c5a18133974cb7d4a560ab6e3",
+  "no_training_or_scientific_refitting": true
+}

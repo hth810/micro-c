@@ -1,0 +1,42 @@
+{
+  "completed_at_utc": "2026-10-14T06:26:33.085671+00:00",
+  "protocol_sha256": "6a0429de29263927257390ee17c3b784799d64018c72d741020d7a60bf6a41a2",
+  "input_sha256": {
+    "bundle": "27964152e8c33ae437d08c05e2e694ae417766d835738e24f16ffc7c8b8fc0cb",
+    "coordinates": "3f88aa41a175b15a60bc4e63825000fe35aa731d6b92cad7c76400f33baffee1",
+    "original_freeze": "e0dcc60499649b6719f3a89d1b5601bce0f90b4ac8579a04b850af3a64f3bb52",
+    "original_comparison": "fee5146824e8c2495c753f651cb910ba7494053f99aa7936fe37d9c881783db9",
+    "rep2": "ede9b4f7c0c6b40c8f098e43cdd0abbc0a8987f05e8b37051a5e3cbf143ad106",
+    "gff": "afdf03dc1d06e423d874ee29d9e0df14f5d32baf893f4da9f93aa721eb5f495e"
+  },
+  "source_sha256": {
+    "scripts\\task6_full_geometry_verification_20261014.py": "6f7b92a2565ef0617226abb2a4892625db2ae7d6ef1a4903a3ae936235a0d0af",
+    "scripts\\annotate_3d_domains.py": "277e68e0cba12d0277532fd488f244d04c0ead6c1776d94d04a16061a41f176e",
+    "scripts\\validate_3d_macroregions.py": "47f69e3a50286a0f0b999803ebc2f23a1476b6bde0cbd580f6a6661dbeaab7cb",
+    "scripts\\task6_circular_sensitivity.py": "f9418aa7e38399360916bd2d40b4c3c357c75041dabd255c3115ae55d860db05",
+    "microc\\circular.py": "fc7ff8719b119b3d9d626693ef25e3ea0f8a6e87bb9569029c280b7b7d4f19cc",
+    "microc\\deep.py": "31f3b08f4c13dd52538e1cf9985f09773265d0bc6fe1a50e6e73a6ec1e1dca7c",
+    "tests\\test_task6_full_geometry_verification_20261014.py": "320e1fd6e8c8e6cb9063f7781c5808317b14406ef3aac080ee6f2eeb5b050bbc"
+  },
+  "outputs_sha256": {
+    "all_model_3d.png": "2ab15cd8912ec391645945351ba64f192dc15c9eefa58c8ccbddf910ac890513",
+    "coordinate_labels.csv": "8ca7da6033d07cec83d7b5c3b4f8d75687ed9c6214f63bb7f3737fef71681a6c",
+    "cyclic_null.png": "e00e4ace61f33aafb7a9d79da0e91bf2ab2951f94c1dcae08b2acf3d46393242",
+    "cyclic_shift_effects.csv": "a9c54ca8bae745468a6403ed0ffae3bf0372c70c1eba53dfcb83be88aabdea1b",
+    "individual_domains.csv": "b9bc7af024e8726741798e9353a1815b432293e16540bd4054a2320289a382e6",
+    "landmarks.csv": "427742dacbb12886fc7eba3dce80af751b6b8350658a95483c0833cf94232ac7",
+    "landmark_metadata.json": "990f502d7f5ed40c081a7207508bad88219fed04ebe4764db89ded213eda1acb",
+    "macrogeometry.csv": "0f4299d19f961b6f06f3765bb0bb3ba4662b3f7be3347aba0ecc01407c70bfd5",
+    "macrogeometry.png": "4f79290ce2bc88b50c6f0b7127c9dd53a3f21b37b8421c4a3afca88fb8721e02",
+    "protocol.json": "6a0429de29263927257390ee17c3b784799d64018c72d741020d7a60bf6a41a2",
+    "rep2_reverification.csv": "fd31f13a57fcab40567c34f546623b50da709cfa68869006440acf4efdc2a2e2",
+    "summary.json": "afb3bdd17ac993092f13f8bd80628d7cd8df228fcd60f5c4bad5cc386d4a0964"
+  },
+  "all_declared_models_evaluated": [
+    "rank_mlp_seed20261006",
+    "rank_mlp_seed20261007",
+    "rank_mlp_seed20261008",
+    "circular_mds"
+  ],
+  "old_frozen_evidence_overwritten": false
+}

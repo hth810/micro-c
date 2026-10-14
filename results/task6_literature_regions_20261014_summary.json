@@ -1,0 +1,243 @@
+{
+  "protocol_sha256": "e6f64915882a8fab0434118377858353588eac853a2c0a0f3ed91f18bda360d2",
+  "literature_version": "Zarei2013_SI_Table1",
+  "four_macrodomains_50kb": [
+    {
+      "coordinate_version": "Zarei2013_SI_Table1",
+      "scope": "four_macrodomains",
+      "trim_bp": 50000,
+      "model": "rank_mlp_seed20261006",
+      "retained_bins": 563,
+      "matched_pairs_per_class": 11583,
+      "same_domain_near_auc": 0.6721833147917351,
+      "standardized_between_minus_within": 0.5176488151269709,
+      "cyclic_shift_upper_p": 0.15285252960172227,
+      "shift_null_mean": -0.003907914919207917,
+      "shift_null_p95": 0.7289787764155837,
+      "cyclic_shift_bh_q_all_16_checks": 0.24456404736275564
+    },
+    {
+      "coordinate_version": "Zarei2013_SI_Table1",
+      "scope": "four_macrodomains",
+      "trim_bp": 50000,
+      "model": "rank_mlp_seed20261007",
+      "retained_bins": 563,
+      "matched_pairs_per_class": 11583,
+      "same_domain_near_auc": 0.7170717439214375,
+      "standardized_between_minus_within": 0.6396601145114124,
+      "cyclic_shift_upper_p": 0.02583423035522067,
+      "shift_null_mean": -0.003169774192775612,
+      "shift_null_p95": 0.595432374688251,
+      "cyclic_shift_bh_q_all_16_checks": 0.11367061356297095
+    },
+    {
+      "coordinate_version": "Zarei2013_SI_Table1",
+      "scope": "four_macrodomains",
+      "trim_bp": 50000,
+      "model": "rank_mlp_seed20261008",
+      "retained_bins": 563,
+      "matched_pairs_per_class": 11583,
+      "same_domain_near_auc": 0.7550419987900202,
+      "standardized_between_minus_within": 0.7797904945003877,
+      "cyclic_shift_upper_p": 0.04413347685683531,
+      "shift_null_mean": -0.007369284773040609,
+      "shift_null_p95": 0.7443083525282209,
+      "cyclic_shift_bh_q_all_16_checks": 0.1176892716182275
+    },
+    {
+      "coordinate_version": "Zarei2013_SI_Table1",
+      "scope": "four_macrodomains",
+      "trim_bp": 50000,
+      "model": "circular_mds",
+      "retained_bins": 563,
+      "matched_pairs_per_class": 11583,
+      "same_domain_near_auc": 0.6389820068199302,
+      "standardized_between_minus_within": 0.43522802858933995,
+      "cyclic_shift_upper_p": 0.03552206673842842,
+      "shift_null_mean": -0.0016569768256513688,
+      "shift_null_p95": 0.4253183099025456,
+      "cyclic_shift_bh_q_all_16_checks": 0.11367061356297095
+    },
+    {
+      "coordinate_version": "Zarei2013_SI_Table1",
+      "scope": "four_macrodomains",
+      "trim_bp": 50000,
+      "model": "exact_genome_circle",
+      "retained_bins": 563,
+      "matched_pairs_per_class": 11583,
+      "same_domain_near_auc": 0.5,
+      "standardized_between_minus_within": 1.432046434027656e-16,
+      "cyclic_shift_upper_p": null,
+      "shift_null_mean": 1.4320464340276566e-16,
+      "shift_null_p95": 1.4320464340276563e-16,
+      "cyclic_shift_bh_q_all_16_checks": null
+    }
+  ],
+  "individual_domains_50kb": [
+    {
+      "coordinate_version": "Zarei2013_SI_Table1",
+      "trim_bp": 50000,
+      "region": "Ori",
+      "model": "rank_mlp_seed20261006",
+      "matched_pairs_per_class": 342,
+      "within_domain_near_auc": 0.9015765534694435
+    },
+    {
+      "coordinate_version": "Zarei2013_SI_Table1",
+      "trim_bp": 50000,
+      "region": "Ori",
+      "model": "rank_mlp_seed20261007",
+      "matched_pairs_per_class": 342,
+      "within_domain_near_auc": 0.880894976232003
+    },
+    {
+      "coordinate_version": "Zarei2013_SI_Table1",
+      "trim_bp": 50000,
+      "region": "Ori",
+      "model": "rank_mlp_seed20261008",
+      "matched_pairs_per_class": 342,
+      "within_domain_near_auc": 0.922745460141582
+    },
+    {
+      "coordinate_version": "Zarei2013_SI_Table1",
+      "trim_bp": 50000,
+      "region": "Ori",
+      "model": "circular_mds",
+      "matched_pairs_per_class": 342,
+      "within_domain_near_auc": 0.44789849868335563
+    },
+    {
+      "coordinate_version": "Zarei2013_SI_Table1",
+      "trim_bp": 50000,
+      "region": "Ori",
+      "model": "exact_genome_circle",
+      "matched_pairs_per_class": 342,
+      "within_domain_near_auc": 0.49999999999999994
+    },
+    {
+      "coordinate_version": "Zarei2013_SI_Table1",
+      "trim_bp": 50000,
+      "region": "Ter",
+      "model": "rank_mlp_seed20261006",
+      "matched_pairs_per_class": 7905,
+      "within_domain_near_auc": 0.5057710453955715
+    },
+    {
+      "coordinate_version": "Zarei2013_SI_Table1",
+      "trim_bp": 50000,
+      "region": "Ter",
+      "model": "rank_mlp_seed20261007",
+      "matched_pairs_per_class": 7905,
+      "within_domain_near_auc": 0.530620640984557
+    },
+    {
+      "coordinate_version": "Zarei2013_SI_Table1",
+      "trim_bp": 50000,
+      "region": "Ter",
+      "model": "rank_mlp_seed20261008",
+      "matched_pairs_per_class": 7905,
+      "within_domain_near_auc": 0.6009464942043823
+    },
+    {
+      "coordinate_version": "Zarei2013_SI_Table1",
+      "trim_bp": 50000,
+      "region": "Ter",
+      "model": "circular_mds",
+      "matched_pairs_per_class": 7905,
+      "within_domain_near_auc": 0.5790713409274668
+    },
+    {
+      "coordinate_version": "Zarei2013_SI_Table1",
+      "trim_bp": 50000,
+      "region": "Ter",
+      "model": "exact_genome_circle",
+      "matched_pairs_per_class": 7905,
+      "within_domain_near_auc": 0.49999999999999994
+    },
+    {
+      "coordinate_version": "Zarei2013_SI_Table1",
+      "trim_bp": 50000,
+      "region": "Right",
+      "model": "rank_mlp_seed20261006",
+      "matched_pairs_per_class": 1681,
+      "within_domain_near_auc": 0.594780308738071
+    },
+    {
+      "coordinate_version": "Zarei2013_SI_Table1",
+      "trim_bp": 50000,
+      "region": "Right",
+      "model": "rank_mlp_seed20261007",
+      "matched_pairs_per_class": 1681,
+      "within_domain_near_auc": 0.7706727497477671
+    },
+    {
+      "coordinate_version": "Zarei2013_SI_Table1",
+      "trim_bp": 50000,
+      "region": "Right",
+      "model": "rank_mlp_seed20261008",
+      "matched_pairs_per_class": 1681,
+      "within_domain_near_auc": 0.6165376335790607
+    },
+    {
+      "coordinate_version": "Zarei2013_SI_Table1",
+      "trim_bp": 50000,
+      "region": "Right",
+      "model": "circular_mds",
+      "matched_pairs_per_class": 1681,
+      "within_domain_near_auc": 0.6898897323588229
+    },
+    {
+      "coordinate_version": "Zarei2013_SI_Table1",
+      "trim_bp": 50000,
+      "region": "Right",
+      "model": "exact_genome_circle",
+      "matched_pairs_per_class": 1681,
+      "within_domain_near_auc": 0.5
+    },
+    {
+      "coordinate_version": "Zarei2013_SI_Table1",
+      "trim_bp": 50000,
+      "region": "Left",
+      "model": "rank_mlp_seed20261006",
+      "matched_pairs_per_class": 2500,
+      "within_domain_near_auc": 0.40920656
+    },
+    {
+      "coordinate_version": "Zarei2013_SI_Table1",
+      "trim_bp": 50000,
+      "region": "Left",
+      "model": "rank_mlp_seed20261007",
+      "matched_pairs_per_class": 2500,
+      "within_domain_near_auc": 0.49153248
+    },
+    {
+      "coordinate_version": "Zarei2013_SI_Table1",
+      "trim_bp": 50000,
+      "region": "Left",
+      "model": "rank_mlp_seed20261008",
+      "matched_pairs_per_class": 2500,
+      "within_domain_near_auc": 0.56020976
+    },
+    {
+      "coordinate_version": "Zarei2013_SI_Table1",
+      "trim_bp": 50000,
+      "region": "Left",
+      "model": "circular_mds",
+      "matched_pairs_per_class": 2500,
+      "within_domain_near_auc": 0.39402655999999997
+    },
+    {
+      "coordinate_version": "Zarei2013_SI_Table1",
+      "trim_bp": 50000,
+      "region": "Left",
+      "model": "exact_genome_circle",
+      "matched_pairs_per_class": 2500,
+      "within_domain_near_auc": 0.5000000000000001
+    }
+  ],
+  "changed_label_bins": 79,
+  "Ori4_9900bp_literature_label": "Ori",
+  "no_retraining": true,
+  "prior_version_retained": true,
+  "interpretation_plan": "Report both versions and every domain. Positive overall AUC alone is not evidence that every domain is recovered; cyclic-shift specificity is a separate assessment."
+}

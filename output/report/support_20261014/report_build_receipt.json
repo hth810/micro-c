@@ -1,0 +1,100 @@
+{
+  "docx": "E:\\机器学习大作业\\micro-c\\output\\report\\MicroC_实验报告_20261014.docx",
+  "sha256": "c9ee6573118fce2e341a4301af1a05b38cb5e6c05cc7ed76b49b3f835724d4d1",
+  "planned_pages": 26,
+  "tables": 28,
+  "figures": 13,
+  "content_policy": "final methods, baselines, ablations and final results; no exploration narrative",
+  "figure_inputs": [
+    {
+      "page": 7,
+      "source_path": "E:\\机器学习大作业\\tmp\\microc_report_20261014\\figures\\task1_confusions.png",
+      "sha256": "ca1d43e4d100fbabb46a5f1c59343987bd3ed1d4062e7ea77e2df197b6ccc2d7",
+      "caption": "最终主模型与基础接触 CNN 的同折混淆矩阵 行为真实类别 列为预测类别 344 条注释各计一次 来源 R02"
+    },
+    {
+      "page": 8,
+      "source_path": "E:\\机器学习大作业\\micro-c\\results\\task1_improve_20261006_oof_saliency_by_class.png",
+      "sha256": "aa0f38b7b5ccce7fce5e991ef1ad17ea50b143cdff7c2a7e954489c2f6c24b77",
+      "caption": "三类外折实例 每行左侧为长接触图及 ROI 右侧为对应梯度乘输入幅值 来源 R05"
+    },
+    {
+      "page": 11,
+      "source_path": "E:\\机器学习大作业\\tmp\\microc_report_20261014\\figures\\task2_resampling.png",
+      "sha256": "0f242a11d87e85044e3d867bcac48b76dd0d530119c49db4e8c33972b5ee325a",
+      "caption": "已知结构与独立未注释窗口的重复相关中位数 最终面积求和与插值对照 来源 R07"
+    },
+    {
+      "page": 13,
+      "source_path": "E:\\机器学习大作业\\tmp\\microc_report_20261014\\figures\\task2_candidate_pair1.png",
+      "sha256": "9900f67ea6f3b8ab25a2aa6d01448e02ac92c9beb33c6a58e36963d8f833588b",
+      "caption": "A1 与 A2 的双重复接触图 原生计数面积求和 同一残差定义与显示色阶 横纵轴均为相对中心距离 来源 R07 R08"
+    },
+    {
+      "page": 14,
+      "source_path": "E:\\机器学习大作业\\tmp\\microc_report_20261014\\figures\\task2_candidate_pair2.png",
+      "sha256": "a5d5cb1e8e1a927f60326a9409475f7e7e8607822a19576ce56ca5ed7d0b952d",
+      "caption": "A3 与 A4 的双重复接触图 色阶与前图一致 失败位点 A3 完整保留便于比较 来源 R07 R08"
+    },
+    {
+      "page": 15,
+      "source_path": "E:\\机器学习大作业\\micro-c\\results\\task3_example_005.png",
+      "sha256": "474c3e58b53f8fc6db0d7e384eff38b60a9820fd0f7e5dc9df39f1d847650a82",
+      "caption": "50–60 kb 代表轨道 自上而下为 WT37 热44 利福平的 sqrtCPM 与灰色均值 独立均值轨道 蓝色基因区间及橙色 CHIN OPCID 注释 来源 R12"
+    },
+    {
+      "page": 16,
+      "source_path": "E:\\机器学习大作业\\micro-c\\outputs\\task4_heat_order_invariant\\heatmaps\\CHIN_94_wt.png",
+      "sha256": "b0203f959af2ee3f33e448af8a55399b00f6437ffb7bdecd70fd7ea30d53208c",
+      "caption": "CHIN 94 的深度匹配对照 左 WT37 右 44℃ 来自四组合与顺序不变的最终分析输出 来源 R13"
+    },
+    {
+      "page": 16,
+      "source_path": "E:\\机器学习大作业\\micro-c\\outputs\\task4_heat_order_invariant\\heatmaps\\CHIN_94_heat_44c.png",
+      "sha256": "a246eb6942b7b61bbc6b5366981bbabf2e1cbac9869848e9e8e7fe3ecc694993",
+      "caption": "CHIN 94 的深度匹配对照 左 WT37 右 44℃ 来自四组合与顺序不变的最终分析输出 来源 R13"
+    },
+    {
+      "page": 17,
+      "source_path": "E:\\机器学习大作业\\micro-c\\results\\task5_known_CHID.png",
+      "sha256": "c54fe55aa4596cc0fa53a5c233a8bcfa2420b8c5bbe09efb472c30741f79d3e4",
+      "caption": "CHID 已知中心的 640 bp 局部示例。左至右为双线性输入、主 CNN 重建和 Micro-C 目标，统一色阶展示局部强度与纹理的变化。"
+    },
+    {
+      "page": 18,
+      "source_path": "E:\\机器学习大作业\\micro-c\\results\\task5_known_CHIN.png",
+      "sha256": "32f1e4529ea7fc09f9518351f22ed0155b66f08ec5571000fcfd7d87c358b929",
+      "caption": "CHIN 局部示例，左至右为插值、主 CNN 与目标；与上表的全部 68 个中心结果配合观察重建纹理和峰位置。"
+    },
+    {
+      "page": 18,
+      "source_path": "E:\\机器学习大作业\\micro-c\\results\\task5_known_OPCID.png",
+      "sha256": "16d9e7e11c8918fef2499894c2c3ac99d90b796ace32d9f463a807f6c98c7de0",
+      "caption": "OPCID 局部示例，沿用相同的三图比较方式与色阶。此处展示主 CNN 图像，候选排序性能单列于上表。"
+    },
+    {
+      "page": 19,
+      "source_path": "E:\\机器学习大作业\\tmp\\microc_report_20261014\\figures\\task6_current_macroregions.png",
+      "sha256": "070f7926651a8dd573dc1de9193b1492177222b65d131a297928f08b76685f2e",
+      "caption": "第一种子的冻结三维轨迹 双视角与宏区域标签 颜色按文献近似基因组区间标注 来源 R17"
+    },
+    {
+      "page": 20,
+      "source_path": "E:\\机器学习大作业\\tmp\\microc_report_20261014\\figures\\task6_comparison.png",
+      "sha256": "b3d994e99f3d8e09ff2d793f46a84e1913db64cb6005e989bd505cccdd889b67",
+      "caption": "最终模型、去排序项消融和 MDS 的匹配区分能力与正接触相关。三个种子均采用同一环形评价方式，数值与受控实验源表一致。"
+    },
+    {
+      "page": 21,
+      "source_path": "E:\\机器学习大作业\\tmp\\microc_report_20261014\\figures\\task6_distance.png",
+      "sha256": "7b15aecfb152f75ed3f67a3b6c679863c9658cab728edbaa569c9a96a739d54f",
+      "caption": "冻结三维坐标的两两距离及接触代理检查。坐标轴保持基因组顺序，代理图按统一方式展示，并与固定目标上的 AUC 和相关系数共同解读。"
+    }
+  ],
+  "missing_user_metadata": [
+    "group number",
+    "names",
+    "student IDs",
+    "actual contributions"
+  ]
+}

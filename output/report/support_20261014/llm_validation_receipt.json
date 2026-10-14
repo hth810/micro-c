@@ -1,0 +1,99 @@
+{
+  "record_type": "llm_review_numeric_consistency_receipt",
+  "validator_sha256": "b4d39c2a0124fca55b0e1db6946fe35138a784ee8b7ebf3ff7de45364c605bb2",
+  "review_sha256": "11d675ae1b3e56b8a6881e6eeffb493301cafc713f23c418d570adb7d6369110",
+  "absolute_numeric_tolerance": 1e-09,
+  "deterministic": true,
+  "scope": "CSV fact, identity, version, and gate checks only; not expert approval or biological validation",
+  "scientific_p_values_generated": false,
+  "source_tables": {
+    "candidate_validation": {
+      "path": "results/task2_improve_20261006_individual_candidate_validation.csv",
+      "rows": 4,
+      "sha256": "1dcf75b74bddcdbefbcc58622f4c50c48ab622f9c3842842ca9fd8f442f8fbcb"
+    },
+    "native_qc": {
+      "path": "results/task2_followup_20261006_candidate_native_qc.csv",
+      "rows": 8,
+      "sha256": "e080a574abd2b2867ccc25be6d0c86f8236e03a4d9c305c031b7c7646de66961"
+    },
+    "reference_uniqueness": {
+      "path": "results/task2_reference_followup_20261006_candidate_reference_diagnostics.csv",
+      "rows": 12,
+      "sha256": "3cc0ddc0eb44703e9ce79c6030490eba2268d4b3e328962b0d255d8f6d1850d4"
+    },
+    "normalization_sensitivity": {
+      "path": "results/task2_followup_20261006_candidate_normalization_sensitivity.csv",
+      "rows": 96,
+      "sha256": "ac1c9cd9207cb7923402cdc4be4c2998abcdff77b47bb9aaf8c636cc5d5c528e"
+    },
+    "matched_controls": {
+      "path": "results/task2_followup_20261006_candidate_matched_descriptive_comparison.csv",
+      "rows": 48,
+      "sha256": "4c6bf9a5b81385d4a94bb4383731a1a3b2356d0f19b445b845ee7288c76c3fe5"
+    }
+  },
+  "checks": 373,
+  "checks_by_group": {
+    "candidate_facts": 30,
+    "control_coverage": 4,
+    "coordinates": 16,
+    "default_gate_status": 4,
+    "derived_gate_status": 16,
+    "evidence_coverage": 4,
+    "matched_controls": 144,
+    "metadata": 3,
+    "native_qc": 38,
+    "queue_labels": 4,
+    "record_coverage": 2,
+    "reference_uniqueness": 24,
+    "schema": 2,
+    "selector_identity": 20,
+    "sensitivity": 27,
+    "source_coordinate_alignment": 20,
+    "source_integrity": 15
+  },
+  "max_absolute_numeric_error": 0.0,
+  "failures": [],
+  "in_memory_negative_cases": [
+    {
+      "case": "coordinate_mismatch",
+      "in_memory_only": true,
+      "expected_rejected": true,
+      "actual_rejected": true
+    },
+    {
+      "case": "default_gate_mismatch",
+      "in_memory_only": true,
+      "expected_rejected": true,
+      "actual_rejected": true
+    },
+    {
+      "case": "qc_mismatch",
+      "in_memory_only": true,
+      "expected_rejected": true,
+      "actual_rejected": true
+    },
+    {
+      "case": "uniqueness_mismatch",
+      "in_memory_only": true,
+      "expected_rejected": true,
+      "actual_rejected": true
+    },
+    {
+      "case": "sensitivity_mismatch",
+      "in_memory_only": true,
+      "expected_rejected": true,
+      "actual_rejected": true
+    },
+    {
+      "case": "controls_mismatch",
+      "in_memory_only": true,
+      "expected_rejected": true,
+      "actual_rejected": true
+    }
+  ],
+  "frozen_sources_unchanged": true,
+  "saved_review_unchanged": true,
+  "status": "passed"
+}

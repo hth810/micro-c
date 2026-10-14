@@ -1,0 +1,28 @@
+{
+  "completed_at_utc": "2026-10-14T06:40:25.427311+00:00",
+  "protocol_sha256": "e6f64915882a8fab0434118377858353588eac853a2c0a0f3ed91f18bda360d2",
+  "source_sha256": {
+    "scripts\\task6_literature_regions_20261014.py": "f95cefd62c1934cc973db8adb18427eea65bb35dfea4b6501b558e95863d2248",
+    "scripts\\task6_full_geometry_verification_20261014.py": "6f7b92a2565ef0617226abb2a4892625db2ae7d6ef1a4903a3ae936235a0d0af",
+    "scripts\\validate_3d_macroregions.py": "47f69e3a50286a0f0b999803ebc2f23a1476b6bde0cbd580f6a6661dbeaab7cb",
+    "tests\\test_task6_literature_regions_20261014.py": "4b942b13c164d16b0067fed649b14ac971eef1311f199f7b7c6cf7598b28e7ed"
+  },
+  "input_sha256": {
+    "bundle": "27964152e8c33ae437d08c05e2e694ae417766d835738e24f16ffc7c8b8fc0cb",
+    "coordinates": "3f88aa41a175b15a60bc4e63825000fe35aa731d6b92cad7c76400f33baffee1",
+    "original_freeze": "e0dcc60499649b6719f3a89d1b5601bce0f90b4ac8579a04b850af3a64f3bb52",
+    "prior_macrogeometry": "0f4299d19f961b6f06f3765bb0bb3ba4662b3f7be3347aba0ecc01407c70bfd5",
+    "prior_individual_domains": "b9bc7af024e8726741798e9353a1815b432293e16540bd4054a2320289a382e6"
+  },
+  "outputs_sha256": {
+    "coordinate_labels.csv": "1ebf540b699aa472185ca051db7ad22fd75be60bf5c6b7a3bbff21c7b5368acc",
+    "coordinate_version_comparison.png": "5484f24921db8e7e258cdeb0a7771f64aa871919c408645008d8eca417ff28b2",
+    "cyclic_shift_effects.csv": "4007d381686fb4f605ab6f74c5496b6f4b93c9dd1523c5d57259f4514d9e867c",
+    "individual_domains.csv": "cf76df3b141112ae7e2e19743f5c831d254cc9101d664b3d5474006116bc9406",
+    "literature_boundaries.csv": "75fd4de2c3dbcf838cc1fa731cbaf742ef1590aeaf6646458e5ea9b7d78a8079",
+    "macrogeometry.csv": "82370942415c1fccca98710e95406dc3160e4d636969302deadd1a9f873d9ddb",
+    "protocol.json": "e6f64915882a8fab0434118377858353588eac853a2c0a0f3ed91f18bda360d2",
+    "summary.json": "3cae3b0ba47956b78d0f773c151691e1923ede3634fc139f548267d5f3f4a1d5"
+  },
+  "old_frozen_evidence_overwritten": false
+}

@@ -1,0 +1,14 @@
+{
+  "docx_sha256": "c9ee6573118fce2e341a4301af1a05b38cb5e6c05cc7ed76b49b3f835724d4d1",
+  "pdf_sha256": "2f3c7becc804b880873a8d1867113e2e20057cc73564e62372d9b5d9b986a02d",
+  "pages": 26,
+  "tables": 28,
+  "figures": 13,
+  "embedded_images": 14,
+  "alt_text_complete": true,
+  "table_header_rows_complete": true,
+  "fixed_row_heights": 0,
+  "exact_export_source": true,
+  "changed_pages_since_visual_review": [],
+  "review_status": "all 26 page pixels unchanged from complete visual review"
+}

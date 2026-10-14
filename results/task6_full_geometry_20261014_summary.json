@@ -1,0 +1,220 @@
+{
+  "analysis": "Frozen final model whole-chromosome geometry, complete cyclic controls and rep2 consistency",
+  "protocol_sha256": "6a0429de29263927257390ee17c3b784799d64018c72d741020d7a60bf6a41a2",
+  "bins": 929,
+  "genome_bp": 4641652,
+  "all_seed_primary_macrogeometry": [
+    {
+      "scope": "four_macrodomains",
+      "trim_bp": 50000,
+      "model": "rank_mlp_seed20261006",
+      "retained_bins": 541,
+      "matched_pairs_per_class": 10387,
+      "same_domain_near_auc": 0.5982937687075778,
+      "standardized_between_minus_within": 0.24864874346576596,
+      "cyclic_shift_upper_p": 0.27879440258342303,
+      "shift_null_mean": -0.0077955204738504365,
+      "shift_null_p95": 0.7892488261084482,
+      "cyclic_shift_bh_q_all_16_checks": 0.3333845917268953
+    },
+    {
+      "scope": "four_macrodomains",
+      "trim_bp": 50000,
+      "model": "rank_mlp_seed20261007",
+      "retained_bins": 541,
+      "matched_pairs_per_class": 10387,
+      "same_domain_near_auc": 0.7091227297001628,
+      "standardized_between_minus_within": 0.6081951574122364,
+      "cyclic_shift_upper_p": 0.09472551130247578,
+      "shift_null_mean": -0.009967117597600621,
+      "shift_null_p95": 0.6666679833568792,
+      "cyclic_shift_bh_q_all_16_checks": 0.3333845917268953
+    },
+    {
+      "scope": "four_macrodomains",
+      "trim_bp": 50000,
+      "model": "rank_mlp_seed20261008",
+      "retained_bins": 541,
+      "matched_pairs_per_class": 10387,
+      "same_domain_near_auc": 0.6849924991497571,
+      "standardized_between_minus_within": 0.562386407176026,
+      "cyclic_shift_upper_p": 0.1442411194833154,
+      "shift_null_mean": -0.013310415337631125,
+      "shift_null_p95": 0.7545303068289162,
+      "cyclic_shift_bh_q_all_16_checks": 0.3333845917268953
+    },
+    {
+      "scope": "four_macrodomains",
+      "trim_bp": 50000,
+      "model": "circular_mds",
+      "retained_bins": 541,
+      "matched_pairs_per_class": 10387,
+      "same_domain_near_auc": 0.678068260578072,
+      "standardized_between_minus_within": 0.5619262220681633,
+      "cyclic_shift_upper_p": 0.05705059203444564,
+      "shift_null_mean": -0.006255130730110544,
+      "shift_null_p95": 0.5678505735348619,
+      "cyclic_shift_bh_q_all_16_checks": 0.3333845917268953
+    },
+    {
+      "scope": "four_macrodomains",
+      "trim_bp": 50000,
+      "model": "exact_genome_circle",
+      "retained_bins": 541,
+      "matched_pairs_per_class": 10387,
+      "same_domain_near_auc": 0.5,
+      "standardized_between_minus_within": 8.554521439176783e-17,
+      "cyclic_shift_upper_p": null,
+      "shift_null_mean": 8.554521439176781e-17,
+      "shift_null_p95": 8.554521439176783e-17,
+      "cyclic_shift_bh_q_all_16_checks": null
+    }
+  ],
+  "published_three_locus_order": [
+    {
+      "model": "rank_mlp_seed20261006",
+      "check": "Ori4_NSR5_closer_than_Right2",
+      "first_bin": 1,
+      "second_bin": 103,
+      "third_bin": 147.0,
+      "distance_Ori4_NSR5": 1.2467570763521898,
+      "distance_Ori4_Right2": 2.546208751511295,
+      "raw_published_order_reproduced": true,
+      "offset_adjusted_right_minus_nsr": 1.2176499593274526,
+      "cyclic_shift_upper_p": 0.05597416576964478,
+      "interpretation": "Published three-locus ordering; offset-adjusted positive effect is additional to genomic proximity",
+      "oriC_dif_distance": null,
+      "ring_offset": null,
+      "same_offset_distance_percentile": null,
+      "same_offset_standardized_distance": null
+    },
+    {
+      "model": "rank_mlp_seed20261007",
+      "check": "Ori4_NSR5_closer_than_Right2",
+      "first_bin": 1,
+      "second_bin": 103,
+      "third_bin": 147.0,
+      "distance_Ori4_NSR5": 1.2685351031457976,
+      "distance_Ori4_Right2": 2.7798338668381954,
+      "raw_published_order_reproduced": true,
+      "offset_adjusted_right_minus_nsr": 1.5108922398053528,
+      "cyclic_shift_upper_p": 0.02583423035522067,
+      "interpretation": "Published three-locus ordering; offset-adjusted positive effect is additional to genomic proximity",
+      "oriC_dif_distance": null,
+      "ring_offset": null,
+      "same_offset_distance_percentile": null,
+      "same_offset_standardized_distance": null
+    },
+    {
+      "model": "rank_mlp_seed20261008",
+      "check": "Ori4_NSR5_closer_than_Right2",
+      "first_bin": 1,
+      "second_bin": 103,
+      "third_bin": 147.0,
+      "distance_Ori4_NSR5": 1.2197110193161462,
+      "distance_Ori4_Right2": 2.2687526585842983,
+      "raw_published_order_reproduced": true,
+      "offset_adjusted_right_minus_nsr": 0.9544301495669001,
+      "cyclic_shift_upper_p": 0.09041980624327234,
+      "interpretation": "Published three-locus ordering; offset-adjusted positive effect is additional to genomic proximity",
+      "oriC_dif_distance": null,
+      "ring_offset": null,
+      "same_offset_distance_percentile": null,
+      "same_offset_standardized_distance": null
+    },
+    {
+      "model": "circular_mds",
+      "check": "Ori4_NSR5_closer_than_Right2",
+      "first_bin": 1,
+      "second_bin": 103,
+      "third_bin": 147.0,
+      "distance_Ori4_NSR5": 4.993271290132862,
+      "distance_Ori4_Right2": 13.448978206899232,
+      "raw_published_order_reproduced": true,
+      "offset_adjusted_right_minus_nsr": 1.7346582018490615,
+      "cyclic_shift_upper_p": 0.02691065662002153,
+      "interpretation": "Published three-locus ordering; offset-adjusted positive effect is additional to genomic proximity",
+      "oriC_dif_distance": null,
+      "ring_offset": null,
+      "same_offset_distance_percentile": null,
+      "same_offset_standardized_distance": null
+    }
+  ],
+  "rep2_reverification": [
+    {
+      "model": "rank_mlp_seed20261006",
+      "matched_auc": 0.8044257900907443,
+      "all_positive_rho": 0.6958319038735361,
+      "top20_rho": 0.3403816276357902,
+      "weaker_positive_rho": 0.4886123074234963,
+      "origin_crossing_2_to_20_rho": 0.33309401993712245,
+      "max_abs_difference_from_frozen": 5.551115123125783e-17
+    },
+    {
+      "model": "rank_mlp_seed20261007",
+      "matched_auc": 0.8048137159145182,
+      "all_positive_rho": 0.693878223362124,
+      "top20_rho": 0.33495588873932763,
+      "weaker_positive_rho": 0.4886905059789463,
+      "origin_crossing_2_to_20_rho": 0.3403590708605173,
+      "max_abs_difference_from_frozen": 5.551115123125783e-17
+    },
+    {
+      "model": "rank_mlp_seed20261008",
+      "matched_auc": 0.7994507940123566,
+      "all_positive_rho": 0.6880404793601713,
+      "top20_rho": 0.3408368851053514,
+      "weaker_positive_rho": 0.4845242912584913,
+      "origin_crossing_2_to_20_rho": 0.24308699168022233,
+      "max_abs_difference_from_frozen": 2.7755575615628914e-17
+    },
+    {
+      "model": "circular_mds",
+      "matched_auc": 0.7812771301989783,
+      "all_positive_rho": 0.22069559203167738,
+      "top20_rho": -0.02889896930695041,
+      "weaker_positive_rho": 0.31561188078054364,
+      "origin_crossing_2_to_20_rho": 0.20819761744685913,
+      "max_abs_difference_from_frozen": 8.326672684688674e-17
+    }
+  ],
+  "landmark_metadata": {
+    "loci": {
+      "Ori4": {
+        "bp": 9900,
+        "bin": 1
+      },
+      "NSR5": {
+        "bp": 515000,
+        "bin": 103
+      },
+      "Right2": {
+        "bp": 738000,
+        "bin": 147
+      },
+      "dif_approx": {
+        "bp": 1604000,
+        "bin": 320
+      },
+      "oriC": {
+        "bp": 3925859,
+        "bin": 785
+      }
+    },
+    "oriC_reference": {
+      "name": "oriC",
+      "start_0based": 3925743,
+      "end_exclusive": 3925975,
+      "bp": 3925859,
+      "source": "NC_000913.3 RefSeq origin_of_replication feature; converted from 1-based inclusive GFF"
+    },
+    "dif_is_approximate": true,
+    "literature_source": "https://doi.org/10.1371/journal.pgen.1006758",
+    "published_order": "Ori4 (9.9kb) is closer to NSR5 (515kb) than Right2 (738kb); no microscope-distance calibration",
+    "coarse_macroregion_labels_are_not_used_to_assign_these_three_loci": true
+  },
+  "not_a_training_experiment": true,
+  "no_model_replacement_or_seed_selection": true,
+  "interpretation": "Positive domain effect and AUC above .5 support the declared global feature; individual domain and locus failures stay visible. Course completion is not contingent on every feature beating MDS.",
+  "caution": "External approximate genomic domains and selected imaging ordering test course-level global organization; no assertion of calibrated cell coordinates or full imaging truth"
+}

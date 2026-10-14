@@ -1,0 +1,5 @@
+candidate_id,center_bp,masked_native_rows,zero_offdiag_row_fraction
+A1,729600,78,0.15234375
+A2,1469440,218,0.42578125
+A3,3130880,102,0.19921875
+A4,1571840,94,0.18359375
